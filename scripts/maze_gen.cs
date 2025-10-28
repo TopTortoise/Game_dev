@@ -21,6 +21,13 @@ public class maze_gen : MonoBehaviour
       new Vector3Int(0, -2, 0)
     };
 
+
+    public enum Walkstrategies{
+      Backtrack = 0,
+      Wilson = 1,
+
+    }
+    public Walkstrategies strategy = Walkstrategies.Backtrack;
     void Start()
     {
         Random.InitState(seed);
@@ -57,8 +64,9 @@ public class maze_gen : MonoBehaviour
         Debug.Log("walk done");
         // GenerateTilemap();
     }
-
-    void walk()
+    //wilson start walking from rooms to labyrinth
+    //Backtrack when done create corridors from room to labyritnth
+    void walk(Walkstrategies strategy)
     {
         Tile tile = tiles[0];
         Vector3Int next_step = Vector3Int.up;
