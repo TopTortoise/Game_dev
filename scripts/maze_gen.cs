@@ -60,7 +60,7 @@ public class maze_gen : MonoBehaviour
             }
         }
         Debug.Log("im wlaing here");
-        walk();
+        walk(strategy);
         Debug.Log("walk done");
         // GenerateTilemap();
     }

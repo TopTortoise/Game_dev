@@ -1,0 +1,148 @@
+/* MyStyles.uss
+   Unity UI Toolkit StyleSheet (USS)
+   Save as: Assets/MyStyles.uss
+   Inspired by CSS; see Unity docs: https://docs.unity3d.com/Manual/UIE-USS.html
+*/
+
+/* --- Variables (USS supports custom properties similar to CSS variables) --- */
+:root {
+  --bg-color: #0f1720;
+  --card-color: #111827;
+  --accent: #2563eb;
+  --accent-strong: #1e40af;
+  --muted: #9ca3af;
+  --radius: 8px;
+  --gap: 12px;
+  --padding: 16px;
+  --font-size-base: 14px;
+}
+
+/* --- Global body / root panel --- */
+#root {
+  background-color: var(--bg-color);
+  color: white;
+  font-size: var(--font-size-base);
+  padding: var(--padding);
+  box-sizing: border-box;
+  min-width: 320px;
+}
+
+/* --- Card container --- */
+.card {
+  background-color: var(--card-color);
+  border-radius: var(--radius);
+  padding: calc(var(--padding) * 0.75);
+  margin-bottom: var(--gap);
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.45);
+}
+
+/* --- Header / Title --- */
+.title {
+  font-size: 96px;
+  unity-font-style: Bold;
+  margin-bottom: 6px;
+}
+
+/* --- Subtitle / muted text --- */
+.subtitle {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* --- Flex row / column helpers --- */
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/* --- Button styles --- */
+.button {
+  background-color: var(--accent);
+  min-width: 250px;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  unity-font-style: Bold;
+  transition: scale 0.08s ease;
+  align-self: flex-start;
+}
+
+/* Hover / pressed (USS supports pseudo-classes like :hover and :active) */
+.button:hover {
+  background-color: var(--accent-strong);
+  transform: scale(1.02);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+/* Secondary / outline button */
+.button.secondary {
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* --- Label / text field --- */
+.label {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.text-field {
+  background-color: rgba(255,255,255,0.03);
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  min-width: 180px;
+  color: white;
+}
+
+/* Focus state for text input */
+.text-field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+
+/* --- Icon helper --- */
+.icon {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+
+/* --- Responsive example (USS supports media queries via min-width / max-width) --- */
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 13px;
+    --padding: 12px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- Utility: hidden --- */
+.hidden {
+  display: none;
+}
+
