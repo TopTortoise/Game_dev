@@ -6,7 +6,7 @@ public class ghost : MonoBehaviour, IKillable
 
     public InputAction MoveAction;
     public InputAction Ret;
-    public Stick stick;
+    public IWeapon weapon;
     private Health hp;
     public float speed = 10.0f;
     public float health = 5f;
@@ -23,7 +23,8 @@ public class ghost : MonoBehaviour, IKillable
         Ret.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
         hp = gameObject.GetComponentInChildren<Health>();
-        stick = gameObject.GetComponentInChildren<Stick>();
+        weapon = gameObject.GetComponentInChildren<IWeapon>();
+        weapon.AttackAction.Enable();
         hp.set_max_hp(max_health);
         hp.set_hp(health);
 
@@ -45,13 +46,17 @@ public class ghost : MonoBehaviour, IKillable
         if (mouseWorldPos.x > rigidbody2d.transform.position.x && !facingRight)
         {
             Flip();
-            stick.sign = -1;
+            
+            weapon.sign = -1;
         }
         //facing left
         else if (mouseWorldPos.x < rigidbody2d.transform.position.x && facingRight)
         {
             Flip();
-            stick.sign = 1;
+            weapon.sign = 1;
+        }
+        if(weapon.AttackAction.IsPressed()){
+          weapon.Attack();
         }
     }
 

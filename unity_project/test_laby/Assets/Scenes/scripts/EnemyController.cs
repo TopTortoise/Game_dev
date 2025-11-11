@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour, IKillable
     public float speed = 5.0f;
     private Transform target;
     private Health hp;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float health = 3f;
     public float max_health = 3f;
         private void Awake()
