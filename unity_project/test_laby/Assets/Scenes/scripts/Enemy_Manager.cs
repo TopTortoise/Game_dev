@@ -6,9 +6,11 @@ public class Enemy_Manager : MonoBehaviour
 
     public GameObject[] prefabs;
     private ArrayList positions;
+    public Vector3Int start_pos = new Vector3Int(16, 16, 0);
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         Cursor.visible = false;
         GameObject prefab = Resources.Load<GameObject>("Scenes/enemy");
         if (prefab != null)
@@ -28,10 +30,15 @@ public class Enemy_Manager : MonoBehaviour
 
         positions = pos;
     }
+    public ArrayList getPositions()
+    {
+        return positions;
+    }
 
     public void setup()
     {
         place_enemies();
+        spawnItems();
     }
 
     void place_enemies()
@@ -46,5 +53,22 @@ public class Enemy_Manager : MonoBehaviour
     void Update()
     {
 
+    }
+    void spawnItems()
+    {
+        
+
+        
+        foreach (Vector3Int pos in positions)
+        {
+            if (Random.value < 0.2f) // 20% Chance auf Item in Sackgasse
+            {
+                Vector3 spawnPos = pos + new Vector3(0.5f, 0.5f, 0);
+                Instantiate(prefabs[1], spawnPos, Quaternion.identity);
+                Debug.Log($"Item spawned at {spawnPos}");
+            }
+        }
+            
+        
     }
 }

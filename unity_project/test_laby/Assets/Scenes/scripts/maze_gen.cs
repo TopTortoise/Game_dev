@@ -58,6 +58,7 @@ public class maze_gen : MonoBehaviour
         }
         enemy_Manager.SetPositions(walk());
         enemy_Manager.setup();
+
     }
 
     ArrayList walk()
@@ -154,5 +155,6 @@ public class maze_gen : MonoBehaviour
         }
         return step;
     }
+
 
 }
