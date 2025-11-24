@@ -76,12 +76,12 @@ public class Stick : IWeapon
     {
             foreach (Collider2D enemy in enemies)
             {
-                enemy.GetComponent<EnemyController>().speed *= -4f;
+                enemy.GetComponent<IEnemy>().speed *= -4f;
             }
             yield return new WaitForSeconds(0.1f);
             foreach (Collider2D enemy in enemies)
             {
-                enemy.GetComponent<EnemyController>().speed *= -0.25f;
+                enemy.GetComponent<IEnemy>().speed *= -0.25f;
             }
 
     }

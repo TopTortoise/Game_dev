@@ -45,7 +45,7 @@ public class Enemy_Manager : MonoBehaviour
     {
         foreach (Vector3Int position in positions)
         {
-            Instantiate(prefabs[0], position, Quaternion.identity);
+            Instantiate(prefabs[Random.Range(0,prefabs.Length)], position, Quaternion.identity);
         }
     }
 

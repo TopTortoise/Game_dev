@@ -474,6 +474,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   prefabs:
   - {fileID: 3637535230490742434, guid: 0bab91d9d5a9e283a92680663866b6ca, type: 3}
+  - {fileID: 5244130341863356789, guid: f031b2dd94a8cb692b071e49cc794a50, type: 3}
+  - {fileID: 1647487340366201124, guid: 1800c30cc43a847ada9332ed38c7111b, type: 3}
+  - {fileID: 8616149328196893874, guid: 344b1498130a3f9aaad631d8d26b7ad1, type: 3}
   start_pos: {x: 16, y: 16, z: 0}
 --- !u!1 &1676461662
 GameObject:
