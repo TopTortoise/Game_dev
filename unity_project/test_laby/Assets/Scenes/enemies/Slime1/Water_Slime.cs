@@ -33,15 +33,13 @@ public class Water_Slime : IEnemy, IKillable
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(Attackpoint.position, attack_radius, enemy_layer);
         anim.SetBool("is_attacking", colliders.Length > 0);
-        anim.SetBool("is_idle", colliders.Length == 0);
-        anim.SetBool("following", colliders.Length == 0);
-        if (getTarget() && colliders.Length == 0)
+        if (getTarget() && !anim.GetBool("is_attacking"))
         {
             FollowTarget();
             anim.SetBool("following", true);
             anim.SetBool("is_idle", false);
         }
-        else if (colliders.Length == 0)
+        else if (colliders.Length == 0 && !anim.GetBool("is_attacking"))
         {
             anim.SetBool("following", false);
             anim.SetBool("is_idle", true);
@@ -49,7 +47,6 @@ public class Water_Slime : IEnemy, IKillable
         }else{
 
             anim.SetBool("following", false);
-            rb.linearVelocity = Vector2.zero;
             anim.SetBool("is_idle", false);
         }
 
@@ -83,9 +80,7 @@ public class Water_Slime : IEnemy, IKillable
     {
 
         Vector2 direction = ((Vector2)getTarget().position - rb.position).normalized;
-        Debug.Log(direction);
-        float speed_y = direction.y > 0 ? 1 : direction.y < 0 ? -1 : 0;
-        float speed_x = direction.x > 0 ? 1 : direction.x < 0 ? -1 : 0;
+        // Debug.Log(direction);
         anim.SetFloat("speed_y", direction.y);
         anim.SetFloat("speed_x", direction.x);
         rb.linearVelocity = direction * speed;
@@ -94,6 +89,7 @@ public class Water_Slime : IEnemy, IKillable
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+      Debug.Log("im hiti "+ collision.gameObject);      
     }
     public void hit(float damage)
     {
