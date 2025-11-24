@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6396087221165660658}
   - component: {fileID: 5608594369624065702}
   - component: {fileID: 770982435699631718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: water_slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}

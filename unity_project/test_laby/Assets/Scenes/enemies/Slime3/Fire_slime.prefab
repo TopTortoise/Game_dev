@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1498968150320820698}
   - component: {fileID: 1417047346139440313}
   - component: {fileID: 225137543518301817}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire_slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
