@@ -197,6 +197,7 @@ MonoBehaviour:
   speed: 10
   health: 5
   max_health: 5
+  spotlight: {fileID: 4021007440959568000}
 --- !u!50 &476417731499333587
 Rigidbody2D:
   serializedVersion: 5

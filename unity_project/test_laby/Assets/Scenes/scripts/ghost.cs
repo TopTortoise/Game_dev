@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
+
 public class ghost : MonoBehaviour, IKillable
 {
 
@@ -14,6 +16,9 @@ public class ghost : MonoBehaviour, IKillable
     Rigidbody2D rigidbody2d;
     Vector2 move;
     float dir = 1;
+    public Light2D spotlight;
+
+
 
 
     // Start is called before the first frame update
@@ -27,6 +32,8 @@ public class ghost : MonoBehaviour, IKillable
         weapon.AttackAction.Enable();
         hp.set_max_hp(max_health);
         hp.set_hp(health);
+        spotlight = GetComponent<Light2D>();
+
 
     }
 
@@ -96,6 +103,25 @@ public class ghost : MonoBehaviour, IKillable
     public void OnDeath()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ChangeSpotlight(float t)
+    {
+         if (spotlight != null)
+        {
+            // t = 1.0 (60 Sek übrig): Normal hell
+            // t = 0.0 (0 Sek übrig): Sehr dunkel, kaum sichtbar
+            
+            // Intensity: Von sehr dunkel zu normal
+            spotlight.intensity = Mathf.Lerp(0.2f, 2.5f, t);
+            
+            // Radius: Licht wird kleiner wenn Zeit abläuft
+            spotlight.pointLightOuterRadius = Mathf.Lerp(4f, 12f, t);
+            
+            // Optional: Farbwechsel - von gelblich (Tag) zu bläulich (Nacht)
+            spotlight.color = Color.Lerp(new Color(0.3f, 0.3f, 0.6f), Color.white, t);
+            
+            Debug.Log($"⏰ Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
+        }
     }
 
 }
