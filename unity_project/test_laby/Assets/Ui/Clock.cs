@@ -12,29 +12,20 @@ public class Clock : MonoBehaviour
     public TMP_Text clockText;
     public ghost player;
     
-    public void Start()
-    {  
-        if (player == null)
-        {
-            player = FindObjectOfType<ghost>();
-            if (player == null)
-            {
-                Debug.LogError("Clock: Kein Player gefunden!");
-            }
-        }
-        
-        StartTimer();
+    public void Start(){
+
+        timeRemaining = duration;
+        isCountingDown = true;
+        Invoke("_tick", 1f);
+
     }
 
     public void StartTimer()
     {
-        if (!isCountingDown) 
-        {
-            isCountingDown = true;
-            timeRemaining = duration;
-            warningStarted = false;
-            Invoke("_tick", 1f);
-        }
+        timeRemaining = duration;
+        warningStarted = false;
+        isCountingDown = true;
+        Invoke("_tick", 1f);
     }
 
     private void _tick() 
@@ -52,7 +43,7 @@ public class Clock : MonoBehaviour
             
             // Berechne t: 1.0 = 60 Sekunden übrig (hell), 0.0 = 0 Sekunden übrig (dunkel)
             float t = Mathf.Clamp01((float)timeRemaining / warningTime);
-            player.ChangeSpotlight(t);
+            player.ChangeSpotlight(t);  
             
             // Optional: Ändere die Textfarbe zur Warnung
             if (clockText != null)

@@ -32,7 +32,10 @@ public class ghost : MonoBehaviour, IKillable
         weapon.AttackAction.Enable();
         hp.set_max_hp(max_health);
         hp.set_hp(health);
-        spotlight = GetComponent<Light2D>();
+        if (spotlight == null)
+    {
+        spotlight = GetComponentInChildren<Light2D>();
+    }
 
 
     }
@@ -115,12 +118,12 @@ public class ghost : MonoBehaviour, IKillable
             spotlight.intensity = Mathf.Lerp(0.2f, 2.5f, t);
             
             // Radius: Licht wird kleiner wenn Zeit abläuft
-            spotlight.pointLightOuterRadius = Mathf.Lerp(4f, 12f, t);
+            spotlight.falloffIntensity = Mathf.Lerp(4f, 12f, t);
             
             // Optional: Farbwechsel - von gelblich (Tag) zu bläulich (Nacht)
             spotlight.color = Color.Lerp(new Color(0.3f, 0.3f, 0.6f), Color.white, t);
             
-            Debug.Log($"⏰ Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
+            Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
         }
     }
 
