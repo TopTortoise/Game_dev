@@ -38,10 +38,10 @@ public class Clock : MonoBehaviour
             if (!warningStarted)
             {
                 warningStarted = true;
-                Debug.Log("⚠️ WARNUNG: Weniger als 1 Minute! Es wird dunkel!");
+                Debug.Log("WARNUNG: Weniger als 1 Minute! Es wird dunkel!");
             }
             
-            // Berechne t: 1.0 = 60 Sekunden übrig (hell), 0.0 = 0 Sekunden übrig (dunkel)
+          
             float t = Mathf.Clamp01((float)timeRemaining / warningTime);
             player.ChangeSpotlight(t);  
             
@@ -66,9 +66,9 @@ public class Clock : MonoBehaviour
         else 
         {
             isCountingDown = false;
-            Debug.Log("⚔️ ZEIT ABGELAUFEN! KAMPF BEGINNT!");
+            Debug.Log("ZEIT ABGELAUFEN! KAMPF BEGINNT!");
             
-            // Hier kannst du den Kampf starten
+            
             if (player != null)
             {
                 player.ChangeSpotlight(0f); // Komplett dunkel
