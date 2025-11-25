@@ -75,7 +75,6 @@ public class Water_Slime : IEnemy, IKillable
 
     private IEnumerator WaitForAttackAnimation()
     {
-
         //wait until the attack animation finishes (normalizedTime >= 1)
         yield return new WaitUntil(() =>
             anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
