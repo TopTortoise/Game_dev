@@ -28,7 +28,7 @@ public class ghost : MonoBehaviour, IKillable
         Ret.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
         hp = gameObject.GetComponentInChildren<Health>();
-        weapon = gameObject.GetComponentInChildren<IWeapon>();
+        weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
         weapon.AttackAction.Enable();
         hp.set_max_hp(max_health);
         hp.set_hp(health);
