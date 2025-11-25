@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class Water_Slime : IEnemy, IKillable
 {
     private Health hp;
@@ -32,6 +32,11 @@ public class Water_Slime : IEnemy, IKillable
     void Update()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(Attackpoint.position, attack_radius, enemy_layer);
+        if (anim.GetBool("is_attacking"))
+        {
+            rb.linearVelocity = Vector2.zero;
+            return; // skip the rest of Update
+        }
         anim.SetBool("is_attacking", colliders.Length > 0);
         if (getTarget() && !anim.GetBool("is_attacking"))
         {
@@ -44,7 +49,9 @@ public class Water_Slime : IEnemy, IKillable
             anim.SetBool("following", false);
             anim.SetBool("is_idle", true);
             rb.linearVelocity = Vector2.zero;
-        }else{
+        }
+        else
+        {
 
             anim.SetBool("following", false);
             anim.SetBool("is_idle", false);
@@ -62,12 +69,20 @@ public class Water_Slime : IEnemy, IKillable
         {
             player.GetComponent<IKillable>().hit(damage);
         }
+        StartCoroutine(WaitForAttackAnimation());
 
-        var state = anim.GetCurrentAnimatorStateInfo(0);
-        state.ToString().StartsWith("attack_");
+    }
+
+    private IEnumerator WaitForAttackAnimation()
+    {
+
+        //wait until the attack animation finishes (normalizedTime >= 1)
+        yield return new WaitUntil(() =>
+            anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
+        );
+
+        // After the animation ends:
         anim.SetBool("is_attacking", false);
-
-
     }
 
     private void OnDrawGizmos()
@@ -89,7 +104,7 @@ public class Water_Slime : IEnemy, IKillable
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-      Debug.Log("im hiti "+ collision.gameObject);      
+        Debug.Log("im hiti " + collision.gameObject);
     }
     public void hit(float damage)
     {

@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 56a12fa05f8eb5b5e852a7db909c14a1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3747263903645496153
+    second: Hero_weapons_0
+  - first:
+      213: -4729364225363559293
+    second: Hero_weapons_1
+  - first:
+      213: -1076455646292846817
+    second: Hero_weapons_2
+  - first:
+      213: 5608952364520957080
+    second: Hero_weapons_3
+  - first:
+      213: -3011265473781212466
+    second: Hero_weapons_4
+  - first:
+      213: 8043533315434271083
+    second: Hero_weapons_5
+  - first:
+      213: 4659454681548951210
+    second: Hero_weapons_6
+  - first:
+      213: -1039607904705171926
+    second: Hero_weapons_7
+  - first:
+      213: -5477697123898024282
+    second: Hero_weapons_8
+  - first:
+      213: 2013769841236609394
+    second: Hero_weapons_9
+  - first:
+      213: 683153044352233274
+    second: Hero_weapons_10
+  - first:
+      213: 912145763189391444
+    second: Hero_weapons_11
+  - first:
+      213: 2809608147662820005
+    second: Hero_weapons_12
+  - first:
+      213: 3336366725101370553
+    second: Hero_weapons_13
+  - first:
+      213: 6679303026121584038
+    second: Hero_weapons_14
+  - first:
+      213: 8275582878322906827
+    second: Hero_weapons_15
+  - first:
+      213: 5798233301345776032
+    second: Hero_weapons_16
+  - first:
+      213: -958102364827292665
+    second: Hero_weapons_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hero_weapons_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953fe60aaa4f00430800000000000000
+      internalID: 3747263903645496153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 169
+        width: 42
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38cb3c55b4ced5eb0800000000000000
+      internalID: -4729364225363559293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_2
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 166
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1750420b49af01f0800000000000000
+      internalID: -1076455646292846817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_3
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 172
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 894eb51457007dd40800000000000000
+      internalID: 5608952364520957080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 125
+        width: 77
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca5fd68106d536d0800000000000000
+      internalID: -3011265473781212466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 129
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61da751fee50af60800000000000000
+      internalID: 8043533315434271083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_6
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 110
+        width: 56
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae81c49855b9a040800000000000000
+      internalID: 4659454681548951210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 82
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2798d4e400952fb10800000000000000
+      internalID: 2013769841236609394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_10
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 104
+        width: 62
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f67d7031c0b7900800000000000000
+      internalID: 683153044352233274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_11
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 40
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45008462db798ac00800000000000000
+      internalID: 912145763189391444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_12
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 54
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a25c7f69bbbdf620800000000000000
+      internalID: 2809608147662820005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcb9121cd72d4e20800000000000000
+      internalID: 3336366725101370553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_14
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 58
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad2b2bb6b6a1bc50800000000000000
+      internalID: 6679303026121584038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_15
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 55
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6ddbb28c6c8d270800000000000000
+      internalID: 8275582878322906827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_16
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 27
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a13e8b9776777050800000000000000
+      internalID: 5798233301345776032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_weapons_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 49
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ce106b9f224b2f0800000000000000
+      internalID: -958102364827292665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d368a48e91f44ade499fe9a82f5004f5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Hero_weapons_0: 3747263903645496153
+      Hero_weapons_1: -4729364225363559293
+      Hero_weapons_10: 683153044352233274
+      Hero_weapons_11: 912145763189391444
+      Hero_weapons_12: 2809608147662820005
+      Hero_weapons_13: 3336366725101370553
+      Hero_weapons_14: 6679303026121584038
+      Hero_weapons_15: 8275582878322906827
+      Hero_weapons_16: 5798233301345776032
+      Hero_weapons_17: -958102364827292665
+      Hero_weapons_2: -1076455646292846817
+      Hero_weapons_3: 5608952364520957080
+      Hero_weapons_4: -3011265473781212466
+      Hero_weapons_5: 8043533315434271083
+      Hero_weapons_6: 4659454681548951210
+      Hero_weapons_7: -1039607904705171926
+      Hero_weapons_8: -5477697123898024282
+      Hero_weapons_9: 2013769841236609394
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
