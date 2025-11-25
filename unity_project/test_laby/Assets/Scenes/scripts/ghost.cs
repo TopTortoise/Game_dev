@@ -111,17 +111,13 @@ public class ghost : MonoBehaviour, IKillable
     {
          if (spotlight != null)
         {
-            // t = 1.0 (60 Sek übrig): Normal hell
-            // t = 0.0 (0 Sek übrig): Sehr dunkel, kaum sichtbar
             
             // Intensity: Von sehr dunkel zu normal
             spotlight.intensity = Mathf.Lerp(0.2f, 2.5f, t);
             
-            // Radius: Licht wird kleiner wenn Zeit abläuft
-            spotlight.falloffIntensity = Mathf.Lerp(4f, 12f, t);
             
-            // Optional: Farbwechsel - von gelblich (Tag) zu bläulich (Nacht)
-            spotlight.color = Color.Lerp(new Color(0.3f, 0.3f, 0.6f), Color.white, t);
+            spotlight.falloffIntensity = Mathf.Lerp(0.5f, 1.0f, t);
+            
             
             Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
         }
