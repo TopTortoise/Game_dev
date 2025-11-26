@@ -1,21 +1,48 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections;
 public class Blue_staff : IWeapon
 {
+    public float offset;
+    public GameObject projectile;
+    public Transform AttackPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      AttackAction.Enable();
-      attackspeed = 0.5f;
-      sign = -1;
+        AttackAction.Enable();
+        attackspeed = 0.5f;
+        sign = -1;
+    }
+
+    void Update()
+    {
+        Vector3 mouse = Mouse.current.position.ReadValue();
+        mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
+
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouse);
+        Vector3 diff = worldPos - transform.position;
+
+        float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
     }
 
     public override void Attack()
     {
 
-        if (!isRotating){
-          Debug.Log("stff");
-          StartCoroutine(RotateCoroutine());
+
+        if (!isRotating)
+        {
+            Vector3 mouse = Mouse.current.position.ReadValue();
+            mouse.z = Camera.main.WorldToScreenPoint(AttackPoint.position).z;
+
+            Vector3 target = Camera.main.ScreenToWorldPoint(mouse);
+            Vector3 direction = (target - AttackPoint.position).normalized;
+
+            GameObject bullet = Instantiate(projectile, AttackPoint.position, Quaternion.identity);
+
+            bullet.GetComponent<projectile>().direction = direction;   // speed
+
+            StartCoroutine(RotateCoroutine());
         }
 
     }

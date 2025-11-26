@@ -11,7 +11,7 @@ public class Enemy_Manager : MonoBehaviour
     void Start()
     {
         
-        Cursor.visible = false;
+        // Cursor.visible = false;
         GameObject prefab = Resources.Load<GameObject>("Scenes/enemy");
         if (prefab != null)
         {
