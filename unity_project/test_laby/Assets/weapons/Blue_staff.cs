@@ -6,6 +6,7 @@ public class Blue_staff : IWeapon
     public float offset;
     public GameObject projectile;
     public Transform AttackPoint;
+    public bool equipped = false; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,14 +17,18 @@ public class Blue_staff : IWeapon
 
     void Update()
     {
-        Vector3 mouse = Mouse.current.position.ReadValue();
-        mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
+        if (equipped)
+        {
 
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouse);
-        Vector3 diff = worldPos - transform.position;
+            Vector3 mouse = Mouse.current.position.ReadValue();
+            mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
 
-        float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouse);
+            Vector3 diff = worldPos - transform.position;
+
+            float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
+        }
     }
 
     public override void Attack()
