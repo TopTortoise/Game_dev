@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5349287589174617578}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Attackpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

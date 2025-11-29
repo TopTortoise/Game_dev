@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1690852161537591113}
   - component: {fileID: 5197135196914128129}
   m_Layer: 0
-  m_Name: staff
+  m_Name: ice_staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
