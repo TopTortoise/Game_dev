@@ -16,6 +16,7 @@ public class ghost : MonoBehaviour, IKillable
     Rigidbody2D rigidbody2d;
     Vector2 move;
     public Light2D spotlight;
+    SpriteRenderer Sr;
 
 
 
@@ -50,20 +51,20 @@ public class ghost : MonoBehaviour, IKillable
     );
 
 
-
+/*
         //facing right
         if (mouseWorldPos.x > rigidbody2d.transform.position.x && !facingRight)
         {
-            Flip();
+            // Flip();
             
-            weapon.sign = -1;
+            // weapon.sign = -1;
         }
         //facing left
         else if (mouseWorldPos.x < rigidbody2d.transform.position.x && facingRight)
         {
-            Flip();
-            weapon.sign = 1;
-        }
+            // Flip();
+            // weapon.sign = 1;
+        } */
         if(weapon.AttackAction.IsPressed()){
           weapon.Attack();
         }
