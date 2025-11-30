@@ -183,6 +183,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3651677561125870027, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3651677561125870027, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 0a7b7357-ec3e-4eeb-a35b-928c688c34cc
+      objectReference: {fileID: 0}
+    - target: {fileID: 3651677561125870027, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Mouse>/leftButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3651677561125870027, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 8363201000436706177, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
       propertyPath: m_Name
       value: Gold_spear
@@ -1090,6 +1106,22 @@ PrefabInstance:
     - target: {fileID: 3860798516691411884, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
       propertyPath: m_Name
       value: fire_staff
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197135196914128129, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197135196914128129, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 91b4255d-d726-49fc-a82b-7b5fd0d1b7a7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197135196914128129, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Mouse>/leftButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197135196914128129, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
+      propertyPath: AttackAction.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
