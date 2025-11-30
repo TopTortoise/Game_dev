@@ -12,13 +12,23 @@ public class Spear : IWeapon
     void Start()
     {
         damage = 1f;
-        AttackAction.Enable();
         attackspeed = 0.5f;
 
     }
 
+    public override void equip()
+    {
+        AttackAction.Enable();
+        is_equipped = true;
 
+    }
 
+    public override void unequip()
+    {
+        AttackAction.Disable();
+        is_equipped = false;
+
+    }
     public override void Attack()
     {
         if (!is_attacking)
@@ -37,7 +47,7 @@ public class Spear : IWeapon
         mouseScreen.z = Camera.main.WorldToScreenPoint(transform.position).z;
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
 
-        Vector3 dir = (mouseWorld - transform.position).normalized; 
+        Vector3 dir = (mouseWorld - transform.position).normalized;
 
         // Rotate transform to face mouse
         // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -83,7 +93,7 @@ public class Spear : IWeapon
     // Update is called once per frame
     void Update()
     {
-        if (!is_attacking)
+        if (!is_attacking && is_equipped)
         {
 
             Vector3 mouse = Mouse.current.position.ReadValue();

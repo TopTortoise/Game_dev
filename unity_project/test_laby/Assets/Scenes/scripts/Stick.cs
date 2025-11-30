@@ -8,7 +8,6 @@ public class Stick : IWeapon
     public Transform Attackpoint;
     public float radius = 5f;
     public LayerMask enemy_layer;
-    // public int sign = -1;
     CapsuleCollider2D hb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +19,20 @@ public class Stick : IWeapon
 
     }
 
+
+    public override void equip()
+    {
+        AttackAction.Enable();
+        is_equipped = true;
+    }
+
+    public override void unequip()
+    {
+        AttackAction.Disable();
+        is_equipped = false;
+    }
+
+
     public float rotationAngle = 90f; // degrees
 
     private bool isRotating = false;
@@ -30,7 +43,7 @@ public class Stick : IWeapon
 
         float halfDuration = attackspeed / 2f;
         Quaternion startRotation = transform.rotation;
-        Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, sign * rotationAngle);
+        Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, rotationAngle);
 
         // Rotate to +90 degrees
         float t = 0f;
@@ -69,20 +82,20 @@ public class Stick : IWeapon
                 enemy.GetComponent<IKillable>().hit(damage);
                 // enemy.GetComponent<EnemyController>().speed *= -1;
             }
-            
+
         }
     }
     private IEnumerator Knockback(Collider2D[] enemies)
     {
-            foreach (Collider2D enemy in enemies)
-            {
-                enemy.GetComponent<IEnemy>().speed *= -4f;
-            }
-            yield return new WaitForSeconds(0.1f);
-            foreach (Collider2D enemy in enemies)
-            {
-                enemy.GetComponent<IEnemy>().speed *= -0.25f;
-            }
+        foreach (Collider2D enemy in enemies)
+        {
+            enemy.GetComponent<IEnemy>().speed *= -4f;
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (Collider2D enemy in enemies)
+        {
+            enemy.GetComponent<IEnemy>().speed *= -0.25f;
+        }
 
     }
     private void OnDrawGizmos()

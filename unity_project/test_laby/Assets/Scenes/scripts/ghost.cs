@@ -29,13 +29,13 @@ public class ghost : MonoBehaviour, IKillable
         rigidbody2d = GetComponent<Rigidbody2D>();
         hp = gameObject.GetComponentInChildren<Health>();
         weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
-        weapon.AttackAction.Enable();
+        weapon.equip();
         hp.set_max_hp(max_health);
         hp.set_hp(health);
         if (spotlight == null)
-    {
-        spotlight = GetComponentInChildren<Light2D>();
-    }
+        {
+            spotlight = GetComponentInChildren<Light2D>();
+        }
 
 
     }
@@ -51,22 +51,23 @@ public class ghost : MonoBehaviour, IKillable
     );
 
 
-/*
-        //facing right
-        if (mouseWorldPos.x > rigidbody2d.transform.position.x && !facingRight)
+        /*
+                //facing right
+                if (mouseWorldPos.x > rigidbody2d.transform.position.x && !facingRight)
+                {
+                    // Flip();
+
+                    // weapon.sign = -1;
+                }
+                //facing left
+                else if (mouseWorldPos.x < rigidbody2d.transform.position.x && facingRight)
+                {
+                    // Flip();
+                    // weapon.sign = 1;
+                } */
+        if (weapon.AttackAction.IsPressed())
         {
-            // Flip();
-            
-            // weapon.sign = -1;
-        }
-        //facing left
-        else if (mouseWorldPos.x < rigidbody2d.transform.position.x && facingRight)
-        {
-            // Flip();
-            // weapon.sign = 1;
-        } */
-        if(weapon.AttackAction.IsPressed()){
-          weapon.Attack();
+            weapon.Attack();
         }
     }
 
@@ -95,8 +96,9 @@ public class ghost : MonoBehaviour, IKillable
             hp.change_health(1);
         }
     }
-    public void hit(float damage){
-      hp.change_health(1);
+    public void hit(float damage)
+    {
+        hp.change_health(1);
     }
     /* void OnTriggerEnter2D(Collider2D other)
     {
@@ -109,14 +111,14 @@ public class ghost : MonoBehaviour, IKillable
     }
     public void ChangeSpotlight(float t)
     {
-         if (spotlight != null)
+        if (spotlight != null)
         {
-            
-           
-            
+
+
+
             spotlight.falloffIntensity = Mathf.Lerp(1f, 0f, t);
-            
-            
+
+
             Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
         }
     }

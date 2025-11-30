@@ -6,18 +6,29 @@ public class Blue_staff : IWeapon
     public float offset;
     public GameObject projectile;
     public Transform AttackPoint;
-    public bool equipped = false; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AttackAction.Enable();
         attackspeed = 0.5f;
-        sign = -1;
+    }
+
+
+    public override void equip()
+    {
+        AttackAction.Enable();
+        is_equipped = true;
+    }
+
+    public override void unequip()
+    {
+        AttackAction.Disable();
+        is_equipped = false;
     }
 
     void Update()
     {
-        if (equipped)
+        if (is_equipped)
         {
 
             Vector3 mouse = Mouse.current.position.ReadValue();
@@ -62,7 +73,7 @@ public class Blue_staff : IWeapon
 
         float halfDuration = attackspeed / 2f;
         Quaternion startRotation = transform.rotation;
-        Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, sign * rotationAngle);
+        Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, rotationAngle);
 
         // Rotate to +90 degrees
         float t = 0f;
