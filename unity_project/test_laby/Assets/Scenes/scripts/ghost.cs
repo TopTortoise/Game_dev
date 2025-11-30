@@ -15,7 +15,6 @@ public class ghost : MonoBehaviour, IKillable
     public float max_health = 5f;
     Rigidbody2D rigidbody2d;
     Vector2 move;
-    float dir = 1;
     public Light2D spotlight;
 
 
