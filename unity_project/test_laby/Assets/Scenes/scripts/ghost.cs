@@ -18,13 +18,17 @@ public class ghost : MonoBehaviour, IKillable
     public Light2D spotlight;
     SpriteRenderer Sr;
 
-
+    // torches
+    public InputAction PlaceTorchAction;
+    public GameObject torchPrefab;
+    public int torches = 3;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         MoveAction.Enable();
+        PlaceTorchAction.Enable();
         Ret.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
         hp = gameObject.GetComponentInChildren<Health>();
@@ -49,7 +53,10 @@ public class ghost : MonoBehaviour, IKillable
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(
     new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     );
-
+        if (PlaceTorchAction.WasPressedThisFrame())
+        {
+            TryPlaceTorch();
+        }
 
         /*
                 //facing right
@@ -121,6 +128,33 @@ public class ghost : MonoBehaviour, IKillable
 
             Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
         }
+    }
+    void TryPlaceTorch()
+    {
+        if (torches <= 0)
+        {
+            Debug.Log("No torches left!");
+            return;
+        }
+
+        torches--;
+
+        // Spawn at player's feet
+        Vector3 placePos = transform.position;
+
+        GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);
+
+        // Copy light settings from player's spotlight
+        Light2D torchLight = torch.GetComponentInChildren<Light2D>();
+        if (torchLight != null && spotlight != null)
+        {
+            torchLight.intensity = spotlight.intensity;
+            torchLight.pointLightOuterRadius = spotlight.pointLightOuterRadius;
+            torchLight.pointLightInnerRadius = spotlight.pointLightInnerRadius;
+            torchLight.falloffIntensity = spotlight.falloffIntensity;
+        }
+
+        Debug.Log("Torch placed. Remaining: " + torches);
     }
 
 }

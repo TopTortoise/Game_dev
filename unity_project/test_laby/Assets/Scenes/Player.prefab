@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6724769088751539820}
@@ -198,6 +198,25 @@ MonoBehaviour:
   health: 5
   max_health: 5
   spotlight: {fileID: 7516606612565844113}
+  PlaceTorchAction:
+    m_Name: Place Torch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: eb9d878a-b0d9-4656-9702-49ed5853ca6f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 60c28c03-9728-49b5-b3ed-8b3b5fa4131f
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Place Torch
+      m_Flags: 0
+    m_Flags: 0
+  torchPrefab: {fileID: 579879467762394870, guid: afe31ab217b866096b8faa36ae10a983, type: 3}
+  torches: 5
 --- !u!50 &476417731499333587
 Rigidbody2D:
   serializedVersion: 5
@@ -272,7 +291,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1714780869122909990, guid: bbbdc4164ce1bbd5a9b5b0da33401d08, type: 3}
+  m_Sprite: {fileID: 3336366725101370553, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
