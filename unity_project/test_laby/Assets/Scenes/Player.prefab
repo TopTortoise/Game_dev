@@ -217,7 +217,6 @@ MonoBehaviour:
     m_Flags: 0
   torchPrefab: {fileID: 579879467762394870, guid: afe31ab217b866096b8faa36ae10a983, type: 3}
   torches: 100
-  torchCooldown: 5000
 --- !u!50 &476417731499333587
 Rigidbody2D:
   serializedVersion: 5
@@ -292,7 +291,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3336366725101370553, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
+  m_Sprite: {fileID: -6146700129834819302, guid: a0c1267b49f759a4eb099da48b9020ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
