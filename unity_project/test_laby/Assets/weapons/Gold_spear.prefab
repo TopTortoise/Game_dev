@@ -112,7 +112,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 2809608147662820005, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   damage: 1
   attackspeed: 0.5
-  sign: -1
+  is_equipped: 0
   AttackAction:
     m_Name: Attack
     m_Type: 0

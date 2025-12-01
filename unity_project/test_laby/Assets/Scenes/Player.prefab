@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6724769088751539820}
@@ -183,46 +183,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 8
-    - m_Name: 2D Vector
-      m_Id: 28fb1b38-6739-484d-b08d-f522685f7470
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 54acec9c-e0d9-4027-95bf-45425d53c19a
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 635a4059-0d3a-416c-9a7a-551c85a22baa
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 20db52b8-dd31-45ae-b32d-f0d3517a0abd
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: ffa7d5ca-1e88-49c0-b651-240ca9963f45
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
     m_Flags: 0
   Ret:
     m_Name: Ret
@@ -249,14 +209,6 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 60c28c03-9728-49b5-b3ed-8b3b5fa4131f
       m_Path: <Mouse>/rightButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Torch
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 6a45bc35-7b2a-4ef8-af44-ee7bd7730f0c
-      m_Path: <Keyboard>/t
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -384,8 +336,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0061509847, y: -0.0881185}
-  m_Size: {x: 0.1994208, y: 0.41598636}
+  m_Offset: {x: 0.00013303757, y: -0.00039914847}
+  m_Size: {x: 0.10757754, y: 0.10997248}
   m_Direction: 0
 --- !u!1 &9127659844506034374
 GameObject:
@@ -536,10 +488,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3806426650802996830, guid: 968bd30620d50d71bb2a2a91c4ed7447, type: 3}
-      propertyPath: radius
-      value: 0.85
-      objectReference: {fileID: 0}
     - target: {fileID: 4132040246367172028, guid: 968bd30620d50d71bb2a2a91c4ed7447, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -558,11 +506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333700839516366207, guid: 968bd30620d50d71bb2a2a91c4ed7447, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7333700839516366207, guid: 968bd30620d50d71bb2a2a91c4ed7447, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7333700839516366207, guid: 968bd30620d50d71bb2a2a91c4ed7447, type: 3}
       propertyPath: m_LocalScale.z
@@ -636,7 +584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1471875
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalScale.y
@@ -644,11 +592,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.324
+      value: -0.091
       objectReference: {fileID: 0}
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalPosition.z
