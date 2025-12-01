@@ -33,7 +33,7 @@ public class Stick : IWeapon
     }
 
 
-    public float rotationAngle = 90f; // degrees
+    public float rotationAngle = -90f; // degrees
 
     private bool isRotating = false;
 
