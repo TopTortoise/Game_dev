@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -180,3 +180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   sr: {fileID: 0}
   destroyed_vase: {fileID: -7895808006891530139, guid: b73b7f19d18390ebdbe9c8d5e4edfbd0, type: 3}
+  rarity: 0
+  distance_to_start: 0
+  item: {fileID: 0}
+  health: 0
+  max_health: 0
