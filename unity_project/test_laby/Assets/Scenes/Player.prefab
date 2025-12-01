@@ -183,6 +183,46 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 8
+    - m_Name: 2D Vector
+      m_Id: e478a25a-0176-45e0-b2c6-449e944a9c36
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: ee41939c-6575-400a-bb7d-2a500786aa03
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 731fb897-18a6-4143-81de-4cd83124b663
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 4bd9aa87-8b2b-4d41-8a90-88bf58ac50c4
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: d91cb6e7-5b82-4877-b32a-b35858018d2e
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
     m_Flags: 0
   Ret:
     m_Name: Ret
@@ -209,6 +249,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 60c28c03-9728-49b5-b3ed-8b3b5fa4131f
       m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Place Torch
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 2de20341-f27e-4859-8f26-946d19ed0b1a
+      m_Path: <Keyboard>/t
       m_Interactions: 
       m_Processors: 
       m_Groups: 
