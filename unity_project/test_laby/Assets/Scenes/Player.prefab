@@ -223,6 +223,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 8
+    - m_Name: 
+      m_Id: f74b147a-5973-4a87-b915-4c90bda15232
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 0
     m_Flags: 0
   Ret:
     m_Name: Ret
@@ -244,6 +252,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 93feb04e-9879-439b-aa14-e9ba9abd728b
       m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Equip
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 249aaee2-62ec-4aa7-9bd7-9d39da59e078
+      m_Path: <Gamepad>/buttonSouth
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -275,6 +291,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 2de20341-f27e-4859-8f26-946d19ed0b1a
       m_Path: <Keyboard>/t
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Place Torch
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 21ec0d73-0193-451f-8406-169a5b889375
+      m_Path: <Gamepad>/leftShoulder
       m_Interactions: 
       m_Processors: 
       m_Groups: 

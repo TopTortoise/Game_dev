@@ -6,6 +6,7 @@ public class Blue_staff : IWeapon
     public float offset;
     public GameObject projectile;
     public Transform AttackPoint;
+    public InputAction AimAction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,12 +17,14 @@ public class Blue_staff : IWeapon
 
     public override void equip()
     {
+        AimAction.Enable();
         AttackAction.Enable();
         is_equipped = true;
     }
 
     public override void unequip()
     {
+        AimAction.Disable();
         AttackAction.Disable();
         is_equipped = false;
     }
@@ -31,14 +34,24 @@ public class Blue_staff : IWeapon
         if (is_equipped)
         {
 
-            Vector3 mouse = Mouse.current.position.ReadValue();
-            mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
+            Vector2 aimInput = AimAction.ReadValue<Vector2>();
+            Vector3 dir;
 
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouse);
-            Vector3 diff = worldPos - transform.position;
+            if (aimInput.sqrMagnitude > 0.1f)
+            {
+                dir = new Vector3(aimInput.x, aimInput.y, 0).normalized;  // gamepad
+            }
+            else
+            {
+                Vector3 mouse = Mouse.current.position.ReadValue();
+                mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
+                Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouse);
+                dir = (worldPos - transform.position).normalized;         // mouse
+            }
 
-            float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+            float rotZ = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
+
         }
     }
 
@@ -48,11 +61,20 @@ public class Blue_staff : IWeapon
 
         if (!isRotating)
         {
-            Vector3 mouse = Mouse.current.position.ReadValue();
-            mouse.z = Camera.main.WorldToScreenPoint(AttackPoint.position).z;
+            Vector2 aimInput = AimAction.ReadValue<Vector2>();
+            Vector3 direction;
 
-            Vector3 target = Camera.main.ScreenToWorldPoint(mouse);
-            Vector3 direction = (target - AttackPoint.position).normalized;
+            if (aimInput.sqrMagnitude > 0.1f)
+            {
+                direction = new Vector3(aimInput.x, aimInput.y, 0).normalized;  // gamepad
+            }
+            else
+            {
+                Vector3 mouse = Mouse.current.position.ReadValue();
+                mouse.z = Camera.main.WorldToScreenPoint(AttackPoint.position).z;
+                Vector3 target = Camera.main.ScreenToWorldPoint(mouse);
+                direction = (target - AttackPoint.position).normalized;         // mouse
+            }
 
             GameObject bullet = Instantiate(projectile, AttackPoint.position, Quaternion.identity);
 

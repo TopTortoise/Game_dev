@@ -8,6 +8,9 @@ public class Spear : IWeapon
     public float offset;
     public bool is_attacking = false;
     public Transform AttackPoint;
+    public InputAction AimAction;
+    private Vector2 aimInput;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +21,7 @@ public class Spear : IWeapon
 
     public override void equip()
     {
+        AimAction.Enable();
         AttackAction.Enable();
         is_equipped = true;
 
@@ -26,6 +30,7 @@ public class Spear : IWeapon
     public override void unequip()
     {
         AttackAction.Disable();
+        AimAction.Disable();
         is_equipped = false;
 
     }
@@ -43,11 +48,22 @@ public class Spear : IWeapon
         is_attacking = true;
         float pokeDistance = 1f;     // how far the spear moves forward
                                      // --- Calculate direction toward mouse in world space ---
-        Vector3 mouseScreen = Mouse.current.position.ReadValue();
-        mouseScreen.z = Camera.main.WorldToScreenPoint(transform.position).z;
-        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
+        Vector3 dir;
 
-        Vector3 dir = (mouseWorld - transform.position).normalized;
+        Vector2 aimInput = AimAction.ReadValue<Vector2>();
+        if (aimInput.sqrMagnitude > 0.1f)
+        {
+            // Gamepad attack direction
+            dir = new Vector3(aimInput.x, aimInput.y, 0).normalized;
+        }
+        else
+        {
+            // Mouse attack direction
+            Vector3 mouseScreen = Mouse.current.position.ReadValue();
+            mouseScreen.z = Camera.main.WorldToScreenPoint(transform.position).z;
+            Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
+            dir = (mouseWorld - transform.position).normalized;
+        }
 
         // Rotate transform to face mouse
         // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -95,14 +111,23 @@ public class Spear : IWeapon
     {
         if (!is_attacking && is_equipped)
         {
+            aimInput = AimAction.ReadValue<Vector2>();
+            Vector3 dir;
+            if (aimInput.sqrMagnitude > 0.1f)
+            {
+                // --- Gamepad aiming ---
+                dir = new Vector3(aimInput.x, aimInput.y, 0).normalized;
+            } 
+            else
+            {
+                // --- Mouse aiming ---
+                Vector3 mouse = Mouse.current.position.ReadValue();
+                mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
 
-            Vector3 mouse = Mouse.current.position.ReadValue();
-            mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
-
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouse);
-            Vector3 diff = worldPos - transform.position;
-
-            float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+                Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouse);
+                dir = (worldPos - transform.position).normalized;
+            }
+            float rotZ = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
         }
     }

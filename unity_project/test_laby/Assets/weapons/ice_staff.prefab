@@ -181,7 +181,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 4659454681548951210, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -228,4 +228,21 @@ MonoBehaviour:
   offset: -45
   projectile: {fileID: 5780270276275272287, guid: 2c2ad5c355164134d972f873c1916632, type: 3}
   AttackPoint: {fileID: 3803069330982740463}
+  AimAction:
+    m_Name: Aim
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 95a1fa02-d01d-4cfb-bfb0-57d755e8d1b5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 96450f25-c2a5-4aec-83ae-51b4c43cba20
+      m_Path: <Gamepad>/rightStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim
+      m_Flags: 0
+    m_Flags: 0
   rotationAngle: 45
