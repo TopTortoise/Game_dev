@@ -64,9 +64,11 @@ public class Water_Slime : IEnemy, IKillable
 
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(Attackpoint.position, attack_radius, enemy_layer);
-
+        Debug.Log(colliders.Length);
         foreach (Collider2D player in colliders)
         {
+            Debug.Log("killing "+player);
+            Debug.Log(player.gameObject);
             player.GetComponent<IKillable>().hit(damage);
         }
         StartCoroutine(WaitForAttackAnimation());
