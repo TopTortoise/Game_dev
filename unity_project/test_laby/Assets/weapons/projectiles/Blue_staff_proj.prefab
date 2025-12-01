@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c2fe0962243b232b1b807e114153d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::projectile
-  speed: 5
+  speed: 15
   damage: 2
   damage_mod: 1
   lifetime: 3
@@ -127,7 +127,7 @@ CircleCollider2D:
     m_Bits: 182
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 833
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

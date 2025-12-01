@@ -8,6 +8,7 @@ public class ghost : MonoBehaviour, IKillable
 
     public InputAction MoveAction;
     public InputAction Ret;
+    public InputAction EquipAction;
     public IWeapon weapon;
     private Health hp;
     public float speed = 10.0f;
@@ -24,11 +25,13 @@ public class ghost : MonoBehaviour, IKillable
     public GameObject torchPrefab;
     public int torches = 3;
     Vector3 previousTorchPos = Vector3.zero;
+    public LayerMask item_layer;
 
     // Start is called before the first frame update
     void Awake()
     {
         MoveAction.Enable();
+        EquipAction.Enable();
         PlaceTorchAction.Enable();
         Ret.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -45,6 +48,56 @@ public class ghost : MonoBehaviour, IKillable
 
     }
 
+    IWeapon unequip()
+    {
+      IWeapon to_ret = weapon;
+        if (weapon != null)
+        {
+
+            Debug.Log("Weapon is unequipped");
+
+            weapon.transform.SetParent(null);
+            weapon.unequip();
+            weapon = null;
+        }
+        return to_ret;
+    }
+
+    void equip()
+    {
+        Debug.Log("pressed equip");
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, equip_radius, item_layer);
+
+        Debug.Log("items found " + colliders.Length);
+        bool found_new_weapon = false;
+        IWeapon old_weapon = unequip();
+        foreach (Collider2D item in colliders)
+        {
+            Item coin = item.GetComponent<Item>();
+            if (coin != null)
+            {
+                coin.pickup();
+                continue;//NOTE: this might not be smart in future
+            }
+
+            IWeapon new_weapon = item.GetComponent<IWeapon>() == null? item.GetComponentInParent<IWeapon>(): item.GetComponent<IWeapon>();
+            if (new_weapon != null && !found_new_weapon && new_weapon != old_weapon)
+            {
+                weapon = new_weapon;
+                weapon.transform.SetParent(transform);
+                weapon.transform.localPosition = Vector3.zero;
+                weapon.transform.localRotation = Quaternion.identity;
+                weapon.equip();
+            }
+
+        }
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, equip_radius);
+    }
     // Update is called once per fram    
     private bool facingRight = true;
     void Update()
@@ -59,23 +112,13 @@ public class ghost : MonoBehaviour, IKillable
             TryPlaceTorch();
         }
 
-        /*
-                //facing right
-                if (mouseWorldPos.x > rigidbody2d.transform.position.x && !facingRight)
-                {
-                    // Flip();
-
-                    // weapon.sign = -1;
-                }
-                //facing left
-                else if (mouseWorldPos.x < rigidbody2d.transform.position.x && facingRight)
-                {
-                    // Flip();
-                    // weapon.sign = 1;
-                } */
-        if (weapon.AttackAction.IsPressed())
+        if (weapon !=null && weapon.AttackAction.IsPressed())
         {
             weapon.Attack();
+        }
+        if (EquipAction.WasPressedThisFrame())
+        {
+            equip();
         }
     }
 
@@ -94,10 +137,7 @@ public class ghost : MonoBehaviour, IKillable
         rigidbody2d.MovePosition(position);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, equip_radius);
-    }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -141,13 +181,13 @@ public class ghost : MonoBehaviour, IKillable
             Debug.Log("No torches left!");
             return;
         }
-        
 
-        
 
-        
+
+
+
         Vector3 placePos = transform.position;
-        if(placePos == previousTorchPos) { return; }
+        if (placePos == previousTorchPos) { return; }
         previousTorchPos = placePos;
         torches--;
         // spawn at player pos.

@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6724769088751539820}
@@ -233,8 +233,26 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  EquipAction:
+    m_Name: Equip
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d33015f3-e2fc-4565-86ce-3eeef37ac13a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 93feb04e-9879-439b-aa14-e9ba9abd728b
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Equip
+      m_Flags: 0
+    m_Flags: 0
   weapon: {fileID: 0}
   speed: 10
+  equip_radius: 1.5
   health: 5
   max_health: 5
   spotlight: {fileID: 7516606612565844113}
@@ -265,6 +283,9 @@ MonoBehaviour:
     m_Flags: 0
   torchPrefab: {fileID: 579879467762394870, guid: afe31ab217b866096b8faa36ae10a983, type: 3}
   torches: 100
+  item_layer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &476417731499333587
 Rigidbody2D:
   serializedVersion: 5
