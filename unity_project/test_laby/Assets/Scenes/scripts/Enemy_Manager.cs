@@ -69,7 +69,9 @@ public class Enemy_Manager : MonoBehaviour
 
         foreach (Vector3Int pos in positions)
         {
-            if (Random.value < vase_spawnrate) // 20% Chance auf Item in Sackgasse
+          float rand = Random.value;
+          Debug.Log("random value is: "+ rand);
+            if (rand < vase_spawnrate) // 20% Chance auf Item in Sackgasse
             {
                 Vector3 spawnPos = pos + new Vector3(1f, 1f, 0);
                 GameObject inst = Instantiate(vase, spawnPos, Quaternion.identity);

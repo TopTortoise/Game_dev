@@ -11,6 +11,7 @@ public class ghost : MonoBehaviour, IKillable
     public IWeapon weapon;
     private Health hp;
     public float speed = 10.0f;
+    public float equip_radius = 10.0f;
     public float health = 5f;
     public float max_health = 5f;
     Rigidbody2D rigidbody2d;
@@ -93,6 +94,10 @@ public class ghost : MonoBehaviour, IKillable
         rigidbody2d.MovePosition(position);
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, equip_radius);
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
