@@ -22,7 +22,7 @@ public class ghost : MonoBehaviour, IKillable
     public InputAction PlaceTorchAction;
     public GameObject torchPrefab;
     public int torches = 3;
-
+    Vector3 previousTorchPos = Vector3.zero;
 
     // Start is called before the first frame update
     void Awake()
@@ -136,15 +136,19 @@ public class ghost : MonoBehaviour, IKillable
             Debug.Log("No torches left!");
             return;
         }
+        
 
-        torches--;
+        
 
-        // Spawn at player's feet
+        
         Vector3 placePos = transform.position;
-
+        if(placePos == previousTorchPos) { return; }
+        previousTorchPos = placePos;
+        torches--;
+        // spawn at player pos.
         GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);
 
-        // Copy light settings from player's spotlight
+        // copy light spotlight
         Light2D torchLight = torch.GetComponentInChildren<Light2D>();
         if (torchLight != null && spotlight != null)
         {
