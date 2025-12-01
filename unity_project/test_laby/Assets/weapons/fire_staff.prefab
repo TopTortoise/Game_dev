@@ -154,6 +154,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Attack
       m_Flags: 0
+    - m_Name: 
+      m_Id: ed8679ef-ccc3-4063-85b7-603aebc67ada
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
     m_Flags: 0
   offset: -45
   projectile: {fileID: 5780270276275272287, guid: 113ba52be0530862ca6bb4a441acfcb7, type: 3}

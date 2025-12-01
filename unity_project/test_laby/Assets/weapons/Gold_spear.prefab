@@ -191,6 +191,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Attack
       m_Flags: 0
+    - m_Name: 
+      m_Id: f6effc3a-fdca-49ae-a31e-2a26228e1bac
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
     m_Flags: 0
   equipped: 0
   offset: -45
