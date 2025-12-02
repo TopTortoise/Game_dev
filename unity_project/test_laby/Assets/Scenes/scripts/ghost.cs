@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.Universal;
-
+using UnityEngine.UI;
 public class ghost : MonoBehaviour, IKillable
 {
 
@@ -12,6 +12,7 @@ public class ghost : MonoBehaviour, IKillable
     public IWeapon weapon;
     public Vector3 spawn_pos;
     private Health hp;
+    public RawImage weapon_img; 
     public float speed = 10.0f;
     public float equip_radius = 10.0f;
     public float health = 5f;
@@ -40,6 +41,7 @@ public class ghost : MonoBehaviour, IKillable
         hp = gameObject.GetComponentInChildren<Health>();
         weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
         weapon.equip();
+        weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture;
         hp.set_max_hp(max_health);
         hp.set_hp(health);
         if (spotlight == null)
@@ -61,6 +63,7 @@ public class ghost : MonoBehaviour, IKillable
             weapon.transform.SetParent(null);
             weapon.unequip();
             weapon = null;
+            weapon_img.texture = null;
         }
         return to_ret;
     }
@@ -90,6 +93,7 @@ public class ghost : MonoBehaviour, IKillable
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;
                 weapon.equip();
+                weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture;
             }
 
         }
