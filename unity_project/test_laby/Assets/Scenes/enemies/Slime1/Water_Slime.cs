@@ -105,7 +105,7 @@ public class Water_Slime : IEnemy, IKillable
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("im hiti " + collision.gameObject);
+        // Debug.Log("im hiti " + collision.gameObject);
     }
     public void hit(float damage)
     {

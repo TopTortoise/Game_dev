@@ -94,7 +94,7 @@ public class Enemy_Manager : MonoBehaviour
         foreach (Vector3Int pos in positions)
         {
             float rand = Random.value;
-            Debug.Log("random value is: " + rand);
+            // Debug.Log("random value is: " + rand);
             if (rand < vase_spawnrate) // 20% Chance auf Item in Sackgasse
             {
                 Vector3 spawnPos = pos + new Vector3(1f, 1f, 0);
@@ -117,7 +117,7 @@ public class Enemy_Manager : MonoBehaviour
 
                     inst.GetComponent<Vase>().item = item;
                 }
-                Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
+                // Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
             }
         }
 

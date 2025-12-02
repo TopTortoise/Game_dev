@@ -39,7 +39,7 @@ public class Clock : MonoBehaviour
             if (!warningStarted)
             {
                 warningStarted = true;
-                Debug.Log("WARNUNG: Weniger als 1 Minute! Es wird dunkel!");
+                // Debug.Log("WARNUNG: Weniger als 1 Minute! Es wird dunkel!");
             }
             
           
@@ -67,7 +67,7 @@ public class Clock : MonoBehaviour
         else 
         {
             isCountingDown = false;
-            Debug.Log("ZEIT ABGELAUFEN! KAMPF BEGINNT!");
+            // Debug.Log("ZEIT ABGELAUFEN! KAMPF BEGINNT!");
             
             
             if (player != null)

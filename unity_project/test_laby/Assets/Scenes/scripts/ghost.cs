@@ -177,7 +177,7 @@ public class ghost : MonoBehaviour, IKillable
             spotlight.falloffIntensity = Mathf.Lerp(1f, 0f, t);
 
 
-            Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
+            // Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
         }
     }
     void TryPlaceTorch()
