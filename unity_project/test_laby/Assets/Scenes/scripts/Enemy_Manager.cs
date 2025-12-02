@@ -78,9 +78,19 @@ public class Enemy_Manager : MonoBehaviour
                 float distance_to_start = Vector3.Distance(spawnPos, Vector3.zero);
 
                 GameObject inst = Instantiate(vase, spawnPos, Quaternion.identity);
-                //map distanc eot rarity, items need rarity
-                int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.9f, Mathf.InverseLerp(0f, 250f, distance_to_start)) +  Random.value);
-                inst.GetComponent<Vase>().item = items[mapped];
+                
+                //map distanc to rarity, 
+                //TODO: items need rarity and then chosen randomly from the value
+                //also some cases should be empty 
+                int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) +  Random.value);
+                GameObject item = items[mapped];
+                if(mapped == 0 && Random.value < 0.5){
+                  
+                  inst.GetComponent<Vase>().item = null;
+                }else{
+                  
+                  inst.GetComponent<Vase>().item = item;
+                }
                 Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
             }
         }
