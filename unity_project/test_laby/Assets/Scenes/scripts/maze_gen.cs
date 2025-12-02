@@ -46,7 +46,7 @@ public class maze_gen : MonoBehaviour
             {
                 // Randomly select a tile from the array
                 Tile tile = tiles[0];
-                if ((x == start_pos.x-10 || y == start_pos.y-10 || x+1 == start_pos.x || y+1 == start_pos.y)) //&& !(x+2 == start_pos.x && y+1  == start_pos.y))
+                if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null && (x == start_pos.x-10 || y == start_pos.y-10 || x+1 == start_pos.x || y+1 == start_pos.y) ) //&& !(x+2 == start_pos.x && y+1  == start_pos.y))
                 {
                     tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[2]);
                 }
@@ -155,6 +155,27 @@ public class maze_gen : MonoBehaviour
         }
         return step;
     }
+
+    
+    public TileBase targetTile;  // the tile type to delete
+
+     public void RemoveAllMatchingTiles()
+    {
+        tilemap.CompressBounds();
+        BoundsInt bounds = tilemap.cellBounds;
+
+        foreach (var pos in bounds.allPositionsWithin)
+        {
+            TileBase tile = tilemap.GetTile(pos);
+
+            if (tile == targetTile)
+            {
+                tilemap.SetTile(pos, null); // delete tile
+            }
+        }
+    }
+
+  
 
 
 }

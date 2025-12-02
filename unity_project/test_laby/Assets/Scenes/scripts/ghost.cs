@@ -10,6 +10,7 @@ public class ghost : MonoBehaviour, IKillable
     public InputAction Ret;
     public InputAction EquipAction;
     public IWeapon weapon;
+    public Vector3 spawn_pos;
     private Health hp;
     public float speed = 10.0f;
     public float equip_radius = 10.0f;
@@ -30,6 +31,7 @@ public class ghost : MonoBehaviour, IKillable
     // Start is called before the first frame update
     void Awake()
     {
+        spawn_pos = transform.position;
         MoveAction.Enable();
         EquipAction.Enable();
         PlaceTorchAction.Enable();

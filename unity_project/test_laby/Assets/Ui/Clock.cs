@@ -53,7 +53,7 @@ public class Clock : MonoBehaviour
         }
         
         // Update den Timer-Text
-        if(timeRemaining > 0) 
+        if(timeRemaining >= 0) 
         {
             int minutes = timeRemaining / 60; 
             int seconds = timeRemaining - minutes * 60;
@@ -72,6 +72,7 @@ public class Clock : MonoBehaviour
             if (player != null)
             {
                 player.ChangeSpotlight(0f); // Komplett dunkel
+                player.transform.position = player.spawn_pos;
             }
             // TODO: Spawne Gegner oder starte Kampf-Event
         }

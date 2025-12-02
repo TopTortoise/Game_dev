@@ -74,9 +74,14 @@ public class Enemy_Manager : MonoBehaviour
             if (rand < vase_spawnrate) // 20% Chance auf Item in Sackgasse
             {
                 Vector3 spawnPos = pos + new Vector3(1f, 1f, 0);
+                
+                float distance_to_start = Vector3.Distance(spawnPos, Vector3.zero);
+
                 GameObject inst = Instantiate(vase, spawnPos, Quaternion.identity);
-                inst.GetComponent<Vase>().item = items[Random.Range(0, items.Count)];
-                Debug.Log($"Vase spawned at {spawnPos} with item {inst.GetComponent<Vase>().item}");
+                //map distanc eot rarity, items need rarity
+                int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.9f, Mathf.InverseLerp(0f, 250f, distance_to_start)) +  Random.value);
+                inst.GetComponent<Vase>().item = items[mapped];
+                Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
             }
         }
 

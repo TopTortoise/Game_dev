@@ -15,6 +15,8 @@ public class Vase : MonoBehaviour, IKillable
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        distance_to_start = Vector3.Distance(transform.position, new Vector3(2.9f,-30,0));
+        
     }
 
     // Update is called once per frame
