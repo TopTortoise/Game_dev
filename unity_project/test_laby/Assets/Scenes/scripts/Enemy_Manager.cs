@@ -56,12 +56,36 @@ public class Enemy_Manager : MonoBehaviour
             Instantiate(prefabs[Random.Range(0, prefabs.Length)], position, Quaternion.identity);
         }
     }
-
+    public bool spawntime = false;
     // Update is called once per frame
+    float time_passed = 0f;
+    float next_spawn = 2f;
+    Vector3[] spawn_pos = { new Vector3(15, -20, 0), new Vector3(15, -30, 0), new Vector3(-5, -30, 0), new Vector3(3, -10, 0) };
     void Update()
     {
+        if (spawntime)
+        {
+            if (time_passed >= next_spawn)
+            {
+                GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Length)], spawn_pos[Random.Range(0, spawn_pos.Length)], Quaternion.identity);
+                // detectionarea area = obj.GetComponentInChildren<detectionarea>();
+                // area.GetComponent<CircleCollider2D>().radius = 30;
+                // area.radius = 30;
+                
+                time_passed = 0f;
+                // next_spawn *= 0.9f;
+            }
+            time_passed += Time.deltaTime;
+
+        }
 
     }
+
+
+
+
+
+
     void spawnItems()
     {
 
@@ -69,27 +93,29 @@ public class Enemy_Manager : MonoBehaviour
 
         foreach (Vector3Int pos in positions)
         {
-          float rand = Random.value;
-          Debug.Log("random value is: "+ rand);
+            float rand = Random.value;
+            Debug.Log("random value is: " + rand);
             if (rand < vase_spawnrate) // 20% Chance auf Item in Sackgasse
             {
                 Vector3 spawnPos = pos + new Vector3(1f, 1f, 0);
-                
                 float distance_to_start = Vector3.Distance(spawnPos, Vector3.zero);
 
                 GameObject inst = Instantiate(vase, spawnPos, Quaternion.identity);
-                
+
                 //map distanc to rarity, 
                 //TODO: items need rarity and then chosen randomly from the value
                 //also some cases should be empty 
-                int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) +  Random.value);
+                int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value);
                 GameObject item = items[mapped];
-                if(mapped == 0 && Random.value < 0.5){
-                  
-                  inst.GetComponent<Vase>().item = null;
-                }else{
-                  
-                  inst.GetComponent<Vase>().item = item;
+                if (mapped == 0 && Random.value < 0.5)
+                {
+
+                    inst.GetComponent<Vase>().item = null;
+                }
+                else
+                {
+
+                    inst.GetComponent<Vase>().item = item;
                 }
                 Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
             }

@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b5accc21364ebca7019efb3c1c62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  duration: 120
+  duration: 90
   warningTime: 30
   timeRemaining: 0
   isCountingDown: 1
@@ -2482,6 +2482,7 @@ MonoBehaviour:
   vase: {fileID: 8789290170092580440, guid: f6d58e736ff56891d894d1bb1cabc324, type: 3}
   start_pos: {x: 16, y: 16, z: 0}
   vase_spawnrate: 0.8
+  spawntime: 0
 --- !u!1 &1373508254
 GameObject:
   m_ObjectHideFlags: 0

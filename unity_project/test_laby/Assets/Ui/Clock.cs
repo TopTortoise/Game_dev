@@ -8,7 +8,7 @@ public class Clock : MonoBehaviour
     public int timeRemaining;
     public bool isCountingDown = true;
     private bool warningStarted = false;
-    
+    private Enemy_Manager em;
     public TMP_Text clockText;
     public ghost player;
     
@@ -17,6 +17,7 @@ public class Clock : MonoBehaviour
         timeRemaining = duration;
         isCountingDown = true;
         Invoke("_tick", 1f);
+        em = GameObject.FindFirstObjectByType<Enemy_Manager>();
 
     }
 
@@ -73,6 +74,7 @@ public class Clock : MonoBehaviour
             {
                 player.ChangeSpotlight(0f); // Komplett dunkel
                 player.transform.position = player.spawn_pos;
+                em.spawntime = true;
             }
             // TODO: Spawne Gegner oder starte Kampf-Event
         }
