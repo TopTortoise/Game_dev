@@ -870,7 +870,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac6e831fd77d9a84492f3e3384c8f904, type: 2}
   width: 250
   height: 250
-  scale: 6
+  scale: 10
   start_pos: {x: 0, y: 0, z: 0}
   seed: 1
   enemy_Manager: {fileID: 1044710643}

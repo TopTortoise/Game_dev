@@ -76,8 +76,10 @@ public class maze_gen : MonoBehaviour
         somelist.Add(next_pos);
 
         tilemap.SetTile(curr_pos, tile);
+        tilemap.SetTile(curr_pos + Vector3Int.left*2, tile);
         tilemap.SetTile(curr_pos + Vector3Int.left, tile);
         tilemap.SetTile(curr_pos + Vector3Int.right, tile);
+        tilemap.SetTile(curr_pos + Vector3Int.right*2, tile);
         int count = 0;
         while (somelist.Count > 0)
         {
@@ -89,8 +91,10 @@ public class maze_gen : MonoBehaviour
                 tilemap.SetTile(curr_pos, tile);
                 Vector3Int side_1 = next_step.x == 0 ? Vector3Int.left : Vector3Int.up;
                 Vector3Int side_2 = next_step.x == 0 ? Vector3Int.right : Vector3Int.down;
+                tilemap.SetTile(curr_pos + side_1 + side_1, tile);
                 tilemap.SetTile(curr_pos + side_1, tile);
                 tilemap.SetTile(curr_pos + side_2, tile);
+                tilemap.SetTile(curr_pos + side_2 + side_2, tile);
 
             }
 
