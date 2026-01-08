@@ -74,7 +74,7 @@ public class Clock : MonoBehaviour
             {
                 player.ChangeSpotlight(0f); // Komplett dunkel
                 player.transform.position = player.spawn_pos;
-                em.spawntime = true;
+                em.StartCoroutine(em.spawnWave());
             }
             // TODO: Spawne Gegner oder starte Kampf-Event
         }

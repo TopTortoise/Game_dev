@@ -49,7 +49,7 @@ public class EnemyController : IEnemy, IKillable
     public void hit(float damage)
     {
 
-        hp.change_health(1);
+        hp.change_health(damage);
     }
     public void OnDeath()
     {
