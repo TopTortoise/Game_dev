@@ -9,6 +9,8 @@ public class Water_Slime : IEnemy, IKillable
     public Transform Attackpoint;
     public LayerMask enemy_layer;
 
+    private Vector2 lastDirection = Vector2.zero;
+
     private Renderer rend;
     private Color originalColor;
     public float flashTime = 0.07F;
@@ -50,9 +52,9 @@ public class Water_Slime : IEnemy, IKillable
         }
         else if (colliders.Length == 0 && !anim.GetBool("is_attacking"))
         {
-            anim.SetBool("following", false);
+            anim.SetBool("following", true);
             anim.SetBool("is_idle", true);
-            rb.linearVelocity = Vector2.zero;
+            rb.linearVelocity = lastDirection * speed;
         }
         else
         {
@@ -106,6 +108,7 @@ public class Water_Slime : IEnemy, IKillable
     {
 
         Vector2 direction = ((Vector2)getTarget().position - rb.position).normalized;
+        lastDirection = direction;
         // Debug.Log(direction);
         anim.SetFloat("speed_y", direction.y);
         anim.SetFloat("speed_x", direction.x);
