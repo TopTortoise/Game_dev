@@ -949,8 +949,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 871f94d460e92284bbafbccee6ef8494, type: 2}
   - {fileID: 11400000, guid: 0c6d6b31e0eafc980a5f9cdbb84dc73f, type: 2}
   - {fileID: 11400000, guid: ac6e831fd77d9a84492f3e3384c8f904, type: 2}
-  width: 250
-  height: 250
+  width: 500
+  height: 500
   scale: 10
   start_pos: {x: 0, y: 0, z: 0}
   seed: 1

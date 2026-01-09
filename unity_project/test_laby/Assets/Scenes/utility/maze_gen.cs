@@ -30,9 +30,9 @@ public class maze_gen : MonoBehaviour
         Debug.Log(tilemap.GetTile(new Vector3Int(0, 0, 0)));
         // tilemap.BoxFill(new Vector3Int(1, 1, 0), tiles[1], 0, 0, 250, 250);
         // tilemap.FloodFill(new Vector3Int(1, 1, 0), tiles[1]);
-        for (int x = -10; x < 254; x++)
+        for (int x = -10; x < width+4; x++)
         {
-            for (int y = -10; y < 254; y++)
+            for (int y = -10; y < height+4; y++)
             {
                 if(tilemap.GetTile(new Vector3Int(x, y, 0)) == null){
                     
