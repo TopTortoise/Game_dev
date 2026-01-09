@@ -6,6 +6,7 @@ public class Crab : IEnemy, IKillable
   private Health hp;
   public Rigidbody2D rb;
   public GameObject player;
+
   private void Awake()
   {
 
@@ -65,13 +66,20 @@ public class Crab : IEnemy, IKillable
     {
       Debug.Log("hello there player");
       is_collided = true;
+
+      if(isdashing && CameraShake.Instance != null)
+    {
+      CameraShake.Instance.Shake(0.3f,0.1f);
+    }
     }
 
 
   public void hit(float damage)
   {
+   
 
     hp.change_health(damage);
+
   }
 
 
