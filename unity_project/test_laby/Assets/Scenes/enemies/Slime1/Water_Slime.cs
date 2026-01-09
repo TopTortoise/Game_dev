@@ -8,12 +8,16 @@ public class Water_Slime : IEnemy, IKillable
     public float attack_radius = 1f;
     public Transform Attackpoint;
     public LayerMask enemy_layer;
+
+    private Renderer rend;
+    private Color originalColor;
+    public float flashTime = 0.07F;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         speed = 2.5f;
-        health = 3f;
-        max_health = 3f;
+        health = 15f;
+        max_health = 15f;
         damage = 1f;
         anim = GetComponentInChildren<Animator>();
         hp = GetComponentInChildren<Health>();
@@ -85,6 +89,12 @@ public class Water_Slime : IEnemy, IKillable
         // After the animation ends:
         anim.SetBool("is_attacking", false);
     }
+    private IEnumerator DoFlash()
+    {
+        rend.material.color = Color.white;
+        yield return new WaitForSeconds(flashTime);
+        rend.material.color = originalColor; 
+    }
 
     private void OnDrawGizmos()
     {
@@ -110,7 +120,9 @@ public class Water_Slime : IEnemy, IKillable
     public void hit(float damage)
     {
         StartCoroutine(hit_toggle());
-        hp.change_health(1);
+        hp.change_health(damage);
+
+        if (rend) StartCoroutine(DoFlash());
     }
 
     public System.Collections.IEnumerator hit_toggle()

@@ -7,6 +7,7 @@ public class Spear : IWeapon
     public bool equipped = true;
     public float offset;
     public bool is_attacking = false;
+    private bool canDealDamage = false;
     public Transform AttackPoint;
     public InputAction AimAction;
     private Vector2 aimInput;
@@ -46,6 +47,7 @@ public class Spear : IWeapon
     IEnumerator spear_poke()
     {
         is_attacking = true;
+        canDealDamage = true; 
         float pokeDistance = 1f;     // how far the spear moves forward
                                      // --- Calculate direction toward mouse in world space ---
         Vector3 dir;
@@ -84,6 +86,7 @@ public class Spear : IWeapon
             transform.localPosition = Vector3.Lerp(startPos, forwardPos, t);
             yield return null;
         }
+        canDealDamage = false; 
 
         // --- Phase 2: retract ---
         t = 0f;
@@ -134,7 +137,7 @@ public class Spear : IWeapon
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (is_attacking)
+        if (canDealDamage)
         {
 
             Debug.Log("hit soemthing " + collider);
