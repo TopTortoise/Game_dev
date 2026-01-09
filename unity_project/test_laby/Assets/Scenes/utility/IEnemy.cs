@@ -3,6 +3,7 @@ public abstract class IEnemy : MonoBehaviour
 {
     public float speed;
     public float damage;
+    public float collision_damage = 1.0f;
     public float health;
     public float max_health;
     public Transform target;

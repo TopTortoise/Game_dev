@@ -8,10 +8,12 @@ public class Crab : IEnemy, IKillable
   public GameObject player;
   private void Awake()
   {
+
     max_health = 20f;
     health = 20f;
     speed = 5.0f;
     damage = 2;
+    collision_damage = 3;
     rb = GetComponent<Rigidbody2D>();
     hp = gameObject.GetComponentInChildren<Health>();
     hp.set_max_hp(max_health);
@@ -43,23 +45,32 @@ public class Crab : IEnemy, IKillable
     //dash
     Vector2 playerPos = player.GetComponent<Rigidbody2D>().position;
     Vector2 direction = (playerPos - rb.position ).normalized;
+    rb.linearVelocity = -direction * speed;
+    yield return new WaitForSeconds(0.25f);
     Debug.Log("direction is "+ direction);
     rb.linearVelocity = direction * dashSpeed;
 
     
-    yield return new WaitUntil(() => Vector2.Distance(rb.position, playerPos) <= minDist);
+    yield return new WaitUntil(() => Vector2.Distance(rb.position, playerPos+direction*2) <= minDist || is_collided);
 
     Debug.Log("Lets dash ended");
     rb.linearVelocity = Vector2.zero;
     isdashing = false;
+    is_collided = false;
     time = 0;
   }
+  bool is_collided = false;
+   void OnCollisionEnter2D(Collision2D collision)
+    {
+      Debug.Log("hello there player");
+      is_collided = true;
+    }
 
 
   public void hit(float damage)
   {
 
-    hp.change_health(1);
+    hp.change_health(damage);
   }
 
 

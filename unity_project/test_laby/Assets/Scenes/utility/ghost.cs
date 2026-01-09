@@ -150,8 +150,8 @@ public class ghost : MonoBehaviour, IKillable
         Debug.Log("Hit " + collision.gameObject.name);
         if (collision.gameObject.layer == 7)
         {
-
-            hp.change_health(1);
+            
+            hp.change_health(collision.gameObject.GetComponent<IEnemy>().collision_damage);
         }
     }
     public void hit(float damage)
