@@ -47,6 +47,7 @@ public class Crab : IEnemy, IKillable
     Vector2 direction = (playerPos - rb.position ).normalized;
     rb.linearVelocity = -direction * speed;
     yield return new WaitForSeconds(0.25f);
+    is_collided = false;
     Debug.Log("direction is "+ direction);
     rb.linearVelocity = direction * dashSpeed;
 
