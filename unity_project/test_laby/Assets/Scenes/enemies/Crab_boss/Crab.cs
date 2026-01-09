@@ -71,6 +71,7 @@ public class Crab : IEnemy, IKillable
     {
       CameraShake.Instance.Shake(0.3f,0.1f);
     }
+    
     }
 
 

@@ -13,7 +13,7 @@ public class Water_Slime : IEnemy, IKillable
 
     private Renderer rend;
     private Color originalColor;
-    public float flashTime = 0.07F;
+    public float flashTime = 1F;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -26,6 +26,15 @@ public class Water_Slime : IEnemy, IKillable
         rb = GetComponent<Rigidbody2D>();
         hp.set_max_hp(max_health);
         hp.set_hp(health);
+        
+        rend = GetComponentInChildren<SpriteRenderer>();
+        if(rend != null)
+        {
+            originalColor = rend.material.color;
+        }else 
+        {
+            Debug.LogError("Kein SpriteRenderer am Slime gefunden!");
+        }
         //caculate random postion 
         //
         anim.SetFloat("speed_y", -1);
@@ -93,7 +102,7 @@ public class Water_Slime : IEnemy, IKillable
     }
     private IEnumerator DoFlash()
     {
-        rend.material.color = Color.white;
+        rend.material.color = Color.red;
         yield return new WaitForSeconds(flashTime);
         rend.material.color = originalColor; 
     }
