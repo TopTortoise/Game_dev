@@ -573,11 +573,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1927608771403213434, guid: 0bab91d9d5a9e283a92680663866b6ca, type: 3}
       propertyPath: dashSpeed
-      value: 30
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768129398078890889, guid: 0bab91d9d5a9e283a92680663866b6ca, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 3637535230490742434, guid: 0bab91d9d5a9e283a92680663866b6ca, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319912150615626120, guid: 0bab91d9d5a9e283a92680663866b6ca, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 8364445410888229346, guid: 0bab91d9d5a9e283a92680663866b6ca, type: 3}
       propertyPath: m_LocalPosition.x
