@@ -34,6 +34,7 @@ public class Vase : MonoBehaviour, IKillable
         Destroy(rb);
         Destroy(box);
         spawn_item();
+        GetComponent<LootDropper>().DropLoot();
 
     }
 

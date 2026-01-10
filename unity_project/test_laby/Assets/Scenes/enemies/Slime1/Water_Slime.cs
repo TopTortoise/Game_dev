@@ -147,8 +147,10 @@ public class Water_Slime : IEnemy, IKillable
     }
     public void OnDeath()
     {
+
         Debug.Log("Enemy Died");
         Destroy(gameObject);
+        GetComponent<LootDropper>().DropLoot();
     }
 
 }
