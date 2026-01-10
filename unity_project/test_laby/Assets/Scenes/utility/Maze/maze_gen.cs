@@ -23,7 +23,7 @@ public class maze_gen : MonoBehaviour
       new Vector3Int(0, -2, 0)
     };
 int lastseed;
-ArrayList placed_tiles = new();
+List<Vector3Int> placed_tiles = new();
   void Start()
   {
     lastseed = seed;
@@ -91,7 +91,7 @@ ArrayList placed_tiles = new();
     Vector3Int curr_pos = start_pos;
     Vector3Int next_pos = (next_step * scale) + curr_pos;
     Debug.Log(next_pos);
-    ArrayList somelist = new();
+    List<Vector3Int> somelist = new();
     // LinkedList<Vector3Int> somelist = new();
     // somelist.AddFirst(next_pos);
     somelist.Add(next_pos);
@@ -138,9 +138,9 @@ ArrayList placed_tiles = new();
         {
           return possible_spawn_positions;
         }
-        int index = Random.Range(0, somelist.Count);
-        curr_pos = (Vector3Int)somelist[index];
-        somelist.RemoveAt(index);
+        // int index = Random.Range(0, somelist.Count);
+        curr_pos = somelist[0];
+        somelist.RemoveAt(0);
         next_step = get_next_step(curr_pos, scale);
       }
       somelist.Add((next_step * scale) + curr_pos);
