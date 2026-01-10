@@ -180,6 +180,19 @@ public class ghost : MonoBehaviour, IKillable
     {
         this.enabled =false; 
 
+        if (weapon != null)
+    {
+        IWeapon droppedWeapon = unequip(); 
+        
+        // Optional: Den Speer ein Stück wegwerfen oder leicht rotieren, damit es besser aussieht
+        Rigidbody2D weaponRb = droppedWeapon.GetComponent<Rigidbody2D>();
+        if (weaponRb != null)
+        {
+            weaponRb.bodyType = RigidbodyType2D.Dynamic; // Physik wieder aktivieren
+            weaponRb.AddForce(Random.insideUnitCircle * 2f, ForceMode2D.Impulse);
+        }
+    }
+
         if (rigidbody2d != null)
         {
             rigidbody2d.linearVelocity = Vector2.zero;
