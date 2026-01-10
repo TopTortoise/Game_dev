@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 85e123301af403fcd9d6d7ecab960604
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3132518885902560102
+    second: hero_walk_back_animation_0
+  - first:
+      213: 7827622287477256845
+    second: hero_walk_back_animation_1
+  - first:
+      213: 546787379854720660
+    second: hero_walk_back_animation_2
+  - first:
+      213: 430144821226976961
+    second: hero_walk_back_animation_3
+  - first:
+      213: -3931251345000797522
+    second: hero_walk_back_animation_4
+  - first:
+      213: -4112723308185704346
+    second: hero_walk_back_animation_5
+  - first:
+      213: 17003356747297974
+    second: hero_walk_back_animation_6
+  - first:
+      213: 7987515482751862888
+    second: hero_walk_back_animation_7
+  - first:
+      213: -2415424076417804983
+    second: hero_walk_back_animation_8
+  - first:
+      213: -1830353108113454862
+    second: hero_walk_back_animation_9
+  - first:
+      213: -5160551118064025375
+    second: hero_walk_back_animation_10
+  - first:
+      213: 2921515411752038346
+    second: hero_walk_back_animation_11
+  - first:
+      213: -434783142829059803
+    second: hero_walk_back_animation_12
+  - first:
+      213: 888310416163537280
+    second: hero_walk_back_animation_13
+  - first:
+      213: 5726568087887342870
+    second: hero_walk_back_animation_14
+  - first:
+      213: 2822269800455032955
+    second: hero_walk_back_animation_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hero_walk_back_animation_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 446
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66bac667451f87b20800000000000000
+      internalID: 3132518885902560102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 446
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8233097ffc41ac60800000000000000
+      internalID: 7827622287477256845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_2
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 446
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49e38e79934969700800000000000000
+      internalID: 546787379854720660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 446
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c635379f6e28f500800000000000000
+      internalID: 430144821226976961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 318
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa637afab36179c0800000000000000
+      internalID: -3931251345000797522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_5
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 318
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6682f1cf0fbace6c0800000000000000
+      internalID: -4112723308185704346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 318
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b479ee76786c3000800000000000000
+      internalID: 17003356747297974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_7
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 318
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8688b5b030b59de60800000000000000
+      internalID: 7987515482751862888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 190
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 945d0379990ba7ed0800000000000000
+      internalID: -2415424076417804983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_9
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 190
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f88d59bb874996e0800000000000000
+      internalID: -1830353108113454862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_10
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 190
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e08c82991a0268b0800000000000000
+      internalID: -5160551118064025375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_11
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 190
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf2f43c9ce4b8820800000000000000
+      internalID: 2921515411752038346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 62
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5219851090757f9f0800000000000000
+      internalID: -434783142829059803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_13
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 62
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08105b5fd99e35c00800000000000000
+      internalID: 888310416163537280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_14
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 62
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61dec94d55bd87f40800000000000000
+      internalID: 5726568087887342870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_back_animation_15
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 62
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b705f643e67ba2720800000000000000
+      internalID: 2822269800455032955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hero_walk_back_animation_0: 3132518885902560102
+      hero_walk_back_animation_1: 7827622287477256845
+      hero_walk_back_animation_10: -5160551118064025375
+      hero_walk_back_animation_11: 2921515411752038346
+      hero_walk_back_animation_12: -434783142829059803
+      hero_walk_back_animation_13: 888310416163537280
+      hero_walk_back_animation_14: 5726568087887342870
+      hero_walk_back_animation_15: 2822269800455032955
+      hero_walk_back_animation_2: 546787379854720660
+      hero_walk_back_animation_3: 430144821226976961
+      hero_walk_back_animation_4: -3931251345000797522
+      hero_walk_back_animation_5: -4112723308185704346
+      hero_walk_back_animation_6: 17003356747297974
+      hero_walk_back_animation_7: 7987515482751862888
+      hero_walk_back_animation_8: -2415424076417804983
+      hero_walk_back_animation_9: -1830353108113454862
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

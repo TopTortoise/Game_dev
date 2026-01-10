@@ -21,6 +21,7 @@ public class ghost : MonoBehaviour, IKillable
     Vector2 move;
     public Light2D spotlight;
     SpriteRenderer Sr;
+    private Animator anim;
 
     // torches
     public InputAction PlaceTorchAction;
@@ -48,7 +49,7 @@ public class ghost : MonoBehaviour, IKillable
         {
             spotlight = GetComponentInChildren<Light2D>();
         }
-
+        anim = GetComponent<Animator>();
 
     }
 
@@ -104,11 +105,23 @@ public class ghost : MonoBehaviour, IKillable
     {
         Gizmos.DrawWireSphere(transform.position, equip_radius);
     }
-    // Update is called once per fram    
+
+
+
+    // Update is called once per frame    
+
     private bool facingRight = true;
     void Update()
     {
         move = MoveAction.ReadValue<Vector2>();
+        if (move != Vector2.zero) {
+            anim.SetBool("isWalking", true);
+            anim.SetFloat("Xinput", move.x);
+            anim.SetFloat("Yinput", move.y);
+        } else {
+            anim.SetBool("isWalking", false);
+        }
+        
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(
     new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)

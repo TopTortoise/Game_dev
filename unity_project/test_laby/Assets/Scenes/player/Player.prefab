@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 476417731499333587}
   - component: {fileID: 2678024446627874721}
   - component: {fileID: 8315721148225328839}
+  - component: {fileID: 6542074295711888089}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -267,6 +268,7 @@ MonoBehaviour:
     m_Flags: 0
   weapon: {fileID: 0}
   spawn_pos: {x: 0, y: 0, z: 0}
+  weapon_img: {fileID: 0}
   speed: 10
   equip_radius: 1.5
   health: 5
@@ -384,12 +386,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6146700129834819302, guid: a0c1267b49f759a4eb099da48b9020ef, type: 3}
+  m_Sprite: {fileID: 6826365439366456925, guid: 3a15dc0e48fd62bf785be40a9fa3d9eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.14}
+  m_Size: {x: 0.32, y: 0.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -432,6 +434,28 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0043103397, y: -0.07593723}
   m_Size: {x: 0.20787182, y: 0.44654676}
   m_Direction: 0
+--- !u!95 &6542074295711888089
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413076326404206203}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 688c16219dfc203a690983205152d7af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9127659844506034374
 GameObject:
   m_ObjectHideFlags: 0

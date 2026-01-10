@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 3a15dc0e48fd62bf785be40a9fa3d9eb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6826365439366456925
+    second: hero_idle_animation_0
+  - first:
+      213: -3742720516787973767
+    second: hero_idle_animation_1
+  - first:
+      213: -3410404274372328732
+    second: hero_idle_animation_2
+  - first:
+      213: -1014941728076630465
+    second: hero_idle_animation_3
+  - first:
+      213: -6221127252733256709
+    second: hero_idle_animation_4
+  - first:
+      213: 2113725496960394566
+    second: hero_idle_animation_5
+  - first:
+      213: 864145889538223604
+    second: hero_idle_animation_6
+  - first:
+      213: -7086861549320844952
+    second: hero_idle_animation_7
+  - first:
+      213: -8438882491795706823
+    second: hero_idle_animation_8
+  - first:
+      213: 8806837108040548264
+    second: hero_idle_animation_9
+  - first:
+      213: -2910450317744266281
+    second: hero_idle_animation_10
+  - first:
+      213: 7948732012175258328
+    second: hero_idle_animation_11
+  - first:
+      213: 1449247513921330389
+    second: hero_idle_animation_12
+  - first:
+      213: 6463097634601920350
+    second: hero_idle_animation_13
+  - first:
+      213: -3276239641639618876
+    second: hero_idle_animation_14
+  - first:
+      213: -3881464323227563777
+    second: hero_idle_animation_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hero_idle_animation_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 446
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56e070133f1cbe50800000000000000
+      internalID: 6826365439366456925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 971594f058f2f0cc0800000000000000
+      internalID: -3742720516787973767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_2
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2409da16fcba0d0800000000000000
+      internalID: -3410404274372328732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f36754e20e33ae1f0800000000000000
+      internalID: -1014941728076630465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 318
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb155e79bd1aa9a0800000000000000
+      internalID: -6221127252733256709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_5
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 318
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 645a207f326755d10800000000000000
+      internalID: 2113725496960394566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_6
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 318
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd2a0cab101efb00800000000000000
+      internalID: 864145889538223604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_7
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 318
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8694b5cf7f866ad90800000000000000
+      internalID: -7086861549320844952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 190
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ce047b51113ea80800000000000000
+      internalID: -8438882491795706823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_9
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 190
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af3c7b60bb283a70800000000000000
+      internalID: 8806837108040548264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_10
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 190
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d32e623bd00c97d0800000000000000
+      internalID: -2910450317744266281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_11
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 190
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d27b70a6a19f4e60800000000000000
+      internalID: 7948732012175258328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_12
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 62
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dc16ea7fe2cc1410800000000000000
+      internalID: 1449247513921330389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_13
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 62
+        width: 31
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e576d134e0981b950800000000000000
+      internalID: 6463097634601920350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_14
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 62
+        width: 31
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c6740977657882d0800000000000000
+      internalID: -3276239641639618876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_idle_animation_15
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 62
+        width: 31
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff84bad43c4422ac0800000000000000
+      internalID: -3881464323227563777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hero_idle_animation_0: 6826365439366456925
+      hero_idle_animation_1: -3742720516787973767
+      hero_idle_animation_10: -2910450317744266281
+      hero_idle_animation_11: 7948732012175258328
+      hero_idle_animation_12: 1449247513921330389
+      hero_idle_animation_13: 6463097634601920350
+      hero_idle_animation_14: -3276239641639618876
+      hero_idle_animation_15: -3881464323227563777
+      hero_idle_animation_2: -3410404274372328732
+      hero_idle_animation_3: -1014941728076630465
+      hero_idle_animation_4: -6221127252733256709
+      hero_idle_animation_5: 2113725496960394566
+      hero_idle_animation_6: 864145889538223604
+      hero_idle_animation_7: -7086861549320844952
+      hero_idle_animation_8: -8438882491795706823
+      hero_idle_animation_9: 8806837108040548264
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

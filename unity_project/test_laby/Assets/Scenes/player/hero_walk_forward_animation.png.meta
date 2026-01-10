@@ -1,70 +1,55 @@
 fileFormatVersion: 2
-guid: 14371bac12117523889070595413a736
+guid: 03f7333d0bf633e9eaee10bbdcd6f68f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1956718742913923774
-    second: hero_idle_0
+      213: -3952568224812908821
+    second: hero_walk_forward_animation_0
   - first:
-      213: 818323235096636213
-    second: hero_idle_1
+      213: -6252527303264172615
+    second: hero_walk_forward_animation_1
   - first:
-      213: -8051438474713915688
-    second: hero_idle_2
+      213: 549271275657040502
+    second: hero_walk_forward_animation_2
   - first:
-      213: 5874678587028063953
-    second: hero_idle_3
+      213: 8293164231419342148
+    second: hero_walk_forward_animation_3
   - first:
-      213: -7706768006250868789
-    second: hero_idle_4
+      213: -7458248392393337754
+    second: hero_walk_forward_animation_4
   - first:
-      213: 5075449615898699944
-    second: hero_idle_5
+      213: -6683087497967653936
+    second: hero_walk_forward_animation_5
   - first:
-      213: 7050019240591463535
-    second: hero_idle_6
+      213: 1630920104017093251
+    second: hero_walk_forward_animation_6
   - first:
-      213: -8648287925185078308
-    second: hero_idle_7
+      213: 1938272428443271670
+    second: hero_walk_forward_animation_7
   - first:
-      213: -7143408991640105546
-    second: hero_idle_8
+      213: -518892727752274880
+    second: hero_walk_forward_animation_8
   - first:
-      213: 7350027275981715851
-    second: hero_idle_9
+      213: -6313850967323903734
+    second: hero_walk_forward_animation_9
   - first:
-      213: 3342357955609549794
-    second: hero_idle_10
+      213: 3876294667994420482
+    second: hero_walk_forward_animation_10
   - first:
-      213: -7333876965372973600
-    second: hero_idle_11
+      213: -2353772609509424616
+    second: hero_walk_forward_animation_11
   - first:
-      213: -9098917863613902441
-    second: hero_idle_12
+      213: -4288101140114145865
+    second: hero_walk_forward_animation_12
   - first:
-      213: 6889618539714173896
-    second: hero_idle_13
+      213: -2520720012561597587
+    second: hero_walk_forward_animation_13
   - first:
-      213: 4691059301066927802
-    second: hero_idle_14
+      213: -2780223124693505323
+    second: hero_walk_forward_animation_14
   - first:
-      213: -6443395384240169978
-    second: hero_idle_15
-  - first:
-      213: 6929155316210478770
-    second: hero_idle_16
-  - first:
-      213: -1727044101528241875
-    second: hero_idle_17
-  - first:
-      213: -5672427603252769718
-    second: hero_idle_18
-  - first:
-      213: -1657722525264594429
-    second: hero_idle_19
-  - first:
-      213: 3200867370931342959
-    second: hero_idle_20
+      213: -3956764924404194998
+    second: hero_walk_forward_animation_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -160,11 +145,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_idle_0
+      name: hero_walk_forward_animation_0
       rect:
         serializedVersion: 2
-        x: 113
-        y: 1917
+        x: 49
+        y: 446
         width: 31
         height: 62
       alignment: 0
@@ -175,18 +160,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebabbbc5459a72b10800000000000000
-      internalID: 1956718742913923774
+      spriteID: beeb7812428a529c0800000000000000
+      internalID: -3952568224812908821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_1
+      name: hero_walk_forward_animation_1
       rect:
         serializedVersion: 2
-        x: 369
-        y: 1917
+        x: 177
+        y: 446
         width: 31
         height: 62
       alignment: 0
@@ -197,18 +182,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53b226b85a44b5b00800000000000000
-      internalID: 818323235096636213
+      spriteID: 9b502848b8f8a39a0800000000000000
+      internalID: -6252527303264172615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_2
+      name: hero_walk_forward_animation_2
       rect:
         serializedVersion: 2
-        x: 625
-        y: 1917
+        x: 305
+        y: 446
         width: 31
         height: 62
       alignment: 0
@@ -219,18 +204,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8de93c79d5b834090800000000000000
-      internalID: -8051438474713915688
+      spriteID: 6721dd6a0576f9700800000000000000
+      internalID: 549271275657040502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_3
+      name: hero_walk_forward_animation_3
       rect:
         serializedVersion: 2
-        x: 881
-        y: 1917
+        x: 433
+        y: 446
         width: 31
         height: 62
       alignment: 0
@@ -241,18 +226,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d6c66dac0d078150800000000000000
-      internalID: 5874678587028063953
+      spriteID: 44da9bdedec371370800000000000000
+      internalID: 8293164231419342148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_4
+      name: hero_walk_forward_animation_4
       rect:
         serializedVersion: 2
-        x: 1137
-        y: 1917
+        x: 49
+        y: 318
         width: 31
         height: 62
       alignment: 0
@@ -263,18 +248,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bcf421d945f0c0590800000000000000
-      internalID: -7706768006250868789
+      spriteID: 66454c44a9afe7890800000000000000
+      internalID: -7458248392393337754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_5
+      name: hero_walk_forward_animation_5
       rect:
         serializedVersion: 2
-        x: 1393
-        y: 1917
+        x: 177
+        y: 318
         width: 31
         height: 62
       alignment: 0
@@ -285,62 +270,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a8e807e88e9f6640800000000000000
-      internalID: 5075449615898699944
+      spriteID: 0dba8c04457e043a0800000000000000
+      internalID: -6683087497967653936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_6
+      name: hero_walk_forward_animation_6
       rect:
         serializedVersion: 2
-        x: 1649
-        y: 1917
-        width: 31
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f649f1f8523b6d160800000000000000
-      internalID: 7050019240591463535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_7
-      rect:
-        serializedVersion: 2
-        x: 1905
-        y: 1917
-        width: 31
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cdb1b00e3fb1bf780800000000000000
-      internalID: -8648287925185078308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_8
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 1662
+        x: 305
+        y: 318
         width: 31
         height: 62
       alignment: 0
@@ -351,18 +292,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6bdc5f79e538ddc90800000000000000
-      internalID: -7143408991640105546
+      spriteID: 3826bf0913132a610800000000000000
+      internalID: 1630920104017093251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_9
+      name: hero_walk_forward_animation_7
       rect:
         serializedVersion: 2
-        x: 369
-        y: 1662
+        x: 433
+        y: 318
         width: 31
         height: 62
       alignment: 0
@@ -373,18 +314,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b89725a8dda800660800000000000000
-      internalID: 7350027275981715851
+      spriteID: 6f18b47118026ea10800000000000000
+      internalID: 1938272428443271670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_10
+      name: hero_walk_forward_animation_8
       rect:
         serializedVersion: 2
-        x: 625
-        y: 1662
+        x: 49
+        y: 190
         width: 31
         height: 62
       alignment: 0
@@ -395,18 +336,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ebde402ad0726e20800000000000000
-      internalID: 3342357955609549794
+      spriteID: 04ccac530d58cc8f0800000000000000
+      internalID: -518892727752274880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_11
+      name: hero_walk_forward_animation_9
       rect:
         serializedVersion: 2
-        x: 881
-        y: 1662
+        x: 177
+        y: 190
         width: 31
         height: 62
       alignment: 0
@@ -417,20 +358,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ed268ca1c5d83a90800000000000000
-      internalID: -7333876965372973600
+      spriteID: a09f6e75ff1b068a0800000000000000
+      internalID: -6313850967323903734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_12
+      name: hero_walk_forward_animation_10
       rect:
         serializedVersion: 2
-        x: 1137
-        y: 1661
+        x: 305
+        y: 190
         width: 31
-        height: 63
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,20 +380,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79156d249662ab180800000000000000
-      internalID: -9098917863613902441
+      spriteID: 2055c8a867d5bc530800000000000000
+      internalID: 3876294667994420482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_13
+      name: hero_walk_forward_animation_11
       rect:
         serializedVersion: 2
-        x: 1393
-        y: 1661
+        x: 433
+        y: 190
         width: 31
-        height: 63
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,20 +402,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cbdb912f87dc9f50800000000000000
-      internalID: 6889618539714173896
+      spriteID: 81285205848b55fd0800000000000000
+      internalID: -2353772609509424616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_14
+      name: hero_walk_forward_animation_12
       rect:
         serializedVersion: 2
-        x: 1649
-        y: 1661
+        x: 49
+        y: 62
         width: 31
-        height: 63
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,20 +424,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abee26c749df91140800000000000000
-      internalID: 4691059301066927802
+      spriteID: 7bd7c8e7bba9d74c0800000000000000
+      internalID: -4288101140114145865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_15
+      name: hero_walk_forward_animation_13
       rect:
         serializedVersion: 2
-        x: 1905
-        y: 1661
+        x: 177
+        y: 62
         width: 31
-        height: 63
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -505,20 +446,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 60c19fe59067496a0800000000000000
-      internalID: -6443395384240169978
+      spriteID: d6b3c01018a940dd0800000000000000
+      internalID: -2520720012561597587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_16
+      name: hero_walk_forward_animation_14
       rect:
         serializedVersion: 2
-        x: 113
-        y: 1405
+        x: 305
+        y: 62
         width: 31
-        height: 63
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,20 +468,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2be2c304c0e492060800000000000000
-      internalID: 6929155316210478770
+      spriteID: 5da21506cc9aa69d0800000000000000
+      internalID: -2780223124693505323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_idle_17
+      name: hero_walk_forward_animation_15
       rect:
         serializedVersion: 2
-        x: 369
-        y: 1405
+        x: 433
+        y: 62
         width: 31
-        height: 63
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,74 +490,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d29b9f83a8e4808e0800000000000000
-      internalID: -1727044101528241875
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_18
-      rect:
-        serializedVersion: 2
-        x: 625
-        y: 1405
-        width: 31
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4c8ffd062d7741b0800000000000000
-      internalID: -5672427603252769718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_19
-      rect:
-        serializedVersion: 2
-        x: 881
-        y: 1405
-        width: 31
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 30ab07175269ef8e0800000000000000
-      internalID: -1657722525264594429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_20
-      rect:
-        serializedVersion: 2
-        x: 1137
-        y: 1405
-        width: 31
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f6e40893ae3cb6c20800000000000000
-      internalID: 3200867370931342959
+      spriteID: a41a92dd34fb619c0800000000000000
+      internalID: -3956764924404194998
       vertices: []
       indices: 
       edges: []
@@ -635,27 +510,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hero_idle_0: 1956718742913923774
-      hero_idle_1: 818323235096636213
-      hero_idle_10: 3342357955609549794
-      hero_idle_11: -7333876965372973600
-      hero_idle_12: -9098917863613902441
-      hero_idle_13: 6889618539714173896
-      hero_idle_14: 4691059301066927802
-      hero_idle_15: -6443395384240169978
-      hero_idle_16: 6929155316210478770
-      hero_idle_17: -1727044101528241875
-      hero_idle_18: -5672427603252769718
-      hero_idle_19: -1657722525264594429
-      hero_idle_2: -8051438474713915688
-      hero_idle_20: 3200867370931342959
-      hero_idle_3: 5874678587028063953
-      hero_idle_4: -7706768006250868789
-      hero_idle_5: 5075449615898699944
-      hero_idle_6: 7050019240591463535
-      hero_idle_7: -8648287925185078308
-      hero_idle_8: -7143408991640105546
-      hero_idle_9: 7350027275981715851
+      hero_walk_forward_animation_0: -3952568224812908821
+      hero_walk_forward_animation_1: -6252527303264172615
+      hero_walk_forward_animation_10: 3876294667994420482
+      hero_walk_forward_animation_11: -2353772609509424616
+      hero_walk_forward_animation_12: -4288101140114145865
+      hero_walk_forward_animation_13: -2520720012561597587
+      hero_walk_forward_animation_14: -2780223124693505323
+      hero_walk_forward_animation_15: -3956764924404194998
+      hero_walk_forward_animation_2: 549271275657040502
+      hero_walk_forward_animation_3: 8293164231419342148
+      hero_walk_forward_animation_4: -7458248392393337754
+      hero_walk_forward_animation_5: -6683087497967653936
+      hero_walk_forward_animation_6: 1630920104017093251
+      hero_walk_forward_animation_7: 1938272428443271670
+      hero_walk_forward_animation_8: -518892727752274880
+      hero_walk_forward_animation_9: -6313850967323903734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

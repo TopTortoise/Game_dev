@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 142fbe859854d4add8a1c7bef62cb794
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7563597801906379157
+    second: hero_walk_right_animation_0
+  - first:
+      213: -3336638567887069875
+    second: hero_walk_right_animation_1
+  - first:
+      213: 7625280196292357744
+    second: hero_walk_right_animation_2
+  - first:
+      213: 1148308733297732881
+    second: hero_walk_right_animation_3
+  - first:
+      213: 1814701491149879081
+    second: hero_walk_right_animation_4
+  - first:
+      213: -5606979383378112396
+    second: hero_walk_right_animation_5
+  - first:
+      213: -9013232028930684981
+    second: hero_walk_right_animation_6
+  - first:
+      213: 6369716669289554882
+    second: hero_walk_right_animation_7
+  - first:
+      213: 6866909538901503051
+    second: hero_walk_right_animation_8
+  - first:
+      213: 6387966598773836456
+    second: hero_walk_right_animation_9
+  - first:
+      213: 3453352969401697890
+    second: hero_walk_right_animation_10
+  - first:
+      213: 84160494249314266
+    second: hero_walk_right_animation_11
+  - first:
+      213: -1764272279986436251
+    second: hero_walk_right_animation_12
+  - first:
+      213: 9189165357636937637
+    second: hero_walk_right_animation_13
+  - first:
+      213: -3585711590571551733
+    second: hero_walk_right_animation_14
+  - first:
+      213: 1125239830629353189
+    second: hero_walk_right_animation_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hero_walk_right_animation_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 446
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66e1717fd3b80790800000000000000
+      internalID: -7563597801906379157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 446
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d193996e0e1b1d0800000000000000
+      internalID: -3336638567887069875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_2
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 446
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ea3d420ff62d960800000000000000
+      internalID: 7625280196292357744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_3
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 446
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11da0bc75bc9fef00800000000000000
+      internalID: 1148308733297732881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_4
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 318
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9273c59346d1f2910800000000000000
+      internalID: 1814701491149879081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_5
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 318
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4701fc635f10032b0800000000000000
+      internalID: -5606979383378112396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_6
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 318
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc7c96d49319ae280800000000000000
+      internalID: -9013232028930684981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_7
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 318
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c363e00097c56850800000000000000
+      internalID: 6369716669289554882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_8
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 190
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c27fad7d92c4f50800000000000000
+      internalID: 6866909538901503051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_9
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 190
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aa89f4d6cd96a850800000000000000
+      internalID: 6387966598773836456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_10
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 190
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2668a31aa36ccef20800000000000000
+      internalID: 3453352969401697890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_11
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 190
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad70adb068ffa2100800000000000000
+      internalID: 84160494249314266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_12
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 62
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567075875bb0487e0800000000000000
+      internalID: -1764272279986436251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_13
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 62
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a7664cd439768f70800000000000000
+      internalID: 9189165357636937637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_14
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 62
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b045bf86e4efc3ec0800000000000000
+      internalID: -3585711590571551733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_right_animation_15
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 62
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e688c70aa7ad9f00800000000000000
+      internalID: 1125239830629353189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hero_walk_right_animation_0: -7563597801906379157
+      hero_walk_right_animation_1: -3336638567887069875
+      hero_walk_right_animation_10: 3453352969401697890
+      hero_walk_right_animation_11: 84160494249314266
+      hero_walk_right_animation_12: -1764272279986436251
+      hero_walk_right_animation_13: 9189165357636937637
+      hero_walk_right_animation_14: -3585711590571551733
+      hero_walk_right_animation_15: 1125239830629353189
+      hero_walk_right_animation_2: 7625280196292357744
+      hero_walk_right_animation_3: 1148308733297732881
+      hero_walk_right_animation_4: 1814701491149879081
+      hero_walk_right_animation_5: -5606979383378112396
+      hero_walk_right_animation_6: -9013232028930684981
+      hero_walk_right_animation_7: 6369716669289554882
+      hero_walk_right_animation_8: 6866909538901503051
+      hero_walk_right_animation_9: 6387966598773836456
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

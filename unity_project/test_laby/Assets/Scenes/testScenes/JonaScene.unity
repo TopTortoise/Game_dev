@@ -584,6 +584,10 @@ PrefabInstance:
       value: Equip
       objectReference: {fileID: 0}
     - target: {fileID: 2678024446627874721, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678024446627874721, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -902,10 +906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80de8f1d6a6fa31bba22a3c4a518262d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  prefabs:
-  - {fileID: 5244130341863356789, guid: f031b2dd94a8cb692b071e49cc794a50, type: 3}
-  - {fileID: 1647487340366201124, guid: 1800c30cc43a847ada9332ed38c7111b, type: 3}
-  - {fileID: 8616149328196893874, guid: 344b1498130a3f9aaad631d8d26b7ad1, type: 3}
+  enemy_prefabs: []
+  Boss_prefabs: []
   items:
   - {fileID: 8363201000436706177, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
   - {fileID: 3860798516691411884, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
@@ -2482,7 +2484,8 @@ MonoBehaviour:
   vase: {fileID: 8789290170092580440, guid: f6d58e736ff56891d894d1bb1cabc324, type: 3}
   start_pos: {x: 16, y: 16, z: 0}
   vase_spawnrate: 0.8
-  spawntime: 0
+  waves: []
+  current_wave_index: 0
 --- !u!1 &1373508254
 GameObject:
   m_ObjectHideFlags: 0
