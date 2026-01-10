@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 1315279f57cc8e2d4b9ff20bf80a27ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8496569970787458414
+    second: hero_walk_forward_0
+  - first:
+      213: 5282198480125233465
+    second: hero_walk_forward_1
+  - first:
+      213: 2511422468603038009
+    second: hero_walk_forward_2
+  - first:
+      213: -4693395472405642680
+    second: hero_walk_forward_3
+  - first:
+      213: 6798818742357220228
+    second: hero_walk_forward_4
+  - first:
+      213: 8649077749584263493
+    second: hero_walk_forward_5
+  - first:
+      213: -8727532208710204832
+    second: hero_walk_forward_6
+  - first:
+      213: -5077704365904882221
+    second: hero_walk_forward_7
+  - first:
+      213: 7464644432832375007
+    second: hero_walk_forward_8
+  - first:
+      213: -7252888383582568062
+    second: hero_walk_forward_9
+  - first:
+      213: -4747638961754845919
+    second: hero_walk_forward_10
+  - first:
+      213: -5631238548332749974
+    second: hero_walk_forward_11
+  - first:
+      213: -2067028630159920085
+    second: hero_walk_forward_12
+  - first:
+      213: 7001380635991080013
+    second: hero_walk_forward_13
+  - first:
+      213: -3923829675481844623
+    second: hero_walk_forward_14
+  - first:
+      213: 8909525959653575544
+    second: hero_walk_forward_15
+  - first:
+      213: 2352358818419004792
+    second: hero_walk_forward_16
+  - first:
+      213: -7839500039528697768
+    second: hero_walk_forward_17
+  - first:
+      213: -8135064454763992484
+    second: hero_walk_forward_18
+  - first:
+      213: 1976009901455452962
+    second: hero_walk_forward_19
+  - first:
+      213: 1170811080674211939
+    second: hero_walk_forward_20
+  - first:
+      213: -6645117198876063179
+    second: hero_walk_forward_21
+  - first:
+      213: -671915226061569592
+    second: hero_walk_forward_22
+  - first:
+      213: -12905512976313026
+    second: hero_walk_forward_23
+  - first:
+      213: -2892451957557117277
+    second: hero_walk_forward_24
+  - first:
+      213: 1778362195421449089
+    second: hero_walk_forward_25
+  - first:
+      213: 2436121502826388680
+    second: hero_walk_forward_26
+  - first:
+      213: -1469661425846592668
+    second: hero_walk_forward_27
+  - first:
+      213: 2902347844036336652
+    second: hero_walk_forward_28
+  - first:
+      213: 7681107878432592564
+    second: hero_walk_forward_29
+  - first:
+      213: -4049624880277157099
+    second: hero_walk_forward_30
+  - first:
+      213: 9218017752141235178
+    second: hero_walk_forward_31
+  - first:
+      213: -8375943221791011528
+    second: hero_walk_forward_32
+  - first:
+      213: -4481489567310937997
+    second: hero_walk_forward_33
+  - first:
+      213: -5091537306266764399
+    second: hero_walk_forward_34
+  - first:
+      213: 4976216232566844330
+    second: hero_walk_forward_35
+  - first:
+      213: 7996644194464102438
+    second: hero_walk_forward_36
+  - first:
+      213: -1166786144363405223
+    second: hero_walk_forward_37
+  - first:
+      213: -6614390681193236678
+    second: hero_walk_forward_38
+  - first:
+      213: 3004879509546703062
+    second: hero_walk_forward_39
+  - first:
+      213: -5748614692754060918
+    second: hero_walk_forward_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hero_walk_forward_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d99062f51e9e570800000000000000
+      internalID: 8496569970787458414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93909f808832e4940800000000000000
+      internalID: 5282198480125233465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_2
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 939c40add6d5ad220800000000000000
+      internalID: 2511422468603038009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842c5dc3fa5bddeb0800000000000000
+      internalID: -4693395472405642680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_4
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b587edf914a5e50800000000000000
+      internalID: 6798818742357220228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_5
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54974b27362b70870800000000000000
+      internalID: 8649077749584263493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_6
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0624c0652b391e680800000000000000
+      internalID: -8727532208710204832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_7
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 957
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d51ac338ce5889b0800000000000000
+      internalID: -5077704365904882221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 829
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd82291ff8eb79760800000000000000
+      internalID: 7464644432832375007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_9
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 829
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281010d4170985b90800000000000000
+      internalID: -7252888383582568062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_10
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 830
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d4cc2b48ffc1eb0800000000000000
+      internalID: -4747638961754845919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_11
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 830
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6bd3293062d9d1b0800000000000000
+      internalID: -5631238548332749974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_12
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 830
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2471c699607053e0800000000000000
+      internalID: -2067028630159920085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_13
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 830
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4cfb81f796e92160800000000000000
+      internalID: 7001380635991080013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_14
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 830
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174b4c113b1cb89c0800000000000000
+      internalID: -3923829675481844623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_15
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 830
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87bc546d7aef4ab70800000000000000
+      internalID: 8909525959653575544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_16
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8755f1cc1e145a020800000000000000
+      internalID: 2352358818419004792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_17
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8503b3fdf30843390800000000000000
+      internalID: -7839500039528697768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_18
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5aa2e4daf17a1f80800000000000000
+      internalID: -8135064454763992484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_19
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b28e839823c6b10800000000000000
+      internalID: 1976009901455452962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_20
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3687da2897e8f3010800000000000000
+      internalID: 1170811080674211939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_21
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a472e6d1dc7c3a0800000000000000
+      internalID: -6645117198876063179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_22
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c18c6f69a0eca6f0800000000000000
+      internalID: -671915226061569592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_23
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 702
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35176b118622dff0800000000000000
+      internalID: -12905512976313026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_24
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aebcebf442fbd7d0800000000000000
+      internalID: -2892451957557117277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_25
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b441c9ef20ea810800000000000000
+      internalID: 1778362195421449089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_26
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc58a58997dec120800000000000000
+      internalID: 2436121502826388680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_27
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bd15448b6ba9be0800000000000000
+      internalID: -1469661425846592668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_28
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c1862acf5374820800000000000000
+      internalID: 2902347844036336652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_29
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b2dd6f4be6c89a60800000000000000
+      internalID: 7681107878432592564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_30
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51b0f7190a7dcc7c0800000000000000
+      internalID: -4049624880277157099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_31
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 574
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae38f917e4afcef70800000000000000
+      internalID: 9218017752141235178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_32
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d4e46740ca2cb80800000000000000
+      internalID: -8375943221791011528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_33
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37000d38bfc8ec1c0800000000000000
+      internalID: -4481489567310937997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_34
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19bf15bcbc93759b0800000000000000
+      internalID: -5091537306266764399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_35
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aabeda36c421f0540800000000000000
+      internalID: 4976216232566844330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_36
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 628f83ed689c9fe60800000000000000
+      internalID: 7996644194464102438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_37
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9502f500f2ebecfe0800000000000000
+      internalID: -1166786144363405223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_38
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37b2d158b6f434a0800000000000000
+      internalID: -6614390681193236678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_39
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 446
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d8916f4ef973b920800000000000000
+      internalID: 3004879509546703062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_walk_forward_40
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 318
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a898dc7f461d830b0800000000000000
+      internalID: -5748614692754060918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hero_walk_forward_0: 8496569970787458414
+      hero_walk_forward_1: 5282198480125233465
+      hero_walk_forward_10: -4747638961754845919
+      hero_walk_forward_11: -5631238548332749974
+      hero_walk_forward_12: -2067028630159920085
+      hero_walk_forward_13: 7001380635991080013
+      hero_walk_forward_14: -3923829675481844623
+      hero_walk_forward_15: 8909525959653575544
+      hero_walk_forward_16: 2352358818419004792
+      hero_walk_forward_17: -7839500039528697768
+      hero_walk_forward_18: -8135064454763992484
+      hero_walk_forward_19: 1976009901455452962
+      hero_walk_forward_2: 2511422468603038009
+      hero_walk_forward_20: 1170811080674211939
+      hero_walk_forward_21: -6645117198876063179
+      hero_walk_forward_22: -671915226061569592
+      hero_walk_forward_23: -12905512976313026
+      hero_walk_forward_24: -2892451957557117277
+      hero_walk_forward_25: 1778362195421449089
+      hero_walk_forward_26: 2436121502826388680
+      hero_walk_forward_27: -1469661425846592668
+      hero_walk_forward_28: 2902347844036336652
+      hero_walk_forward_29: 7681107878432592564
+      hero_walk_forward_3: -4693395472405642680
+      hero_walk_forward_30: -4049624880277157099
+      hero_walk_forward_31: 9218017752141235178
+      hero_walk_forward_32: -8375943221791011528
+      hero_walk_forward_33: -4481489567310937997
+      hero_walk_forward_34: -5091537306266764399
+      hero_walk_forward_35: 4976216232566844330
+      hero_walk_forward_36: 7996644194464102438
+      hero_walk_forward_37: -1166786144363405223
+      hero_walk_forward_38: -6614390681193236678
+      hero_walk_forward_39: 3004879509546703062
+      hero_walk_forward_4: 6798818742357220228
+      hero_walk_forward_40: -5748614692754060918
+      hero_walk_forward_5: 8649077749584263493
+      hero_walk_forward_6: -8727532208710204832
+      hero_walk_forward_7: -5077704365904882221
+      hero_walk_forward_8: 7464644432832375007
+      hero_walk_forward_9: -7252888383582568062
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

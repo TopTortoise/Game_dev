@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: b7d5bd501fe5075ada1bb8f96b0a9a24
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5782473078641582336
+    second: her_walk_left_right_0
+  - first:
+      213: -6387606304336404416
+    second: her_walk_left_right_1
+  - first:
+      213: -4559492428434621718
+    second: her_walk_left_right_2
+  - first:
+      213: 6964433492782284537
+    second: her_walk_left_right_3
+  - first:
+      213: 5716729001554814342
+    second: her_walk_left_right_4
+  - first:
+      213: -2480424909256768529
+    second: her_walk_left_right_5
+  - first:
+      213: -3449955624845057267
+    second: her_walk_left_right_6
+  - first:
+      213: 5108608174295104578
+    second: her_walk_left_right_7
+  - first:
+      213: -406133625727072983
+    second: her_walk_left_right_8
+  - first:
+      213: -1815175562076236663
+    second: her_walk_left_right_9
+  - first:
+      213: 439386531837312610
+    second: her_walk_left_right_10
+  - first:
+      213: -1407849926711498062
+    second: her_walk_left_right_11
+  - first:
+      213: 7660568892258107008
+    second: her_walk_left_right_12
+  - first:
+      213: -8462503388541700758
+    second: her_walk_left_right_13
+  - first:
+      213: 7183370865857568320
+    second: her_walk_left_right_14
+  - first:
+      213: 2570242780073768930
+    second: her_walk_left_right_15
+  - first:
+      213: -2414405469120622618
+    second: her_walk_left_right_16
+  - first:
+      213: 8328757355925486748
+    second: her_walk_left_right_17
+  - first:
+      213: -1339327814970426114
+    second: her_walk_left_right_18
+  - first:
+      213: -5414951437634437786
+    second: her_walk_left_right_19
+  - first:
+      213: 9034379785329912117
+    second: her_walk_left_right_20
+  - first:
+      213: 4522045327554418236
+    second: her_walk_left_right_21
+  - first:
+      213: 2301578852994305462
+    second: her_walk_left_right_22
+  - first:
+      213: 5256342430778440858
+    second: her_walk_left_right_23
+  - first:
+      213: 3677442416733635308
+    second: her_walk_left_right_24
+  - first:
+      213: -1902318797648977652
+    second: her_walk_left_right_25
+  - first:
+      213: 8901127464333429645
+    second: her_walk_left_right_26
+  - first:
+      213: 6523160584251461788
+    second: her_walk_left_right_27
+  - first:
+      213: -6901115890870860535
+    second: her_walk_left_right_28
+  - first:
+      213: 8916283099242622809
+    second: her_walk_left_right_29
+  - first:
+      213: 8329302777888181086
+    second: her_walk_left_right_30
+  - first:
+      213: -2782693171216737854
+    second: her_walk_left_right_31
+  - first:
+      213: 2760275621680670908
+    second: her_walk_left_right_32
+  - first:
+      213: -5137700312072646480
+    second: her_walk_left_right_33
+  - first:
+      213: -5441703490959785950
+    second: her_walk_left_right_34
+  - first:
+      213: 6883458071328505086
+    second: her_walk_left_right_35
+  - first:
+      213: -4581682248118259040
+    second: her_walk_left_right_36
+  - first:
+      213: 454442682348082024
+    second: her_walk_left_right_37
+  - first:
+      213: 4982984562676400655
+    second: her_walk_left_right_38
+  - first:
+      213: 7387706547624473995
+    second: her_walk_left_right_39
+  - first:
+      213: -3931730235336132378
+    second: her_walk_left_right_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: her_walk_left_right_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001e0bfc0a87f3050800000000000000
+      internalID: 5782473078641582336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040abf0c8e9aa57a0800000000000000
+      internalID: -6387606304336404416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_2
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea32172bcd69b0c0800000000000000
+      internalID: -4559492428434621718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_3
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fefe1fcc53a6a060800000000000000
+      internalID: 6964433492782284537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_4
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68529d60db6e55f40800000000000000
+      internalID: 5716729001554814342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_5
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe348b7dfa2c39dd0800000000000000
+      internalID: -2480424909256768529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_6
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03ef3a43ab4f10d0800000000000000
+      internalID: -3449955624845057267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_7
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 957
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c3485611c65e640800000000000000
+      internalID: 5108608174295104578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_8
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92542338e9f1d5af0800000000000000
+      internalID: -406133625727072983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_9
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984d97981733fc6e0800000000000000
+      internalID: -1815175562076236663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_10
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ef04509b3091600800000000000000
+      internalID: 439386531837312610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_11
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba2d4563ff467ce0800000000000000
+      internalID: -1407849926711498062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_12
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08eb370f1decf4a60800000000000000
+      internalID: 7660568892258107008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_13
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65be6f11062f8a80800000000000000
+      internalID: -8462503388541700758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_14
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e945d4eb570b360800000000000000
+      internalID: 7183370865857568320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_15
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 829
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e73fc4d0365ba320800000000000000
+      internalID: 2570242780073768930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_16
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef0e45940f4e7ed0800000000000000
+      internalID: -2414405469120622618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_17
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9c3c5400b0b59370800000000000000
+      internalID: 8328757355925486748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_18
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc33e6c270c96de0800000000000000
+      internalID: -1339327814970426114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_19
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66dfecb6b5a3ad4b0800000000000000
+      internalID: -5414951437634437786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_20
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5392f8e6c80906d70800000000000000
+      internalID: 9034379785329912117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_21
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36981f344881ce30800000000000000
+      internalID: 4522045327554418236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_22
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bdc643c5c9d0ff10800000000000000
+      internalID: 2301578852994305462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_23
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 701
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9cbc5c679742f840800000000000000
+      internalID: 5256342430778440858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_24
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce2cc53e466e80330800000000000000
+      internalID: 3677442416733635308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_25
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01a598e12b9995e0800000000000000
+      internalID: -1902318797648977652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_26
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8b4114c448278b70800000000000000
+      internalID: 8901127464333429645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_27
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c90532d7dfbe68a50800000000000000
+      internalID: 6523160584251461788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_28
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 905c6d239af4a30a0800000000000000
+      internalID: -6901115890870860535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_29
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fec2ffc300dbb70800000000000000
+      internalID: 8916283099242622809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_30
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b03b6feb0a79370800000000000000
+      internalID: 8329302777888181086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_31
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 573
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c998badd43e169d0800000000000000
+      internalID: -2782693171216737854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_32
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb86278ad087e4620800000000000000
+      internalID: 2760275621680670908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_33
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b01f7079c833b8b0800000000000000
+      internalID: -5137700312072646480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_34
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220c650a18f2b74b0800000000000000
+      internalID: -5441703490959785950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_35
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efcb4df45a4f68f50800000000000000
+      internalID: 6883458071328505086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_36
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a2b23725489a60c0800000000000000
+      internalID: -4581682248118259040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_37
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863122c36318e4600800000000000000
+      internalID: 454442682348082024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_38
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02059b0f0e172540800000000000000
+      internalID: 4982984562676400655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_39
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 445
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85fbfb96f7668660800000000000000
+      internalID: 7387706547624473995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: her_walk_left_right_40
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 317
+        width: 24
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e87022ae20bf69c0800000000000000
+      internalID: -3931730235336132378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      her_walk_left_right_0: 5782473078641582336
+      her_walk_left_right_1: -6387606304336404416
+      her_walk_left_right_10: 439386531837312610
+      her_walk_left_right_11: -1407849926711498062
+      her_walk_left_right_12: 7660568892258107008
+      her_walk_left_right_13: -8462503388541700758
+      her_walk_left_right_14: 7183370865857568320
+      her_walk_left_right_15: 2570242780073768930
+      her_walk_left_right_16: -2414405469120622618
+      her_walk_left_right_17: 8328757355925486748
+      her_walk_left_right_18: -1339327814970426114
+      her_walk_left_right_19: -5414951437634437786
+      her_walk_left_right_2: -4559492428434621718
+      her_walk_left_right_20: 9034379785329912117
+      her_walk_left_right_21: 4522045327554418236
+      her_walk_left_right_22: 2301578852994305462
+      her_walk_left_right_23: 5256342430778440858
+      her_walk_left_right_24: 3677442416733635308
+      her_walk_left_right_25: -1902318797648977652
+      her_walk_left_right_26: 8901127464333429645
+      her_walk_left_right_27: 6523160584251461788
+      her_walk_left_right_28: -6901115890870860535
+      her_walk_left_right_29: 8916283099242622809
+      her_walk_left_right_3: 6964433492782284537
+      her_walk_left_right_30: 8329302777888181086
+      her_walk_left_right_31: -2782693171216737854
+      her_walk_left_right_32: 2760275621680670908
+      her_walk_left_right_33: -5137700312072646480
+      her_walk_left_right_34: -5441703490959785950
+      her_walk_left_right_35: 6883458071328505086
+      her_walk_left_right_36: -4581682248118259040
+      her_walk_left_right_37: 454442682348082024
+      her_walk_left_right_38: 4982984562676400655
+      her_walk_left_right_39: 7387706547624473995
+      her_walk_left_right_4: 5716729001554814342
+      her_walk_left_right_40: -3931730235336132378
+      her_walk_left_right_5: -2480424909256768529
+      her_walk_left_right_6: -3449955624845057267
+      her_walk_left_right_7: 5108608174295104578
+      her_walk_left_right_8: -406133625727072983
+      her_walk_left_right_9: -1815175562076236663
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
