@@ -18,8 +18,8 @@ public class Water_Slime : IEnemy, IKillable
     void Awake()
     {
         speed = 2.5f;
-        health = 15f;
-        max_health = 15f;
+        health = 3f;
+        max_health = 3f;
         damage = 1f;
         anim = GetComponentInChildren<Animator>();
         hp = GetComponentInChildren<Health>();
