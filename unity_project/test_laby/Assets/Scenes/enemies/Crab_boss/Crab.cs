@@ -7,6 +7,11 @@ public class Crab : IEnemy, IKillable
   public Rigidbody2D rb;
   public GameObject player;
 
+  private Renderer rend;
+  private Color originalColor;
+
+  public float flashTime = 0.3f;
+
   private void Awake()
   {
 
@@ -20,6 +25,16 @@ public class Crab : IEnemy, IKillable
     hp.set_max_hp(max_health);
     hp.set_hp(health);
     player = GameObject.FindWithTag("Player");
+    rend = GetComponentInChildren<SpriteRenderer>();
+    if(rend != null)
+    {
+      originalColor = rend.material.color;
+    }
+    else
+    {
+      Debug.LogError("No spriteRenderer found on Crab");
+    }
+
     Debug.Log("Player is " + player);
   }
 
@@ -38,7 +53,7 @@ public class Crab : IEnemy, IKillable
   }
 
   public float dashSpeed = 20f;
-  public float minDist = 2.1f;
+  public float minDist = 40f;
   IEnumerator Attack()
   {
     isdashing = true;
@@ -50,10 +65,14 @@ public class Crab : IEnemy, IKillable
     yield return new WaitForSeconds(0.25f);
     is_collided = false;
     Debug.Log("direction is "+ direction);
+    
+    float maxDashDistance = 15f; 
+    Vector2 targetPoint = rb.position + (direction*maxDashDistance);
+
     rb.linearVelocity = direction * dashSpeed;
 
     
-    yield return new WaitUntil(() => Vector2.Distance(rb.position, playerPos+direction*2) <= minDist || is_collided);
+    yield return new WaitUntil(() => Vector2.Distance(rb.position, targetPoint) <= 0.5f || is_collided);
 
     Debug.Log("Lets dash ended");
     rb.linearVelocity = Vector2.zero;
@@ -71,17 +90,23 @@ public class Crab : IEnemy, IKillable
     {
       CameraShake.Instance.Shake(0.3f,0.1f);
     }
-    
+
     }
 
 
   public void hit(float damage)
   {
    
-
+    if (rend) StartCoroutine(DoFlash());
     hp.change_health(damage);
 
   }
+  private IEnumerator DoFlash()
+    {
+        rend.material.color = Color.red;
+        yield return new WaitForSeconds(flashTime);
+        rend.material.color = originalColor; 
+    }
 
 
   public void OnDeath()

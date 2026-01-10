@@ -165,7 +165,33 @@ public class ghost : MonoBehaviour, IKillable
 
     public void OnDeath()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        this.enabled =false; 
+
+        if (rigidbody2d != null)
+        {
+            rigidbody2d.linearVelocity = Vector2.zero;
+            rigidbody2d.bodyType = RigidbodyType2D.Kinematic; // Optional: Verhindert, dass Gegner dich schieben
+        }
+        MoveAction.Disable();
+        EquipAction.Disable();
+        PlaceTorchAction.Disable();
+        Ret.Disable();
+
+
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.SetTrigger("die");
+        }
+        GameOverManager goManager = FindObjectOfType<GameOverManager>();
+        if (goManager != null)
+        {
+            goManager.StartGameOver();
+        }
+        else
+        {
+            Debug.LogWarning("GameOverManager nicht in der Szene gefunden!");
+        }
     }
     public void ChangeSpotlight(float t)
     {

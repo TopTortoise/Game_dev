@@ -13,7 +13,7 @@ public class Water_Slime : IEnemy, IKillable
 
     private Renderer rend;
     private Color originalColor;
-    public float flashTime = 1F;
+    public float flashTime = 0.3F;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -33,7 +33,7 @@ public class Water_Slime : IEnemy, IKillable
             originalColor = rend.material.color;
         }else 
         {
-            Debug.LogError("Kein SpriteRenderer am Slime gefunden!");
+            Debug.LogError("No SpriteRenderer found on Slime!");
         }
         //caculate random postion 
         //
