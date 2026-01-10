@@ -58,9 +58,8 @@ public class maze_gen : MonoBehaviour
         }
       }
     }
-    enemy_Manager.SetPositions(null);
+    enemy_Manager.SetPositions(walk());
     enemy_Manager.setup();
-    StartCoroutine(Wilson());
 
   }
 
@@ -146,7 +145,7 @@ public class maze_gen : MonoBehaviour
     }
   }
 
-  float stepDelay = 0.01f;
+  float stepDelay = 0.0001f;
   IEnumerator Wilson()
   {
 
@@ -163,7 +162,7 @@ public class maze_gen : MonoBehaviour
       next_step = next_step + get_next_step(next_step, 1);
       path.Add(next_step);
       Debug.Log("adding pos to thingy " + next_step);
-      yield return new WaitForSeconds(stepDelay); // let Unity update frame
+      // yield return new WaitForSeconds(stepDelay); // let Unity update frame
     }
     place_path(path);
     foreach (Vector3Int pos in IterateGrid(next_step.x + 3, 0))
@@ -180,7 +179,7 @@ public class maze_gen : MonoBehaviour
       {
         next_step = next_step + get_next_step(next_step, 1);
         path.Add(next_step);
-      Debug.Log("adding pos to thingy " + next_step);
+        Debug.Log("adding pos to thingy " + next_step);
         yield return new WaitForSeconds(stepDelay); // let Unity update frame
       }
       Debug.Log("path size is " + path.size);
@@ -194,12 +193,22 @@ public class maze_gen : MonoBehaviour
 
   void place_path(WilsonList list)
   {
-    WilsonList.Node curr = list.Head;
+    Tile tile = tiles[0];
+    WilsonList.Node curr = list.Head.Next;
+    Vector3Int prev = list.Head.Value;
     while (curr != null)
     {
+      Vector3Int curr_pos = curr.Value;
+      // tilemap.SetTile(curr.Value, tiles[0]);
+      tilemap.SetTile(curr_pos, tile);
 
-      tilemap.SetTile(curr.Value, tiles[0]);
-
+      Vector3Int side_1 = (curr.Value-prev).x  == 0 ? Vector3Int.left : Vector3Int.up;
+      Vector3Int side_2 = (curr.Value-prev).x == 0 ? Vector3Int.right : Vector3Int.down;
+      tilemap.SetTile(curr_pos + side_1 + side_1, tile);
+      tilemap.SetTile(curr_pos + side_1, tile);
+      tilemap.SetTile(curr_pos + side_2, tile);
+      tilemap.SetTile(curr_pos + side_2 + side_2, tile);
+      prev = curr.Value;
       curr = curr.Next;
     }
   }
@@ -223,13 +232,13 @@ public class maze_gen : MonoBehaviour
     Vector3Int step = steps[index];
     Vector3Int next_pos = (step * step_size) + curr_pos;
 
-    if (/*tilemap.GetTile(next_pos) != tiles[1] ||*/ !IsInsideBox(next_pos))
+    if (tilemap.GetTile(next_pos) != tiles[1] || !IsInsideBox(next_pos))
     {
       for (int i = 1; i <= 3; i++)
       {
         step = steps[(i + index) % 4];
         next_pos = (step * step_size) + curr_pos;
-        if (/*tilemap.GetTile(next_pos) == tiles[1] &&*/ IsInsideBox(next_pos))
+        if (tilemap.GetTile(next_pos) == tiles[1] && IsInsideBox(next_pos))
         {
           break;
         }
