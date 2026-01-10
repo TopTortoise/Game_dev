@@ -274,6 +274,34 @@ MonoBehaviour:
   health: 5
   max_health: 5
   spotlight: {fileID: 7516606612565844113}
+  DashAction:
+    m_Name: Dash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5cce2b7b-092f-4a4a-b9ed-9a942e674300
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1e901236-9d1f-40dd-ab6b-71d8885ec208
+      m_Path: <Mouse>/middleButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 8449f647-c5f9-4851-b702-e63e33b2ba0c
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash
+      m_Flags: 0
+    m_Flags: 0
+  dashMultiplier: 4
+  dashDuration: 0.2
+  dashCooldown: 0.4
   PlaceTorchAction:
     m_Name: Place Torch
     m_Type: 0

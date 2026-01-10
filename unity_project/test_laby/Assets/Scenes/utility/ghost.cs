@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using System.Collections;
+
 public class ghost : MonoBehaviour, IKillable
 {
 
@@ -22,6 +24,16 @@ public class ghost : MonoBehaviour, IKillable
     public Light2D spotlight;
     SpriteRenderer Sr;
     private Animator anim;
+
+    // Dash
+    public InputAction DashAction;
+    public float dashMultiplier = 2.5f;
+    public float dashDuration = 0.15f;
+    public float dashCooldown = 0.1f;
+    private bool dashOnCooldown = false;
+    private bool isDashing = false;
+    private Vector2 dashDirection;
+
 
     // torches
     public InputAction PlaceTorchAction;
@@ -50,6 +62,7 @@ public class ghost : MonoBehaviour, IKillable
             spotlight = GetComponentInChildren<Light2D>();
         }
         anim = GetComponent<Animator>();
+        DashAction.Enable();
 
     }
 
@@ -122,6 +135,16 @@ public class ghost : MonoBehaviour, IKillable
             anim.SetBool("isWalking", false);
         }
         
+        if (DashAction.WasPressedThisFrame()
+        && !isDashing
+        && !dashOnCooldown
+        && move != Vector2.zero)
+        {
+            anim.SetBool("isWalking", false);
+            StartCoroutine(Dash());
+        }
+
+
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(
     new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
@@ -148,8 +171,40 @@ public class ghost : MonoBehaviour, IKillable
         scale.x *= -1;
         transform.localScale = scale;
     }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        dashOnCooldown = true;
+        anim.SetBool("isDashing", true);
+        dashDirection = move.normalized;
+
+        float timer = 0f;
+
+        while (timer < dashDuration)
+        {
+            Vector2 dashPos =
+                rigidbody2d.position +
+                dashDirection * speed * dashMultiplier * Time.deltaTime;
+
+            rigidbody2d.MovePosition(dashPos);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        isDashing = false;
+        anim.SetBool("isDashing", false);
+
+        // cooldown
+        yield return new WaitForSeconds(dashCooldown);
+        dashOnCooldown = false;
+    }
+
+
     void FixedUpdate()
     {
+        if (isDashing) return;
 
         Vector2 position = (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
 
@@ -180,19 +235,6 @@ public class ghost : MonoBehaviour, IKillable
     {
         this.enabled =false; 
 
-        if (weapon != null)
-    {
-        IWeapon droppedWeapon = unequip(); 
-        
-        // Optional: Den Speer ein Stück wegwerfen oder leicht rotieren, damit es besser aussieht
-        Rigidbody2D weaponRb = droppedWeapon.GetComponent<Rigidbody2D>();
-        if (weaponRb != null)
-        {
-            weaponRb.bodyType = RigidbodyType2D.Dynamic; // Physik wieder aktivieren
-            weaponRb.AddForce(Random.insideUnitCircle * 2f, ForceMode2D.Impulse);
-        }
-    }
-
         if (rigidbody2d != null)
         {
             rigidbody2d.linearVelocity = Vector2.zero;
@@ -202,6 +244,7 @@ public class ghost : MonoBehaviour, IKillable
         EquipAction.Disable();
         PlaceTorchAction.Disable();
         Ret.Disable();
+        DashAction.Disable();
 
 
         Animator anim = GetComponent<Animator>();
