@@ -22,9 +22,11 @@ public class maze_gen : MonoBehaviour
       new Vector3Int(0,  2, 0),
       new Vector3Int(0, -2, 0)
     };
-
+int lastseed;
+ArrayList placed_tiles = new();
   void Start()
   {
+    lastseed = seed;
     enemy_Manager = GetComponentInParent<Enemy_Manager>();
     Random.InitState(seed);
     Debug.Log("seed: " + seed + "\nwidth:" + width + "\nheight: " + height + "\nscale: " + scale);
@@ -37,11 +39,12 @@ public class maze_gen : MonoBehaviour
       {
         if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null)
         {
-
+          placed_tiles.Add(new Vector3Int(x,y,0));
           tilemap.SetTile(new Vector3Int(x, y, 0), tiles[1]);
         }
       }
     }
+
     for (int x = start_pos.x - 10; x < start_pos.x; x++)
     {
       for (int y = start_pos.y - 10; y < start_pos.y; y++)
@@ -62,6 +65,22 @@ public class maze_gen : MonoBehaviour
     enemy_Manager.setup();
 
   }
+
+    private void Update()
+    {
+        if (seed != lastseed)
+        {
+            Debug.Log("Maze value changed! Regenerating...");
+            lastseed = seed;
+            enemy_Manager.free_everyhtig();
+            foreach(Vector3Int pos in placed_tiles){
+              tilemap.SetTile(pos,null);
+            }
+
+            Start();
+        }
+    }
+
 
   ArrayList walk()
   {

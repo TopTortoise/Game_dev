@@ -57,12 +57,17 @@ public class Enemy_Manager : MonoBehaviour
       enemy_prefabs[0], enemy_prefabs[1], enemy_prefabs[2] };
     waves.Add(new WaveData(0.5f, wave1));
   }
-
+  ArrayList go = new();
+  public void free_everyhtig(){
+    foreach(GameObject obj in go){
+      Destroy(obj);
+    }
+  }
   void place_enemies()
   {
     foreach (Vector3Int position in positions)
     {
-      Instantiate(enemy_prefabs[Random.Range(0, enemy_prefabs.Length)], position, Quaternion.identity);
+       go.Add(Instantiate(enemy_prefabs[Random.Range(0, enemy_prefabs.Length)], position, Quaternion.identity));
     }
   }
 
@@ -108,7 +113,7 @@ public class Enemy_Manager : MonoBehaviour
         float distance_to_start = Vector3.Distance(spawnPos, Vector3.zero);
 
         GameObject inst = Instantiate(vase, spawnPos, Quaternion.identity);
-
+        go.Add(inst);
         //map distanc to rarity, 
         //TODO: items need rarity and then chosen randomly from the value
         //also some cases should be empty 
