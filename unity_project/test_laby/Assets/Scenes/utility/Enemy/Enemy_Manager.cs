@@ -36,9 +36,9 @@ public class Enemy_Manager : MonoBehaviour
     // Cursor.visible = false;
   }
 
-  public void SetPositions(ArrayList pos)
+  public IEnumerator SetPositions(ArrayList pos)
   {
-
+    yield return new WaitForSeconds(0.0f);
     positions = pos;
   }
   public ArrayList getPositions()
@@ -60,6 +60,7 @@ public class Enemy_Manager : MonoBehaviour
 
   void place_enemies()
   {
+   if(positions == null) return; 
     foreach (Vector3Int position in positions)
     {
       Instantiate(enemy_prefabs[Random.Range(0, enemy_prefabs.Length)], position, Quaternion.identity);
@@ -98,6 +99,8 @@ public class Enemy_Manager : MonoBehaviour
 
   void spawnItems()
   {
+
+   if(positions == null) return; 
     foreach (Vector3Int pos in positions)
     {
       float rand = Random.value;
