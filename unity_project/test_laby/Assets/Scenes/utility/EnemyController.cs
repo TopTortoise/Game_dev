@@ -33,7 +33,7 @@ public class EnemyController : IEnemy, IKillable
   float time = 0.0f;
   void Update()
   {
-    if (is_walker && Vector2.Distance(rb.position, goal) <= 1.5f)
+    if (is_walker && Vector2.Distance(rb.position, goal) <= 1f)
     {
       time += Time.deltaTime;
       rb.linearVelocity = Vector2.zero;
@@ -42,10 +42,10 @@ public class EnemyController : IEnemy, IKillable
       if (time > 3.0f)
       {
         choose_new_goal();
-
+        time = 0.0f;
       }
     }
-    else if (is_walker && Vector2.Distance(rb.position, goal) > 1.5f)
+    else if (is_walker && Vector2.Distance(rb.position, goal) > 1f)
     {
       walk();
     }
@@ -85,8 +85,8 @@ public class EnemyController : IEnemy, IKillable
   {
 
     Vector2 dir = Vector2.zero;
-    float dist_x = Mathf.Abs(rb.position.x - goal.x);
-    float dist_y = Mathf.Abs(rb.position.y - goal.y);
+    int dist_x = (int)Mathf.Abs(rb.position.x - goal.x);
+    int dist_y = (int)Mathf.Abs(rb.position.y - goal.y);
     if (dist_x > dist_y)
     {
 
@@ -101,7 +101,7 @@ public class EnemyController : IEnemy, IKillable
     }
 
     Debug.Log("dir is " + dir);
-    rb.linearVelocity = dir;
+    rb.linearVelocity = dir * speed;
 
   }
 
