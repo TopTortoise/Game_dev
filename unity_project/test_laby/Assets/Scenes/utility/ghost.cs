@@ -16,7 +16,7 @@ public class ghost : MonoBehaviour, IKillable
     public IWeapon weapon;
     public Vector3 spawn_pos;
     private Health hp;
-    public RawImage weapon_img;
+
     public float speed = 10.0f;
     public float equip_radius = 10.0f;
     public float health = 5f;
@@ -35,7 +35,7 @@ public class ghost : MonoBehaviour, IKillable
     private bool dashOnCooldown = false;
     private bool isDashing = false;
     private Vector2 dashDirection;
-    
+
 
     public Image hpImage;
 
@@ -61,10 +61,14 @@ public class ghost : MonoBehaviour, IKillable
         rigidbody2d = GetComponent<Rigidbody2D>();
         hp = gameObject.GetComponentInChildren<Health>();
         weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
+
         Debug.Log("weapon as = "+ weapon.stats.attackspeed);
         weapon.equip(weapon_upgrades);
         Debug.Log("weapon as = "+ weapon.stats.attackspeed);
         //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
+        weapon.equip();
+
+
 
         hp.set_max_hp(max_health);
         hp.set_hp(health);
@@ -88,7 +92,7 @@ public class ghost : MonoBehaviour, IKillable
             weapon.transform.SetParent(null);
             weapon.onUnequip();
             weapon = null;
-            weapon_img.texture = null;
+
         }
         return to_ret;
     }
@@ -117,8 +121,10 @@ public class ghost : MonoBehaviour, IKillable
                 weapon.transform.SetParent(transform);
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;
-                weapon.equip(weapon_upgrades);
-                weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture;
+
+                weapon.equip();
+
+
             }
 
         }
@@ -227,17 +233,16 @@ public class ghost : MonoBehaviour, IKillable
 
     public void UpdateUI()
     {
-        if (hpImage == null) return;
-    
-        float hpPercent = health / max_health;
 
-        
+        if (hpImage == null || hp == null) return;
+
+
+        float hpPercent = hp.health / hp.max_health;
+
         float targetX = 700f * (1f - hpPercent);
-
 
         hpImage.rectTransform.anchoredPosition = new Vector2(-targetX, hpImage.rectTransform.anchoredPosition.y);
     }
-
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -246,12 +251,11 @@ public class ghost : MonoBehaviour, IKillable
         {
 
             hp.change_health(collision.gameObject.GetComponent<IEnemy>().collision_damage);
+            UpdateUI();
         }
     }
     public void hit(float damage)
     {
-        health -= damage;
-        UpdateUI();
         hp.change_health(damage);
         UpdateUI();
     }
