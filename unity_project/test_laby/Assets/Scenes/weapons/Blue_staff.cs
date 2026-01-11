@@ -10,7 +10,9 @@ public class Blue_staff : IWeapon
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        stats = new();
         AttackAction.Enable();
+        stats.damage = 1;
         stats.attackspeed = 0.5f;
     }
 

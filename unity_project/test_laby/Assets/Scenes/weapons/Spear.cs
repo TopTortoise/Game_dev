@@ -15,6 +15,7 @@ public class Spear : IWeapon
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        stats = new();
         stats.damage = 1f;
         stats.attackspeed = 0.5f;
 
@@ -40,6 +41,7 @@ public class Spear : IWeapon
 
         if (!is_attacking)
         {
+            Debug.Log("attack");
             OnAttack();
             StartCoroutine(spear_poke());
         }
