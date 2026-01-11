@@ -57,7 +57,7 @@ public class ghost : MonoBehaviour, IKillable
         hp = gameObject.GetComponentInChildren<Health>();
         weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
         weapon.equip();
-        weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
+        //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
 
         hp.set_max_hp(max_health);
         hp.set_hp(health);
