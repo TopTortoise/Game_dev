@@ -14,7 +14,7 @@ public class ghost : MonoBehaviour, IKillable
     public IWeapon weapon;
     public Vector3 spawn_pos;
     private Health hp;
-    public RawImage weapon_img; 
+    public RawImage weapon_img;
     public float speed = 10.0f;
     public float equip_radius = 10.0f;
     public float health = 5f;
@@ -33,6 +33,9 @@ public class ghost : MonoBehaviour, IKillable
     private bool dashOnCooldown = false;
     private bool isDashing = false;
     private Vector2 dashDirection;
+    
+
+    public Image hpImage;
 
 
     // torches
@@ -55,6 +58,7 @@ public class ghost : MonoBehaviour, IKillable
         weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
         weapon.equip();
         weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture;
+
         hp.set_max_hp(max_health);
         hp.set_hp(health);
         if (spotlight == null)
@@ -68,7 +72,7 @@ public class ghost : MonoBehaviour, IKillable
 
     IWeapon unequip()
     {
-      IWeapon to_ret = weapon;
+        IWeapon to_ret = weapon;
         if (weapon != null)
         {
 
@@ -99,7 +103,7 @@ public class ghost : MonoBehaviour, IKillable
                 continue;//NOTE: this might not be smart in future
             }
 
-            IWeapon new_weapon = item.GetComponent<IWeapon>() == null? item.GetComponentInParent<IWeapon>(): item.GetComponent<IWeapon>();
+            IWeapon new_weapon = item.GetComponent<IWeapon>() == null ? item.GetComponentInParent<IWeapon>() : item.GetComponent<IWeapon>();
             if (new_weapon != null && !found_new_weapon && new_weapon != old_weapon)
             {
                 weapon = new_weapon;
@@ -127,14 +131,17 @@ public class ghost : MonoBehaviour, IKillable
     void Update()
     {
         move = MoveAction.ReadValue<Vector2>();
-        if (move != Vector2.zero) {
+        if (move != Vector2.zero)
+        {
             anim.SetBool("isWalking", true);
             anim.SetFloat("Xinput", move.x);
             anim.SetFloat("Yinput", move.y);
-        } else {
+        }
+        else
+        {
             anim.SetBool("isWalking", false);
         }
-        
+
         if (DashAction.WasPressedThisFrame()
         && !isDashing
         && !dashOnCooldown
@@ -154,7 +161,7 @@ public class ghost : MonoBehaviour, IKillable
             TryPlaceTorch();
         }
 
-        if (weapon !=null && weapon.AttackAction.IsPressed())
+        if (weapon != null && weapon.AttackAction.IsPressed())
         {
             weapon.Attack();
         }
@@ -211,6 +218,18 @@ public class ghost : MonoBehaviour, IKillable
         rigidbody2d.MovePosition(position);
     }
 
+    public void UpdateUI()
+    {
+        if (hpImage == null) return;
+    
+        float hpPercent = health / max_health;
+
+        
+        float targetX = 700f * (1f - hpPercent);
+
+
+        hpImage.rectTransform.anchoredPosition = new Vector2(-targetX, hpImage.rectTransform.anchoredPosition.y);
+    }
 
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -218,13 +237,16 @@ public class ghost : MonoBehaviour, IKillable
         Debug.Log("Hit " + collision.gameObject.name);
         if (collision.gameObject.layer == 7)
         {
-            
+
             hp.change_health(collision.gameObject.GetComponent<IEnemy>().collision_damage);
         }
     }
     public void hit(float damage)
     {
-        hp.change_health(1);
+        health -= damage;
+        UpdateUI();
+        hp.change_health(damage);
+        UpdateUI();
     }
     /* void OnTriggerEnter2D(Collider2D other)
     {
@@ -233,7 +255,7 @@ public class ghost : MonoBehaviour, IKillable
 
     public void OnDeath()
     {
-        this.enabled =false; 
+        this.enabled = false;
 
         if (rigidbody2d != null)
         {
