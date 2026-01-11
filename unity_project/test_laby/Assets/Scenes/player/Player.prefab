@@ -292,7 +292,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 8449f647-c5f9-4851-b702-e63e33b2ba0c
-      m_Path: <Keyboard>/f
+      m_Path: <Keyboard>/leftShift
       m_Interactions: 
       m_Processors: 
       m_Groups: 
