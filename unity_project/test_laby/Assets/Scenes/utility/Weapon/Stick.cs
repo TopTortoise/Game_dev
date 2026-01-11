@@ -20,13 +20,13 @@ public class Stick : IWeapon
     }
 
 
-    public override void equip()
+    public override void onEquip()
     {
         AttackAction.Enable();
         is_equipped = true;
     }
 
-    public override void unequip()
+    public override void onUnequip()
     {
         AttackAction.Disable();
         is_equipped = false;

@@ -1,6 +1,6 @@
 using UnityEngine;
 [CreateAssetMenu]
-public class WeaponStats : ScriptableObject
+public class WeaponStats: ScriptableObject
 {
   public float damage;
   public float attackspeed;

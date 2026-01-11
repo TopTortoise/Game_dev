@@ -13,7 +13,7 @@ public class Spear : IWeapon
     private Vector2 aimInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         stats = new();
         stats.damage = 1f;
@@ -21,7 +21,7 @@ public class Spear : IWeapon
 
     }
 
-    public override void equip()
+    public override void onEquip()
     {
         AimAction.Enable();
         AttackAction.Enable();
@@ -29,7 +29,7 @@ public class Spear : IWeapon
 
     }
 
-    public override void unequip()
+    public override void onUnequip()
     {
         AttackAction.Disable();
         AimAction.Disable();
