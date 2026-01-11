@@ -66,7 +66,7 @@ public class ghost : MonoBehaviour, IKillable
         weapon.equip(weapon_upgrades);
         Debug.Log("weapon as = "+ weapon.stats.attackspeed);
         //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
-        weapon.equip();
+
 
 
 
@@ -122,7 +122,7 @@ public class ghost : MonoBehaviour, IKillable
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;
 
-                weapon.equip();
+                weapon.equip(weapon_upgrades);
 
 
             }

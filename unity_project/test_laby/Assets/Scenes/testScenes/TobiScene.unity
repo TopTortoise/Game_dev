@@ -1371,6 +1371,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4069187706051425951, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5413076326404206203, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2058,6 +2062,7 @@ GameObject:
   - component: {fileID: 1044710641}
   - component: {fileID: 1044710643}
   - component: {fileID: 1044710644}
+  - component: {fileID: 1044710645}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -3709,6 +3714,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentGold: 0
+--- !u!114 &1044710645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044710640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7e79e3687f2487cb111ce6d32634d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamagePopupGenerator
+  damagePopupPrefab: {fileID: 9069404484450927660, guid: c2bf1587b923743acb2920bc088003c1, type: 3}
 --- !u!1001 &1231003360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4252,6 +4270,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3650517581619029860, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3651677561125870027, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
+      propertyPath: is_equipped
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8363201000436706177, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}

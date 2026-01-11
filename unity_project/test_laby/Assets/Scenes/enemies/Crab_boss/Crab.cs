@@ -98,6 +98,7 @@ public class Crab : IEnemy, IKillable
   {
    
     if (rend) StartCoroutine(DoFlash());
+    DamagePopupGenerator.current.CreatePopup(transform.position, damage);
     hp.change_health(damage);
 
   }

@@ -3,9 +3,9 @@ using TMPro;
 
 public class Clock : MonoBehaviour
 {   
-    public int duration = 300; // 5 Minuten
-    public int warningTime = 60; // Ab wann die Warnung startet (60 Sekunden = 1 Minute)
-    public int timeRemaining;
+    public int duration = 300; 
+    public int warningTime = 60; 
+    public int timeRemaining; 
     public bool isCountingDown = true;
     private bool warningStarted = false;
     private Enemy_Manager em;
