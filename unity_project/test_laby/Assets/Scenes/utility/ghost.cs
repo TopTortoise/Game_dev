@@ -4,11 +4,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ghost : MonoBehaviour, IKillable
 {
 
     public InputAction MoveAction;
+    List<Weaponupgrade> weapon_upgrades;
     public InputAction Ret;
     public InputAction EquipAction;
     public IWeapon weapon;
@@ -48,6 +50,9 @@ public class ghost : MonoBehaviour, IKillable
     // Start is called before the first frame update
     void Awake()
     {
+        weapon_upgrades = new();
+        weapon_upgrades.Add(new Statupgrade(0,-0.5f,0));
+        // weapon_upgrades.Add(new Statupgrade(0,-0.5f,0));
         spawn_pos = transform.position;
         MoveAction.Enable();
         EquipAction.Enable();
@@ -56,7 +61,9 @@ public class ghost : MonoBehaviour, IKillable
         rigidbody2d = GetComponent<Rigidbody2D>();
         hp = gameObject.GetComponentInChildren<Health>();
         weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
-        weapon.equip();
+        Debug.Log("weapon as = "+ weapon.stats.attackspeed);
+        weapon.equip(weapon_upgrades);
+        Debug.Log("weapon as = "+ weapon.stats.attackspeed);
         //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
 
         hp.set_max_hp(max_health);
@@ -79,7 +86,7 @@ public class ghost : MonoBehaviour, IKillable
             Debug.Log("Weapon is unequipped");
 
             weapon.transform.SetParent(null);
-            weapon.unequip();
+            weapon.onUnequip();
             weapon = null;
             weapon_img.texture = null;
         }
@@ -110,7 +117,7 @@ public class ghost : MonoBehaviour, IKillable
                 weapon.transform.SetParent(transform);
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;
-                weapon.equip();
+                weapon.equip(weapon_upgrades);
                 weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture;
             }
 

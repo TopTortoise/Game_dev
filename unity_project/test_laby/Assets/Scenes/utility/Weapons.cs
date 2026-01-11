@@ -9,8 +9,14 @@ public abstract class IWeapon : MonoBehaviour
   public InputAction AttackAction;
   public List<IWeaponEffect> effects = new();
   public abstract void Attack();
-  public abstract void equip();
-  public abstract void unequip();
+  public abstract void onEquip();
+  public void equip(List<Weaponupgrade> upgrades){
+    foreach(Weaponupgrade upgrade in upgrades){
+      upgrade.Apply(this);
+    }
+    onEquip();
+  }
+  public abstract void onUnequip();
   public void OnAttack()
   {
     foreach (var effect in effects)

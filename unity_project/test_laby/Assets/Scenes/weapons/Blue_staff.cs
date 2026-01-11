@@ -17,14 +17,14 @@ public class Blue_staff : IWeapon
     }
 
 
-    public override void equip()
+    public override void onEquip()      
     {
         AimAction.Enable();
         AttackAction.Enable();
         is_equipped = true;
     }
 
-    public override void unequip()
+    public override void onUnequip()
     {
         AimAction.Disable();
         AttackAction.Disable();
