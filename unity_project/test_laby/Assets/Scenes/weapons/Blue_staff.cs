@@ -58,7 +58,7 @@ public class Blue_staff : IWeapon
     public override void Attack()
     {
 
-        OnFire();
+        OnAttack();
         if (!isRotating)
         {
             Vector2 aimInput = AimAction.ReadValue<Vector2>();
