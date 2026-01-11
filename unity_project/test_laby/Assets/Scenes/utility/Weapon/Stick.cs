@@ -12,8 +12,8 @@ public class Stick : IWeapon
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        attackspeed = 0.5f;
-        damage = 1;
+        stats.attackspeed = 0.5f;
+        stats.damage = 1;
         hb = GetComponent<CapsuleCollider2D>();
         AttackAction.Enable();
 
@@ -41,7 +41,7 @@ public class Stick : IWeapon
     {
         isRotating = true;
 
-        float halfDuration = attackspeed / 2f;
+        float halfDuration = stats.attackspeed / 2f;
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, rotationAngle);
 
@@ -79,7 +79,7 @@ public class Stick : IWeapon
             foreach (Collider2D enemy in enemies)
             {
                 Debug.Log("Stick hit" + enemy.name);
-                enemy.GetComponent<IKillable>().hit(damage);
+                enemy.GetComponent<IKillable>().hit(stats.damage);
                 // enemy.GetComponent<EnemyController>().speed *= -1;
             }
 

@@ -1,13 +1,26 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
-public abstract class IWeapon: MonoBehaviour
+using System.Collections.Generic;
+
+public abstract class IWeapon : MonoBehaviour
 {
-  public float rarity;
-  public float damage = 1f;
-  public float attackspeed = 0.5f;
-  public bool is_equipped= false;
+  public WeaponStats stats;
+  public bool is_equipped = false;
   public InputAction AttackAction;
+  public List<IWeaponEffect> effects = new();
   public abstract void Attack();
   public abstract void equip();
   public abstract void unequip();
+  public void OnAttack()
+  {
+    foreach (var effect in effects)
+      effect.OnAttack(this);
+
+    // shooting logic using currentStats
+  }
+  public void OnHit(IKillable target)
+  {
+    foreach (var effect in effects)
+      effect.OnHit(this, target);
+  }
 }

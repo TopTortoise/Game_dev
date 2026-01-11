@@ -15,8 +15,8 @@ public class Spear : IWeapon
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        damage = 1f;
-        attackspeed = 0.5f;
+        stats.damage = 1f;
+        stats.attackspeed = 0.5f;
 
     }
 
@@ -37,8 +37,10 @@ public class Spear : IWeapon
     }
     public override void Attack()
     {
+
         if (!is_attacking)
         {
+            OnAttack();
             StartCoroutine(spear_poke());
         }
     }
@@ -75,7 +77,7 @@ public class Spear : IWeapon
         Vector3 forwardPos = startPos + dir * pokeDistance;     // poke forward
         Vector3 retractPos = startPos - dir * (pokeDistance * 0.2f); // optional recoil
 
-        float phaseDuration = attackspeed / 3f;
+        float phaseDuration = stats.attackspeed / 3f;
         float t = 0f;
 
         // --- Phase 1: poke forward ---
@@ -144,7 +146,8 @@ public class Spear : IWeapon
             IKillable obj = collider.gameObject.GetComponent<IKillable>();
             if (obj != null)
             {
-                obj.hit(damage);
+                obj.hit(stats.damage);
+                OnHit(obj);
             }
         }
     }

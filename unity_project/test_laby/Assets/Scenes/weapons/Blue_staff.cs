@@ -11,7 +11,7 @@ public class Blue_staff : IWeapon
     void Start()
     {
         AttackAction.Enable();
-        attackspeed = 0.5f;
+        stats.attackspeed = 0.5f;
     }
 
 
@@ -54,11 +54,11 @@ public class Blue_staff : IWeapon
 
         }
     }
-
+//implemet on Hit_logic
     public override void Attack()
     {
 
-
+        OnFire();
         if (!isRotating)
         {
             Vector2 aimInput = AimAction.ReadValue<Vector2>();
@@ -93,7 +93,7 @@ public class Blue_staff : IWeapon
     {
         isRotating = true;
 
-        float halfDuration = attackspeed / 2f;
+        float halfDuration = stats.attackspeed / 2f;
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, rotationAngle);
 
