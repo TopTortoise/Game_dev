@@ -2457,6 +2457,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23730767}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: FootstepDust
+      value: 
+      objectReference: {fileID: 848766107}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: footstepDust
       value: 
       objectReference: {fileID: 848766107}
