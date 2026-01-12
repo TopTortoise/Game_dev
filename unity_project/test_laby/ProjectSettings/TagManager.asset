@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enter Loot Room Portal
+  - Exit Loot Room Portal
+  - Enter Large Loot Room Portal
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene/MainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/testScenes/JonaScene.unity
+    guid: f95f72db709b342fd89077e2d0c665af
+  - enabled: 1
+    path: Assets/Scenes/SmallLootRoomScene/SmallLootRoom.unity
+    guid: 7f84cb1d1447670f69aab08a81e69177
+  - enabled: 1
+    path: Assets/Scenes/LargeLootRoomScene/LargeLootRoom.unity
+    guid: 8106f60f4ad4dedeb853e2322548e296
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
