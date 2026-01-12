@@ -15,7 +15,6 @@ public class PlayerPersistence : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }

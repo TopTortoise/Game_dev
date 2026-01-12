@@ -303,10 +303,7 @@ public class ghost : MonoBehaviour, IKillable
 
     public void CollideWithExitPortal(Collision2D collision)
     {
-        int index = SceneManager.GetActiveScene().buildIndex;
-        //REPLACE WITH MAIN SCENE !!!!!!!! (tHIS WILL ITERATE THROUGH ALL PREVIOUS SCENES IN THE SCENE MANAGER)
-        int prevIndex = index -1;
-        SceneManager.LoadScene(prevIndex);
+        SceneManager.LoadScene(GameManager.MainSceneName);
         //////////////////////////////////
         PlayerPersistence.Instance.RestoreReturnPosition();
     }
@@ -344,7 +341,7 @@ public class ghost : MonoBehaviour, IKillable
         {
             anim.SetTrigger("die");
         }
-        GameOverManager goManager = FindObjectOfType<GameOverManager>();
+        GameOverManager goManager = FindFirstObjectByType<GameOverManager>();
         if (goManager != null)
         {
             goManager.StartGameOver();
