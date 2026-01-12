@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7714403742121801747}
   m_Layer: 0
   m_Name: LargeLootRoomPortal
-  m_TagString: Untagged
+  m_TagString: Enter Large Loot Room Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1979910868456093896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.91, y: -14.86, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

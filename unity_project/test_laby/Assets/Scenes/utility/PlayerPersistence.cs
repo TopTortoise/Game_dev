@@ -52,6 +52,7 @@ public class PlayerPersistence : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+      Debug.Log("hello PP");
         // Only auto-spawn when NOT returning
         if (scene.name != "SmallLootRoom" && scene.name != "LargeLootRoom")
         {

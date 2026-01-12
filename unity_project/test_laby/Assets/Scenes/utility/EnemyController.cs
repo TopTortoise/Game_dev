@@ -19,7 +19,6 @@ public class EnemyController : IEnemy, IKillable
     hp.set_max_hp(max_health);
     hp.set_hp(health);
     tilemap = FindFirstObjectByType<Tilemap>();
-    Debug.Log("tilemap is" + tilemap);
     choose_new_goal();
   }
 
@@ -38,7 +37,6 @@ public class EnemyController : IEnemy, IKillable
       time += Time.deltaTime;
       rb.linearVelocity = Vector2.zero;
 
-      Debug.Log("choosing");
       if (time > 3.0f)
       {
         choose_new_goal();
@@ -71,10 +69,8 @@ public class EnemyController : IEnemy, IKillable
       x = rb.position.x + Mathf.Cos(angle) * radius;
       y = rb.position.y + Mathf.Sin(angle) * radius;
 
-      Debug.Log("Tilemap is " + tilemap);
       v = tilemap.GetTile(new Vector3Int((int)x, (int)y, 0));
 
-      Debug.Log("v ends with 49? " + v.name.EndsWith("49"));
     } while (!v.name.EndsWith("49"));
 
     goal = new Vector2(x, y);
@@ -100,7 +96,6 @@ public class EnemyController : IEnemy, IKillable
       dir.y = Mathf.Sign(goal.y - rb.position.y);
     }
 
-    Debug.Log("dir is " + dir);
     rb.linearVelocity = dir * speed;
 
   }

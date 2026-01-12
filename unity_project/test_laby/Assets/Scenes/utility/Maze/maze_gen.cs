@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ public class maze_gen : MonoBehaviour
     };
 int lastseed;
 List<Vector3Int> placed_tiles = new();
-  void Start()
+
+  public void Start()
   {
     if(tilemap == null){
       tilemap = FindFirstObjectByType<Tilemap>();
@@ -33,7 +35,6 @@ List<Vector3Int> placed_tiles = new();
     enemy_Manager = GetComponentInParent<Enemy_Manager>();
     Random.InitState(seed);
     Debug.Log("seed: " + seed + "\nwidth:" + width + "\nheight: " + height + "\nscale: " + scale);
-    Debug.Log(tilemap.GetTile(new Vector3Int(0, 0, 0)));
     // tilemap.BoxFill(new Vector3Int(1, 1, 0), tiles[1], 0, 0, 250, 250);
     // tilemap.FloodFill(new Vector3Int(1, 1, 0), tiles[1]);
     for (int x = -10; x < width + 4; x++)
@@ -83,7 +84,6 @@ List<Vector3Int> placed_tiles = new();
             Start();
         }
     }
-
 
   ArrayList walk()
   {

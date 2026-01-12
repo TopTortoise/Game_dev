@@ -52,8 +52,6 @@ public class ghost : MonoBehaviour, IKillable
     void Awake()
     {
         weapon_upgrades = new();
-        weapon_upgrades.Add(new Statupgrade(1000,-0.4f,0));
-        // weapon_upgrades.Add(new Statupgrade(0,-0.5f,0));
         spawn_pos = transform.position;
         MoveAction.Enable();
         EquipAction.Enable();
@@ -303,6 +301,7 @@ public class ghost : MonoBehaviour, IKillable
     public void CollideWithExitPortal(Collision2D collision)
     {
         SceneManager.LoadScene(GameManager.MainSceneName);
+        
         //////////////////////////////////
         PlayerPersistence.Instance.RestoreReturnPosition();
     }
