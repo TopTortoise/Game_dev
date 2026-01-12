@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1768129398078890889}
   - component: {fileID: 5319912150615626120}
   - component: {fileID: -1927608771403213434}
+  - component: {fileID: 8012402210141087859}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
@@ -187,9 +188,27 @@ MonoBehaviour:
   target: {fileID: 0}
   rb: {fileID: 0}
   player: {fileID: 0}
+  flashTime: 0.3
   attack_cooldown: 3
   dashSpeed: 20
   minDist: 2.1
+--- !u!114 &8012402210141087859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637535230490742434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975d139eb68d04726878f70112bdbbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootDropper
+  lootTable:
+  - name: GoldCOin
+    prefab: {fileID: 2125210765509693357, guid: acf2fd990d4574603aa0f3a01036c98b, type: 3}
+    weight: 5
+  chanceToDropAnything: 100
 --- !u!1001 &1754288822786024304
 PrefabInstance:
   m_ObjectHideFlags: 0

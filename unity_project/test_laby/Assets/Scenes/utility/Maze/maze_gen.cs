@@ -26,6 +26,9 @@ int lastseed;
 List<Vector3Int> placed_tiles = new();
   void Start()
   {
+    if(tilemap == null){
+      tilemap = FindFirstObjectByType<Tilemap>();
+    }
     lastseed = seed;
     enemy_Manager = GetComponentInParent<Enemy_Manager>();
     Random.InitState(seed);

@@ -58,6 +58,7 @@ public class Water_Slime : IEnemy, IKillable
   public float wait_time = 3.0f;
   void Update()
   {
+   if(health == 0) return; 
     Collider2D[] colliders = Physics2D.OverlapCircleAll(Attackpoint.position, attack_radius, enemy_layer);// check if player is in attack range
     anim.SetBool("is_attacking", colliders.Length > 0);//attack if player is in range
     if (anim.GetBool("is_attacking"))//attack
@@ -251,8 +252,8 @@ public class Water_Slime : IEnemy, IKillable
   {
 
     Debug.Log("Enemy Died");
-    Destroy(gameObject);
     GetComponent<LootDropper>().DropLoot();
+    Destroy(gameObject);
   }
 
 }

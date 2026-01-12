@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
   public static string MainSceneName;
 
+  public Vector3 SpawnPoint;
+
   private void Awake()
   {
     if (Instance == null)
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
 
       MainSceneName = SceneManager.GetActiveScene().name;
       Debug.Log("GM says MainScene is " + MainSceneName);
+      FindAnyObjectByType<ghost>().gameObject.transform.position = SpawnPoint;
+
     }
     else
     {

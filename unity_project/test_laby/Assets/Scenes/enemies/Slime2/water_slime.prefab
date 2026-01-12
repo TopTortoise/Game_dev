@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6396087221165660658}
   - component: {fileID: 5608594369624065702}
   - component: {fileID: 770982435699631718}
+  - component: {fileID: 1029690199389988232}
   m_Layer: 7
   m_Name: water_slime
   m_TagString: Untagged
@@ -169,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Water_Slime
   speed: 2.5
   damage: 1
+  collision_damage: 1
   health: 3
   max_health: 3
   target: {fileID: 0}
@@ -178,6 +180,12 @@ MonoBehaviour:
   enemy_layer:
     serializedVersion: 2
     m_Bits: 64
+  flashTime: 0.3
+  goal: {x: 0, y: 0}
+  tilemap: {fileID: 0}
+  radius: 15
+  min_dist: 1
+  wait_time: 3
 --- !u!50 &770982435699631718
 Rigidbody2D:
   serializedVersion: 5
@@ -205,6 +213,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1029690199389988232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244130341863356789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975d139eb68d04726878f70112bdbbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootDropper
+  lootTable:
+  - name: goldITem
+    prefab: {fileID: 2125210765509693357, guid: acf2fd990d4574603aa0f3a01036c98b, type: 3}
+    weight: 2
+  chanceToDropAnything: 100
 --- !u!1 &6147683748246186890
 GameObject:
   m_ObjectHideFlags: 0
