@@ -27,6 +27,7 @@ public class ghost : MonoBehaviour, IKillable
     public Light2D spotlight;
     SpriteRenderer Sr;
     private Animator anim;
+    [SerializeField] private ParticleSystem FootstepDust;
 
     // Dash
     public InputAction DashAction;
@@ -147,6 +148,8 @@ public class ghost : MonoBehaviour, IKillable
         move = MoveAction.ReadValue<Vector2>();
         if (move != Vector2.zero)
         {
+            if (!FootstepDust.isPlaying)
+            FootstepDust.Play();
             anim.SetBool("isWalking", true);
             anim.SetFloat("Xinput", move.x);
             anim.SetFloat("Yinput", move.y);
@@ -154,6 +157,8 @@ public class ghost : MonoBehaviour, IKillable
         else
         {
             anim.SetBool("isWalking", false);
+            if (FootstepDust.isPlaying)
+            FootstepDust.Stop();
         }
 
         if (DashAction.WasPressedThisFrame()
@@ -162,6 +167,7 @@ public class ghost : MonoBehaviour, IKillable
         && move != Vector2.zero)
         {
             anim.SetBool("isWalking", false);
+            if (!FootstepDust.isPlaying) FootstepDust.Play();
             StartCoroutine(Dash());
         }
 
