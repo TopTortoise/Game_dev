@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class ghost : MonoBehaviour, IKillable
 {
@@ -244,6 +245,12 @@ public class ghost : MonoBehaviour, IKillable
         hpImage.rectTransform.anchoredPosition = new Vector2(-targetX, hpImage.rectTransform.anchoredPosition.y);
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    //VERY SIMPLE LOOT ROOM LOGIC -> ONLY FOR TESTING AND NEEDS TO BE HANDLED MUCH MORE SECURELY
+    //TODO
+    ///
+    /// ////////////////////////////////////////////////////////////////////////////////////////
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Hit " + collision.gameObject.name);
@@ -251,9 +258,55 @@ public class ghost : MonoBehaviour, IKillable
         {
 
             hp.change_health(collision.gameObject.GetComponent<IEnemy>().collision_damage);
-            UpdateUI();
+        }
+
+        else if (collision.gameObject.CompareTag("Enter Loot Room Portal"))
+        {
+
+            CollideWithEnterPortal(collision); //TODO
+        }
+
+        else if (collision.gameObject.CompareTag("Enter Large Loot Room Portal"))
+        {
+
+            CollideWithEnterLargePortal(collision); //TODO
+        }
+
+        else if (collision.gameObject.CompareTag("Exit Loot Room Portal"))
+        {
+
+            CollideWithExitPortal(collision); //TODO
         }
     }
+
+    public void CollideWithEnterLargePortal(Collision2D collision)
+    {
+        PlayerPersistence.Instance.SaveReturnPosition();
+        SceneManager.LoadScene("LargeLootRoom");
+
+
+    }
+
+    public void CollideWithEnterPortal(Collision2D collision)
+    {
+        PlayerPersistence.Instance.SaveReturnPosition();
+        SceneManager.LoadScene("SmallLootRoom");
+
+
+    }
+
+    public void CollideWithExitPortal(Collision2D collision)
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        //REPLACE WITH MAIN SCENE !!!!!!!! (tHIS WILL ITERATE THROUGH ALL PREVIOUS SCENES IN THE SCENE MANAGER)
+        int prevIndex = index -1;
+        SceneManager.LoadScene(prevIndex);
+        //////////////////////////////////
+        PlayerPersistence.Instance.RestoreReturnPosition();
+    }
+
+    /// ////////////////////////////////////////////////////////////////////////////////////////
+    ///
     public void hit(float damage)
     {
         hp.change_health(damage);
