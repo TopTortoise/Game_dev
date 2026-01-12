@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &95238062
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.78199
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -73.67783
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 616819627654922476, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834361493624824604, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+      propertyPath: m_Name
+      value: MazeMusic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
 --- !u!1 &155927103
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +1029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemy_prefabs: []
   Boss_prefabs: []
+  portal_prefabs: []
   items:
   - {fileID: 8363201000436706177, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
   - {fileID: 3860798516691411884, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
@@ -2548,6 +2606,8 @@ MonoBehaviour:
   vase: {fileID: 8789290170092580440, guid: f6d58e736ff56891d894d1bb1cabc324, type: 3}
   start_pos: {x: 16, y: 16, z: 0}
   vase_spawnrate: 0.8
+  enemy_spawnrate: 0.5
+  portal_spawnrate: 1
   waves: []
   current_wave_index: 0
 --- !u!1 &1373508254
@@ -27577,3 +27637,4 @@ SceneRoots:
   - {fileID: 557050136}
   - {fileID: 269814197}
   - {fileID: 821971374}
+  - {fileID: 95238062}

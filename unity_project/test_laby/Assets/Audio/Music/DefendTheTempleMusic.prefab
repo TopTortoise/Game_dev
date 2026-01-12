@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 616819627654922476}
   - component: {fileID: 199025428272375445}
   m_Layer: 0
-  m_Name: SceneMusic
+  m_Name: DefendTheTempleMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 40bf9dccc2dae2f42918c72924e5c62d, type: 3}
+  m_Resource: {fileID: 8300000, guid: 917323d78517e0fc39eeeeb71cb84caf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
