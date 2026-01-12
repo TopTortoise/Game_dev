@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3a436ec4b7ad2230a86344bf1241b04b
+guid: fc6825d08621752348611e78c227cabe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5738229109721831938
-    second: large_loot_room_portal_0
+      213: 2828601105888372987
+    second: large_loot_room_portal 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: large_loot_room_portal_0
+      name: large_loot_room_portal 1_0
       rect:
         serializedVersion: 2
         x: 15
         y: 0
         width: 66
-        height: 68
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef56933f607bd50b0800000000000000
-      internalID: -5738229109721831938
+      spriteID: bf8e0cf18b5314720800000000000000
+      internalID: 2828601105888372987
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      large_loot_room_portal_0: -5738229109721831938
+      large_loot_room_portal 1_0: 2828601105888372987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
