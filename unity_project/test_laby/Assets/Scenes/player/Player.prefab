@@ -269,12 +269,12 @@ MonoBehaviour:
     m_Flags: 0
   weapon: {fileID: 0}
   spawn_pos: {x: 0, y: 0, z: 0}
-  weapon_img: {fileID: 0}
   speed: 10
   equip_radius: 1.5
   health: 5
   max_health: 5
   spotlight: {fileID: 7516606612565844113}
+  FootstepDust: {fileID: 0}
   DashAction:
     m_Name: Dash
     m_Type: 0
@@ -498,6 +498,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a28222c7379c3ca89e8c3888dc657d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerCapsuleSize: {x: 2, y: 4}
+  capsuleDirection: 0
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!1 &9127659844506034374
 GameObject:
   m_ObjectHideFlags: 0

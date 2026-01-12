@@ -284,7 +284,7 @@ public class ghost : MonoBehaviour, IKillable
 
     public void CollideWithEnterLargePortal(Collision2D collision)
     {
-        PlayerPersistence.Instance.SaveReturnPosition();
+        PlayerPersistence.Instance.SaveReturnPosition(collision);
         SceneManager.LoadScene("LargeLootRoom");
 
 
@@ -292,7 +292,7 @@ public class ghost : MonoBehaviour, IKillable
 
     public void CollideWithEnterPortal(Collision2D collision)
     {
-        PlayerPersistence.Instance.SaveReturnPosition();
+        PlayerPersistence.Instance.SaveReturnPosition(collision);
         SceneManager.LoadScene("SmallLootRoom");
 
 

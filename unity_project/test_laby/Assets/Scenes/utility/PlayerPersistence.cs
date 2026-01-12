@@ -8,6 +8,13 @@ public class PlayerPersistence : MonoBehaviour
     private Vector3 returnPosition;
     private bool hasReturnPosition = false;
 
+    //Checking SpawnPoint Collisions
+    [SerializeField] private Vector2 playerCapsuleSize = new Vector2(2f, 4f);
+    [SerializeField] private CapsuleDirection2D capsuleDirection = CapsuleDirection2D.Vertical;
+    [SerializeField] private LayerMask blockingLayer;
+
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,14 +37,39 @@ public class PlayerPersistence : MonoBehaviour
     }
 
     // Called BEFORE entering loot room
-    public void SaveReturnPosition()
-    {
-        
-        returnPosition = transform.position + new Vector3(0f, -1f, 0f);
+    public void SaveReturnPosition(Collision2D collision)
+{
+    Transform portal = collision.transform;
 
-        Debug.Log("SAVE called at position: " + transform.position);
-        hasReturnPosition = true;
+    foreach (Transform probe in portal)
+    {
+        // Check if a player-sized capsule would overlap anything
+        Collider2D hit = Physics2D.OverlapCapsule(
+            probe.position,
+            playerCapsuleSize,
+            capsuleDirection,
+            0f,
+            blockingLayer
+        );
+
+        if (hit == null)
+        {
+            returnPosition = probe.position;
+            hasReturnPosition = true;
+
+            Debug.Log("Saved return position at: " + probe.name);
+            return;
+        }
     }
+
+    // Fallback (should almost never happen)
+    returnPosition = portal.position;
+    hasReturnPosition = true;
+
+    Debug.LogWarning("All portal spawn capsules blocked.");
+}
+
+
 
     // Called AFTER exiting loot room
     public void RestoreReturnPosition()
