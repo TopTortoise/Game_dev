@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 [CreateAssetMenu]
 public class Statupgrade : Weaponupgrade
 {
@@ -7,6 +8,7 @@ public class Statupgrade : Weaponupgrade
     public float range;
 
     public Statupgrade(float dmg, float firerate, float range ){
+      upgradeID = Guid.NewGuid().ToString();
       damageBonus = dmg;
       fireRateBonus = firerate;
       this.range = range;
