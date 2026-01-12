@@ -11,10 +11,15 @@ public abstract class IWeapon : MonoBehaviour
   public abstract void Attack();
   public abstract void onEquip();
   public void equip(List<Weaponupgrade> upgrades){
+    Debug.Log("equipping wiht as = " +stats.attackspeed);
     foreach(Weaponupgrade upgrade in upgrades){
       upgrade.Apply(this);
     }
+    Debug.Log("equipping wiht as after aplly = " +stats.attackspeed);
     onEquip();
+  }
+  public void unequip(){
+    onUnequip();
   }
   public abstract void onUnequip();
   public void OnAttack()

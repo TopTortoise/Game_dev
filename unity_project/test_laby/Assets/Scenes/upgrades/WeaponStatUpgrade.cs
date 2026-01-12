@@ -14,8 +14,8 @@ public class Statupgrade : Weaponupgrade
 
     public override void Apply(IWeapon weapon)
     {
-        weapon.stats.damage += this.damageBonus;
-        weapon.stats.attackspeed += this.fireRateBonus;
-        weapon.stats.range += this.range;
+        weapon.stats.damage = Mathf.Max(this.damageBonus+weapon.stats.damage,0);
+        weapon.stats.attackspeed = Mathf.Max(this.fireRateBonus+weapon.stats.attackspeed,0);
+        weapon.stats.range = Mathf.Max(this.range+weapon.stats.range,0);
     }
 }

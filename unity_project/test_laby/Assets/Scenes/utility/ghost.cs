@@ -5,7 +5,6 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class ghost : MonoBehaviour, IKillable
 {
@@ -53,7 +52,7 @@ public class ghost : MonoBehaviour, IKillable
     void Awake()
     {
         weapon_upgrades = new();
-        weapon_upgrades.Add(new Statupgrade(0,-0.5f,0));
+        weapon_upgrades.Add(new Statupgrade(1000,-0.5f,0));
         // weapon_upgrades.Add(new Statupgrade(0,-0.5f,0));
         spawn_pos = transform.position;
         MoveAction.Enable();
@@ -92,7 +91,7 @@ public class ghost : MonoBehaviour, IKillable
             Debug.Log("Weapon is unequipped");
 
             weapon.transform.SetParent(null);
-            weapon.onUnequip();
+            weapon.unequip();
             weapon = null;
 
         }
@@ -112,7 +111,7 @@ public class ghost : MonoBehaviour, IKillable
             Item coin = item.GetComponent<Item>();
             if (coin != null)
             {
-                coin.pickup();
+                coin.pickup();//this is not coin pickuo but item pickup
                 continue;//NOTE: this might not be smart in future
             }
 
