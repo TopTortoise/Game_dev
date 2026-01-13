@@ -11,9 +11,10 @@ public class Clock : MonoBehaviour
     private Enemy_Manager em;
     public TMP_Text clockText;
     public ghost player;
+    public static Clock Instance;
     
     public void Start(){
-
+        Instance = this;
         timeRemaining = duration;
         isCountingDown = true;
         Invoke("_tick", 1f);
@@ -54,7 +55,7 @@ public class Clock : MonoBehaviour
         }
         
         // Update den Timer-Text
-        if(timeRemaining >= 0) 
+        if(timeRemaining > 0) 
         {
             int minutes = timeRemaining / 60; 
             int seconds = timeRemaining - minutes * 60;
