@@ -102,7 +102,11 @@ public class Enemy_Manager : MonoBehaviour
 
   void place_portal(Vector3Int position)
   {
-    Instantiate(portal_prefabs[Random.Range(0, portal_prefabs.Length)], position, Quaternion.identity);
+    if (position.y > 12)
+    {
+
+      Instantiate(portal_prefabs[Random.Range(0, portal_prefabs.Length)], position, Quaternion.identity);
+    }
   }
 
 

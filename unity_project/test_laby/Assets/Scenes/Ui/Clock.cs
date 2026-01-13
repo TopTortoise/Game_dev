@@ -19,6 +19,8 @@ public class Clock : MonoBehaviour
        
         StartTimer();
         em = GameObject.FindFirstObjectByType<Enemy_Manager>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void StartTimer()
@@ -94,7 +96,7 @@ public class Clock : MonoBehaviour
     public void ResetTimer()
     {
         // FindAnyObjectByType<maze_gen>().seed = Random.Range(0,100);
-        // FindAnyObjectByType<maze_gen>().Start();
+        // FindAnyObjectByType<maze_gen>().reset();
         StartTimer();
     }
 

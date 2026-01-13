@@ -89,11 +89,7 @@ public class maze_gen : MonoBehaviour
     }
   }
 
-  private void Update()
-  {
-    if (seed != lastseed)
-    {
-      Debug.Log("Maze value changed! Regenerating...");
+  public void reset(){
       lastseed = seed;
       enemy_Manager.free_everyhtig();
       foreach (Vector3Int pos in placed_tiles)
@@ -102,6 +98,14 @@ public class maze_gen : MonoBehaviour
       }
 
       Start();
+  }
+
+  private void Update()
+  {
+    if (seed != lastseed)
+    {
+      Debug.Log("Maze value changed! Regenerating...");
+      reset();
     }
   }
 
