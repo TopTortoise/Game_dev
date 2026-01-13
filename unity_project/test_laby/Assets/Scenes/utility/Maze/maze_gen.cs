@@ -23,12 +23,13 @@ public class maze_gen : MonoBehaviour
       new Vector3Int(0,  2, 0),
       new Vector3Int(0, -2, 0)
     };
-int lastseed;
-List<Vector3Int> placed_tiles = new();
+  int lastseed;
+  List<Vector3Int> placed_tiles = new();
 
   public void Start()
   {
-    if(tilemap == null){
+    if (tilemap == null)
+    {
       tilemap = FindFirstObjectByType<Tilemap>();
     }
     lastseed = seed;
@@ -43,11 +44,12 @@ List<Vector3Int> placed_tiles = new();
       {
         if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null)
         {
-          placed_tiles.Add(new Vector3Int(x,y,0));
+          placed_tiles.Add(new Vector3Int(x, y, 0));
           tilemap.SetTile(new Vector3Int(x, y, 0), tiles[1]);
         }
       }
     }
+
 
     for (int x = start_pos.x - 10; x < start_pos.x; x++)
     {
@@ -66,24 +68,43 @@ List<Vector3Int> placed_tiles = new();
       }
     }
     enemy_Manager.SetPositions(walk());
+    FillBox(new Vector2Int(start_pos.x-4,-10),new Vector2Int(start_pos.x+4,-1)); 
     enemy_Manager.setup();
 
   }
 
-    private void Update()
-    {
-        if (seed != lastseed)
-        {
-            Debug.Log("Maze value changed! Regenerating...");
-            lastseed = seed;
-            enemy_Manager.free_everyhtig();
-            foreach(Vector3Int pos in placed_tiles){
-              tilemap.SetTile(pos,null);
-            }
 
-            Start();
-        }
+  void FillBox(Vector2Int a, Vector2Int b)
+  {
+    int minX = Mathf.Min(a.x, b.x);
+    int maxX = Mathf.Max(a.x, b.x);
+    int minY = Mathf.Min(a.y, b.y);
+    int maxY = Mathf.Max(a.y, b.y);
+
+    for (int x = minX; x <= maxX; x++)
+    {
+      for (int y = minY; y <= maxY; y++)
+      {
+        tilemap.SetTile(new Vector3Int(x, y, 0), tiles[0]);
+      }
     }
+  }
+
+  private void Update()
+  {
+    if (seed != lastseed)
+    {
+      Debug.Log("Maze value changed! Regenerating...");
+      lastseed = seed;
+      enemy_Manager.free_everyhtig();
+      foreach (Vector3Int pos in placed_tiles)
+      {
+        tilemap.SetTile(pos, null);
+      }
+
+      Start();
+    }
+  }
 
   ArrayList walk()
   {
@@ -224,8 +245,8 @@ List<Vector3Int> placed_tiles = new();
       // tilemap.SetTile(curr.Value, tiles[0]);
       tilemap.SetTile(curr_pos, tile);
 
-      Vector3Int side_1 = (curr.Value-prev).x  == 0 ? Vector3Int.left : Vector3Int.up;
-      Vector3Int side_2 = (curr.Value-prev).x == 0 ? Vector3Int.right : Vector3Int.down;
+      Vector3Int side_1 = (curr.Value - prev).x == 0 ? Vector3Int.left : Vector3Int.up;
+      Vector3Int side_2 = (curr.Value - prev).x == 0 ? Vector3Int.right : Vector3Int.down;
       tilemap.SetTile(curr_pos + side_1 + side_1, tile);
       tilemap.SetTile(curr_pos + side_1, tile);
       tilemap.SetTile(curr_pos + side_2, tile);

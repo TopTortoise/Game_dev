@@ -12,7 +12,6 @@ public class Enemy_Manager : MonoBehaviour
   public List<GameObject> items;
   public GameObject vase;
   private ArrayList positions;
-  public Vector3Int start_pos = new Vector3Int(16, 16, 0);
   public float vase_spawnrate = 0.75f;
   public float enemy_spawnrate = 0.5f;
   public float portal_spawnrate = 1.0f;
@@ -69,7 +68,7 @@ public class Enemy_Manager : MonoBehaviour
     {
       float value = Random.value;
       bool item_spawn = false;
-      bool enemy_spawn = false;
+      // bool enemy_spawn = false;
       if (value < vase_spawnrate)
       {
         spawnItem(position);
@@ -78,10 +77,10 @@ public class Enemy_Manager : MonoBehaviour
       if (value < enemy_spawnrate)
       {
         place_enemy(position);
-        enemy_spawn = true;
+        // enemy_spawn = true;
 
       }
-      if (!item_spawn &&  value < portal_spawnrate)
+      if (!item_spawn && value < portal_spawnrate)
       {
         place_portal(position);
       }
