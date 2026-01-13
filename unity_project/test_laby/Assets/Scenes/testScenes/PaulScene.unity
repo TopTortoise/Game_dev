@@ -27119,7 +27119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b5accc21364ebca7019efb3c1c62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  duration: 90
+  duration: 10
   warningTime: 30
   timeRemaining: 0
   isCountingDown: 1

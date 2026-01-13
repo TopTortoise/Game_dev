@@ -516,6 +516,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: spawn_pos.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: spawn_pos.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: FootstepDust
       value: 
       objectReference: {fileID: 1944749104}
@@ -623,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b5accc21364ebca7019efb3c1c62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  duration: 90
+  duration: 20
   warningTime: 30
   timeRemaining: 0
   isCountingDown: 1

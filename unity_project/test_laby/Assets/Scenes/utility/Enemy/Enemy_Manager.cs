@@ -113,7 +113,7 @@ public class Enemy_Manager : MonoBehaviour
 
 
   // Update is called once per frame
-  Vector3[] spawn_pos = { new Vector3(15, -20, 0), new Vector3(15, -30, 0), new Vector3(-5, -30, 0), new Vector3(3, -10, 0) };
+  Vector3[] spawn_pos = { new Vector3(250, -20, 0), new Vector3(250, -30, 0), new Vector3(250, -40, 0), new Vector3(250, -50, 0) };
 
 
   public IEnumerator spawnWave()
