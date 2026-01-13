@@ -138,7 +138,7 @@ public class Enemy_Manager : MonoBehaviour
         Quaternion.identity);
 
 
-    FindAnyObjectByType<Clock>().ResetTimer();
+    // FindAnyObjectByType<Clock>().ResetTimer();
   }
 
 
