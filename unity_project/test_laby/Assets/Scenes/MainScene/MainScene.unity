@@ -816,6 +816,10 @@ PrefabInstance:
       propertyPath: start_pos.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: portal_spawnrate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6209089396433849838, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: m_Name
       value: Game_Manager

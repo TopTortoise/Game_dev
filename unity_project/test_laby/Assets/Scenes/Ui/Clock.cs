@@ -80,6 +80,7 @@ public class Clock : MonoBehaviour
                 
                 player.transform.position = player.spawn_pos;
                 // StartCoroutine(em.spawnWave());
+                ResetTimer();
             }
 
             
@@ -92,6 +93,8 @@ public class Clock : MonoBehaviour
 
     public void ResetTimer()
     {
+        // FindAnyObjectByType<maze_gen>().seed = Random.Range(0,100);
+        // FindAnyObjectByType<maze_gen>().Start();
         StartTimer();
     }
 
