@@ -165,7 +165,7 @@ public class Water_Slime : IEnemy, IKillable
 
       v = tilemap.GetTile(new Vector3Int((int)x, (int)y, 0));
 
-    } while (!(v != null && v.name.EndsWith("49")));//hard coded bad practice
+    } while (!(v != null && v.name == "Wall"));//hard coded bad practice
 
     goal = new Vector2(x, y);
 

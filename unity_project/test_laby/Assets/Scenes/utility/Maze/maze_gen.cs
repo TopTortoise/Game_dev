@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,8 +35,8 @@ public class maze_gen : MonoBehaviour
     enemy_Manager = GetComponentInParent<Enemy_Manager>();
     Random.InitState(seed);
     Debug.Log("seed: " + seed + "\nwidth:" + width + "\nheight: " + height + "\nscale: " + scale);
-    // tilemap.BoxFill(new Vector3Int(1, 1, 0), tiles[1], 0, 0, 250, 250);
-    // tilemap.FloodFill(new Vector3Int(1, 1, 0), tiles[1]);
+    // tilemap.BoxFill(new Vector3Int(1, 1, 0), tiles[5], 0, 0, 250, 250);
+    // tilemap.FloodFill(new Vector3Int(1, 1, 0), tiles[5]);
     for (int x = -10; x < width + 4; x++)
     {
       for (int y = -10; y < height + 4; y++)
@@ -45,7 +44,8 @@ public class maze_gen : MonoBehaviour
         if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null)
         {
           placed_tiles.Add(new Vector3Int(x, y, 0));
-          tilemap.SetTile(new Vector3Int(x, y, 0), tiles[1]);
+          Debug.Log("tile anem is "+tiles[5]); 
+          tilemap.SetTile(new Vector3Int(x, y, 0), tiles[5]);
         }
       }
     }
@@ -56,14 +56,13 @@ public class maze_gen : MonoBehaviour
       for (int y = start_pos.y - 10; y < start_pos.y; y++)
       {
         // Randomly select a tile from the array
-        Tile tile = tiles[0];
         if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null && (x == start_pos.x - 10 || y == start_pos.y - 10 || x + 1 == start_pos.x || y + 1 == start_pos.y)) //&& !(x+2 == start_pos.x && y+1  == start_pos.y))
         {
-          tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[2]);
+          tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[5]);
         }
         else
         {
-          tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[0]);
+          tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[Random.Range(0,tiles.Length-1)]);
         }
       }
     }
@@ -85,7 +84,7 @@ public class maze_gen : MonoBehaviour
     {
       for (int y = minY; y <= maxY; y++)
       {
-        tilemap.SetTile(new Vector3Int(x, y, 0), tiles[0]);
+        tilemap.SetTile(new Vector3Int(x, y, 0), tiles[Random.Range(0,tiles.Length-1)]);
       }
     }
   }
@@ -110,7 +109,6 @@ public class maze_gen : MonoBehaviour
   {
     ArrayList possible_spawn_positions = new();
 
-    Tile tile = tiles[0];
     Vector3Int next_step = Vector3Int.up;
     Vector3Int curr_pos = start_pos;
     Vector3Int next_pos = (next_step * scale) + curr_pos;
@@ -120,11 +118,11 @@ public class maze_gen : MonoBehaviour
     // somelist.AddFirst(next_pos);
     somelist.Add(next_pos);
 
-    tilemap.SetTile(curr_pos, tile);
-    tilemap.SetTile(curr_pos + Vector3Int.left * 2, tile);
-    tilemap.SetTile(curr_pos + Vector3Int.left, tile);
-    tilemap.SetTile(curr_pos + Vector3Int.right, tile);
-    tilemap.SetTile(curr_pos + Vector3Int.right * 2, tile);
+    tilemap.SetTile(curr_pos, tiles[Random.Range(0,tiles.Length-1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.left * 2, tiles[Random.Range(0,tiles.Length-1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.left, tiles[Random.Range(0,tiles.Length-1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.right, tiles[Random.Range(0,tiles.Length-1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.right * 2, tiles[Random.Range(0,tiles.Length-1)]);
     int count = 0;
     while (somelist.Count > 0)
     {
@@ -133,13 +131,13 @@ public class maze_gen : MonoBehaviour
 
       {
         curr_pos += next_step;
-        tilemap.SetTile(curr_pos, tile);
+        tilemap.SetTile(curr_pos, tiles[Random.Range(0,tiles.Length-1)]);
         Vector3Int side_1 = next_step.x == 0 ? Vector3Int.left : Vector3Int.up;
         Vector3Int side_2 = next_step.x == 0 ? Vector3Int.right : Vector3Int.down;
-        tilemap.SetTile(curr_pos + side_1 + side_1, tile);
-        tilemap.SetTile(curr_pos + side_1, tile);
-        tilemap.SetTile(curr_pos + side_2, tile);
-        tilemap.SetTile(curr_pos + side_2 + side_2, tile);
+        tilemap.SetTile(curr_pos + side_1 + side_1, tiles[Random.Range(0,tiles.Length-1)]);
+        tilemap.SetTile(curr_pos + side_1, tiles[Random.Range(0,tiles.Length-1)]);
+        tilemap.SetTile(curr_pos + side_2, tiles[Random.Range(0,tiles.Length-1)]);
+        tilemap.SetTile(curr_pos + side_2 + side_2, tiles[Random.Range(0,tiles.Length-1)]);
 
       }
 
@@ -218,7 +216,7 @@ public class maze_gen : MonoBehaviour
       next_step = starting_cell + get_next_step(starting_cell, 1);
       path.Add(next_step);
 
-      while (tilemap.GetTile(next_step) != tiles[0])
+      while (tilemap.GetTile(next_step) != tiles[Random.Range(0,tiles.Length-1)])
       {
         next_step = next_step + get_next_step(next_step, 1);
         path.Add(next_step);
@@ -236,13 +234,13 @@ public class maze_gen : MonoBehaviour
 
   void place_path(WilsonList list)
   {
-    Tile tile = tiles[0];
+    Tile tile = tiles[Random.Range(0,tiles.Length-1)];
     WilsonList.Node curr = list.Head.Next;
     Vector3Int prev = list.Head.Value;
     while (curr != null)
     {
       Vector3Int curr_pos = curr.Value;
-      // tilemap.SetTile(curr.Value, tiles[0]);
+      // tilemap.SetTile(curr.Value, tiles[Random.Range(0,tiles.Length-1)]);
       tilemap.SetTile(curr_pos, tile);
 
       Vector3Int side_1 = (curr.Value - prev).x == 0 ? Vector3Int.left : Vector3Int.up;
@@ -275,13 +273,13 @@ public class maze_gen : MonoBehaviour
     Vector3Int step = steps[index];
     Vector3Int next_pos = (step * step_size) + curr_pos;
 
-    if (tilemap.GetTile(next_pos) != tiles[1] || !IsInsideBox(next_pos))
+    if (tilemap.GetTile(next_pos) != tiles[5] || !IsInsideBox(next_pos))
     {
       for (int i = 1; i <= 3; i++)
       {
         step = steps[(i + index) % 4];
         next_pos = (step * step_size) + curr_pos;
-        if (tilemap.GetTile(next_pos) == tiles[1] && IsInsideBox(next_pos))
+        if (tilemap.GetTile(next_pos) == tiles[5] && IsInsideBox(next_pos))
         {
           break;
         }
