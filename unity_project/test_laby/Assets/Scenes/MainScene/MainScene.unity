@@ -176,6 +176,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39da9d0dd1aaee7fbcd5bae26552b9b, type: 3}
+--- !u!114 &228417204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2944731030679291657, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
+  m_PrefabInstance: {fileID: 2128107543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &375178617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -532,7 +543,7 @@ MonoBehaviour:
   warningTime: 30
   timeRemaining: 0
   isCountingDown: 1
-  clockText: {fileID: 0}
+  clockText: {fileID: 228417204}
   player: {fileID: 1398438460}
 --- !u!4 &821971374
 Transform:
@@ -1317,6 +1328,10 @@ PrefabInstance:
     - target: {fileID: 2413688126118282175, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1.1570129
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959961386432915937, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
+      propertyPath: m_Name
+      value: Clockoverlay
       objectReference: {fileID: 0}
     - target: {fileID: 6732727189378537699, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
       propertyPath: m_AnchoredPosition.y
