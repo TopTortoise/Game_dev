@@ -128,7 +128,7 @@ public class Enemy_Manager : MonoBehaviour
       GameObject obj = Instantiate(enemy,
           spawn_pos[Random.Range(0, spawn_pos.Length)],
           Quaternion.identity);
-      yield return new WaitForSeconds(curr_wave.timeBetweenSpawns);
+      yield return new WaitForSeconds(1f);
     }
     yield return new WaitForSeconds(5f);
 
