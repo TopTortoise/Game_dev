@@ -205,8 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5b4515b102f472ea516439300a4f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Blue_staff
-  damage: 0
-  attackspeed: 0
+  stats: {fileID: 0}
   is_equipped: 0
   AttackAction:
     m_Name: Attack
@@ -224,7 +223,16 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Attack
       m_Flags: 0
+    - m_Name: 
+      m_Id: 366c8e80-c716-4918-a954-b54b0705b2c0
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
     m_Flags: 0
+  applied_upgrades: []
   offset: -45
   projectile: {fileID: 5780270276275272287, guid: 2c2ad5c355164134d972f873c1916632, type: 3}
   AttackPoint: {fileID: 3803069330982740463}

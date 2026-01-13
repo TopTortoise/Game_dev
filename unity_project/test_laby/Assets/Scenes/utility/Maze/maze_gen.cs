@@ -43,8 +43,8 @@ public class maze_gen : MonoBehaviour
       {
         if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null)
         {
-          placed_tiles.Add(new Vector3Int(x, y, 0));
-          Debug.Log("tile anem is "+tiles[5]); 
+          // placed_tiles.Add(new Vector3Int(x, y, 0));
+          // Debug.Log("tile anem is "+tiles[5]); 
           tilemap.SetTile(new Vector3Int(x, y, 0), tiles[5]);
         }
       }
