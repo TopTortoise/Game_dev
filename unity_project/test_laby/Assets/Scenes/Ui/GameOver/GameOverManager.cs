@@ -42,6 +42,8 @@ public class GameOverManager : MonoBehaviour
     {
         Time.timeScale = 1; // Zeit wieder normalisieren
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FindFirstObjectByType<ghost>().Awake();
+
     }
 
     public void BackToMenu()

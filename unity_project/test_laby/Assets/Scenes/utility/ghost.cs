@@ -49,7 +49,7 @@ public class ghost : MonoBehaviour, IKillable
   public LayerMask item_layer;
 
   // Start is called before the first frame update
-  void Awake()
+  public void Awake()
   {
     weapon_upgrades = new();
     spawn_pos = transform.position;
