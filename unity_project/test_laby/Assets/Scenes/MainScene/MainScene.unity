@@ -436,9 +436,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1944749104}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: footstepDust
       value: 
       objectReference: {fileID: 1944749104}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: dashMultiplier
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: EquipAction.m_Name
       value: Equip
@@ -539,7 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b5accc21364ebca7019efb3c1c62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  duration: 20
+  duration: 500
   warningTime: 30
   timeRemaining: 0
   isCountingDown: 1
@@ -669,6 +677,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 750608366313580462, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3011438708967813262, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: m_Name
       value: Arena

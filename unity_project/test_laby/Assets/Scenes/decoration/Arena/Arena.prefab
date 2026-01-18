@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8077689686219407359}
   - component: {fileID: 2303858162696509179}
   - component: {fileID: 6157294223479560559}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Arena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -8863083485970760879, guid: 9299b8214f6ebc6099f948452fdacdbb, type: 3}
   m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_FlipX: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 1611715142231050472}
   - component: {fileID: 750608366313580462}
   - component: {fileID: 8546062705332038515}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: SmallTemple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2163510478295121497, guid: 7b8ff557e5fe8c0119b75f6541192ca5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -282,7 +282,7 @@ PolygonCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.32999998, z: 0, w: 0.45999998}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.77, y: 2.24}
     newSize: {x: 1.77, y: 2.24}
@@ -292,19 +292,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0012041032, y: 1.1177962}
-      - {x: -0.6411454, y: 0.801248}
+    - - {x: -0.0035525262, y: 1.1182528}
+      - {x: -0.6456413, y: 0.80402654}
+      - {x: -0.6411454, y: 0.68576515}
       - {x: -0.65369624, y: 0.6764636}
       - {x: -0.8798253, y: 0.6723879}
-      - {x: -0.8689532, y: -0.756772}
-      - {x: -0.24731731, y: -0.7578022}
-      - {x: -0.24862581, y: -0.3984771}
-      - {x: 0.23195443, y: -0.39953873}
-      - {x: 0.23569137, y: -0.74634063}
-      - {x: 0.87353796, y: -0.7351119}
+      - {x: -0.8750253, y: -0.756772}
+      - {x: -0.23820934, y: -0.7547657}
+      - {x: -0.23249434, y: -0.7782443}
+      - {x: -0.020111013, y: -0.7787752}
+      - {x: 0.22450261, y: -0.7865125}
+      - {x: 0.23382513, y: -0.74563205}
+      - {x: 0.23872747, y: -0.7402687}
+      - {x: 0.8674659, y: -0.74421924}
       - {x: 0.8805943, y: 0.64510226}
       - {x: 0.642001, y: 0.6523673}
-      - {x: 0.6335202, y: 0.80498666}
+      - {x: 0.63982123, y: 0.7903219}
   m_UseDelaunayMesh: 0
 --- !u!1001 &1124420218176543516
 PrefabInstance:

@@ -649,6 +649,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1866730811}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: dashMultiplier
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: EquipAction.m_Name
       value: Equip
       objectReference: {fileID: 0}
@@ -26042,63 +26046,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00462acf391d5fd2e843b066a50fc192, type: 3}
---- !u!1001 &710608329369434669
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060148188042879159, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232124554414485500, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
-      propertyPath: m_Name
-      value: DungeonCyclops
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
 --- !u!1001 &1313396716746637527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26468,4 +26415,3 @@ SceneRoots:
   - {fileID: 6986986136184138823}
   - {fileID: 3212859102485786234}
   - {fileID: 1283001216}
-  - {fileID: 710608329369434669}
