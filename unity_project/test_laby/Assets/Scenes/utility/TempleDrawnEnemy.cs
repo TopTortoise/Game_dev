@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TempleDrawnEnemy : MonoBehaviour
+public class TempleDrawnEnemy : MonoBehaviour, IKillable
 {
     [Header("Movement")]
     public float moveSpeed = 2f;
@@ -12,6 +12,14 @@ public class TempleDrawnEnemy : MonoBehaviour
 
     [Header("Attack")]
     public float attackInterval = 1.0f;
+    public float attackRadius = 1.0f;
+    public float damage = 1.0f;
+    public LayerMask enemyLayer;
+    public Transform attackPoint;
+
+    [Header("Health")]
+    public float maxHealth = 3f;
+    private float health;
 
     private Animator animator;
     private CapsuleCollider2D capsule;
@@ -27,11 +35,14 @@ public class TempleDrawnEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        health = maxHealth;
         attackTimer = attackInterval;
     }
 
     void Update()
     {
+        if (health <= 0) return;
+
         if (isAttacking)
         {
             HandleAttack();
@@ -50,11 +61,17 @@ public class TempleDrawnEnemy : MonoBehaviour
         }
         else
         {
-            isAttacking = true;
-            animator.SetBool("isAttacking", true);
+            StartAttacking();
         }
 
         UpdateSpriteFacing();
+    }
+
+    void StartAttacking()
+    {
+        isAttacking = true;
+        animator.SetBool("isAttacking", true);
+        attackTimer = attackInterval;
     }
 
     bool CanMove(Vector2 dir, float dist)
@@ -86,7 +103,21 @@ public class TempleDrawnEnemy : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log($"{name} attacks the temple!");
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            attackPoint.position,
+            attackRadius,
+            enemyLayer
+        );
+
+        foreach (Collider2D c in hits)
+        {
+            IKillable killable = c.GetComponentInParent<IKillable>();
+
+            if (killable != null)
+            {
+                killable.hit(damage);
+            }
+        }
     }
 
     void UpdateSpriteFacing()
@@ -95,5 +126,29 @@ public class TempleDrawnEnemy : MonoBehaviour
             spriteRenderer.flipX = false;
         else if (moveDirection.x < -0.01f)
             spriteRenderer.flipX = true;
+    }
+
+    // -------- IKillable --------
+
+    public void hit(float dmg)
+    {
+        health -= dmg;
+
+        if (health <= 0)
+            OnDeath();
+    }
+
+    public void OnDeath()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        }
     }
 }
