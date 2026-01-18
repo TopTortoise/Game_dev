@@ -80,8 +80,8 @@ public class Clock : MonoBehaviour
                
                 player.ChangeSpotlight(1f); 
                 
-                player.transform.position = player.spawn_pos;
-                // StartCoroutine(em.spawnWave());
+
+                StartCoroutine(em.spawnWave());
                 ResetTimer();
             }
 
