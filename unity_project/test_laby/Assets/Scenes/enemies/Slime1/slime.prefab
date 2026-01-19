@@ -101,6 +101,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   flashTime: 0.3
+  goal: {x: 0, y: 0}
+  tilemap: {fileID: 0}
+  radius: 15
+  min_dist: 1
+  wait_time: 3
 --- !u!50 &6686642683783081716
 Rigidbody2D:
   serializedVersion: 5
@@ -340,11 +345,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 401213268554324035, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_LocalScale.z
