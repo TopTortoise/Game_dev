@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e9b080b5c3615a9e091cc707e8952103
+guid: ecb5ae85c1a3d9fca9265e64eb4eecbf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8122203757384443844
-    second: loot room large_0
+      213: 7703569426808717359
+    second: Pit_Trap_Spikes_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: loot room large_0
+      name: Pit_Trap_Spikes_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c72e38b84dd7b070800000000000000
-      internalID: 8122203757384443844
+      spriteID: f204e73149398ea60800000000000000
+      internalID: 7703569426808717359
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      loot room large_0: 8122203757384443844
+      Pit_Trap_Spikes_0: 7703569426808717359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
