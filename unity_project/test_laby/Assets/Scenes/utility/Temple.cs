@@ -9,7 +9,7 @@ public class Temple : MonoBehaviour, IKillable
 
     // -------- Regeneration --------
     public float regenInterval = 5f;   // seconds
-    public float regenAmount = 1f;     // HP per tick
+    public float regenAmount = 10f;     // HP per tick
     private float regenTimer = 0f;
 
     // -------- Visuals --------

@@ -299,6 +299,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Dash
       m_Flags: 0
+    - m_Name: 
+      m_Id: dbb4df35-c98d-4e02-a488-73c69b5d9b41
+      m_Path: <Gamepad>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash
+      m_Flags: 0
     m_Flags: 0
   dashMultiplier: 4
   dashDuration: 0.2
