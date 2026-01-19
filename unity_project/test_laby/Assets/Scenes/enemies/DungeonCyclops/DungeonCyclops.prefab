@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 49652912641841142}
   - component: {fileID: 5220096034998244670}
   - component: {fileID: 3495567247669191993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DungeonCyclops
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 8
   damage: 2
-  health: 3
+  health: 6
   max_health: 3
   waterLayer:
     serializedVersion: 2

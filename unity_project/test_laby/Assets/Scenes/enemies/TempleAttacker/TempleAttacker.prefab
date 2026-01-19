@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 246149755879055863}
   - component: {fileID: 9021684006361552846}
   - component: {fileID: 6576676055051499841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TempleAttacker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

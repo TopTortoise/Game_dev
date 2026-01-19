@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class TempleDrawnEnemy : MonoBehaviour, IKillable
 {
@@ -141,13 +142,23 @@ public class TempleDrawnEnemy : MonoBehaviour, IKillable
     {
         // identical to Water_Slime
         hp.change_health(damage);
+        if (hp.health <= 0) OnDeath();
     }
 
     public void OnDeath()
     {
+        anim.SetBool("isDead", true);
         Debug.Log("TempleDrawnEnemy Died");
-
+        StartCoroutine(DeathRoutine(1.5f));
         // Optional: loot, effects, animation
+        
+    }
+
+    IEnumerator DeathRoutine(float duration)
+    {
+        Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
+        yield return new WaitForSeconds(duration);
+        Debug.Log($"Ended at {Time.time}"); 
         Destroy(gameObject);
     }
 

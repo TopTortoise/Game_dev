@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class DungeonEnemyCapsuleMover : MonoBehaviour, IKillable
 {
@@ -26,6 +27,7 @@ public class DungeonEnemyCapsuleMover : MonoBehaviour, IKillable
     // -------- State --------
     private Vector2 moveDirection;
     private float attackTimer;
+    private Animator anim;
 
     private static readonly Vector2[] directions =
     {
@@ -44,6 +46,7 @@ public class DungeonEnemyCapsuleMover : MonoBehaviour, IKillable
         capsule = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         hp = GetComponentInChildren<Health>();
+        anim = GetComponentInChildren<Animator>();
 
         // SAME initialization pattern as Water_Slime
         hp.set_max_hp(max_health);
@@ -161,6 +164,15 @@ public class DungeonEnemyCapsuleMover : MonoBehaviour, IKillable
     public void OnDeath()
     {
         Debug.Log("DungeonEnemyCapsuleMover Died");
+        anim.SetBool("isDead", true);
+        StartCoroutine(DeathRoutine(1f));
+    }
+
+    IEnumerator DeathRoutine(float duration)
+    {
+        Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
+        yield return new WaitForSeconds(duration);
+        Debug.Log($"Ended at {Time.time}"); 
         Destroy(gameObject);
     }
 
