@@ -1,4 +1,157 @@
+
 using UnityEngine;
+using TMPro;
+
+public class Clock : MonoBehaviour
+{
+    public int duration = 300;
+    public int warningTime = 60;
+
+    public TMP_Text clockText;
+    public ghost player;
+
+    private Enemy_Manager em;
+
+    public static Clock Instance;
+
+    void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        em = GameObject.FindFirstObjectByType<Enemy_Manager>();
+
+        // Initialize ONLY if this is the first time
+        if (GameState.Instance.timeRemaining <= 0)
+        {
+            InitializeTimer();
+        }
+
+        ResumeTicking();
+    }
+
+    // -----------------------------
+    // Initialization
+    // -----------------------------
+    void InitializeTimer()
+    {
+        GameState.Instance.timeRemaining = duration;
+        GameState.Instance.isCountingDown = true;
+        GameState.Instance.warningStarted = false;
+
+        if (clockText != null)
+            clockText.color = Color.white;
+
+        if (player != null)
+            player.ChangeSpotlight(1f);
+    }
+
+    void ResumeTicking()
+    {
+        CancelInvoke(nameof(_tick));
+
+        if (GameState.Instance.isCountingDown)
+            Invoke(nameof(_tick), 1f);
+    }
+
+    // -----------------------------
+    // Timer tick
+    // -----------------------------
+    void _tick()
+    {
+        var gs = GameState.Instance;
+        gs.timeRemaining--;
+
+        // ---- Warning logic ----
+        if (gs.timeRemaining <= warningTime && player != null)
+        {
+            if (!gs.warningStarted)
+                gs.warningStarted = true;
+
+            float t = Mathf.Clamp01((float)gs.timeRemaining / warningTime);
+            player.ChangeSpotlight(t);
+
+            if (clockText != null)
+                clockText.color = Color.Lerp(Color.red, Color.white, t);
+        }
+
+        // ---- Update UI ----
+        if (gs.timeRemaining > 0)
+        {
+            int minutes = gs.timeRemaining / 60;
+            int seconds = gs.timeRemaining % 60;
+
+            if (clockText != null)
+                clockText.text = $"{minutes:00}:{seconds:00}";
+
+            Invoke(nameof(_tick), 1f);
+        }
+        else
+        {
+            OnTimerFinished();
+        }
+    }
+
+    void OnTimerFinished()
+    {
+        if (player != null) player.ChangeSpotlight(1f);
+
+        if (clockText != null) clockText.color = Color.white;
+        
+        GameState.Instance.EndCycle();
+        ResetTimer();
+    }
+
+    public void ResetTimer()
+    {
+        GameState.Instance.StartNewCycle(duration);
+        ResumeTicking();
+    }
+
+    /*
+    // -----------------------------
+    // Timer finished
+    // -----------------------------
+    void OnTimerFinished()
+    {
+        var gs = GameState.Instance;
+        gs.isCountingDown = false;
+
+        if (player != null)
+            player.ChangeSpotlight(1f);
+
+        if (clockText != null)
+            clockText.color = Color.white;
+
+        //if (em != null) StartCoroutine(em.spawnWave());
+
+        ResetTimer();
+    }
+
+    // -----------------------------
+    // Reset
+    // -----------------------------
+    public void ResetTimer()
+    {
+        InitializeTimer();
+        ResumeTicking();
+    }*/
+
+    public bool IsWarningActive()
+    {
+        var t = GameState.Instance.timeRemaining;
+        return t <= warningTime && t > 0;
+    }
+}
+
+
+
+
+
+/*using UnityEngine;
 using TMPro;
 
 public class Clock : MonoBehaviour
@@ -104,4 +257,4 @@ public class Clock : MonoBehaviour
     {
         return timeRemaining <= warningTime && timeRemaining > 0;
     }
-}
+}*/

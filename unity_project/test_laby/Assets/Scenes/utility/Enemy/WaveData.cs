@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+
 [CreateAssetMenu(menuName = "Waves/Wave")]
 public class WaveData : ScriptableObject
 {

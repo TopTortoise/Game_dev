@@ -407,6 +407,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &654073734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6209089396433849838, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+  m_PrefabInstance: {fileID: 1718625053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &654073735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654073734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2349f4cd969b8a6b48f81303ebac037b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  timeRemaining: 0
+  isCountingDown: 0
+  warningStarted: 0
 --- !u!1001 &764406593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,7 +465,7 @@ PrefabInstance:
       objectReference: {fileID: 1944749104}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: dashMultiplier
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: EquipAction.m_Name
@@ -660,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5329535293914493418, guid: 1c73c655d05f151479ef889fdff2077b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.3303833
+      value: 2.3304138
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -989,28 +1009,8 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6209089396433849838, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1728695438}
+      addedObject: {fileID: 654073735}
   m_SourcePrefab: {fileID: 100100000, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
---- !u!1 &1728695432 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6209089396433849838, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
-  m_PrefabInstance: {fileID: 1718625053}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1728695438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728695432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2349f4cd969b8a6b48f81303ebac037b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameState
-  timeRemaining: 300
-  isCountingDown: 1
-  warningStarted: 0
 --- !u!1001 &1799226319
 PrefabInstance:
   m_ObjectHideFlags: 0
