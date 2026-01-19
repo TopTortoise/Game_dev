@@ -9,9 +9,11 @@ public class Enemy_Manager : MonoBehaviour
   public GameObject[] enemy_prefabs;
   public GameObject[] Boss_prefabs;
   public GameObject[] portal_prefabs;
+  public GameObject[] trap_prefabs;
   public List<GameObject> items;
   public GameObject vase;
-  private ArrayList positions;
+  private ArrayList end_maze_positions;
+  private ArrayList in_maze_positions;
   public float vase_spawnrate = 0.75f;
   public float enemy_spawnrate = 0.5f;
   public float portal_spawnrate = 1.0f;
@@ -38,14 +40,15 @@ public class Enemy_Manager : MonoBehaviour
     // Cursor.visible = false;
   }
 
-  public void SetPositions(ArrayList pos)
+  public void SetPositions(ArrayList end_maze, ArrayList in_maze)
   {
 
-    positions = pos;
+    end_maze_positions = end_maze;
+    in_maze_positions = in_maze;
   }
   public ArrayList getPositions()
   {
-    return positions;
+    return in_maze_positions;
   }
 
   public void setup()
@@ -64,7 +67,14 @@ public class Enemy_Manager : MonoBehaviour
   void fill_maze()
   {
 
-    foreach (Vector3Int position in positions)
+    foreach (Vector3Int position in in_maze_positions)
+    {
+
+      go.Add(Instantiate(trap_prefabs[Random.Range(0, trap_prefabs.Length)], position, Quaternion.identity));
+    }
+
+
+    foreach (Vector3Int position in end_maze_positions)
     {
       float value = Random.value;
       bool item_spawn = false;
@@ -105,7 +115,7 @@ public class Enemy_Manager : MonoBehaviour
     if (position.y > 12)
     {
 
-      Instantiate(portal_prefabs[Random.Range(0, portal_prefabs.Length)], position, Quaternion.identity);
+      go.Add(Instantiate(portal_prefabs[Random.Range(0, portal_prefabs.Length)], position, Quaternion.identity));
     }
   }
 

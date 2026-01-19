@@ -62,12 +62,13 @@ public class maze_gen : MonoBehaviour
         }
         else
         {
-          tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[Random.Range(0,tiles.Length-1)]);
+          tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[Random.Range(0, tiles.Length - 1)]);
         }
       }
     }
-    enemy_Manager.SetPositions(walk());
-    FillBox(new Vector2Int(start_pos.x-4,-10),new Vector2Int(start_pos.x+4,-1)); 
+    var tuple = walk();
+    enemy_Manager.SetPositions(tuple.Item1, tuple.Item2);
+    FillBox(new Vector2Int(start_pos.x - 4, -10), new Vector2Int(start_pos.x + 4, -1));
     enemy_Manager.setup();
 
   }
@@ -84,20 +85,21 @@ public class maze_gen : MonoBehaviour
     {
       for (int y = minY; y <= maxY; y++)
       {
-        tilemap.SetTile(new Vector3Int(x, y, 0), tiles[Random.Range(0,tiles.Length-1)]);
+        tilemap.SetTile(new Vector3Int(x, y, 0), tiles[Random.Range(0, tiles.Length - 1)]);
       }
     }
   }
 
-  public void reset(){
-      lastseed = seed;
-      enemy_Manager.free_everyhtig();
-      foreach (Vector3Int pos in placed_tiles)
-      {
-        tilemap.SetTile(pos, null);
-      }
+  public void reset()
+  {
+    lastseed = seed;
+    enemy_Manager.free_everyhtig();
+    foreach (Vector3Int pos in placed_tiles)
+    {
+      tilemap.SetTile(pos, null);
+    }
 
-      Start();
+    Start();
   }
 
   private void Update()
@@ -109,9 +111,10 @@ public class maze_gen : MonoBehaviour
     }
   }
 
-  ArrayList walk()
+  (ArrayList, ArrayList) walk()
   {
-    ArrayList possible_spawn_positions = new();
+    ArrayList sackgassen_position = new();//postion at the end of corridors
+    ArrayList trap_positions = new();//positoin in the middle of the maze
 
     Vector3Int next_step = Vector3Int.up;
     Vector3Int curr_pos = start_pos;
@@ -122,11 +125,11 @@ public class maze_gen : MonoBehaviour
     // somelist.AddFirst(next_pos);
     somelist.Add(next_pos);
 
-    tilemap.SetTile(curr_pos, tiles[Random.Range(0,tiles.Length-1)]);
-    tilemap.SetTile(curr_pos + Vector3Int.left * 2, tiles[Random.Range(0,tiles.Length-1)]);
-    tilemap.SetTile(curr_pos + Vector3Int.left, tiles[Random.Range(0,tiles.Length-1)]);
-    tilemap.SetTile(curr_pos + Vector3Int.right, tiles[Random.Range(0,tiles.Length-1)]);
-    tilemap.SetTile(curr_pos + Vector3Int.right * 2, tiles[Random.Range(0,tiles.Length-1)]);
+    tilemap.SetTile(curr_pos, tiles[Random.Range(0, tiles.Length - 1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.left * 2, tiles[Random.Range(0, tiles.Length - 1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.left, tiles[Random.Range(0, tiles.Length - 1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.right, tiles[Random.Range(0, tiles.Length - 1)]);
+    tilemap.SetTile(curr_pos + Vector3Int.right * 2, tiles[Random.Range(0, tiles.Length - 1)]);
     int count = 0;
     while (somelist.Count > 0)
     {
@@ -135,13 +138,19 @@ public class maze_gen : MonoBehaviour
 
       {
         curr_pos += next_step;
-        tilemap.SetTile(curr_pos, tiles[Random.Range(0,tiles.Length-1)]);
+        tilemap.SetTile(curr_pos, tiles[Random.Range(0, tiles.Length - 1)]);
+
+        if (Random.value < 0.05)
+        {
+
+        }
+
         Vector3Int side_1 = next_step.x == 0 ? Vector3Int.left : Vector3Int.up;
         Vector3Int side_2 = next_step.x == 0 ? Vector3Int.right : Vector3Int.down;
-        tilemap.SetTile(curr_pos + side_1 + side_1, tiles[Random.Range(0,tiles.Length-1)]);
-        tilemap.SetTile(curr_pos + side_1, tiles[Random.Range(0,tiles.Length-1)]);
-        tilemap.SetTile(curr_pos + side_2, tiles[Random.Range(0,tiles.Length-1)]);
-        tilemap.SetTile(curr_pos + side_2 + side_2, tiles[Random.Range(0,tiles.Length-1)]);
+        tilemap.SetTile(curr_pos + side_1 + side_1, tiles[Random.Range(0, tiles.Length - 1)]);
+        tilemap.SetTile(curr_pos + side_1, tiles[Random.Range(0, tiles.Length - 1)]);
+        tilemap.SetTile(curr_pos + side_2, tiles[Random.Range(0, tiles.Length - 1)]);
+        tilemap.SetTile(curr_pos + side_2 + side_2, tiles[Random.Range(0, tiles.Length - 1)]);
 
       }
 
@@ -155,14 +164,19 @@ public class maze_gen : MonoBehaviour
       next_step = get_next_step(curr_pos, scale);
       if (next_step == Vector3Int.zero)
       {
-        possible_spawn_positions.Add(curr_pos);
+        sackgassen_position.Add(curr_pos);
+      }
+      else if (Random.value <= 0.05)
+      {
+
+        trap_positions.Add(curr_pos);
       }
       //backtrack
       while (next_step == Vector3Int.zero)
       {
         if (somelist.Count == 0)
         {
-          return possible_spawn_positions;
+          return (sackgassen_position, trap_positions);
         }
         // int index = Random.Range(0, somelist.Count);
         curr_pos = somelist[0];
@@ -172,7 +186,7 @@ public class maze_gen : MonoBehaviour
       somelist.Add((next_step * scale) + curr_pos);
       count++;
     }
-    return possible_spawn_positions;
+    return (sackgassen_position, trap_positions);
   }
 
   public IEnumerable<Vector3Int> IterateGrid(
@@ -220,7 +234,7 @@ public class maze_gen : MonoBehaviour
       next_step = starting_cell + get_next_step(starting_cell, 1);
       path.Add(next_step);
 
-      while (tilemap.GetTile(next_step) != tiles[Random.Range(0,tiles.Length-1)])
+      while (tilemap.GetTile(next_step) != tiles[Random.Range(0, tiles.Length - 1)])
       {
         next_step = next_step + get_next_step(next_step, 1);
         path.Add(next_step);
@@ -238,7 +252,7 @@ public class maze_gen : MonoBehaviour
 
   void place_path(WilsonList list)
   {
-    Tile tile = tiles[Random.Range(0,tiles.Length-1)];
+    Tile tile = tiles[Random.Range(0, tiles.Length - 1)];
     WilsonList.Node curr = list.Head.Next;
     Vector3Int prev = list.Head.Value;
     while (curr != null)

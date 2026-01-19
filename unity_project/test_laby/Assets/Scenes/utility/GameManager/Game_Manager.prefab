@@ -80,9 +80,14 @@ MonoBehaviour:
   portal_prefabs:
   - {fileID: 1979910868456093896, guid: e427f1c5c5d54c84a83c4302c0b39749, type: 3}
   - {fileID: 962500027414328445, guid: 09731d58c09ae3109bd2ab94a504d551, type: 3}
+  trap_prefabs:
+  - {fileID: 3438774622814992673, guid: 82b44d8acd8211d65a1fb8bc86ab9e45, type: 3}
+  - {fileID: 5220666449305702144, guid: 7d11a55c845b85f5ab0d5ec0706a4b82, type: 3}
+  - {fileID: 4158037835743536789, guid: e85f9981841e30f48aec84a07adfd084, type: 3}
+  - {fileID: 6232124554414485500, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
+  - {fileID: 6442021726842366329, guid: c0ae7c8fd3831caa7af7172d0c410a69, type: 3}
   items: []
   vase: {fileID: 8789290170092580440, guid: f6d58e736ff56891d894d1bb1cabc324, type: 3}
-  start_pos: {x: 16, y: 16, z: 0}
   vase_spawnrate: 0.75
   enemy_spawnrate: 0.5
   portal_spawnrate: 0.8
