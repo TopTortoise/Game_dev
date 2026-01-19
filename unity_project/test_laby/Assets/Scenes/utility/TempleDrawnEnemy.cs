@@ -2,6 +2,172 @@ using UnityEngine;
 
 public class TempleDrawnEnemy : MonoBehaviour, IKillable
 {
+    // -------- Stats (same pattern as Water_Slime) --------
+    public float speed = 2f;
+    public float damage = 1f;
+    public float health = 3f;
+    public float max_health = 3f;
+
+    // -------- Movement --------
+    public LayerMask waterLayer;
+    public float skinWidth = 0.05f;
+    public Transform templePosition;
+
+    // -------- Attack --------
+    public float attackInterval = 1.0f;
+    public float attackRadius = 1.0f;
+    public Transform Attackpoint;
+    public LayerMask enemy_layer;
+
+    // -------- Components --------
+    private CapsuleCollider2D capsule;
+    private Animator anim;
+    private SpriteRenderer rend;
+    private Health hp;
+
+    // -------- State --------
+    private Vector2 moveDirection;
+    private float attackTimer;
+    private bool isAttacking;
+
+    void Awake()
+    {
+        capsule = GetComponent<CapsuleCollider2D>();
+        anim = GetComponentInChildren<Animator>();
+        rend = GetComponentInChildren<SpriteRenderer>();
+        hp = GetComponentInChildren<Health>();
+
+        // SAME initialization style as Water_Slime
+        hp.set_max_hp(max_health);
+        hp.set_hp(health);
+
+        attackTimer = attackInterval;
+    }
+
+    void Update()
+    {
+        if (health <= 0) return;
+
+        if (isAttacking)
+        {
+            HandleAttack();
+            return;
+        }
+
+        moveDirection =
+            ((Vector2)templePosition.position - (Vector2)transform.position).normalized;
+
+        float moveDist = speed * Time.deltaTime;
+
+        if (CanMove(moveDirection, moveDist))
+        {
+            transform.position += (Vector3)(moveDirection * moveDist);
+        }
+        else
+        {
+            StartAttacking();
+        }
+
+        UpdateSpriteFacing();
+    }
+
+    // -------- Movement Blocking --------
+
+    bool CanMove(Vector2 dir, float dist)
+    {
+        Bounds b = capsule.bounds;
+
+        RaycastHit2D hit = Physics2D.BoxCast(
+            b.center,
+            b.size,
+            0f,
+            dir,
+            dist + skinWidth,
+            waterLayer
+        );
+
+        return hit.collider == null;
+    }
+
+    // -------- Attacking --------
+
+    void StartAttacking()
+    {
+        isAttacking = true;
+        attackTimer = attackInterval;
+
+        anim.SetBool("isAttacking", true);
+    }
+
+    void HandleAttack()
+    {
+        attackTimer -= Time.deltaTime;
+        if (attackTimer > 0f) return;
+
+        Attack();
+        attackTimer = attackInterval;
+    }
+
+    public void Attack()
+    {
+        Collider2D[] colliders =
+            Physics2D.OverlapCircleAll(Attackpoint.position, attackRadius, enemy_layer);
+
+        foreach (Collider2D target in colliders)
+        {
+            IKillable killable = target.GetComponentInParent<IKillable>();
+            if (killable != null && killable != this)
+            {
+                killable.hit(damage);
+            }
+        }
+    }
+
+    // -------- Visuals --------
+
+    void UpdateSpriteFacing()
+    {
+        if (!rend) return;
+
+        if (moveDirection.x > 0.01f)
+            rend.flipX = false;
+        else if (moveDirection.x < -0.01f)
+            rend.flipX = true;
+    }
+
+    // -------- IKillable (EXACT Water_Slime style) --------
+
+    public void hit(float damage)
+    {
+        // identical to Water_Slime
+        hp.change_health(damage);
+    }
+
+    public void OnDeath()
+    {
+        Debug.Log("TempleDrawnEnemy Died");
+
+        // Optional: loot, effects, animation
+        Destroy(gameObject);
+    }
+
+    // -------- Debug --------
+
+    void OnDrawGizmos()
+    {
+        if (Attackpoint)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(Attackpoint.position, attackRadius);
+        }
+    }
+}
+
+/*
+using UnityEngine;
+
+public class TempleDrawnEnemy : MonoBehaviour, IKillable
+{
     [Header("Movement")]
     public float moveSpeed = 2f;
     public LayerMask waterLayer;
@@ -111,7 +277,7 @@ public class TempleDrawnEnemy : MonoBehaviour, IKillable
 
         foreach (Collider2D c in hits)
         {
-            IKillable killable = c.GetComponentInParent<IKillable>();
+            IKillable killable = c.GetComponent<IKillable>();
 
             if (killable != null)
             {
@@ -119,6 +285,8 @@ public class TempleDrawnEnemy : MonoBehaviour, IKillable
             }
         }
     }
+
+    
 
     void UpdateSpriteFacing()
     {
@@ -151,4 +319,4 @@ public class TempleDrawnEnemy : MonoBehaviour, IKillable
             Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
         }
     }
-}
+}*/
