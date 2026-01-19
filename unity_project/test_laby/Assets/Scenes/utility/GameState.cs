@@ -39,6 +39,7 @@ public class GameState : MonoBehaviour
     {
         isCountingDown = false;
         OnCycleEnded?.Invoke();
+        Debug.Log("OnCycleEnded invoked");
     }
 }
 

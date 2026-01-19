@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b5accc21364ebca7019efb3c1c62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  duration: 500
+  duration: 15
   warningTime: 30
   clockText: {fileID: 228417204}
   player: {fileID: 1398438460}

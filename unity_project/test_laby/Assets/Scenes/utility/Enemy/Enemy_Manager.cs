@@ -20,6 +20,33 @@ public class Enemy_Manager : MonoBehaviour
   public List<WaveData> waves;
   public int current_wave_index = 0;
 
+
+    /*
+    void Start()
+    {
+        if (GameState.Instance == null)
+        {
+            Debug.LogError("GameState missing!");
+            return;
+        }
+
+        GameState.Instance.OnCycleEnded += OnCycleEnded;
+        Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
+    }
+
+  void OnDestroy()
+  {
+      if (GameState.Instance != null)
+          GameState.Instance.OnCycleEnded -= OnCycleEnded;
+  }
+
+
+    
+    void OnCycleEnded()
+    {
+        StartCoroutine(spawnWave());
+    }*/
+
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void loadprefabs()
   {
@@ -125,35 +152,52 @@ public class Enemy_Manager : MonoBehaviour
     go.Add(Instantiate(enemy_prefabs[Random.Range(0, enemy_prefabs.Length)], position, Quaternion.identity));
   }
 
-
-  // Update is called once per frame
-  Vector3[] spawn_pos = { new Vector3(250, -20, 0), new Vector3(250, -30, 0), new Vector3(250, -40, 0), new Vector3(250, -50, 0) };
+/*
+  
+    Vector3[] spawn_pos =
+  {
+      new Vector3(250, -20, 0),
+      new Vector3(250, -30, 0),
+      new Vector3(250, -40, 0),
+      new Vector3(250, -50, 0)
+  };
 
 
   public IEnumerator spawnWave()
   {
-    Debug.Log("spawning wave");
-    WaveData curr_wave = waves[current_wave_index];
-    // current_wave_index++;
-    foreach (var enemy in curr_wave.enemies)
-    {
-      Debug.Log("spawning enemy at");
 
-      GameObject obj = Instantiate(enemy,
-          spawn_pos[Random.Range(0, spawn_pos.Length)],
-          Quaternion.identity);
-      yield return new WaitForSeconds(1f);
-    }
-    yield return new WaitForSeconds(5f);
+      if (waves == null || waves.Count == 0) {
+        Debug.Log("waves == null || waves.Count == 0");
+        yield break;
+      }
+      if (current_wave_index >= waves.Count) {
+        Debug.Log("current_wave_index >= waves.Count");
+        yield break;
+      }
+      
+      WaveData curr_wave = waves[current_wave_index];
 
-    Debug.Log("spawning noss ");
-    GameObject boss_obj = Instantiate(Boss_prefabs[0],
-        spawn_pos[Random.Range(0, spawn_pos.Length)],
-        Quaternion.identity);
+      foreach (var enemy in curr_wave.enemies)
+      {
+          if (enemy == null) continue;
 
+          Instantiate(enemy,
+              spawn_pos[Random.Range(0, spawn_pos.Length)],
+              Quaternion.identity);
 
-    // FindAnyObjectByType<Clock>().ResetTimer();
+          yield return new WaitForSeconds(curr_wave.timeBetweenSpawns);
+      }
+
+      yield return new WaitForSeconds(5f);
+
+      if (Boss_prefabs.Length > 0 && Boss_prefabs[0] != null)
+      {
+          Instantiate(Boss_prefabs[0],
+              spawn_pos[Random.Range(0, spawn_pos.Length)],
+              Quaternion.identity);
+      }
   }
+*/
 
 
   void spawnItem(Vector3Int pos)

@@ -1114,6 +1114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   health: 30
   max_health: 30
+  regenInterval: 5
+  regenAmount: 10
   intactSprite: {fileID: 0}
   destroyedSprite: {fileID: 6353546348771536404, guid: bf4ad32a713369ef5b6e373e204f5492, type: 3}
 --- !u!1001 &7528057167597945010
@@ -1180,6 +1182,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 565407539595103965, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4193719399960335591, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_Name
       value: healthbar
@@ -1191,6 +1197,10 @@ PrefabInstance:
     - target: {fileID: 4348308804230541187, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 6.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882988677339548057, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

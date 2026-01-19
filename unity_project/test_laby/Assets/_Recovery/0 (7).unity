@@ -683,6 +683,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arena
       objectReference: {fileID: 0}
+    - target: {fileID: 7518868196886433850, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043907439296679535, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8077689686219407359, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 250
@@ -921,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: timeRemaining
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: isCountingDown
