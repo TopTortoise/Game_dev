@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CreateAssetMenu(menuName = "Waves/Wave")]
-public class WaveData : ScriptableObject
+public class WaveData 
 {
     public List<GameObject> enemies;//change to enemy data for more modularity
     public float timeBetweenSpawns = 0.5f;
