@@ -679,6 +679,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1596558341609024574, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3011438708967813262, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: m_Name
       value: Arena
