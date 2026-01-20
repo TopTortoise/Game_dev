@@ -89,7 +89,7 @@ public class PlayerPersistence : MonoBehaviour
         if (scene.name != "SmallLootRoom" && scene.name != "LargeLootRoom")
         {
             GameObject spawn = GameObject.Find("PlayerSpawn");
-            if (spawn != null && !hasReturnPosition)
+            if (spawn != null )
             {
                 transform.position = spawn.transform.position;
             }
