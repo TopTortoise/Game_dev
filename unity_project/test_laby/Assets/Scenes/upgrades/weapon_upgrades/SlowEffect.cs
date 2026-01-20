@@ -1,6 +1,11 @@
 public class SlowEffect : StatusEffect
 {
   private float slowMultiplier;
+ 
+
+  public override StatusEffect createEffect(){
+    return new SlowEffect(slowMultiplier,duration);
+  }
 
   public SlowEffect(float multiplier, float duration)
   {

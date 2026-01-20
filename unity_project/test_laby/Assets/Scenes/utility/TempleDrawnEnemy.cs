@@ -119,7 +119,7 @@ public class TempleDrawnEnemy : IEnemy
     foreach (Collider2D target in colliders)
     {
       IKillable killable = target.GetComponentInParent<IKillable>();
-      if (killable != null && killable != this)
+      if (killable != null && killable.Equals(this))
       {
         killable.hit(damage);
       }

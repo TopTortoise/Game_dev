@@ -4,6 +4,7 @@ public abstract class StatusEffect : IWeaponEffect
   public bool unique;
   protected float elapsed;
 
+  public virtual StatusEffect createEffect(){return null;}
   public virtual void OnApply(IEnemy target) { }
   public virtual void OnTick(IEnemy target, float deltaTime) { }
   public virtual void OnExpire(IEnemy target) { }

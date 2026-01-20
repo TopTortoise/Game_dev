@@ -99,7 +99,7 @@ public class Blue_staff : IWeapon
           IEnemy enemy = con.target.GetComponent<IEnemy>();
           if(enemy != null){
             Debug.Log("handlign effects "+ stateffect);
-            enemy.ApplyEffect(stateffect);
+            enemy.ApplyEffect(stateffect.createEffect());
           }
         }
       }       

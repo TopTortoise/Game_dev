@@ -5,6 +5,12 @@ public class ExplodeOnHit : IOnHitEffect
   private float radius;
   private float damage;
 
+  public IOnHitEffect createEffect(){
+    return new ExplodeOnHit(radius,damage);
+  }
+
+
+
   public ExplodeOnHit(float radius, float damage)
   {
     this.radius = radius;

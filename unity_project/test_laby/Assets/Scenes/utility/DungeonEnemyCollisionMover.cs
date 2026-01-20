@@ -71,6 +71,7 @@ public class DungeonEnemyCapsuleMover : IEnemy
   void Move()
   {
     float moveDist = speed * Time.deltaTime;
+    
 
     if (CanMove(moveDirection, moveDist))
     {
@@ -133,7 +134,7 @@ public class DungeonEnemyCapsuleMover : IEnemy
       if (c.gameObject == gameObject) continue;
 
       IKillable killable = c.GetComponentInParent<IKillable>();
-      if (killable != null && killable != this)
+      if (killable != null && !killable.Equals(this))
       {
         killable.hit(damage);
         attackTimer = attackInterval;
@@ -156,13 +157,13 @@ public class DungeonEnemyCapsuleMover : IEnemy
 
   // ---------------- IKillable (EXACT Water_Slime style) ----------------
 
-  public void hit(float damage)
+  public override void hit(float damage)
   {
     // identical to Water_Slime
     hp.change_health(damage);
   }
 
-  public void OnDeath()
+  public override void OnDeath()
   {
     Debug.Log("DungeonEnemyCapsuleMover Died");
     anim.SetBool("isDead", true);
