@@ -47,6 +47,13 @@ public class ghost : MonoBehaviour, IKillable
   public int torches = 3;
   Vector3 previousTorchPos = Vector3.zero;
   public LayerMask item_layer;
+  //teleport
+  [Header("Teleport Settings")]
+    public Slider teleportSlider;
+    public GameObject teleportUIContainer;
+    public float teleportDelay = 3.0f;
+    private bool isTeleporting = false;
+    private Coroutine currentTeleportRoutine;
 
   // Start is called before the first frame update
   public void Awake()
@@ -75,6 +82,7 @@ public class ghost : MonoBehaviour, IKillable
     }
     anim = GetComponent<Animator>();
     DashAction.Enable();
+    if (teleportUIContainer != null) teleportUIContainer.SetActive(false);
 
   }
 
@@ -141,6 +149,14 @@ public class ghost : MonoBehaviour, IKillable
   private bool facingRight = true;
   void Update()
   {
+    if (Ret.WasPressedThisFrame())
+    {
+      TryStartTeleport();
+    }
+    if (isTeleporting && move != Vector2.zero)
+    {
+      CancelTeleport();
+    }
     Debug.Log(
     $"Update running | enabled={enabled} | " +
     $"Move enabled={MoveAction.enabled} | " +
@@ -168,6 +184,7 @@ public class ghost : MonoBehaviour, IKillable
     && !dashOnCooldown
     && move != Vector2.zero)
     {
+      if (isTeleporting) CancelTeleport();
       anim.SetBool("isWalking", false);
       if (!FootstepDust.isPlaying) FootstepDust.Play();
       StartCoroutine(Dash());
@@ -185,6 +202,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
     if (weapon != null && weapon.AttackAction.IsPressed())
     {
+      if (isTeleporting) CancelTeleport();
       weapon.Attack();
     }
     if (EquipAction.WasPressedThisFrame())
@@ -192,6 +210,79 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       equip();
     }
   }
+  void TryStartTeleport()
+    {
+
+        if (isTeleporting) return;
+
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene.Contains("LootRoom")) 
+        {
+            Debug.Log("Teleport im LootRoom nicht möglich!");
+            return;
+        }
+
+
+        currentTeleportRoutine = StartCoroutine(TeleportSequence());
+    }
+
+    IEnumerator TeleportSequence()
+    {
+        isTeleporting = true;
+        float timer = 0f;
+
+        if (teleportUIContainer != null) teleportUIContainer.SetActive(true);
+        if (teleportSlider != null) teleportSlider.value = 0;
+
+        Debug.Log("Teleport lädt...");
+
+        while (timer < teleportDelay)
+        {
+            timer += Time.deltaTime;
+            
+
+            if (teleportSlider != null)
+            {
+
+                teleportSlider.value = Mathf.Clamp01(timer / teleportDelay);
+            }
+
+            yield return null;
+        }
+       
+        if (teleportSlider != null) teleportSlider.value = 1f;
+
+
+
+        yield return new WaitForSeconds(0.2f);
+
+
+
+
+        Debug.Log("Teleporting to spawn...");
+        
+        rigidbody2d.position = spawn_pos; 
+        transform.position = spawn_pos; 
+
+        // Aufräumen
+        CleanupTeleportUI();
+    }
+
+    void CancelTeleport()
+    {
+        if (currentTeleportRoutine != null) StopCoroutine(currentTeleportRoutine);
+        CleanupTeleportUI();
+        Debug.Log("Teleport abgebrochen durch Bewegung/Aktion.");
+    }
+
+    void CleanupTeleportUI()
+    {
+        isTeleporting = false;
+        if (teleportUIContainer != null) teleportUIContainer.SetActive(false);
+        if (teleportSlider != null) teleportSlider.value = 0;
+    }
 
   void Flip()
   {
@@ -321,6 +412,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     hp.change_health(damage);
     UpdateUI();
+    if (isTeleporting) CancelTeleport();
   }
   /* void OnTriggerEnter2D(Collider2D other)
   {
