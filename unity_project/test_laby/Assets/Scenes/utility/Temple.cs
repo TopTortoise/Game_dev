@@ -75,6 +75,16 @@ public class Temple : MonoBehaviour, IKillable
         if (col) col.enabled = false;
 
         Debug.Log("Temple destroyed!");
+
+        GameOverManager goManager = FindFirstObjectByType<GameOverManager>();
+        if (goManager != null)
+        {
+            goManager.StartGameOver();
+        }
+        else
+        {
+            Debug.LogWarning("GameOverManager not Found!");
+        }
     }
 }
 

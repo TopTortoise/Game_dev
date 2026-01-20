@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LargeLootRoomScene/LargeLootRoom.unity
     guid: 8106f60f4ad4dedeb853e2322548e296
+  - enabled: 1
+    path: Assets/Scenes/MainScene/ResetScene.unity
+    guid: 7bc06e39bb0b8605bacca84312fa926a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

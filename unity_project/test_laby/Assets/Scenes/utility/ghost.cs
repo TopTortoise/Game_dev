@@ -67,8 +67,6 @@ public class ghost : MonoBehaviour, IKillable
     //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
 
 
-
-
     hp.set_max_hp(max_health);
     hp.set_hp(health);
     if (spotlight == null)
@@ -79,6 +77,7 @@ public class ghost : MonoBehaviour, IKillable
     DashAction.Enable();
 
   }
+
 
   IWeapon unequip()
   {
@@ -142,6 +141,12 @@ public class ghost : MonoBehaviour, IKillable
   private bool facingRight = true;
   void Update()
   {
+        Debug.Log(
+        $"Update running | enabled={enabled} | " +
+        $"Move enabled={MoveAction.enabled} | " +
+        $"Value={MoveAction.ReadValue<Vector2>()}"
+        );
+
     move = MoveAction.ReadValue<Vector2>();
     if (move != Vector2.zero)
     {
@@ -320,26 +325,26 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   public void OnDeath()
   {
-    this.enabled = false;
-
+    //this.enabled = false;
+    
     if (rigidbody2d != null)
     {
       rigidbody2d.linearVelocity = Vector2.zero;
-      rigidbody2d.bodyType = RigidbodyType2D.Kinematic; // Optional: Verhindert, dass Gegner dich schieben
+      rigidbody2d.bodyType = RigidbodyType2D.Kinematic; 
     }
     MoveAction.Disable();
     EquipAction.Disable();
     PlaceTorchAction.Disable();
     Ret.Disable();
     DashAction.Disable();
-
+    
 
     Animator anim = GetComponent<Animator>();
     if (anim != null)
     {
       anim.SetTrigger("die");
     }
-    GameOverManager goManager = FindFirstObjectByType<GameOverManager>();
+    /*GameOverManager goManager = FindFirstObjectByType<GameOverManager>();
     if (goManager != null)
     {
       goManager.StartGameOver();
@@ -347,8 +352,10 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     else
     {
       Debug.LogWarning("GameOverManager nicht in der Szene gefunden!");
-    }
+    }*/
   }
+
+
   public void ChangeSpotlight(float t)
   {
     if (spotlight != null)

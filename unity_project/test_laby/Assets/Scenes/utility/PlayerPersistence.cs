@@ -38,36 +38,36 @@ public class PlayerPersistence : MonoBehaviour
 
     // Called BEFORE entering loot room
     public void SaveReturnPosition(Collision2D collision)
-{
-    Transform portal = collision.transform;
-
-    foreach (Transform probe in portal)
     {
-        // Check if a player-sized capsule would overlap anything
-        Collider2D hit = Physics2D.OverlapCapsule(
-            probe.position,
-            playerCapsuleSize,
-            capsuleDirection,
-            0f,
-            blockingLayer
-        );
+        Transform portal = collision.transform;
 
-        if (hit == null)
+        foreach (Transform probe in portal)
         {
-            returnPosition = probe.position;
-            hasReturnPosition = true;
+            // Check if a player-sized capsule would overlap anything
+            Collider2D hit = Physics2D.OverlapCapsule(
+                probe.position,
+                playerCapsuleSize,
+                capsuleDirection,
+                0f,
+                blockingLayer
+            );
 
-            Debug.Log("Saved return position at: " + probe.name);
-            return;
+            if (hit == null)
+            {
+                returnPosition = probe.position;
+                hasReturnPosition = true;
+
+                Debug.Log("Saved return position at: " + probe.name);
+                return;
+            }
         }
+
+        // Fallback (should almost never happen)
+        returnPosition = portal.position;
+        hasReturnPosition = true;
+
+        Debug.LogWarning("All portal spawn capsules blocked.");
     }
-
-    // Fallback (should almost never happen)
-    returnPosition = portal.position;
-    hasReturnPosition = true;
-
-    Debug.LogWarning("All portal spawn capsules blocked.");
-}
 
 
 
