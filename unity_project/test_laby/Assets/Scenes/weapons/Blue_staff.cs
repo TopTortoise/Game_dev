@@ -82,11 +82,14 @@ public class Blue_staff : IWeapon
 
             bullet.GetComponent<projectile>().direction = direction;   // speed
 
+            bullet.GetComponent<projectile>().OnHit += HandleonHit;
             StartCoroutine(RotateCoroutine());
         }
 
     }
+    void HandleonHit(HitContext con){
 
+    }
     public float rotationAngle = 45f; // degrees
 
     private bool isRotating = false;

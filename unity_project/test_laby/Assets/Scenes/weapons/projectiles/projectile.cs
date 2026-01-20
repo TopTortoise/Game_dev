@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 public class projectile : MonoBehaviour
 {
@@ -7,13 +8,11 @@ public class projectile : MonoBehaviour
   public float damage_mod;
   public float lifetime;
   public Vector2 direction;
-  private List<IOnHitEffect> onHitEffects;
+  public event Action<HitContext> OnHit;
+  // private List<IOnHitEffect> onHitEffects;
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
-    onHitEffects = new();
-    IOnHitEffect effect = new ExplodeOnHit(20f,10f);
-    onHitEffects.Add(effect);
     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     // transform.rotation = Quaternion.Euler(0,0, Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg - 90);
@@ -45,9 +44,7 @@ public class projectile : MonoBehaviour
         hitPoint = transform.position,
         baseDamage = damage
       };
-
-      foreach (var effect in onHitEffects)
-        effect.Apply(context);
+      OnHit?.Invoke(context);
     }
     DestroyProjectile();
   }
