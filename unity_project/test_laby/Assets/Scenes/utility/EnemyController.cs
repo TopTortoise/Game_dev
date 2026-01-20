@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
 
-public class EnemyController : IEnemy, IKillable
+public class EnemyController : IEnemy
 {
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   private Health hp;
@@ -112,12 +112,12 @@ public class EnemyController : IEnemy, IKillable
   {
     Debug.Log("Hit " + collision.gameObject.name);
   }
-  public void hit(float damage)
+  public override void hit(float damage)
   {
 
     hp.change_health(damage);
   }
-  public void OnDeath()
+  public override void OnDeath()
   {
     Debug.Log("Enemy Died");
     Destroy(gameObject);

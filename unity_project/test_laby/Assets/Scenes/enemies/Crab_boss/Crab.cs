@@ -26,7 +26,7 @@ public class Crab : IEnemy
     hp.set_hp(health);
     player = GameObject.FindWithTag("Player");
     rend = GetComponentInChildren<SpriteRenderer>();
-    if(rend != null)
+    if (rend != null)
     {
       originalColor = rend.material.color;
     }
@@ -45,6 +45,7 @@ public class Crab : IEnemy
   bool isdashing = false;
   void Update()
   {
+    handleEffects();
     time += Time.deltaTime;
     if (player != null && time > attack_cooldown && !isdashing)
     {
@@ -60,18 +61,18 @@ public class Crab : IEnemy
     Debug.Log("Lets dashhh");
     //dash
     Vector2 playerPos = player.GetComponent<Rigidbody2D>().position;
-    Vector2 direction = (playerPos - rb.position ).normalized;
+    Vector2 direction = (playerPos - rb.position).normalized;
     rb.linearVelocity = -direction * speed;
     yield return new WaitForSeconds(0.25f);
     is_collided = false;
-    Debug.Log("direction is "+ direction);
-    
-    float maxDashDistance = 15f; 
-    Vector2 targetPoint = rb.position + (direction*maxDashDistance);
+    Debug.Log("direction is " + direction);
+
+    float maxDashDistance = 15f;
+    Vector2 targetPoint = rb.position + (direction * maxDashDistance);
 
     rb.linearVelocity = direction * dashSpeed;
 
-    
+
     yield return new WaitUntil(() => Vector2.Distance(rb.position, targetPoint) <= 0.5f || is_collided);
 
     Debug.Log("Lets dash ended");
@@ -81,44 +82,43 @@ public class Crab : IEnemy
     time = 0;
   }
   bool is_collided = false;
-   void OnCollisionEnter2D(Collision2D collision)
-    {
-      Debug.Log("hello there player");
-      is_collided = true;
-
-      if(isdashing && CameraShake.Instance != null)
-    {
-      CameraShake.Instance.Shake(0.3f,0.1f);
-    }
-
-    }
-    private List<StatusEffect> activeEffects = new();
-
-  public void hit(float damage)
+  void OnCollisionEnter2D(Collision2D collision)
   {
-   
+    Debug.Log("hello there player");
+    is_collided = true;
+
+    if (isdashing && CameraShake.Instance != null)
+    {
+      CameraShake.Instance.Shake(0.3f, 0.1f);
+    }
+
+  }
+
+  public override void hit(float damage)
+  {
+
     if (rend) StartCoroutine(DoFlash());
     DamagePopupGenerator.current.CreatePopup(transform.position, damage);
     hp.change_health(damage);
 
   }
   private IEnumerator DoFlash()
-    {
-        rend.material.color = Color.red;
-        yield return new WaitForSeconds(flashTime);
-        rend.material.color = originalColor; 
-    }
+  {
+    rend.material.color = Color.red;
+    yield return new WaitForSeconds(flashTime);
+    rend.material.color = originalColor;
+  }
 
 
-  public void OnDeath()
+  public override void OnDeath()
   {
     Debug.Log("Enemy Died");
     Destroy(gameObject);
   }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, minDist);
-    }
+  private void OnDrawGizmos()
+  {
+    Gizmos.DrawWireSphere(transform.position, minDist);
+  }
 
 }

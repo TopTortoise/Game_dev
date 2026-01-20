@@ -59,7 +59,8 @@ public class Water_Slime : IEnemy
   public float wait_time = 3.0f;
   void Update()
   {
-   if(health == 0) return; 
+    handleEffects();
+    if (health == 0) return;
     Collider2D[] colliders = Physics2D.OverlapCircleAll(Attackpoint.position, attack_radius, enemy_layer);// check if player is in attack range
     anim.SetBool("is_attacking", colliders.Length > 0);//attack if player is in range
     if (anim.GetBool("is_attacking"))//attack
@@ -139,7 +140,8 @@ public class Water_Slime : IEnemy
     {
       dir.y = Mathf.Sign(goal.y - rb.position.y);
     }
-    if(tilemap.GetTile(new Vector3Int((int)rb.position.x+(int)dir.x,(int)rb.position.y+(int)dir.y,0)).name.EndsWith("0")){
+    if (tilemap.GetTile(new Vector3Int((int)rb.position.x + (int)dir.x, (int)rb.position.y + (int)dir.y, 0)).name.EndsWith("0"))
+    {
       choose_new_goal();
       return;
 
@@ -233,7 +235,7 @@ public class Water_Slime : IEnemy
   {
     // Debug.Log("im hiti " + collision.gameObject);
   }
-  public void hit(float damage)
+  public override void hit(float damage)
   {
     StartCoroutine(hit_toggle());
     hp.change_health(damage);
@@ -249,7 +251,7 @@ public class Water_Slime : IEnemy
 
 
   }
-  public void OnDeath()
+  public override void OnDeath()
   {
 
     Debug.Log("Enemy Died");

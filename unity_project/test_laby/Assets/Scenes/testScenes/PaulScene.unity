@@ -1035,8 +1035,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6209089396433849838, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1718625055}
   m_SourcePrefab: {fileID: 100100000, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+--- !u!1 &1718625054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6209089396433849838, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+  m_PrefabInstance: {fileID: 1718625053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1718625055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718625054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d667647916157608e8942b5e53ff89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExplosionVisualizer
 --- !u!1001 &1799226319
 PrefabInstance:
   m_ObjectHideFlags: 0
