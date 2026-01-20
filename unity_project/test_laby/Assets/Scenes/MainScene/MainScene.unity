@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 1560336169}
   - component: {fileID: 1560336170}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: TeleportUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

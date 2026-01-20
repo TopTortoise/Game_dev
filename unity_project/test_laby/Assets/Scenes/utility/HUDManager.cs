@@ -6,6 +6,12 @@ public class HUDManager : MonoBehaviour
 {
     public TextMeshProUGUI goldText;
     public Image hpBarFill; // Das rote Bild der HP-Leiste
+    public TextMeshProUGUI introUI;
+
+    void Awake()
+    {
+        TipsUI();
+    }
 
     void Update()
     {
@@ -18,4 +24,10 @@ public class HUDManager : MonoBehaviour
         // Hier kommt später die HP-Logik rein, sobald dein Player HP hat:
         // UpdateHealth(player.currentHealth, player.maxHealth);
     }
-}
+
+    private  void TipsUI()
+    {
+        introUI.text = "Test";
+        
+    }
+} 
