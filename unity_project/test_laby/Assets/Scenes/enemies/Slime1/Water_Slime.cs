@@ -1,8 +1,9 @@
 using UnityEngine;
+
 using UnityEngine.Tilemaps;
 using System.Collections;
 
-public class Water_Slime : IEnemy, IKillable
+public class Water_Slime : IEnemy
 {
   private Health hp;
   public Rigidbody2D rb;

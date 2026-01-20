@@ -1,5 +1,5 @@
 using UnityEngine;
-public abstract class IEnemy : MonoBehaviour
+public abstract class IEnemy : MonoBehaviour, IKillable
 {
     public float speed;
     public float damage;
@@ -7,6 +7,8 @@ public abstract class IEnemy : MonoBehaviour
     public float health;
     public float max_health;
     public Transform target;
+    public void OnDeath(){}
+    public void hit(float damage){}
 
 
     public void ResetTarget()

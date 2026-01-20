@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-public class Crab : IEnemy, IKillable
+public class Crab : IEnemy
 {
 
   private Health hp;
@@ -92,7 +92,7 @@ public class Crab : IEnemy, IKillable
     }
 
     }
-
+    private List<StatusEffect> activeEffects = new();
 
   public void hit(float damage)
   {
