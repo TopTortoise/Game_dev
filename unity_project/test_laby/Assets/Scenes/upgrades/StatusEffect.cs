@@ -1,4 +1,4 @@
-public abstract class StatusEffect
+public abstract class StatusEffect : IWeaponEffect
 {
   public float duration;
   public bool unique;
