@@ -141,11 +141,11 @@ public class ghost : MonoBehaviour, IKillable
   private bool facingRight = true;
   void Update()
   {
-        Debug.Log(
-        $"Update running | enabled={enabled} | " +
-        $"Move enabled={MoveAction.enabled} | " +
-        $"Value={MoveAction.ReadValue<Vector2>()}"
-        );
+    Debug.Log(
+    $"Update running | enabled={enabled} | " +
+    $"Move enabled={MoveAction.enabled} | " +
+    $"Value={MoveAction.ReadValue<Vector2>()}"
+    );
 
     move = MoveAction.ReadValue<Vector2>();
     if (move != Vector2.zero)
@@ -264,8 +264,12 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     Debug.Log("Hit " + collision.gameObject.name);
     if (collision.gameObject.layer == 7)
     {
+      IEnemy enemy = collision.gameObject.GetComponent<IEnemy>();
+      if (enemy != null)
+      {
 
-      hp.change_health(collision.gameObject.GetComponent<IEnemy>().collision_damage);
+        hp.change_health(enemy.collision_damage);
+      }
     }
 
     else if (collision.gameObject.CompareTag("Enter Loot Room Portal"))
@@ -326,18 +330,18 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   public void OnDeath()
   {
     //this.enabled = false;
-    
+
     if (rigidbody2d != null)
     {
       rigidbody2d.linearVelocity = Vector2.zero;
-      rigidbody2d.bodyType = RigidbodyType2D.Kinematic; 
+      rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
     }
     MoveAction.Disable();
     EquipAction.Disable();
     PlaceTorchAction.Disable();
     Ret.Disable();
     DashAction.Disable();
-    
+
 
     Animator anim = GetComponent<Animator>();
     if (anim != null)

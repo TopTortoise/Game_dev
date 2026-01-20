@@ -11,6 +11,7 @@ public class Blue_staff : IWeapon
     void Start()
     {
         stats = new();
+        effects.Add(new SlowEffect(0.1f,2f));
         AttackAction.Enable();
         stats.damage = 1;
         stats.attackspeed = 0.5f;
@@ -79,17 +80,33 @@ public class Blue_staff : IWeapon
             }
 
             GameObject bullet = Instantiate(projectile, AttackPoint.position, Quaternion.identity);
-
+            bullet.GetComponent<projectile>().OnHit += HandleonHit;
+            // Debug.Log( );
             bullet.GetComponent<projectile>().direction = direction;   // speed
 
-            bullet.GetComponent<projectile>().OnHit += HandleonHit;
             StartCoroutine(RotateCoroutine());
         }
 
     }
+
     void HandleonHit(HitContext con){
+      foreach(IWeaponEffect effect in effects)
+      {
+        if(effect is IOnHitEffect onhit){
+         onhit.Apply(con); 
+        }
+        else if( effect is StatusEffect stateffect ){
+          IEnemy enemy = con.target.GetComponent<IEnemy>();
+          if(enemy != null){
+            Debug.Log("handlign effects "+ stateffect);
+            enemy.ApplyEffect(stateffect);
+          }
+        }
+      }       
 
     }
+
+
     public float rotationAngle = 45f; // degrees
 
     private bool isRotating = false;

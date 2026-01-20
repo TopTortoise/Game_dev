@@ -31,14 +31,9 @@ public abstract class IWeapon : MonoBehaviour
   public abstract void onUnequip();
   public void OnAttack()
   {
-    foreach (var effect in effects)
-      effect.OnAttack(this);
-
     // shooting logic using currentStats
   }
   public void OnHit(IKillable target)
   {
-    foreach (var effect in effects)
-      effect.OnHit(this, target);
   }
 }

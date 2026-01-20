@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using System.Collections.Generic;
 public class projectile : MonoBehaviour
 {
   public float speed;
@@ -44,6 +43,7 @@ public class projectile : MonoBehaviour
         hitPoint = transform.position,
         baseDamage = damage
       };
+      Debug.Log("invoking on hit");
       OnHit?.Invoke(context);
     }
     DestroyProjectile();
