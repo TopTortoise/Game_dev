@@ -1368,10 +1368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cc8c358b145324686196ea141087d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  health: 30
-  max_health: 30
-  regenInterval: 5
-  regenAmount: 10
+  health: 100
+  max_health: 100
+  regenInterval: 1
+  regenAmount: 0.5
   intactSprite: {fileID: 0}
   destroyedSprite: {fileID: 6353546348771536404, guid: bf4ad32a713369ef5b6e373e204f5492, type: 3}
 --- !u!1001 &7528057167597945010
