@@ -115,7 +115,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   skinWidth: 0.3
-  templePosition: {fileID: 0}
+  templePosition: {fileID: 7928103668536650190, guid: 07b5c26801320723e8710fc1d420cff9, type: 3}
   attackInterval: 1
   attackRadius: 1
   Attackpoint: {fileID: 45799853363169872}

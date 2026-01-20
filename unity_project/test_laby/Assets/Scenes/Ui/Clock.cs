@@ -102,7 +102,7 @@ public class Clock : MonoBehaviour
         if (clockText != null) clockText.color = Color.white;
         
         GameState.Instance.EndCycle();
-        ResetTimer();
+        //ResetTimer();
     }
 
     public void ResetTimer()
