@@ -511,8 +511,9 @@ MonoBehaviour:
   - {fileID: 5363538435151067544}
   - {fileID: 4832268832504350077}
   spawnInterval: 2
-  enemiesPerWave: 20
+  enemiesPerWave: 10
   timeBetweenWaves: 5
+  nrWaves: 5
 --- !u!1 &3039564223430569540
 GameObject:
   m_ObjectHideFlags: 0

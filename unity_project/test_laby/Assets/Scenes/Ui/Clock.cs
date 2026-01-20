@@ -30,8 +30,20 @@ public class Clock : MonoBehaviour
             InitializeTimer();
         }
 
+        if (GameState.Instance == null)
+        {
+            Debug.LogError("GameState missing!");
+            return;
+        }
+
+        GameState.Instance.OnCycleEnded += ResetTimer;
+        Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
+
+
         ResumeTicking();
     }
+
+
 
     // -----------------------------
     // Initialization
@@ -53,8 +65,7 @@ public class Clock : MonoBehaviour
     {
         CancelInvoke(nameof(_tick));
 
-        if (GameState.Instance.isCountingDown)
-            Invoke(nameof(_tick), 1f);
+        if (GameState.Instance.isCountingDown) Invoke(nameof(_tick), 1f);
     }
 
     // -----------------------------
@@ -95,6 +106,13 @@ public class Clock : MonoBehaviour
         }
     }
 
+
+    void OnDestroy()
+    {
+        if (GameState.Instance != null)
+            GameState.Instance.OnCycleEnded -= ResetTimer;
+    }
+
     void OnTimerFinished()
     {
         if (player != null) player.ChangeSpotlight(1f);
@@ -102,12 +120,12 @@ public class Clock : MonoBehaviour
         if (clockText != null) clockText.color = Color.white;
         
         GameState.Instance.EndCycle();
-        //ResetTimer();
+        
     }
 
     public void ResetTimer()
     {
-        GameState.Instance.StartNewCycle(duration);
+        InitializeTimer();
         ResumeTicking();
     }
 
