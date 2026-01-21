@@ -262,6 +262,11 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     {
       equip();
     }
+
+    if (Ret.WasPressedThisFrame())
+    {
+      OnRet(); //Perhaps make second death function without stat reset here KISS
+    }
   }
 
   void Flip()
@@ -401,55 +406,22 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       Debug.Log("Triggered " + other.gameObject.name);
   } */
 
+  public void OnRet()
+  {
+    StartCoroutine(AnimateDeathSpotlight());
+    StartCoroutine(RetSequence());
+
+  }
+
+
   public void OnDeath()
   {
 
     if (isDead) return;
     isDead = true;
 
-    //MoveAction.Disable();
-    //EquipAction.Disable();
-    //PlaceTorchAction.Disable();
-    //Ret.Disable();
-    //DashAction.Disable();
     StartCoroutine(AnimateDeathSpotlight());
     StartCoroutine(DeathSequence());
-
-    
-
-
-
-
-    //this.enabled = false; WAS GAMEBREAKING!!!! LOL
-    
-
-    /*
-    if (rigidbody2d != null)
-    {
-      rigidbody2d.linearVelocity = Vector2.zero;
-      rigidbody2d.bodyType = RigidbodyType2D.Kinematic; 
-    }
-    MoveAction.Disable();
-    EquipAction.Disable();
-    PlaceTorchAction.Disable();
-    Ret.Disable();
-    DashAction.Disable();
-    
-
-    Animator anim = GetComponent<Animator>();
-    if (anim != null)
-    {
-      anim.SetTrigger("die");
-    }
-    /*GameOverManager goManager = FindFirstObjectByType<GameOverManager>();
-    if (goManager != null)
-    {
-      goManager.StartGameOver();
-    }
-    else
-    {
-      Debug.LogWarning("GameOverManager nicht in der Szene gefunden!");
-    }*/
 
     Animator anim = GetComponent<Animator>();
     if (anim != null)
@@ -461,14 +433,21 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   IEnumerator DeathSequence()
   {
       
-
       yield return new WaitForSeconds(1.2f);
     
-      Respawn();
+      DeathRespawn();
+  }
+
+  IEnumerator RetSequence()
+  {
+      
+      yield return new WaitForSeconds(1.2f);
+    
+      RetRespawn();
   }
 
 
-  void Respawn()
+  void RetRespawn()
   {
     if (PlayerPersistence.Instance.HasReturnPosition())
     {
@@ -484,7 +463,30 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
           StartCoroutine(AnimateReviveSpotlight());
       }
     }
-    //Reset Player Stats Here
+  
+    isDead = false;
+    hp.restore_hp();
+    
+      
+  }
+
+  void DeathRespawn()
+  {
+    if (PlayerPersistence.Instance.HasReturnPosition())
+    {
+      PlayerPersistence.Instance.ResetReturnPosition();
+      SceneManager.LoadScene(GameManager.MainSceneName);
+    } else
+    {
+      GameObject spawn = GameObject.Find("PlayerSpawn");
+
+      if (spawn != null)
+      {
+          transform.position = spawn.transform.position;
+          StartCoroutine(AnimateReviveSpotlight());
+      }
+    }
+    //Todo: Reset Player Stats for Death Here
     isDead = false;
     hp.restore_hp();
     

@@ -264,6 +264,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6732727189378537699, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.544922
+      objectReference: {fileID: 0}
     - target: {fileID: 7012578496352457102, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
       propertyPath: m_Name
       value: Overlay
@@ -770,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5329535293914493418, guid: 1c73c655d05f151479ef889fdff2077b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.3303833
+      value: 2.3303986
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
