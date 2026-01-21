@@ -151,6 +151,7 @@ public class TempleDrawnEnemy : IEnemy
 
   public override void OnDeath()
   {
+    AudioManager.Instance.Play(AudioManager.SoundType.Enemy);
     anim.SetBool("isDead", true);
     Debug.Log("TempleDrawnEnemy Died");
     StartCoroutine(DeathRoutine(1.5f));

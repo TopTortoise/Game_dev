@@ -52,6 +52,7 @@ public class Clock : MonoBehaviour
     // -----------------------------
     void InitializeTimer()
     {
+        AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
         GameState.Instance.timeRemaining = duration;
         GameState.Instance.isCountingDown = true;
         GameState.Instance.warningStarted = false;

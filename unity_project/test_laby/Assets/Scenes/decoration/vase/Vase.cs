@@ -28,6 +28,7 @@ public class Vase : MonoBehaviour, IKillable
 
     public void OnDeath()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Amphora);
         sr.sprite = destroyed_vase;
         BoxCollider2D box = GetComponent<BoxCollider2D>();
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

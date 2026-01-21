@@ -253,7 +253,7 @@ public class Water_Slime : IEnemy
   }
   public override void OnDeath()
   {
-
+    AudioManager.Instance.Play(AudioManager.SoundType.Slime);
     Debug.Log("Enemy Died");
     GetComponent<LootDropper>().DropLoot();
     Destroy(gameObject);

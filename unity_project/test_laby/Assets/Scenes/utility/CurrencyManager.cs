@@ -20,6 +20,7 @@ public class CurrencyManager : MonoBehaviour
 
     public void AddGold(int amount) 
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Coin);
         currentGold += amount;
         Debug.Log("Goldstand: " + currentGold);
     }
