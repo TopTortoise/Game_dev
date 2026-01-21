@@ -1,0 +1,500 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
+public class ghost : MonoBehaviour, IKillable
+{
+
+  public InputAction MoveAction;
+  List<Weaponupgrade> weapon_upgrades;
+  public InputAction Ret;
+  public InputAction EquipAction;
+  public IWeapon weapon;
+  public Vector3 spawn_pos;
+  private Health hp;
+
+  public float speed = 10.0f;
+  public float equip_radius = 10.0f;
+  public float health = 5f;
+  public float max_health = 5f;
+  Rigidbody2D rigidbody2d;
+  Vector2 move;
+  public Light2D spotlight;
+  SpriteRenderer Sr;
+  private Animator anim;
+  [SerializeField] private ParticleSystem FootstepDust;
+
+  // Dash
+  public InputAction DashAction;
+  public float dashMultiplier = 2.5f;
+  public float dashDuration = 0.15f;
+  public float dashCooldown = 0.1f;
+  private bool dashOnCooldown = false;
+  private bool isDashing = false;
+  private Vector2 dashDirection;
+
+
+  public Image hpImage;
+
+
+  // torches
+  public InputAction PlaceTorchAction;
+  public GameObject torchPrefab;
+  public int torches = 3;
+  Vector3 previousTorchPos = Vector3.zero;
+  public LayerMask item_layer;
+  //teleport
+  [Header("Teleport Settings")]
+    public Slider teleportSlider;
+    public GameObject teleportUIContainer;
+    public float teleportDelay = 3.0f;
+    private bool isTeleporting = false;
+    private Coroutine currentTeleportRoutine;
+
+  // Start is called before the first frame update
+  public void Awake()
+  {
+    weapon_upgrades = new();
+    spawn_pos = transform.position;
+    MoveAction.Enable();
+    EquipAction.Enable();
+    PlaceTorchAction.Enable();
+    Ret.Enable();
+    rigidbody2d = GetComponent<Rigidbody2D>();
+    hp = gameObject.GetComponentInChildren<Health>();
+    weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
+
+    Debug.Log("weapon as = " + weapon.stats.attackspeed);
+    weapon.equip(weapon_upgrades);
+    Debug.Log("weapon as = " + weapon.stats.attackspeed);
+    //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
+
+
+    hp.set_max_hp(max_health);
+    hp.set_hp(health);
+    if (spotlight == null)
+    {
+      spotlight = GetComponentInChildren<Light2D>();
+    }
+    anim = GetComponent<Animator>();
+    DashAction.Enable();
+    if (teleportUIContainer != null) teleportUIContainer.SetActive(false);
+
+  }
+
+
+  IWeapon unequip()
+  {
+    IWeapon to_ret = weapon;
+    if (weapon != null)
+    {
+
+      Debug.Log("Weapon is unequipped");
+
+      weapon.transform.SetParent(null);
+      weapon.unequip();
+      weapon = null;
+
+    }
+    return to_ret;
+  }
+
+  void equip()
+  {
+    Debug.Log("pressed equip");
+    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, equip_radius, item_layer);
+
+    Debug.Log("items found " + colliders.Length);
+    bool found_new_weapon = false;
+    IWeapon old_weapon = unequip();
+    foreach (Collider2D item in colliders)
+    {
+      Item coin = item.GetComponent<Item>();
+      if (coin != null)
+      {
+        coin.pickup();//this is not coin pickuo but item pickup
+        continue;//NOTE: this might not be smart in future
+      }
+
+      IWeapon new_weapon = item.GetComponent<IWeapon>() == null ? item.GetComponentInParent<IWeapon>() : item.GetComponent<IWeapon>();
+      if (new_weapon != null && !found_new_weapon && new_weapon != old_weapon)
+      {
+        weapon = new_weapon;
+        weapon.transform.SetParent(transform);
+        weapon.transform.localPosition = Vector3.zero;
+        weapon.transform.localRotation = Quaternion.identity;
+
+        weapon.equip(weapon_upgrades);
+
+
+      }
+
+    }
+
+  }
+
+  private void OnDrawGizmos()
+  {
+    Gizmos.DrawWireSphere(transform.position, equip_radius);
+  }
+
+
+
+  // Update is called once per frame
+
+  private bool facingRight = true;
+  void Update()
+  {
+    if (Ret.WasPressedThisFrame())
+    {
+      TryStartTeleport();
+    }
+    if (isTeleporting && move != Vector2.zero)
+    {
+      CancelTeleport();
+    }
+    Debug.Log(
+    $"Update running | enabled={enabled} | " +
+    $"Move enabled={MoveAction.enabled} | " +
+    $"Value={MoveAction.ReadValue<Vector2>()}"
+    );
+
+    move = MoveAction.ReadValue<Vector2>();
+    if (move != Vector2.zero)
+    {
+      if (!FootstepDust.isPlaying)
+        FootstepDust.Play();
+      anim.SetBool("isWalking", true);
+      anim.SetFloat("Xinput", move.x);
+      anim.SetFloat("Yinput", move.y);
+    }
+    else
+    {
+      anim.SetBool("isWalking", false);
+      if (FootstepDust.isPlaying)
+        FootstepDust.Stop();
+    }
+
+    if (DashAction.WasPressedThisFrame()
+    && !isDashing
+    && !dashOnCooldown
+    && move != Vector2.zero)
+    {
+      if (isTeleporting) CancelTeleport();
+      anim.SetBool("isWalking", false);
+      if (!FootstepDust.isPlaying) FootstepDust.Play();
+      StartCoroutine(Dash());
+    }
+
+
+    Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
+    Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(
+new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
+);
+    if (PlaceTorchAction.WasPressedThisFrame())
+    {
+      TryPlaceTorch();
+    }
+
+    if (weapon != null && weapon.AttackAction.IsPressed())
+    {
+      if (isTeleporting) CancelTeleport();
+      weapon.Attack();
+    }
+    if (EquipAction.WasPressedThisFrame())
+    {
+      equip();
+    }
+  }
+  void TryStartTeleport()
+    {
+
+        if (isTeleporting) return;
+
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene.Contains("LootRoom"))
+        {
+            Debug.Log("Teleport im LootRoom nicht möglich!");
+            return;
+        }
+
+
+        currentTeleportRoutine = StartCoroutine(TeleportSequence());
+    }
+
+    IEnumerator TeleportSequence()
+    {
+        isTeleporting = true;
+        float timer = 0f;
+
+        if (teleportUIContainer != null) teleportUIContainer.SetActive(true);
+        if (teleportSlider != null) teleportSlider.value = 0;
+
+        Debug.Log("Teleport lädt...");
+
+        while (timer < teleportDelay)
+        {
+            timer += Time.deltaTime;
+
+
+            if (teleportSlider != null)
+            {
+
+                teleportSlider.value = Mathf.Clamp01(timer / teleportDelay);
+            }
+
+            yield return null;
+        }
+
+        if (teleportSlider != null) teleportSlider.value = 1f;
+
+
+
+        yield return new WaitForSeconds(0.2f);
+
+
+
+
+        Debug.Log("Teleporting to spawn...");
+
+        rigidbody2d.position = spawn_pos;
+        transform.position = spawn_pos;
+
+        // Aufräumen
+        CleanupTeleportUI();
+    }
+
+    void CancelTeleport()
+    {
+        if (currentTeleportRoutine != null) StopCoroutine(currentTeleportRoutine);
+        CleanupTeleportUI();
+        Debug.Log("Teleport abgebrochen durch Bewegung/Aktion.");
+    }
+
+    void CleanupTeleportUI()
+    {
+        isTeleporting = false;
+        if (teleportUIContainer != null) teleportUIContainer.SetActive(false);
+        if (teleportSlider != null) teleportSlider.value = 0;
+    }
+
+  void Flip()
+  {
+    facingRight = !facingRight;
+    Vector3 scale = transform.localScale;
+    scale.x *= -1;
+    transform.localScale = scale;
+  }
+
+  private IEnumerator Dash()
+  {
+    isDashing = true;
+    dashOnCooldown = true;
+    anim.SetBool("isDashing", true);
+    dashDirection = move.normalized;
+
+    float timer = 0f;
+
+    while (timer < dashDuration)
+    {
+      Vector2 dashPos =
+          rigidbody2d.position +
+          dashDirection * speed * dashMultiplier * Time.deltaTime;
+
+      rigidbody2d.MovePosition(dashPos);
+
+      timer += Time.deltaTime;
+      yield return null;
+    }
+
+    isDashing = false;
+    anim.SetBool("isDashing", false);
+
+    // cooldown
+    yield return new WaitForSeconds(dashCooldown);
+    dashOnCooldown = false;
+  }
+
+
+  void FixedUpdate()
+  {
+    if (isDashing) return;
+
+    Vector2 position = (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
+
+    rigidbody2d.MovePosition(position);
+  }
+
+  public void UpdateUI()
+  {
+
+    if (hpImage == null || hp == null) return;
+
+
+    float hpPercent = hp.health / hp.max_health;
+
+    float targetX = 700f * (1f - hpPercent);
+
+    hpImage.rectTransform.anchoredPosition = new Vector2(-targetX, hpImage.rectTransform.anchoredPosition.y);
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //VERY SIMPLE LOOT ROOM LOGIC -> ONLY FOR TESTING AND NEEDS TO BE HANDLED MUCH MORE SECURELY
+  //TODO
+  ///
+  /// ////////////////////////////////////////////////////////////////////////////////////////
+
+  void OnCollisionEnter2D(Collision2D collision)
+  {
+    Debug.Log("Hit " + collision.gameObject.name);
+    if (collision.gameObject.layer == 7)
+    {
+      IEnemy enemy = collision.gameObject.GetComponent<IEnemy>();
+      if (enemy != null)
+      {
+
+        hp.change_health(enemy.collision_damage);
+      }
+    }
+
+    else if (collision.gameObject.CompareTag("Enter Loot Room Portal"))
+    {
+
+      CollideWithEnterPortal(collision); //TODO
+    }
+
+    else if (collision.gameObject.CompareTag("Enter Large Loot Room Portal"))
+    {
+
+      CollideWithEnterLargePortal(collision); //TODO
+    }
+
+    else if (collision.gameObject.CompareTag("Exit Loot Room Portal"))
+    {
+
+      CollideWithExitPortal(collision); //TODO
+    }
+  }
+
+  public void CollideWithEnterLargePortal(Collision2D collision)
+  {
+    PlayerPersistence.Instance.SaveReturnPosition(collision);
+    SceneManager.LoadScene("LargeLootRoom");
+
+
+  }
+
+  public void CollideWithEnterPortal(Collision2D collision)
+  {
+    PlayerPersistence.Instance.SaveReturnPosition(collision);
+    SceneManager.LoadScene("SmallLootRoom");
+
+
+  }
+
+  public void CollideWithExitPortal(Collision2D collision)
+  {
+    SceneManager.LoadScene(GameManager.MainSceneName);
+
+    //////////////////////////////////
+    PlayerPersistence.Instance.RestoreReturnPosition();
+  }
+
+  /// ////////////////////////////////////////////////////////////////////////////////////////
+  ///
+  public void hit(float damage)
+  {
+    hp.change_health(damage);
+    UpdateUI();
+    if (isTeleporting) CancelTeleport();
+  }
+  /* void OnTriggerEnter2D(Collider2D other)
+  {
+      Debug.Log("Triggered " + other.gameObject.name);
+  } */
+
+  public void OnDeath()
+  {
+    //this.enabled = false;
+
+    if (rigidbody2d != null)
+    {
+      rigidbody2d.linearVelocity = Vector2.zero;
+      rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
+    }
+    MoveAction.Disable();
+    EquipAction.Disable();
+    PlaceTorchAction.Disable();
+    Ret.Disable();
+    DashAction.Disable();
+
+
+    Animator anim = GetComponent<Animator>();
+    if (anim != null)
+    {
+      anim.SetTrigger("die");
+    }
+    /*GameOverManager goManager = FindFirstObjectByType<GameOverManager>();
+    if (goManager != null)
+    {
+      goManager.StartGameOver();
+    }
+    else
+    {
+      Debug.LogWarning("GameOverManager nicht in der Szene gefunden!");
+    }*/
+  }
+
+
+  public void ChangeSpotlight(float t)
+  {
+    if (spotlight != null)
+    {
+
+
+
+      spotlight.falloffIntensity = Mathf.Lerp(1f, 0f, t);
+
+
+      // Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
+    }
+  }
+  void TryPlaceTorch()
+  {
+    if (torches <= 0)
+    {
+      Debug.Log("No torches left!");
+      return;
+    }
+
+
+
+
+
+    Vector3 placePos = transform.position;
+    if (placePos == previousTorchPos) { return; }
+    previousTorchPos = placePos;
+    torches--;
+    // spawn at player pos.
+    GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);
+
+    // copy light spotlight
+    Light2D torchLight = torch.GetComponentInChildren<Light2D>();
+    if (torchLight != null && spotlight != null)
+    {
+      torchLight.intensity = spotlight.intensity;
+      torchLight.pointLightOuterRadius = spotlight.pointLightOuterRadius;
+      torchLight.pointLightInnerRadius = spotlight.pointLightInnerRadius;
+      torchLight.falloffIntensity = spotlight.falloffIntensity;
+    }
+
+    Debug.Log("Torch placed. Remaining: " + torches);
+  }
+
+}
