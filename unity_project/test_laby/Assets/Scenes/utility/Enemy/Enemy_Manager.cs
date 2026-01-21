@@ -21,31 +21,31 @@ public class Enemy_Manager : MonoBehaviour
   public int current_wave_index = 0;
 
 
-    /*
-    void Start()
-    {
-        if (GameState.Instance == null)
-        {
-            Debug.LogError("GameState missing!");
-            return;
-        }
-
-        GameState.Instance.OnCycleEnded += OnCycleEnded;
-        Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
-    }
-
-  void OnDestroy()
+  /*
+  void Start()
   {
-      if (GameState.Instance != null)
-          GameState.Instance.OnCycleEnded -= OnCycleEnded;
+      if (GameState.Instance == null)
+      {
+          Debug.LogError("GameState missing!");
+          return;
+      }
+
+      GameState.Instance.OnCycleEnded += OnCycleEnded;
+      Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
   }
 
+void OnDestroy()
+{
+    if (GameState.Instance != null)
+        GameState.Instance.OnCycleEnded -= OnCycleEnded;
+}
 
-    
-    void OnCycleEnded()
-    {
-        StartCoroutine(spawnWave());
-    }*/
+
+
+  void OnCycleEnded()
+  {
+      StartCoroutine(spawnWave());
+  }*/
 
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void loadprefabs()
@@ -152,52 +152,52 @@ public class Enemy_Manager : MonoBehaviour
     go.Add(Instantiate(enemy_prefabs[Random.Range(0, enemy_prefabs.Length)], position, Quaternion.identity));
   }
 
-/*
-  
-    Vector3[] spawn_pos =
-  {
-      new Vector3(250, -20, 0),
-      new Vector3(250, -30, 0),
-      new Vector3(250, -40, 0),
-      new Vector3(250, -50, 0)
-  };
+  /*
+
+      Vector3[] spawn_pos =
+    {
+        new Vector3(250, -20, 0),
+        new Vector3(250, -30, 0),
+        new Vector3(250, -40, 0),
+        new Vector3(250, -50, 0)
+    };
 
 
-  public IEnumerator spawnWave()
-  {
+    public IEnumerator spawnWave()
+    {
 
-      if (waves == null || waves.Count == 0) {
-        Debug.Log("waves == null || waves.Count == 0");
-        yield break;
-      }
-      if (current_wave_index >= waves.Count) {
-        Debug.Log("current_wave_index >= waves.Count");
-        yield break;
-      }
-      
-      WaveData curr_wave = waves[current_wave_index];
+        if (waves == null || waves.Count == 0) {
+          Debug.Log("waves == null || waves.Count == 0");
+          yield break;
+        }
+        if (current_wave_index >= waves.Count) {
+          Debug.Log("current_wave_index >= waves.Count");
+          yield break;
+        }
 
-      foreach (var enemy in curr_wave.enemies)
-      {
-          if (enemy == null) continue;
+        WaveData curr_wave = waves[current_wave_index];
 
-          Instantiate(enemy,
-              spawn_pos[Random.Range(0, spawn_pos.Length)],
-              Quaternion.identity);
+        foreach (var enemy in curr_wave.enemies)
+        {
+            if (enemy == null) continue;
 
-          yield return new WaitForSeconds(curr_wave.timeBetweenSpawns);
-      }
+            Instantiate(enemy,
+                spawn_pos[Random.Range(0, spawn_pos.Length)],
+                Quaternion.identity);
 
-      yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(curr_wave.timeBetweenSpawns);
+        }
 
-      if (Boss_prefabs.Length > 0 && Boss_prefabs[0] != null)
-      {
-          Instantiate(Boss_prefabs[0],
-              spawn_pos[Random.Range(0, spawn_pos.Length)],
-              Quaternion.identity);
-      }
-  }
-*/
+        yield return new WaitForSeconds(5f);
+
+        if (Boss_prefabs.Length > 0 && Boss_prefabs[0] != null)
+        {
+            Instantiate(Boss_prefabs[0],
+                spawn_pos[Random.Range(0, spawn_pos.Length)],
+                Quaternion.identity);
+        }
+    }
+  */
 
 
   void spawnItem(Vector3Int pos)
@@ -212,7 +212,12 @@ public class Enemy_Manager : MonoBehaviour
     //TODO: items need rarity and then chosen randomly from the value
     //also some cases should be empty 
     int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value);
+
     GameObject item = items[mapped];
+    float dmg = Mathf.Lerp(-1f, 5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value / 5;
+    float attack_speed = Mathf.Lerp(-0.5f, 0.2f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value / 5;
+    Statupgrade upgrade = new Statupgrade(dmg, -0.5f, 0f);
+
 
     if (mapped == 0 && Random.value < 0.5)
     {
@@ -223,6 +228,7 @@ public class Enemy_Manager : MonoBehaviour
     {
 
       inst.GetComponent<Vase>().item = item;
+      inst.GetComponent<Vase>().weapon_upgrade = upgrade;
     }
     // Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
   }

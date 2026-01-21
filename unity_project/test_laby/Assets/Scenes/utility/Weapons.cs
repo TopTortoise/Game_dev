@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class IWeapon : MonoBehaviour
 {
-  public WeaponStats stats;
+  public WeaponStats stats = new();
   public bool is_equipped = false;
   public InputAction AttackAction;
   public List<string> applied_upgrades;
