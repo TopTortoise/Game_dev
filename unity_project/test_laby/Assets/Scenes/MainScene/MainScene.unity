@@ -151,19 +151,19 @@ MonoBehaviour:
   AllSounds:
   - Type: 0
     Clip: {fileID: 8300000, guid: 5e79190212fccd7cfa74597f3d95adfc, type: 3}
-    Volume: 0.375
+    Volume: 0.401
     Source: {fileID: 0}
   - Type: 1
     Clip: {fileID: 8300000, guid: b192ae1c25779666eafb2478a572b413, type: 3}
-    Volume: 0.375
+    Volume: 0.435
     Source: {fileID: 0}
   - Type: 2
     Clip: {fileID: 8300000, guid: 5aa91f5ee14e074b4b52d8961ae7031d, type: 3}
-    Volume: 0.375
+    Volume: 0.418
     Source: {fileID: 0}
   - Type: 3
     Clip: {fileID: 8300000, guid: da956e045a3129d3ba5d7907b197733c, type: 3}
-    Volume: 0.495
+    Volume: 0.39
     Source: {fileID: 0}
   - Type: 3
     Clip: {fileID: 8300000, guid: da956e045a3129d3ba5d7907b197733c, type: 3}
@@ -171,17 +171,13 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Type: 4
     Clip: {fileID: 8300000, guid: e29b172218b4e34929a72b72896f0892, type: 3}
-    Volume: 0.375
+    Volume: 0.65
     Source: {fileID: 0}
   - Type: 5
     Clip: {fileID: 8300000, guid: 526456f48df008ce785232c5f2f211da, type: 3}
     Volume: 0.375
     Source: {fileID: 0}
-  - Type: 6
-    Clip: {fileID: 8300000, guid: 0de9e61dc1e031bedb4731d9397bd3d2, type: 3}
-    Volume: 0.375
-    Source: {fileID: 0}
-  - Type: 7
+  - Type: 12
     Clip: {fileID: 8300000, guid: e2d26a8e027c7bc08b213ccaee1b424a, type: 3}
     Volume: 0.375
     Source: {fileID: 0}
@@ -189,29 +185,37 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 526456f48df008ce785232c5f2f211da, type: 3}
     Volume: 0.375
     Source: {fileID: 0}
-  - Type: 9
+  - Type: 14
     Clip: {fileID: 8300000, guid: 16c6bc4b812c5eace80765317d1e1e70, type: 3}
     Volume: 0.375
     Source: {fileID: 0}
   - Type: 7
     Clip: {fileID: 8300000, guid: 4465c377c752ada78ba386b935ab42ed, type: 3}
-    Volume: 0.375
+    Volume: 0.48
     Source: {fileID: 0}
   - Type: 6
     Clip: {fileID: 8300000, guid: a2c474793590fa5f890d669a85bff5c2, type: 3}
-    Volume: 0.375
+    Volume: 0.503
     Source: {fileID: 0}
   - Type: 8
     Clip: {fileID: 8300000, guid: e138930bacac49eab9f293805b66a82f, type: 3}
-    Volume: 0.375
+    Volume: 0.39
     Source: {fileID: 0}
   - Type: 9
     Clip: {fileID: 8300000, guid: 79893beeb546eb736a22a0e3775f8af9, type: 3}
-    Volume: 0.375
+    Volume: 0.311
     Source: {fileID: 0}
   - Type: 10
     Clip: {fileID: 8300000, guid: 49b95ab1542c143309f3f41e6c0bd993, type: 3}
-    Volume: 0.375
+    Volume: 0.548
+    Source: {fileID: 0}
+  - Type: 11
+    Clip: {fileID: 8300000, guid: 0de9e61dc1e031bedb4731d9397bd3d2, type: 3}
+    Volume: 0.373
+    Source: {fileID: 0}
+  - Type: 13
+    Clip: {fileID: 8300000, guid: 917323d78517e0fc39eeeeb71cb84caf, type: 3}
+    Volume: 0.379
     Source: {fileID: 0}
 --- !u!4 &265161127
 Transform:
@@ -320,6 +324,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2413688126118282175, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.1569824
+      objectReference: {fileID: 0}
     - target: {fileID: 6732727189378537699, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -23.544922
@@ -327,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 7012578496352457102, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
       propertyPath: m_Name
       value: Overlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161086017568730939, guid: 2fd3524b4a5702646901f84cea032bef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.74972534
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -718,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
   duration: 500
-  warningTime: 30
+  warningTime: 60
   clockText: {fileID: 1269560882}
   player: {fileID: 1398438460}
 --- !u!4 &821971374
@@ -736,7 +748,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &873286553
+--- !u!1001 &825109089
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -750,11 +762,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302801467194579911, guid: 09731d58c09ae3109bd2ab94a504d551, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 243.60893
+      value: 243.83542
       objectReference: {fileID: 0}
     - target: {fileID: 3302801467194579911, guid: 09731d58c09ae3109bd2ab94a504d551, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.056267
+      value: -36.253113
       objectReference: {fileID: 0}
     - target: {fileID: 3302801467194579911, guid: 09731d58c09ae3109bd2ab94a504d551, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1372,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: timeRemaining
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: isCountingDown
@@ -10881,4 +10893,4 @@ SceneRoots:
   - {fileID: 4289553073167045826}
   - {fileID: 1611501464}
   - {fileID: 335601016}
-  - {fileID: 873286553}
+  - {fileID: 825109089}

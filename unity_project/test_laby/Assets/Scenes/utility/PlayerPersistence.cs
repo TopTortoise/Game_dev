@@ -102,7 +102,15 @@ public class PlayerPersistence : MonoBehaviour
         // Only auto-spawn when NOT returning
         if (scene.name != "SmallLootRoom" && scene.name != "LargeLootRoom")
         {
-            AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
+            Debug.Log("Player Persistence Music");
+            if(GameState.Instance.warningStarted)
+            {
+                AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Night_Coming);
+            } else
+            {
+                AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
+            }
+            
             GameObject spawn = GameObject.Find("PlayerSpawn");
             if (spawn != null )
             {
@@ -116,6 +124,8 @@ public class PlayerPersistence : MonoBehaviour
         }
         if (scene.name == "SmallLootRoom" || scene.name == "LargeLootRoom")
         {
+            Debug.Log("Player Persistence Music");
+            
             AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Loot_Room);
             GameObject spawn = GameObject.Find("PlayerSpawn");
             transform.position = spawn.transform.position;
