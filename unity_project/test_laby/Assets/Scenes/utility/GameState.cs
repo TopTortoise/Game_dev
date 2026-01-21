@@ -50,7 +50,7 @@ public class GameState : MonoBehaviour
         EnemiesPerWave = 15;
         DayDuration = 300;
         nrWavesDefeated = 0;
-        StartNewCycle();
+        StartNewCycle(DayDuration);
     }
 
     void Awake()

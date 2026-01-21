@@ -5,7 +5,7 @@ public class TitleScreen : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("MainScene"); // change name if needed
+        SceneManager.LoadScene("LoreScene"); // change name if needed
     }
 
     public void QuitGame()

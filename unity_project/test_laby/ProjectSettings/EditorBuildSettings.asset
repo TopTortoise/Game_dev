@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene/ResetScene.unity
     guid: 7bc06e39bb0b8605bacca84312fa926a
+  - enabled: 1
+    path: Assets/Scenes/testScenes/Lore/LoreScene.unity
+    guid: ec4b99e018da1e7448419b04b3dbafa5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
