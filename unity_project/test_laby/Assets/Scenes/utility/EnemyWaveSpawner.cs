@@ -19,6 +19,12 @@ public class EnemyWaveSpawner : MonoBehaviour
     private bool isSpawning = false;
 
 
+    void InitializeEnemyWave()
+    {
+        spawnInterval = GameState.Instance.SpawnInterval;
+        enemiesPerWave = GameState.Instance.EnemiesPerWave;
+    }
+
     void Start()
     {
         if (GameState.Instance == null)
@@ -41,12 +47,13 @@ public class EnemyWaveSpawner : MonoBehaviour
     
     void OnCycleEnded()
     {
+        InitializeEnemyWave();
         StartCoroutine(SpawnWave());
     }
 
     
 
-    IEnumerator SpawnWaves()
+    /*IEnumerator SpawnWaves()
     {
         
         for(int i = 0; i < nrWaves; i++)
@@ -55,7 +62,7 @@ public class EnemyWaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenWaves);
         }
         
-    }
+    }*/
 
     IEnumerator SpawnWave()
     {
@@ -68,7 +75,7 @@ public class EnemyWaveSpawner : MonoBehaviour
         }
 
         isSpawning = false;
-        GameState.Instance.StartNewCycle(300);
+        GameState.Instance.StartNewCycle(GameState.Instance.DayDuration);
     }
 
     void SpawnEnemy()

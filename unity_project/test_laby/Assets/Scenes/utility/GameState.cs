@@ -17,7 +17,41 @@ public class GameState : MonoBehaviour
     public event Action OnClockPaused;
     public event Action OnClockResumed;
 
+
+    // ---- Game Stats (For Death Page)
+    public int nrWavesDefeated;
+    public int nrBossesDefeated;
+    public int nrEnemiesDefeated;
+
+
+    // ---- Enemy Wave State
+    public float SpawnInterval = 2.2f;
+    public int EnemiesPerWave = 15;
+
+    // ---- Day Length
+    public int DayDuration = 300;
+
+
+    void UpdateEnemyWaveDifficulty()
+    {
+        SpawnInterval -= 0.2f;
+        EnemiesPerWave += 5;
+    }
     
+    void UpdateDayDuration()
+    {
+        DayDuration += 60;
+    }
+
+    //for GameOverManager
+    void ResetGameState()
+    {
+        SpawnInterval = 2.2f;
+        EnemiesPerWave = 15;
+        DayDuration = 300;
+        nrWavesDefeated = 0;
+        StartNewCycle();
+    }
 
     void Awake()
     {
@@ -29,10 +63,14 @@ public class GameState : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        nrBossesDefeated = 0;
+        nrWavesDefeated = -1; //start with -1 (first day starts with 0)
     }
 
     public void StartNewCycle(int duration)
     {
+        UpdateEnemyWaveDifficulty();
+        nrWavesDefeated++;
         timeRemaining = duration;
         isCountingDown = true;
         warningStarted = false;
@@ -42,6 +80,7 @@ public class GameState : MonoBehaviour
 
     public void EndCycle()
     {
+        UpdateDayDuration();
         isCountingDown = false;
         OnCycleEnded?.Invoke();
         Debug.Log("OnCycleEnded invoked");
