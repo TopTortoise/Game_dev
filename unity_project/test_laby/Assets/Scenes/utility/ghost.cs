@@ -451,8 +451,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     if (PlayerPersistence.Instance.HasReturnPosition())
     {
-      PlayerPersistence.Instance.ResetReturnPosition();
-      SceneManager.LoadScene(GameManager.MainSceneName);
+      return; //No further checks necessary
     } else
     {
       GameObject spawn = GameObject.Find("PlayerSpawn");

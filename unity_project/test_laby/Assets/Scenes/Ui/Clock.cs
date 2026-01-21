@@ -123,8 +123,10 @@ public class Clock : MonoBehaviour
     {
         if (player != null) player.ChangeSpotlight(1f);
 
-        if (clockText != null) clockText.color = Color.white;
-        
+        if (clockText != null) {
+            clockText.color = Color.white;
+            clockText.text = "Protect the Temple!";
+        }
         GameState.Instance.EndCycle();
         
     }
