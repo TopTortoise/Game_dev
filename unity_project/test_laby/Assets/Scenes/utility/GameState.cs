@@ -14,6 +14,11 @@ public class GameState : MonoBehaviour
     public event Action OnCycleEnded;
     public event Action OnCycleStarted;
 
+    public event Action OnClockPaused;
+    public event Action OnClockResumed;
+
+    
+
     void Awake()
     {
         if (Instance != null)
@@ -40,6 +45,18 @@ public class GameState : MonoBehaviour
         isCountingDown = false;
         OnCycleEnded?.Invoke();
         Debug.Log("OnCycleEnded invoked");
+    }
+
+     public void PauseClock()
+    {
+        
+        OnClockPaused?.Invoke();
+    }
+
+    public void ResumeClock()
+    {
+        
+        OnClockResumed?.Invoke();
     }
 }
 

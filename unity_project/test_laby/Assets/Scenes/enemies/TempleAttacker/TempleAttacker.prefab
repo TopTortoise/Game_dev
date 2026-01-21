@@ -109,15 +109,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 2
   damage: 1
+  collision_damage: 1
   health: 3
   max_health: 3
+  target: {fileID: 0}
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
   skinWidth: 0.3
   templePosition: {fileID: 7928103668536650190, guid: 07b5c26801320723e8710fc1d420cff9, type: 3}
   attackInterval: 1
-  attackRadius: 1
+  attackRadius: 2
   Attackpoint: {fileID: 45799853363169872}
   enemy_layer:
     serializedVersion: 2
@@ -190,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45799853363169872}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

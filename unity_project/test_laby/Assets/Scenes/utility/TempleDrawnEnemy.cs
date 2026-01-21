@@ -108,6 +108,7 @@ public class TempleDrawnEnemy : IEnemy
     if (attackTimer > 0f) return;
 
     Attack();
+    
     attackTimer = attackInterval;
   }
 
@@ -119,8 +120,9 @@ public class TempleDrawnEnemy : IEnemy
     foreach (Collider2D target in colliders)
     {
       IKillable killable = target.GetComponentInParent<IKillable>();
-      if (killable != null && killable.Equals(this))
+      if (killable != null && !killable.Equals(this))
       {
+        
         killable.hit(damage);
       }
     }

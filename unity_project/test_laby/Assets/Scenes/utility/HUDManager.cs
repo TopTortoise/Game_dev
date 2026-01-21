@@ -4,30 +4,37 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
+    public static HUDManager Instance { get; private set; }
+
     public TextMeshProUGUI goldText;
-    public Image hpBarFill; // Das rote Bild der HP-Leiste
+    public Image hpBarFill;
     public TextMeshProUGUI introUI;
 
     void Awake()
     {
+        // Singleton protection
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         TipsUI();
     }
 
     void Update()
     {
-        // Gold aktualisieren
         if (CurrencyManager.Instance != null)
         {
             goldText.text = CurrencyManager.Instance.currentGold.ToString();
         }
-
-        // Hier kommt später die HP-Logik rein, sobald dein Player HP hat:
-        // UpdateHealth(player.currentHealth, player.maxHealth);
     }
 
-    private  void TipsUI()
+    private void TipsUI()
     {
-        introUI.text = "Test";
-        
+        //introUI.text = "Test"; This broke the HUD lol
     }
-} 
+}

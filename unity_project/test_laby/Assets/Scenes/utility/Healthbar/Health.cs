@@ -40,6 +40,16 @@
 
         }
 
+        public void restore_hp()
+        {
+            health = max_health;
+            if (image)
+            {
+                image.fillAmount = health / max_health;
+            }
+
+        }
+
         public void set_max_hp(float amount)
         {
             max_health = amount;

@@ -37,6 +37,8 @@ public class Clock : MonoBehaviour
         }
 
         GameState.Instance.OnCycleStarted += ResetTimer;
+        GameState.Instance.OnClockPaused += PauseTicking;
+        GameState.Instance.OnClockResumed += ResumeTicking;
         Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
 
 
@@ -110,7 +112,11 @@ public class Clock : MonoBehaviour
     void OnDestroy()
     {
         if (GameState.Instance != null)
+        {
             GameState.Instance.OnCycleStarted -= ResetTimer;
+            GameState.Instance.OnClockPaused -= PauseTicking;
+            GameState.Instance.OnClockResumed -= ResumeTicking;
+        }
     }
 
     void OnTimerFinished()
@@ -128,6 +134,12 @@ public class Clock : MonoBehaviour
         InitializeTimer();
         ResumeTicking();
     }
+
+    void PauseTicking()
+    {
+        CancelInvoke(nameof(_tick));
+    }
+
 
     /*
     // -----------------------------

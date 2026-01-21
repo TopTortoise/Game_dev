@@ -9,6 +9,8 @@ using System.Collections.Generic;
 public class ghost : MonoBehaviour, IKillable
 {
 
+  bool isDead = false;
+
   public InputAction MoveAction;
   List<Weaponupgrade> weapon_upgrades;
   public InputAction Ret;
@@ -47,17 +49,11 @@ public class ghost : MonoBehaviour, IKillable
   public int torches = 3;
   Vector3 previousTorchPos = Vector3.zero;
   public LayerMask item_layer;
-  //teleport
-  [Header("Teleport Settings")]
-    public Slider teleportSlider;
-    public GameObject teleportUIContainer;
-    public float teleportDelay = 3.0f;
-    private bool isTeleporting = false;
-    private Coroutine currentTeleportRoutine;
 
   // Start is called before the first frame update
   public void Awake()
   {
+    isDead = false;
     weapon_upgrades = new();
     spawn_pos = transform.position;
     MoveAction.Enable();
@@ -82,11 +78,82 @@ public class ghost : MonoBehaviour, IKillable
     }
     anim = GetComponent<Animator>();
     DashAction.Enable();
-    if (teleportUIContainer != null) teleportUIContainer.SetActive(false);
 
   }
 
+  IWeapon unequip()
+  {
+      IWeapon to_ret = weapon;
 
+      if (weapon != null)
+      {
+          Debug.Log("Weapon is unequipped");
+
+          weapon.transform.SetParent(null);
+          weapon.unequip();
+          weapon = null; // only null briefly during swap
+      }
+
+      return to_ret;
+  }
+
+  void equip()
+  {
+      Debug.Log("pressed equip");
+
+      Collider2D[] colliders =
+          Physics2D.OverlapCircleAll(transform.position, equip_radius, item_layer);
+
+      Debug.Log("items found " + colliders.Length);
+
+      IWeapon new_weapon = null;
+      Vector3 pickup_position = Vector3.zero;
+
+      // ---- First: find a weapon (do NOT unequip yet) ----
+      foreach (Collider2D item in colliders)
+      {
+          Item coin = item.GetComponent<Item>();
+          if (coin != null)
+          {
+              coin.pickup();
+              continue;
+          }
+
+          IWeapon candidate =
+              item.GetComponent<IWeapon>() ??
+              item.GetComponentInParent<IWeapon>();
+
+          if (candidate != null && candidate != weapon)
+          {
+              new_weapon = candidate;
+              pickup_position = candidate.transform.position;
+              break;
+          }
+      }
+
+      // ---- HARD GUARANTEE: if no new weapon, do nothing ----
+      if (new_weapon == null)
+          return;
+
+      // ---- Swap ----
+      IWeapon old_weapon = unequip();
+
+      // Old weapon is dropped exactly where new one was
+      if (old_weapon != null)
+      {
+          old_weapon.transform.position = pickup_position;
+      }
+
+      // Immediately equip replacement
+      weapon = new_weapon;
+      weapon.transform.SetParent(transform);
+      weapon.transform.localPosition = Vector3.zero;
+      weapon.transform.localRotation = Quaternion.identity;
+      weapon.equip(weapon_upgrades);
+  }
+
+
+  /*
   IWeapon unequip()
   {
     IWeapon to_ret = weapon;
@@ -135,7 +202,7 @@ public class ghost : MonoBehaviour, IKillable
 
     }
 
-  }
+  }*/
 
   private void OnDrawGizmos()
   {
@@ -149,20 +216,8 @@ public class ghost : MonoBehaviour, IKillable
   private bool facingRight = true;
   void Update()
   {
-    if (Ret.WasPressedThisFrame())
-    {
-      TryStartTeleport();
-    }
-    if (isTeleporting && move != Vector2.zero)
-    {
-      CancelTeleport();
-    }
-    Debug.Log(
-    $"Update running | enabled={enabled} | " +
-    $"Move enabled={MoveAction.enabled} | " +
-    $"Value={MoveAction.ReadValue<Vector2>()}"
-    );
-
+        
+    UpdateUI();
     move = MoveAction.ReadValue<Vector2>();
     if (move != Vector2.zero)
     {
@@ -184,7 +239,6 @@ public class ghost : MonoBehaviour, IKillable
     && !dashOnCooldown
     && move != Vector2.zero)
     {
-      if (isTeleporting) CancelTeleport();
       anim.SetBool("isWalking", false);
       if (!FootstepDust.isPlaying) FootstepDust.Play();
       StartCoroutine(Dash());
@@ -202,7 +256,6 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
     if (weapon != null && weapon.AttackAction.IsPressed())
     {
-      if (isTeleporting) CancelTeleport();
       weapon.Attack();
     }
     if (EquipAction.WasPressedThisFrame())
@@ -210,79 +263,6 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       equip();
     }
   }
-  void TryStartTeleport()
-    {
-
-        if (isTeleporting) return;
-
-
-        string currentScene = SceneManager.GetActiveScene().name;
-
-        if (currentScene.Contains("LootRoom")) 
-        {
-            Debug.Log("Teleport im LootRoom nicht möglich!");
-            return;
-        }
-
-
-        currentTeleportRoutine = StartCoroutine(TeleportSequence());
-    }
-
-    IEnumerator TeleportSequence()
-    {
-        isTeleporting = true;
-        float timer = 0f;
-
-        if (teleportUIContainer != null) teleportUIContainer.SetActive(true);
-        if (teleportSlider != null) teleportSlider.value = 0;
-
-        Debug.Log("Teleport lädt...");
-
-        while (timer < teleportDelay)
-        {
-            timer += Time.deltaTime;
-            
-
-            if (teleportSlider != null)
-            {
-
-                teleportSlider.value = Mathf.Clamp01(timer / teleportDelay);
-            }
-
-            yield return null;
-        }
-       
-        if (teleportSlider != null) teleportSlider.value = 1f;
-
-
-
-        yield return new WaitForSeconds(0.2f);
-
-
-
-
-        Debug.Log("Teleporting to spawn...");
-        
-        rigidbody2d.position = spawn_pos; 
-        transform.position = spawn_pos; 
-
-        // Aufräumen
-        CleanupTeleportUI();
-    }
-
-    void CancelTeleport()
-    {
-        if (currentTeleportRoutine != null) StopCoroutine(currentTeleportRoutine);
-        CleanupTeleportUI();
-        Debug.Log("Teleport abgebrochen durch Bewegung/Aktion.");
-    }
-
-    void CleanupTeleportUI()
-    {
-        isTeleporting = false;
-        if (teleportUIContainer != null) teleportUIContainer.SetActive(false);
-        if (teleportSlider != null) teleportSlider.value = 0;
-    }
 
   void Flip()
   {
@@ -355,12 +335,8 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     Debug.Log("Hit " + collision.gameObject.name);
     if (collision.gameObject.layer == 7)
     {
-      IEnemy enemy = collision.gameObject.GetComponent<IEnemy>();
-      if (enemy != null)
-      {
 
-        hp.change_health(enemy.collision_damage);
-      }
+      hp.change_health(collision.gameObject.GetComponent<IEnemy>().collision_damage);
     }
 
     else if (collision.gameObject.CompareTag("Enter Loot Room Portal"))
@@ -385,6 +361,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   public void CollideWithEnterLargePortal(Collision2D collision)
   {
     PlayerPersistence.Instance.SaveReturnPosition(collision);
+    GameState.Instance.PauseClock();
     SceneManager.LoadScene("LargeLootRoom");
 
 
@@ -393,6 +370,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   public void CollideWithEnterPortal(Collision2D collision)
   {
     PlayerPersistence.Instance.SaveReturnPosition(collision);
+    GameState.Instance.PauseClock();
     SceneManager.LoadScene("SmallLootRoom");
 
 
@@ -404,15 +382,19 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
     //////////////////////////////////
     PlayerPersistence.Instance.RestoreReturnPosition();
+    GameState.Instance.ResumeClock();
   }
 
   /// ////////////////////////////////////////////////////////////////////////////////////////
   ///
   public void hit(float damage)
   {
-    hp.change_health(damage);
-    UpdateUI();
-    if (isTeleporting) CancelTeleport();
+    if (!isDead)
+    {
+      hp.change_health(damage);
+      UpdateUI();
+    }
+    
   }
   /* void OnTriggerEnter2D(Collider2D other)
   {
@@ -421,19 +403,38 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   public void OnDeath()
   {
-    //this.enabled = false;
 
+    if (isDead) return;
+    isDead = true;
+
+    //MoveAction.Disable();
+    //EquipAction.Disable();
+    //PlaceTorchAction.Disable();
+    //Ret.Disable();
+    //DashAction.Disable();
+    StartCoroutine(AnimateDeathSpotlight());
+    StartCoroutine(DeathSequence());
+
+    
+
+
+
+
+    //this.enabled = false; WAS GAMEBREAKING!!!! LOL
+    
+
+    /*
     if (rigidbody2d != null)
     {
       rigidbody2d.linearVelocity = Vector2.zero;
-      rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
+      rigidbody2d.bodyType = RigidbodyType2D.Kinematic; 
     }
     MoveAction.Disable();
     EquipAction.Disable();
     PlaceTorchAction.Disable();
     Ret.Disable();
     DashAction.Disable();
-
+    
 
     Animator anim = GetComponent<Animator>();
     if (anim != null)
@@ -449,7 +450,98 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     {
       Debug.LogWarning("GameOverManager nicht in der Szene gefunden!");
     }*/
+
+    Animator anim = GetComponent<Animator>();
+    if (anim != null)
+    {
+      anim.SetTrigger("die");
+    }
   }
+
+  IEnumerator DeathSequence()
+  {
+      
+      //Reset Player Stats Here
+      isDead = false;
+      hp.restore_hp();
+
+      yield return new WaitForSeconds(1.2f);
+    
+      Respawn();
+  }
+
+
+  void Respawn()
+  {
+    if (PlayerPersistence.Instance.HasReturnPosition())
+    {
+      PlayerPersistence.Instance.ResetReturnPosition();
+      SceneManager.LoadScene(GameManager.MainSceneName);
+    } else
+    {
+      GameObject spawn = GameObject.Find("PlayerSpawn");
+
+      if (spawn != null)
+      {
+          transform.position = spawn.transform.position;
+          StartCoroutine(AnimateReviveSpotlight());
+      }
+    }
+    
+      
+  }
+
+  IEnumerator AnimateDeathSpotlight()
+  {
+      float duration = 1.2f;   // fast, punchy
+      float time = 0f;
+
+      float startT = 0.9f;
+      float endT = 0.01f;
+
+      while (time < duration)
+      {
+          time += Time.deltaTime;
+          float t = Mathf.Lerp(startT, endT, time / duration);
+          ChangeSpotlight(t);
+          yield return null;
+      }
+
+      // Clamp final value
+      ChangeSpotlight(endT);
+  }
+
+  void Start()
+{
+
+    GameState.Instance.OnCycleEnded += OnDeath;
+    Debug.Log("Player subscribed to OnCycleEnded");
+    StartCoroutine(AnimateReviveSpotlight());
+}
+
+
+  IEnumerator AnimateReviveSpotlight()
+  {
+      float duration = 1.2f;   // fast, punchy
+      float time = 0f;
+
+      float startT = 0.01f;
+      float endT = 1f;
+
+      while (time < duration)
+      {
+          time += Time.deltaTime;
+          float t = Mathf.Lerp(startT, endT, time / duration);
+          ChangeSpotlight(t);
+          yield return null;
+      }
+
+      // Clamp final value
+      ChangeSpotlight(endT);
+  }
+
+
+
 
 
   public void ChangeSpotlight(float t)

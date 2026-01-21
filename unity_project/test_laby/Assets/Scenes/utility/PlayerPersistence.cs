@@ -82,6 +82,20 @@ public class PlayerPersistence : MonoBehaviour
         
     }
 
+    public bool HasReturnPosition()
+    {
+        return hasReturnPosition;
+
+    }
+
+    public void ResetReturnPosition()
+    {
+        hasReturnPosition = false;
+    }
+
+
+    
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
       Debug.Log("hello PP");
