@@ -69,6 +69,7 @@ public class GameState : MonoBehaviour
 
     public void StartNewCycle(int duration)
     {
+        AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
         UpdateEnemyWaveDifficulty();
         nrWavesDefeated++;
         timeRemaining = duration;
@@ -80,6 +81,7 @@ public class GameState : MonoBehaviour
 
     public void EndCycle()
     {
+        AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Defend_The_Temple);
         UpdateDayDuration();
         isCountingDown = false;
         OnCycleEnded?.Invoke();

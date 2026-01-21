@@ -1,0 +1,128 @@
+//Source:https://pastebin.com/0kRfBYKD Of course adapted for our use
+
+using UnityEngine;
+using System.Collections.Generic;
+ 
+public class AudioManager : MonoBehaviour
+{
+    public enum SoundType
+    {
+        Walk,
+        Attack,
+        Shoot,
+        Groan,
+        Teleport,
+        Torch,
+        Loot_Room,
+        Coin,
+        Amphora,
+        Enemy,
+        Slime,
+        Music_Day,
+        Music_Night_Coming,
+        Music_Defend_The_Temple,
+        Music_Loot_Room
+        // Add more sound types as needed
+    }
+ 
+    [System.Serializable]
+    public class Sound
+    {
+        public SoundType Type;
+        public AudioClip Clip;
+ 
+        [Range(0f, 1f)]
+        public float Volume = 1f;
+ 
+        [HideInInspector]
+        public AudioSource Source;
+    }
+ 
+    //Singleton
+    public static AudioManager Instance;
+ 
+    //All sounds and their associated type - Set these in the inspector
+    public Sound[] AllSounds;
+ 
+    //Runtime collections
+    private Dictionary<SoundType, Sound> _soundDictionary = new Dictionary<SoundType, Sound>();
+    private AudioSource _musicSource;
+ 
+    private void Awake()
+    {
+        //Assign singleton
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+ 
+        //Set up sounds
+        foreach(var s in AllSounds)
+        {
+            _soundDictionary[s.Type] = s;
+        }
+    }
+ 
+ 
+ 
+    //Call this method to play a sound
+    public void Play(SoundType type)
+    {
+        //Make sure there's a sound assigned to your specified type
+        if (!_soundDictionary.TryGetValue(type, out Sound s))
+        {
+            Debug.LogWarning($"Sound type {type} not found!");
+            return;
+        }
+ 
+        //Creates a new sound object
+        var soundObj = new GameObject($"Sound_{type}");
+        var audioSrc = soundObj.AddComponent<AudioSource>();
+ 
+        //Assigns your sound properties
+        audioSrc.clip = s.Clip;
+        audioSrc.volume = s.Volume;
+ 
+        //Play the sound
+        audioSrc.Play();
+ 
+        //Destroy the object
+        Destroy(soundObj, s.Clip.length);
+    }
+ 
+    //Call this method to change music tracks
+    public void ChangeMusic(SoundType type)
+{
+    if (!_soundDictionary.TryGetValue(type, out Sound track))
+    {
+        Debug.LogWarning($"Music track {type} not found!");
+        return;
+    }
+
+    if (_musicSource == null)
+    {
+        var container = new GameObject("MusicSource");
+        container.transform.SetParent(transform);
+
+        _musicSource = container.AddComponent<AudioSource>();
+        _musicSource.loop = true;
+        _musicSource.playOnAwake = false;
+
+        // 🔑 THESE TWO LINES FIX IT
+        _musicSource.volume = track.Volume;
+        _musicSource.spatialBlend = 0f; // force 2D music
+    }
+
+    if (_musicSource.clip == track.Clip && _musicSource.isPlaying)
+        return;
+
+    _musicSource.clip = track.Clip;
+    _musicSource.volume = track.Volume;
+    _musicSource.Play();
+}
+
+}

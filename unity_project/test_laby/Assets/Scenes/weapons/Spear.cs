@@ -41,6 +41,7 @@ public class Spear : IWeapon
 
         if (!is_attacking)
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.Attack);
             Debug.Log("attack");
             OnAttack();
             StartCoroutine(spear_poke());

@@ -60,7 +60,7 @@ public class Blue_staff : IWeapon
 //implemet on Hit_logic
     public override void Attack()
     {
-
+        
         OnAttack();
         if (!isRotating)
         {
@@ -80,6 +80,7 @@ public class Blue_staff : IWeapon
             }
 
             GameObject bullet = Instantiate(projectile, AttackPoint.position, Quaternion.identity);
+            AudioManager.Instance.Play(AudioManager.SoundType.Shoot);
             bullet.GetComponent<projectile>().OnHit += HandleonHit;
             // Debug.Log( );
             bullet.GetComponent<projectile>().direction = direction;   // speed

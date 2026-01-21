@@ -52,6 +52,7 @@ public class Clock : MonoBehaviour
     // -----------------------------
     void InitializeTimer()
     {
+        //AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
         GameState.Instance.timeRemaining = duration;
         GameState.Instance.isCountingDown = true;
         GameState.Instance.warningStarted = false;
@@ -78,11 +79,16 @@ public class Clock : MonoBehaviour
         var gs = GameState.Instance;
         gs.timeRemaining--;
 
-        // ---- Warning logic ----
-        if (gs.timeRemaining <= warningTime && player != null)
+        if (gs.timeRemaining <= warningTime && !gs.warningStarted)
         {
             if (!gs.warningStarted)
                 gs.warningStarted = true;
+            AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Night_Coming);
+        }
+        // ---- Warning logic ----
+        if (gs.timeRemaining <= warningTime && player != null)
+        {
+            
 
             float t = Mathf.Clamp01((float)gs.timeRemaining / warningTime);
             player.ChangeSpotlight(t);

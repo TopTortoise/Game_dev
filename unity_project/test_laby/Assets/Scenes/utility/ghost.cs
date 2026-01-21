@@ -223,6 +223,7 @@ public class ghost : MonoBehaviour, IKillable
     {
       if (!FootstepDust.isPlaying)
         FootstepDust.Play();
+      //AudioManager.Instance.Play(AudioManager.SoundType.Walk);
       anim.SetBool("isWalking", true);
       anim.SetFloat("Xinput", move.x);
       anim.SetFloat("Yinput", move.y);
@@ -239,6 +240,7 @@ public class ghost : MonoBehaviour, IKillable
     && !dashOnCooldown
     && move != Vector2.zero)
     {
+      AudioManager.Instance.Play(AudioManager.SoundType.Groan);
       anim.SetBool("isWalking", false);
       if (!FootstepDust.isPlaying) FootstepDust.Play();
       StartCoroutine(Dash());
@@ -251,11 +253,13 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 );
     if (PlaceTorchAction.WasPressedThisFrame())
     {
+      AudioManager.Instance.Play(AudioManager.SoundType.Torch);
       TryPlaceTorch();
     }
 
     if (weapon != null && weapon.AttackAction.IsPressed())
     {
+
       weapon.Attack();
     }
     if (EquipAction.WasPressedThisFrame())
@@ -265,6 +269,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
     if (Ret.WasPressedThisFrame())
     {
+      AudioManager.Instance.Play(AudioManager.SoundType.Teleport);
       OnRet(); //Perhaps make second death function without stat reset here KISS
     }
   }
@@ -367,6 +372,8 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     PlayerPersistence.Instance.SaveReturnPosition(collision);
     GameState.Instance.PauseClock();
+    
+    AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
     SceneManager.LoadScene("LargeLootRoom");
 
 
@@ -376,6 +383,8 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     PlayerPersistence.Instance.SaveReturnPosition(collision);
     GameState.Instance.PauseClock();
+    
+    AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
     SceneManager.LoadScene("SmallLootRoom");
 
 
@@ -388,6 +397,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     //////////////////////////////////
     PlayerPersistence.Instance.RestoreReturnPosition();
     GameState.Instance.ResumeClock();
+    
   }
 
   /// ////////////////////////////////////////////////////////////////////////////////////////
@@ -420,6 +430,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     if (isDead) return;
     isDead = true;
 
+    AudioManager.Instance.Play(AudioManager.SoundType.Teleport);
     StartCoroutine(AnimateDeathSpotlight());
     StartCoroutine(DeathSequence());
 
