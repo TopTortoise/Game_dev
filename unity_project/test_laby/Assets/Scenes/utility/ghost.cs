@@ -461,9 +461,6 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   IEnumerator DeathSequence()
   {
       
-      //Reset Player Stats Here
-      isDead = false;
-      hp.restore_hp();
 
       yield return new WaitForSeconds(1.2f);
     
@@ -487,6 +484,9 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
           StartCoroutine(AnimateReviveSpotlight());
       }
     }
+    //Reset Player Stats Here
+    isDead = false;
+    hp.restore_hp();
     
       
   }
