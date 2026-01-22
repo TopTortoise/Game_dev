@@ -145,7 +145,12 @@ public class Spear : IWeapon
         if (canDealDamage)
         {
 
-            Debug.Log("hit soemthing " + collider);
+            Debug.Log("hit something " + collider);
+
+            
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Water")) {
+                return;
+            }
             IKillable obj = collider.gameObject.GetComponent<IKillable>();
             if (obj != null)
             {
