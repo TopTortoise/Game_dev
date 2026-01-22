@@ -46,10 +46,11 @@ public class Vase : MonoBehaviour, IKillable
     {
       GameObject dropped_item = Instantiate(item, transform.position, Quaternion.identity);   // spawn into the scene
       // dropped_item.GetComponent<IWeapon>().stats = new();
-      Debug.Log("weaon is " + dropped_item.GetComponent<IWeapon>().stats.attackspeed);
-      weapon_upgrade.Apply(dropped_item.GetComponent<IWeapon>());
-      dropped_item.GetComponent<IWeapon>().applied_upgrades.Add(weapon_upgrade.upgradeID);
-      Debug.Log("weaon is " + dropped_item.GetComponent<IWeapon>().stats.attackspeed);
+      IWeapon weapon = dropped_item.GetComponent<IWeapon>();
+      Debug.Log("weaon is " + weapon.stats.attackspeed);
+      weapon_upgrade.Apply(weapon);
+      weapon.applied_upgrades.Add(weapon_upgrade.upgradeID);
+      Debug.Log("weaon is " + weapon.stats.attackspeed);
     }
   }
 }

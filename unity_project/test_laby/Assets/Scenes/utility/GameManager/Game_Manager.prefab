@@ -87,12 +87,14 @@ MonoBehaviour:
   - {fileID: 4158037835743536789, guid: e85f9981841e30f48aec84a07adfd084, type: 3}
   - {fileID: 6232124554414485500, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
   - {fileID: 6442021726842366329, guid: c0ae7c8fd3831caa7af7172d0c410a69, type: 3}
-  items: []
+  items:
+  - {fileID: 8363201000436706177, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
+  - {fileID: 3860798516691411884, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
+  - {fileID: 3860798516691411884, guid: 9be50fa7ce0024398ba46a132ffe9bdb, type: 3}
   vase: {fileID: 8789290170092580440, guid: f6d58e736ff56891d894d1bb1cabc324, type: 3}
   vase_spawnrate: 0.75
   enemy_spawnrate: 0.5
   portal_spawnrate: 0.8
-  waves: []
   current_wave_index: 0
 --- !u!114 &1072860537690056718
 MonoBehaviour:
@@ -135,3 +137,10 @@ MonoBehaviour:
   timeRemaining: 0
   isCountingDown: 0
   warningStarted: 0
+  enemyWaveActive: 0
+  nrWavesDefeated: 0
+  nrBossesDefeated: 0
+  nrEnemiesDefeated: 0
+  SpawnInterval: 2.2
+  EnemiesPerWave: 15
+  DayDuration: 300

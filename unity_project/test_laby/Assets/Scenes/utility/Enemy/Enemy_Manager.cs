@@ -80,6 +80,9 @@ void OnDestroy()
 
   public void setup()
   {
+
+    Debug.Log("settingup ");
+
     loadprefabs();
     fill_maze();
 
@@ -94,6 +97,7 @@ void OnDestroy()
   void fill_maze()
   {
 
+    spawnItem(new Vector3Int(260, -33, 0));
     foreach (Vector3Int position in in_maze_positions)
     {
 
@@ -199,7 +203,11 @@ void OnDestroy()
     }
   */
 
-
+  public AnimationCurve weaponstats;
+  public float statvariance = 0.1f; // 10%
+  public float maxDps = 5f;
+  public float maxas = 0.4f;//max attackSpeed modifier
+  public float maxdmg = 5f;//max dmg modifier
   void spawnItem(Vector3Int pos)
   {
     // Debug.Log("random value is: " + rand);
@@ -211,13 +219,26 @@ void OnDestroy()
     //map distanc to rarity, 
     //TODO: items need rarity and then chosen randomly from the value
     //also some cases should be empty 
-    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value/2);
-    
+    int mapped = Mathf.FloorToInt(Mathf.Lerp(0.1f, 2f, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
+
+
     GameObject item = items[mapped];
     // Debug.Log("item is ")
-    float dmg = Mathf.Lerp(-1f, 5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value / 5;
-    float attack_speed = Mathf.Lerp(-0.5f, 0.2f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value / 5;
-    Statupgrade upgrade = new Statupgrade(dmg, -attack_speed, 0f);
+    float t = Mathf.Clamp01(distance_to_start / 750f);
+    float dmg = maxdmg*weaponstats.Evaluate(t);
+    dmg *= Random.Range(1f - statvariance, 1f + statvariance);
+    float attackSpeed = maxas*weaponstats.Evaluate(t);
+    attackSpeed *= Random.Range(1f - statvariance, 1f + statvariance);
+    float dps = dmg * attackSpeed;
+    // float maxDps = weapon.baseDamage * weapon.baseAttackSpeed * 3f;
+
+    if (dps > maxDps)
+    {
+      float scale = maxDps / dps;
+      dmg *= scale;
+      attackSpeed *= scale;
+    }
+    Statupgrade upgrade = new Statupgrade(dmg, -attackSpeed, 0f);
 
 
     if (mapped == 0 && Random.value < 0.5)
