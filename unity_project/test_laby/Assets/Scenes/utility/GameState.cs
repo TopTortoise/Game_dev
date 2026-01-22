@@ -10,6 +10,8 @@ public class GameState : MonoBehaviour
     public bool isCountingDown;
     public bool warningStarted;
 
+    public bool enemyWaveActive;
+
     // ---- Progression events ----
     public event Action OnCycleEnded;
     public event Action OnCycleStarted;
@@ -69,6 +71,7 @@ public class GameState : MonoBehaviour
 
     public void StartNewCycle(int duration)
     {
+        enemyWaveActive = false;
         AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
         UpdateEnemyWaveDifficulty();
         nrWavesDefeated++;
@@ -84,6 +87,7 @@ public class GameState : MonoBehaviour
         AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Defend_The_Temple);
         UpdateDayDuration();
         isCountingDown = false;
+        enemyWaveActive = true;
         OnCycleEnded?.Invoke();
         Debug.Log("OnCycleEnded invoked");
     }
