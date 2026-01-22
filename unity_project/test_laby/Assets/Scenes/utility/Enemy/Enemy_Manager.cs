@@ -51,7 +51,7 @@ void OnDestroy()
   void loadprefabs()
   {
 
-    string dir = "Assets/Scenes/weapons";
+    /* string dir = "Assets/Scenes/weapons";
     string[] files = Directory.GetFiles(dir, "*.prefab", SearchOption.TopDirectoryOnly);
     foreach (string file in files)
     {
@@ -63,7 +63,7 @@ void OnDestroy()
         items.Add(prefab);
         // Instantiate(prefab);   
       }
-    }
+    } */
     // Cursor.visible = false;
   }
 
@@ -211,12 +211,13 @@ void OnDestroy()
     //map distanc to rarity, 
     //TODO: items need rarity and then chosen randomly from the value
     //also some cases should be empty 
-    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value);
-
+    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value/2);
+    
     GameObject item = items[mapped];
+    // Debug.Log("item is ")
     float dmg = Mathf.Lerp(-1f, 5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value / 5;
     float attack_speed = Mathf.Lerp(-0.5f, 0.2f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value / 5;
-    Statupgrade upgrade = new Statupgrade(dmg, -0.5f, 0f);
+    Statupgrade upgrade = new Statupgrade(dmg, -attack_speed, 0f);
 
 
     if (mapped == 0 && Random.value < 0.5)

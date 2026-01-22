@@ -11,7 +11,7 @@ public abstract class IWeapon : MonoBehaviour
   public List<IWeaponEffect> effects = new();
   public abstract void Attack();
   public abstract void onEquip();
-  public void equip(List<Weaponupgrade> upgrades){
+  public void equip(List<Weaponupgrade> upgrades){//kill me
 
     Debug.Log("equipping wiht as = " +stats.attackspeed);
     foreach(Weaponupgrade upgrade in upgrades){
