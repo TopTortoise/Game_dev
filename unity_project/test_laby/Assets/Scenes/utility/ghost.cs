@@ -370,23 +370,29 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   public void CollideWithEnterLargePortal(Collision2D collision)
   {
-    PlayerPersistence.Instance.SaveReturnPosition(collision);
+    if(!GameState.Instance.enemyWaveActive)
+    {
+      PlayerPersistence.Instance.SaveReturnPosition(collision);
     GameState.Instance.PauseClock();
     
     AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
     SceneManager.LoadScene("LargeLootRoom");
+    }
+    
 
 
   }
 
   public void CollideWithEnterPortal(Collision2D collision)
   {
-    PlayerPersistence.Instance.SaveReturnPosition(collision);
-    GameState.Instance.PauseClock();
-    
-    AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
-    SceneManager.LoadScene("SmallLootRoom");
-
+    if(!GameState.Instance.enemyWaveActive)
+    {
+      PlayerPersistence.Instance.SaveReturnPosition(collision);
+      GameState.Instance.PauseClock();
+      
+      AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
+      SceneManager.LoadScene("SmallLootRoom");
+    }
 
   }
 
