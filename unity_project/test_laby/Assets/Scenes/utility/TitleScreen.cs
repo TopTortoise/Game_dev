@@ -7,6 +7,10 @@ public class TitleScreen : MonoBehaviour
     {
         SceneManager.LoadScene("LoreScene"); // change name if needed
     }
+    public void TutorialSceen()
+    {
+        SceneManager.LoadScene("TutorialSceen");
+    }
 
     public void QuitGame()
     {

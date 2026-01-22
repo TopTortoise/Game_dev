@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4269455422097623027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6201573300531107199}
+  - component: {fileID: 69495401479781185}
+  - component: {fileID: 6605910440384467308}
+  - component: {fileID: 8522410867275690429}
+  - component: {fileID: 662380138542595329}
+  - component: {fileID: 6591109394745698649}
+  m_Layer: 0
+  m_Name: Game_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6201573300531107199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269455422097623027}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69495401479781185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269455422097623027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083b8f6347232cfb6b426062dd25bf05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::maze_gen
+  tilemap: {fileID: 0}
+  tiles:
+  - {fileID: 11400000, guid: 203b6936c3a281e4baec9ade23eb2b02, type: 2}
+  - {fileID: 11400000, guid: 571115cf421d0c94a88d3bcdb0407e76, type: 2}
+  - {fileID: 11400000, guid: b960195f6ba94f34aa8c3afa07c38996, type: 2}
+  - {fileID: 11400000, guid: 1cb4eb7d634d5cc408046984134aaf26, type: 2}
+  - {fileID: 11400000, guid: b00c640b5a0a2924c9ed1da41994883f, type: 2}
+  - {fileID: 11400000, guid: c7c596ab8002929479d0e2d27b97e8a8, type: 2}
+  width: 500
+  height: 500
+  scale: 10
+  start_pos: {x: 250, y: 0, z: 0}
+  seed: 1
+  enemy_Manager: {fileID: 6605910440384467308}
+  targetTile: {fileID: 11400000, guid: 2c34e1f08d8363958a8ec1eccd037bd5, type: 2}
+--- !u!114 &6605910440384467308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269455422097623027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80de8f1d6a6fa31bba22a3c4a518262d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  enemy_prefabs:
+  - {fileID: 1647487340366201124, guid: 1800c30cc43a847ada9332ed38c7111b, type: 3}
+  - {fileID: 5244130341863356789, guid: f031b2dd94a8cb692b071e49cc794a50, type: 3}
+  - {fileID: 8616149328196893874, guid: 344b1498130a3f9aaad631d8d26b7ad1, type: 3}
+  Boss_prefabs:
+  - {fileID: 3637535230490742434, guid: 0bab91d9d5a9e283a92680663866b6ca, type: 3}
+  portal_prefabs:
+  - {fileID: 1979910868456093896, guid: e427f1c5c5d54c84a83c4302c0b39749, type: 3}
+  - {fileID: 962500027414328445, guid: 09731d58c09ae3109bd2ab94a504d551, type: 3}
+  trap_prefabs:
+  - {fileID: 3438774622814992673, guid: 82b44d8acd8211d65a1fb8bc86ab9e45, type: 3}
+  - {fileID: 5220666449305702144, guid: 7d11a55c845b85f5ab0d5ec0706a4b82, type: 3}
+  - {fileID: 4158037835743536789, guid: e85f9981841e30f48aec84a07adfd084, type: 3}
+  - {fileID: 6232124554414485500, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
+  - {fileID: 6442021726842366329, guid: c0ae7c8fd3831caa7af7172d0c410a69, type: 3}
+  items: []
+  vase: {fileID: 8789290170092580440, guid: f6d58e736ff56891d894d1bb1cabc324, type: 3}
+  vase_spawnrate: 0.75
+  enemy_spawnrate: 0.5
+  portal_spawnrate: 1
+  current_wave_index: 0
+--- !u!114 &8522410867275690429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269455422097623027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fc33080ad5910028e6de05a13258a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  SpawnPoint: {x: 250, y: -10, z: 0}
+--- !u!114 &662380138542595329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269455422097623027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4657c592b5fd448584903db2aec3f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyManager
+  currentGold: 0
+--- !u!114 &6591109394745698649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269455422097623027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2349f4cd969b8a6b48f81303ebac037b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameState
+  timeRemaining: 90
+  isCountingDown: 1
+  warningStarted: 0
+  nrWavesDefeated: 0
+  nrBossesDefeated: 0
+  nrEnemiesDefeated: 0
+  SpawnInterval: 2.2
+  EnemiesPerWave: 15
+  DayDuration: 300
