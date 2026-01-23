@@ -33,10 +33,30 @@ public class GameManager : MonoBehaviour
 
 
 
+  public List<Vector3> lootrooms;
+  private int counter = 0;
 
   private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
   {
-    if (scene.name != MainSceneName) return;
-    // GetComponent<maze_gen>().Start();
+    if (scene.name != MainSceneName && counter > 0) return;
+    GetComponent<maze_gen>().Start();
+    GameObject[] small_loot = GameObject.FindGameObjectsWithTag("Enter Loot Room Portal");
+    GameObject[] big_loot = GameObject.FindGameObjectsWithTag("Enter Large Loot Room Portal");
+    //TODO might be inefficient??
+    foreach (GameObject room in small_loot)
+    {
+      if (lootrooms.Contains(room.transform.position))
+      {
+        Destroy(room);
+      }
+    }
+    foreach (GameObject room in big_loot)
+    {
+      if (lootrooms.Contains(room.transform.position))
+      {
+        Destroy(room);
+      }
+    }
+    counter++;
   }
 }

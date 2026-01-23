@@ -69,7 +69,7 @@ public class ghost : MonoBehaviour, IKillable
     Debug.Log("weapon as = " + weapon.stats.attackspeed);
     //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
 
-    
+
     hp.set_max_hp(max_health);
     hp.set_hp(health);
     if (spotlight == null)
@@ -83,90 +83,90 @@ public class ghost : MonoBehaviour, IKillable
 
   IWeapon unequip()
   {
-      IWeapon to_ret = weapon;
+    IWeapon to_ret = weapon;
 
-      if (weapon != null)
-      {
-          Debug.Log("Weapon is unequipped");
+    if (weapon != null)
+    {
+      Debug.Log("Weapon is unequipped");
 
-          weapon.transform.SetParent(null);
-          weapon.unequip();
-          weapon = null; // only null briefly during swap
-      }
+      weapon.transform.SetParent(null);
+      weapon.unequip();
+      weapon = null; // only null briefly during swap
+    }
 
-      return to_ret;
+    return to_ret;
   }
 
   void equip()
   {
-      Debug.Log("pressed equip");
+    Debug.Log("pressed equip");
 
-      Collider2D[] colliders =
-          Physics2D.OverlapCircleAll(transform.position, equip_radius, item_layer);
+    Collider2D[] colliders =
+        Physics2D.OverlapCircleAll(transform.position, equip_radius, item_layer);
 
-      Debug.Log("items found " + colliders.Length);
+    Debug.Log("items found " + colliders.Length);
 
-      IWeapon new_weapon = null;
-      Vector3 pickup_position = Vector3.zero;
+    IWeapon new_weapon = null;
+    Vector3 pickup_position = Vector3.zero;
 
-      // ---- First: find a weapon (do NOT unequip yet) ----
-      foreach (Collider2D item in colliders)
+    // ---- First: find a weapon (do NOT unequip yet) ----
+    foreach (Collider2D item in colliders)
+    {
+      Item coin = item.GetComponent<Item>();
+      if (coin != null)
       {
-          Item coin = item.GetComponent<Item>();
-          if (coin != null)
-          {
-              coin.pickup();
-              continue;
-          }
-          //NEW Torch PickupSystem
-          PlacedTorch placedTorch = item.GetComponent<PlacedTorch>();
-          if (placedTorch != null)
-          {
-              if (torches < maxTorches)
-              {
-                  torches++;
-                  HUDManager.Instance.UpdateTorchUI(torches, maxTorches); // UI Update
-                  Destroy(item.gameObject); // Fackel aus der Welt entfernen
-                  return; 
-              }
-              else
-              {
-                  Debug.Log("Fackeltasche voll!");
-                  continue; 
-              }
-          }
-
-          IWeapon candidate =
-              item.GetComponent<IWeapon>() ??
-              item.GetComponentInParent<IWeapon>();
-
-          if (candidate != null && candidate != weapon)
-          {
-              new_weapon = candidate;
-              pickup_position = candidate.transform.position;
-              break;
-          }
+        coin.pickup();
+        continue;
       }
-
-      // ---- HARD GUARANTEE: if no new weapon, do nothing ----
-      if (new_weapon == null)
+      //NEW Torch PickupSystem
+      PlacedTorch placedTorch = item.GetComponent<PlacedTorch>();
+      if (placedTorch != null)
+      {
+        if (torches < maxTorches)
+        {
+          torches++;
+          HUDManager.Instance.UpdateTorchUI(torches, maxTorches); // UI Update
+          Destroy(item.gameObject); // Fackel aus der Welt entfernen
           return;
-
-      // ---- Swap ----
-      IWeapon old_weapon = unequip();
-
-      // Old weapon is dropped exactly where new one was
-      if (old_weapon != null)
-      {
-          old_weapon.transform.position = pickup_position;
+        }
+        else
+        {
+          Debug.Log("Fackeltasche voll!");
+          continue;
+        }
       }
 
-      // Immediately equip replacement
-      weapon = new_weapon;
-      weapon.transform.SetParent(transform);
-      weapon.transform.localPosition = Vector3.zero;
-      weapon.transform.localRotation = Quaternion.identity;
-      weapon.equip(weapon_upgrades);
+      IWeapon candidate =
+          item.GetComponent<IWeapon>() ??
+          item.GetComponentInParent<IWeapon>();
+
+      if (candidate != null && candidate != weapon)
+      {
+        new_weapon = candidate;
+        pickup_position = candidate.transform.position;
+        break;
+      }
+    }
+
+    // ---- HARD GUARANTEE: if no new weapon, do nothing ----
+    if (new_weapon == null)
+      return;
+
+    // ---- Swap ----
+    IWeapon old_weapon = unequip();
+
+    // Old weapon is dropped exactly where new one was
+    if (old_weapon != null)
+    {
+      old_weapon.transform.position = pickup_position;
+    }
+
+    // Immediately equip replacement
+    weapon = new_weapon;
+    weapon.transform.SetParent(transform);
+    weapon.transform.localPosition = Vector3.zero;
+    weapon.transform.localRotation = Quaternion.identity;
+    weapon.equip(weapon_upgrades);
   }
 
 
@@ -233,7 +233,7 @@ public class ghost : MonoBehaviour, IKillable
   private bool facingRight = true;
   void Update()
   {
-        
+
     UpdateUI();
     move = MoveAction.ReadValue<Vector2>();
     if (move != Vector2.zero)
@@ -387,30 +387,31 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   public void CollideWithEnterLargePortal(Collision2D collision)
   {
-    if(!GameState.Instance.enemyWaveActive)
+    if (!GameState.Instance.enemyWaveActive)
     {
       PlayerPersistence.Instance.SaveReturnPosition(collision);
-    GameState.Instance.PauseClock();
-    
-    AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
-    SceneManager.LoadScene("LargeLootRoom");
-    }
-    
+      GameState.Instance.PauseClock();
 
+      AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
+      SceneManager.LoadScene("LargeLootRoom");
+    }
+
+    GameManager.Instance.lootrooms.Add(collision.gameObject.transform.position);
 
   }
 
   public void CollideWithEnterPortal(Collision2D collision)
   {
-    if(!GameState.Instance.enemyWaveActive)
+    if (!GameState.Instance.enemyWaveActive)
     {
       PlayerPersistence.Instance.SaveReturnPosition(collision);
       GameState.Instance.PauseClock();
-      
+
       AudioManager.Instance.Play(AudioManager.SoundType.Loot_Room);
       SceneManager.LoadScene("SmallLootRoom");
     }
 
+    GameManager.Instance.lootrooms.Add(collision.gameObject.transform.position);
   }
 
   public void CollideWithExitPortal(Collision2D collision)
@@ -420,14 +421,14 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     //////////////////////////////////
     PlayerPersistence.Instance.RestoreReturnPosition();
     GameState.Instance.ResumeClock();
-    
+
   }
 
   /// ////////////////////////////////////////////////////////////////////////////////////////
   ///
   public void hit(float damage)
   {
-  
+
     if (!isDead)
     {
       hp.change_health(damage);
@@ -436,10 +437,10 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       {
         if (CameraShake.Instance != null) CameraShake.Instance.Shake(0.1f, 0.1f);
       }
-      
+
     }
 
-    
+
   }
   /* void OnTriggerEnter2D(Collider2D other)
   {
@@ -473,18 +474,18 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   IEnumerator DeathSequence()
   {
-      
-      yield return new WaitForSeconds(1.2f);
-    
-      DeathRespawn();
+
+    yield return new WaitForSeconds(1.2f);
+
+    DeathRespawn();
   }
 
   IEnumerator RetSequence()
   {
-      
-      yield return new WaitForSeconds(1.2f);
-    
-      RetRespawn();
+
+    yield return new WaitForSeconds(1.2f);
+
+    RetRespawn();
   }
 
 
@@ -493,21 +494,22 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     if (PlayerPersistence.Instance.HasReturnPosition())
     {
       return; //No further checks necessary
-    } else
+    }
+    else
     {
       GameObject spawn = GameObject.Find("PlayerSpawn");
 
       if (spawn != null)
       {
-          transform.position = spawn.transform.position;
-          StartCoroutine(AnimateReviveSpotlight());
+        transform.position = spawn.transform.position;
+        StartCoroutine(AnimateReviveSpotlight());
       }
     }
-  
+
     isDead = false;
     hp.restore_hp();
-    
-      
+
+
   }
 
   void DeathRespawn()
@@ -516,45 +518,46 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     {
       PlayerPersistence.Instance.ResetReturnPosition();
       SceneManager.LoadScene(GameManager.MainSceneName);
-    } else
+    }
+    else
     {
       GameObject spawn = GameObject.Find("PlayerSpawn");
 
       if (spawn != null)
       {
-          transform.position = spawn.transform.position;
-          StartCoroutine(AnimateReviveSpotlight());
+        transform.position = spawn.transform.position;
+        StartCoroutine(AnimateReviveSpotlight());
       }
     }
     //Todo: Reset Player Stats for Death Here
     isDead = false;
     hp.restore_hp();
-    
-      
+
+
   }
 
   IEnumerator AnimateDeathSpotlight()
   {
-      float duration = 1.2f;   // fast, punchy
-      float time = 0f;
+    float duration = 1.2f;   // fast, punchy
+    float time = 0f;
 
-      float startT = 0.9f;
-      float endT = 0.01f;
+    float startT = 0.9f;
+    float endT = 0.01f;
 
-      while (time < duration)
-      {
-          time += Time.deltaTime;
-          float t = Mathf.Lerp(startT, endT, time / duration);
-          ChangeSpotlight(t);
-          yield return null;
-      }
+    while (time < duration)
+    {
+      time += Time.deltaTime;
+      float t = Mathf.Lerp(startT, endT, time / duration);
+      ChangeSpotlight(t);
+      yield return null;
+    }
 
-      // Clamp final value
-      ChangeSpotlight(endT);
+    // Clamp final value
+    ChangeSpotlight(endT);
   }
 
   void Start()
-{
+  {
 
     GameState.Instance.OnCycleEnded += OnDeath;
     Debug.Log("Player subscribed to OnCycleEnded");
@@ -562,29 +565,29 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
     if (HUDManager.Instance != null)
     {
-        HUDManager.Instance.UpdateTorchUI(torches, maxTorches);
+      HUDManager.Instance.UpdateTorchUI(torches, maxTorches);
     }
-}
+  }
 
 
   IEnumerator AnimateReviveSpotlight()
   {
-      float duration = 1.2f;   // fast, punchy
-      float time = 0f;
+    float duration = 1.2f;   // fast, punchy
+    float time = 0f;
 
-      float startT = 0.01f;
-      float endT = 1f;
+    float startT = 0.01f;
+    float endT = 1f;
 
-      while (time < duration)
-      {
-          time += Time.deltaTime;
-          float t = Mathf.Lerp(startT, endT, time / duration);
-          ChangeSpotlight(t);
-          yield return null;
-      }
+    while (time < duration)
+    {
+      time += Time.deltaTime;
+      float t = Mathf.Lerp(startT, endT, time / duration);
+      ChangeSpotlight(t);
+      yield return null;
+    }
 
-      // Clamp final value
-      ChangeSpotlight(endT);
+    // Clamp final value
+    ChangeSpotlight(endT);
   }
 
 
@@ -617,9 +620,9 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
     previousTorchPos = placePos;
     torches--;
-    
-    if(HUDManager.Instance != null)
-        HUDManager.Instance.UpdateTorchUI(torches, maxTorches);
+
+    if (HUDManager.Instance != null)
+      HUDManager.Instance.UpdateTorchUI(torches, maxTorches);
 
     // spawn at player pos.
     GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class GameState : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class GameState : MonoBehaviour
     // ---- Day Length
     public int DayDuration = 300;
 
+    //---- to keep tabs on entered lootrooms
 
     void UpdateEnemyWaveDifficulty()
     {
@@ -62,11 +64,12 @@ public class GameState : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        
         Instance = this;
         DontDestroyOnLoad(gameObject);
         nrBossesDefeated = 0;
         nrWavesDefeated = -1; //start with -1 (first day starts with 0)
+        lootrooms = new(); 
     }
 
     public void StartNewCycle(int duration)
