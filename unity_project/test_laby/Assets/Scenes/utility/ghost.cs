@@ -427,11 +427,18 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   ///
   public void hit(float damage)
   {
+  
     if (!isDead)
     {
       hp.change_health(damage);
       UpdateUI();
+      if (damage > 0)
+      {
+        if (CameraShake.Instance != null) CameraShake.Instance.Shake(0.1f, 0.1f);
+      }
+      
     }
+
     
   }
   /* void OnTriggerEnter2D(Collider2D other)
