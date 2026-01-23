@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
   private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
   {
     if (scene.name != MainSceneName) return;
-    GetComponent<maze_gen>().Start();
+    // GetComponent<maze_gen>().Start();
   }
 }

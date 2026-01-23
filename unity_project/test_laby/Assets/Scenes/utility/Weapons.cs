@@ -4,22 +4,25 @@ using System.Collections.Generic;
 
 public abstract class IWeapon : MonoBehaviour
 {
-  public WeaponStats stats;
+  public WeaponStats stats = new();
   public bool is_equipped = false;
   public InputAction AttackAction;
   public List<string> applied_upgrades;
   public List<IWeaponEffect> effects = new();
   public abstract void Attack();
   public abstract void onEquip();
-  public void equip(List<Weaponupgrade> upgrades){
 
+
+  public void equip(List<Weaponupgrade> upgrades){//kill me
+    //lovely comments here
+    
     Debug.Log("equipping wiht as = " +stats.attackspeed);
     foreach(Weaponupgrade upgrade in upgrades){
       if(applied_upgrades.Contains(upgrade.upgradeID )){
         continue;
       }
       applied_upgrades.Add(upgrade.upgradeID);
-
+      Debug.Log("upgrade applied");
       upgrade.Apply(this);
     }
     Debug.Log("equipping wiht as after aplly = " +stats.attackspeed);

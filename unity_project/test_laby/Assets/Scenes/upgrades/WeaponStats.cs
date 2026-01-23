@@ -1,9 +1,10 @@
 using UnityEngine;
 [CreateAssetMenu]
-public class WeaponStats: ScriptableObject
+[System.Serializable]
+public class WeaponStats
 {
-  public float damage;
-  public float attackspeed;
-  public float range;
-  public float rarity;
+  public float damage = 1f;
+  public float attackspeed = 0.5f;
+  public float range = 1f;
+  public float rarity = 1f;
 }

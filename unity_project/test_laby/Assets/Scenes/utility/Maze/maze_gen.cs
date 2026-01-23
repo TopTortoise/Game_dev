@@ -140,10 +140,6 @@ public class maze_gen : MonoBehaviour
         curr_pos += next_step;
         tilemap.SetTile(curr_pos, tiles[Random.Range(0, tiles.Length - 1)]);
 
-        if (Random.value < 0.05)
-        {
-
-        }
 
         Vector3Int side_1 = next_step.x == 0 ? Vector3Int.left : Vector3Int.up;
         Vector3Int side_2 = next_step.x == 0 ? Vector3Int.right : Vector3Int.down;
@@ -166,7 +162,7 @@ public class maze_gen : MonoBehaviour
       {
         sackgassen_position.Add(curr_pos);
       }
-      else if (Random.value <= 0.05)
+      else if (Random.value <= 0.15)
       {
 
         trap_positions.Add(curr_pos);

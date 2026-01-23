@@ -21,37 +21,37 @@ public class Enemy_Manager : MonoBehaviour
   public int current_wave_index = 0;
 
 
-    /*
-    void Start()
-    {
-        if (GameState.Instance == null)
-        {
-            Debug.LogError("GameState missing!");
-            return;
-        }
-
-        GameState.Instance.OnCycleEnded += OnCycleEnded;
-        Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
-    }
-
-  void OnDestroy()
+  /*
+  void Start()
   {
-      if (GameState.Instance != null)
-          GameState.Instance.OnCycleEnded -= OnCycleEnded;
+      if (GameState.Instance == null)
+      {
+          Debug.LogError("GameState missing!");
+          return;
+      }
+
+      GameState.Instance.OnCycleEnded += OnCycleEnded;
+      Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
   }
 
+void OnDestroy()
+{
+    if (GameState.Instance != null)
+        GameState.Instance.OnCycleEnded -= OnCycleEnded;
+}
 
-    
-    void OnCycleEnded()
-    {
-        StartCoroutine(spawnWave());
-    }*/
+
+
+  void OnCycleEnded()
+  {
+      StartCoroutine(spawnWave());
+  }*/
 
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void loadprefabs()
   {
 
-    string dir = "Assets/Scenes/weapons";
+    /* string dir = "Assets/Scenes/weapons";
     string[] files = Directory.GetFiles(dir, "*.prefab", SearchOption.TopDirectoryOnly);
     foreach (string file in files)
     {
@@ -63,7 +63,7 @@ public class Enemy_Manager : MonoBehaviour
         items.Add(prefab);
         // Instantiate(prefab);   
       }
-    }
+    } */
     // Cursor.visible = false;
   }
 
@@ -80,6 +80,9 @@ public class Enemy_Manager : MonoBehaviour
 
   public void setup()
   {
+
+    Debug.Log("settingup ");
+
     loadprefabs();
     fill_maze();
 
@@ -94,6 +97,7 @@ public class Enemy_Manager : MonoBehaviour
   void fill_maze()
   {
 
+    spawnItem(new Vector3Int(260, -33, 0));
     foreach (Vector3Int position in in_maze_positions)
     {
 
@@ -152,54 +156,58 @@ public class Enemy_Manager : MonoBehaviour
     go.Add(Instantiate(enemy_prefabs[Random.Range(0, enemy_prefabs.Length)], position, Quaternion.identity));
   }
 
-/*
-  
-    Vector3[] spawn_pos =
-  {
-      new Vector3(250, -20, 0),
-      new Vector3(250, -30, 0),
-      new Vector3(250, -40, 0),
-      new Vector3(250, -50, 0)
-  };
+  /*
+
+      Vector3[] spawn_pos =
+    {
+        new Vector3(250, -20, 0),
+        new Vector3(250, -30, 0),
+        new Vector3(250, -40, 0),
+        new Vector3(250, -50, 0)
+    };
 
 
-  public IEnumerator spawnWave()
-  {
+    public IEnumerator spawnWave()
+    {
 
-      if (waves == null || waves.Count == 0) {
-        Debug.Log("waves == null || waves.Count == 0");
-        yield break;
-      }
-      if (current_wave_index >= waves.Count) {
-        Debug.Log("current_wave_index >= waves.Count");
-        yield break;
-      }
-      
-      WaveData curr_wave = waves[current_wave_index];
+        if (waves == null || waves.Count == 0) {
+          Debug.Log("waves == null || waves.Count == 0");
+          yield break;
+        }
+        if (current_wave_index >= waves.Count) {
+          Debug.Log("current_wave_index >= waves.Count");
+          yield break;
+        }
 
-      foreach (var enemy in curr_wave.enemies)
-      {
-          if (enemy == null) continue;
+        WaveData curr_wave = waves[current_wave_index];
 
-          Instantiate(enemy,
-              spawn_pos[Random.Range(0, spawn_pos.Length)],
-              Quaternion.identity);
+        foreach (var enemy in curr_wave.enemies)
+        {
+            if (enemy == null) continue;
 
-          yield return new WaitForSeconds(curr_wave.timeBetweenSpawns);
-      }
+            Instantiate(enemy,
+                spawn_pos[Random.Range(0, spawn_pos.Length)],
+                Quaternion.identity);
 
-      yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(curr_wave.timeBetweenSpawns);
+        }
 
-      if (Boss_prefabs.Length > 0 && Boss_prefabs[0] != null)
-      {
-          Instantiate(Boss_prefabs[0],
-              spawn_pos[Random.Range(0, spawn_pos.Length)],
-              Quaternion.identity);
-      }
-  }
-*/
+        yield return new WaitForSeconds(5f);
 
+        if (Boss_prefabs.Length > 0 && Boss_prefabs[0] != null)
+        {
+            Instantiate(Boss_prefabs[0],
+                spawn_pos[Random.Range(0, spawn_pos.Length)],
+                Quaternion.identity);
+        }
+    }
+  */
 
+  public AnimationCurve weaponstats;
+  public float statvariance = 0.1f; // 10%
+  public float maxDps = 5f;
+  public float maxas = 0.4f;//max attackSpeed modifier
+  public float maxdmg = 5f;//max dmg modifier
   void spawnItem(Vector3Int pos)
   {
     // Debug.Log("random value is: " + rand);
@@ -211,8 +219,27 @@ public class Enemy_Manager : MonoBehaviour
     //map distanc to rarity, 
     //TODO: items need rarity and then chosen randomly from the value
     //also some cases should be empty 
-    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.5f, Mathf.InverseLerp(0f, 250f, distance_to_start)) + Random.value);
+    int mapped = Mathf.FloorToInt(Mathf.Lerp(0.1f, 2f, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
+
+
     GameObject item = items[mapped];
+    // Debug.Log("item is ")
+    float t = Mathf.Clamp01(distance_to_start / 750f);
+    float dmg = maxdmg*weaponstats.Evaluate(t);
+    dmg *= Random.Range(1f - statvariance, 1f + statvariance);
+    float attackSpeed = maxas*weaponstats.Evaluate(t);
+    attackSpeed *= Random.Range(1f - statvariance, 1f + statvariance);
+    float dps = dmg * attackSpeed;
+    // float maxDps = weapon.baseDamage * weapon.baseAttackSpeed * 3f;
+
+    if (dps > maxDps)
+    {
+      float scale = maxDps / dps;
+      dmg *= scale;
+      attackSpeed *= scale;
+    }
+    Statupgrade upgrade = new Statupgrade(dmg, -attackSpeed, 0f);
+
 
     if (mapped == 0 && Random.value < 0.5)
     {
@@ -223,6 +250,7 @@ public class Enemy_Manager : MonoBehaviour
     {
 
       inst.GetComponent<Vase>().item = item;
+      inst.GetComponent<Vase>().weapon_upgrade = upgrade;
     }
     // Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
   }

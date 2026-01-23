@@ -15,7 +15,6 @@ public class Spear : IWeapon
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        stats = new();
         stats.damage = 1f;
         stats.attackspeed = 0.5f;
 
