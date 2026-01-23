@@ -1,18 +1,9 @@
+using UnityEngine;
+[CreateAssetMenu(menuName = "Weapon Effects/BurnEffect")]
 public class BurnEffect : StatusEffect
 {
-  private float damagePerSecond;
-  public override StatusEffect createEffect()
-  {
-    return new SlowEffect(damagePerSecond, duration);
-  }
-
-
-  public BurnEffect(float dps, float duration)
-  {
-    this.damagePerSecond = dps;
-    this.duration = duration;
-    unique = true;
-  }
+  public float damagePerSecond = 0.5f;
+  
 
   public override void OnTick(IEnemy target, float deltaTime)
   {

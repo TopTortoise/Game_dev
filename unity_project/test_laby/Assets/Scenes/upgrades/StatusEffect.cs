@@ -9,7 +9,7 @@ public abstract class StatusEffect : IWeaponEffect
   public virtual void OnTick(IEnemy target, float deltaTime) { }
   public virtual void OnExpire(IEnemy target) { }
 
-  public bool Update(IEnemy target, float deltaTime)
+  public bool update(IEnemy target, float deltaTime)
   {
     elapsed += deltaTime;
     OnTick(target, deltaTime);

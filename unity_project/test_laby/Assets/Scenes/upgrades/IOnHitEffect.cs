@@ -1,4 +1,4 @@
-public interface IOnHitEffect : IWeaponEffect
+public abstract class IOnHitEffect : IWeaponEffect
 {
-  void Apply(HitContext context);
+  public abstract void Apply(HitContext context);
 }

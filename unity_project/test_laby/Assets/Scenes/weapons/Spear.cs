@@ -16,7 +16,7 @@ public class Spear : IWeapon
     void Awake()
     {
         stats.damage = 1f;
-        stats.attackspeed = 0.5f;
+        stats.attackspeed = 1f;
 
     }
 

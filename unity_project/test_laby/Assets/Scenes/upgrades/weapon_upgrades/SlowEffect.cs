@@ -1,18 +1,8 @@
+using UnityEngine;
+[CreateAssetMenu(menuName = "Weapon Effects/SlowEffect")]
 public class SlowEffect : StatusEffect
 {
-  private float slowMultiplier;
- 
-
-  public override StatusEffect createEffect(){
-    return new SlowEffect(slowMultiplier,duration);
-  }
-
-  public SlowEffect(float multiplier, float duration)
-  {
-    slowMultiplier = multiplier;
-    this.duration = duration;
-    unique = true;
-  }
+  public float slowMultiplier = 0.5f;
 
   public override void OnApply(IEnemy target)
   {

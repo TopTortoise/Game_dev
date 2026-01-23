@@ -33,7 +33,7 @@ public class projectile : MonoBehaviour
   {
     Debug.Log("hit soemthing " + collider);
     IKillable obj = collider.gameObject.GetComponent<IKillable>();
-    if (obj != null)
+    if (obj != null && collider.gameObject.layer != LayerMask.NameToLayer("Water"))
     {
       obj.hit(damage);
       var context = new HitContext

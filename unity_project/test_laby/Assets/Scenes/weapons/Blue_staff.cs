@@ -11,13 +11,12 @@ public class Blue_staff : IWeapon
   void Awake()
   {
     stats.damage = 1f;
-    stats.attackspeed = 0.5f;
+    stats.attackspeed = 1f;
 
   }
   void Start()
   {
     stats = new();
-    effects.Add(new SlowEffect(0.1f, 2f));
     AttackAction.Enable();
     // stats.damage = 1;
     // stats.attackspeed = 0.5f;

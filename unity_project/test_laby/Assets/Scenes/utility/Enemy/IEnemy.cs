@@ -20,7 +20,7 @@ public abstract class IEnemy : MonoBehaviour, IKillable
   {
     for (int i = activeEffects.Count - 1; i >= 0; i--)
     {
-      if (activeEffects[i].Update(this, Time.deltaTime))
+      if (activeEffects[i].update(this, Time.deltaTime))
       {
         activeEffects[i].OnExpire(this);
         activeEffects.RemoveAt(i);
