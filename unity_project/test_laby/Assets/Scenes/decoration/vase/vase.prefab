@@ -184,8 +184,10 @@ MonoBehaviour:
   rarity: 0
   distance_to_start: 0
   item: {fileID: 0}
+  torch: {fileID: 579879467762394870, guid: afe31ab217b866096b8faa36ae10a983, type: 3}
   health: 0
   max_health: 0
+  torch_drop_rate: 0.25
 --- !u!114 &4980381325739406501
 MonoBehaviour:
   m_ObjectHideFlags: 0

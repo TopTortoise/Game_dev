@@ -69,7 +69,6 @@ public class GameState : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         nrBossesDefeated = 0;
         nrWavesDefeated = -1; //start with -1 (first day starts with 0)
-        lootrooms = new(); 
     }
 
     public void StartNewCycle(int duration)
