@@ -47,6 +47,7 @@ public class ghost : MonoBehaviour, IKillable
   public InputAction PlaceTorchAction;
   public GameObject torchPrefab;
   public int torches = 3;
+  public int maxTorches = 5;
   Vector3 previousTorchPos = Vector3.zero;
   public LayerMask item_layer;
 
@@ -63,13 +64,12 @@ public class ghost : MonoBehaviour, IKillable
     rigidbody2d = GetComponent<Rigidbody2D>();
     hp = gameObject.GetComponentInChildren<Health>();
     weapon = gameObject.GetComponentsInChildren<IWeapon>()[0];
-
     Debug.Log("weapon as = " + weapon.stats.attackspeed);
     weapon.equip(weapon_upgrades);
     Debug.Log("weapon as = " + weapon.stats.attackspeed);
     //weapon_img.texture = weapon.GetComponent<SpriteRenderer>().sprite.texture; //does not work on scene transition
 
-
+    
     hp.set_max_hp(max_health);
     hp.set_hp(health);
     if (spotlight == null)
@@ -117,6 +117,23 @@ public class ghost : MonoBehaviour, IKillable
           {
               coin.pickup();
               continue;
+          }
+          //NEW Torch PickupSystem
+          PlacedTorch placedTorch = item.GetComponent<PlacedTorch>();
+          if (placedTorch != null)
+          {
+              if (torches < maxTorches)
+              {
+                  torches++;
+                  HUDManager.Instance.UpdateTorchUI(torches, maxTorches); // UI Update
+                  Destroy(item.gameObject); // Fackel aus der Welt entfernen
+                  return; 
+              }
+              else
+              {
+                  Debug.Log("Fackeltasche voll!");
+                  continue; 
+              }
           }
 
           IWeapon candidate =
@@ -535,6 +552,11 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     GameState.Instance.OnCycleEnded += OnDeath;
     Debug.Log("Player subscribed to OnCycleEnded");
     StartCoroutine(AnimateReviveSpotlight());
+
+    if (HUDManager.Instance != null)
+    {
+        HUDManager.Instance.UpdateTorchUI(torches, maxTorches);
+    }
 }
 
 
@@ -583,14 +605,15 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       return;
     }
 
-
-
-
-
     Vector3 placePos = transform.position;
-    if (placePos == previousTorchPos) { return; }
+    if (Vector3.Distance(placePos, previousTorchPos) < 0.5f) { return; }
+
     previousTorchPos = placePos;
     torches--;
+    
+    if(HUDManager.Instance != null)
+        HUDManager.Instance.UpdateTorchUI(torches, maxTorches);
+
     // spawn at player pos.
     GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);
 

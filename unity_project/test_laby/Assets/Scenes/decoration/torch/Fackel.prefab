@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 905471631001000399}
   - component: {fileID: 7773714019462672409}
   - component: {fileID: 5792367976267387399}
-  m_Layer: 0
+  - component: {fileID: 3706022979919962732}
+  - component: {fileID: -5520876304826632282}
+  m_Layer: 8
   m_Name: Fackel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,6 +271,64 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &3706022979919962732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579879467762394870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d85bc65d2b0b34db8fc8dda345f559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlacedTorch
+--- !u!61 &-5520876304826632282
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579879467762394870}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.006170884, y: -0.03657154}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.13, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.16278297, y: 0.5668569}
+  m_EdgeRadius: 0
 --- !u!1 &1600980407804028977
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7896527331009159799}
   - component: {fileID: 2125644315037531180}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TorchCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051284968706281110}
   - component: {fileID: 5481377419532681798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,9 +545,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2409738427935027921, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586249786623797667, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3631391144305690300, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4193719399960335591, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
       propertyPath: m_Name
       value: healthbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193719399960335591, guid: 9f50f8c9ed0a629ed9a2b26bbe9e3038, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
