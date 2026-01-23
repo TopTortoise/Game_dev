@@ -13,22 +13,26 @@ public abstract class IWeapon : MonoBehaviour
   public abstract void onEquip();
 
 
-  public void equip(List<Weaponupgrade> upgrades){//kill me
-    //lovely comments here
-    
-    Debug.Log("equipping wiht as = " +stats.attackspeed);
-    foreach(Weaponupgrade upgrade in upgrades){
-      if(applied_upgrades.Contains(upgrade.upgradeID )){
+  public void equip(List<Weaponupgrade> upgrades)
+  {//kill me
+   //lovely comments here
+
+    Debug.Log("equipping wiht as = " + stats.attackspeed);
+    foreach (Weaponupgrade upgrade in upgrades)
+    {
+      if (applied_upgrades.Contains(upgrade.upgradeID))
+      {
         continue;
       }
       applied_upgrades.Add(upgrade.upgradeID);
       Debug.Log("upgrade applied");
       upgrade.Apply(this);
     }
-    Debug.Log("equipping wiht as after aplly = " +stats.attackspeed);
+    Debug.Log("equipping wiht as after aplly = " + stats.attackspeed);
     onEquip();
   }
-  public void unequip(){
+  public void unequip()
+  {
     onUnequip();
   }
   public abstract void onUnequip();
@@ -36,7 +40,12 @@ public abstract class IWeapon : MonoBehaviour
   {
     // shooting logic using currentStats
   }
-  public void OnHit(IKillable target)
+  public void OnHit(IEnemy target)
   {
+
+    foreach (StatusEffect effect in effects)
+    {
+      target.ApplyEffect(Instantiate(effect));
+    }
   }
 }

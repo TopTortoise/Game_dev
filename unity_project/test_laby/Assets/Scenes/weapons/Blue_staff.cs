@@ -97,6 +97,7 @@ public class Blue_staff : IWeapon
 
   void HandleonHit(HitContext con)
   {
+    con.target.GetComponent<IKillable>().hit(con.baseDamage);
     foreach (IWeaponEffect effect in effects)
     {
       if (effect is IOnHitEffect onhit)
@@ -109,7 +110,7 @@ public class Blue_staff : IWeapon
         if (enemy != null)
         {
           Debug.Log("handlign effects " + stateffect);
-          enemy.ApplyEffect(stateffect.createEffect());
+          enemy.ApplyEffect(stateffect);
         }
       }
     }

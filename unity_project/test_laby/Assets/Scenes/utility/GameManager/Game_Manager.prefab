@@ -94,8 +94,118 @@ MonoBehaviour:
   vase: {fileID: 8789290170092580440, guid: f6d58e736ff56891d894d1bb1cabc324, type: 3}
   vase_spawnrate: 0.75
   enemy_spawnrate: 0.5
-  portal_spawnrate: 0.8
+  portal_spawnrate: 1
   current_wave_index: 0
+  effects: {fileID: 11400000, guid: 26ba34ee5ba6887d3b005cd60bc74bc6, type: 2}
+  weaponstats:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25356483
+      value: 0.055243127
+      inSlope: 1.3040036
+      outSlope: 1.3040036
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.40204751
+      value: 0.10359597
+      inSlope: 0.63742125
+      outSlope: 0.63742125
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.42503005
+      value: 0.2174212
+      inSlope: 0.67680955
+      outSlope: 0.67680955
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5741224
+      value: 0.2374157
+      inSlope: 0.7684989
+      outSlope: 0.7684989
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6347969
+      value: 0.3073529
+      inSlope: 1.1824746
+      outSlope: 1.1824746
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8145621
+      value: 0.33378798
+      inSlope: 0.61360604
+      outSlope: 0.61360604
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.82736456
+      value: 0.51558805
+      inSlope: 0.94245416
+      outSlope: 0.94245416
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.93677497
+      value: 0.5796804
+      inSlope: 3.1950903
+      outSlope: 3.1950903
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9888621
+      value: 0.7435442
+      inSlope: 8.679216
+      outSlope: 8.679216
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statvariance: 0.1
+  maxDps: 5
+  maxas: 0.7
+  maxdmg: 5
 --- !u!114 &1072860537690056718
 MonoBehaviour:
   m_ObjectHideFlags: 0

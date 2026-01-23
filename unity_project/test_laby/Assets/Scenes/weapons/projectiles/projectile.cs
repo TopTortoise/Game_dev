@@ -35,7 +35,7 @@ public class projectile : MonoBehaviour
     IKillable obj = collider.gameObject.GetComponent<IKillable>();
     if (obj != null && collider.gameObject.layer != LayerMask.NameToLayer("Water"))
     {
-      obj.hit(damage);
+      // obj.hit(damage);
       var context = new HitContext
       {
         source = gameObject,

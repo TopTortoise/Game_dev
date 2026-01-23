@@ -12,6 +12,7 @@ public abstract class IEnemy : MonoBehaviour, IKillable
 
   public void ApplyEffect(StatusEffect effect)
   {
+    Debug.Log("effect is " + effect);
     effect.OnApply(this);
     activeEffects.Add(effect);
   }
