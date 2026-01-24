@@ -45,7 +45,7 @@ public class GameState : MonoBehaviour
     {
         nrBosses += 1;
         SpawnInterval -= UnityEngine.Random.Range(0.05f, 0.1f);;
-        EnemiesPerWave += UnityEngine.Random.Range(2, 5);;
+        EnemiesPerWave += UnityEngine.Random.Range(2, 7);;
     }
 
     public void SetTempleHealth(float amount)
