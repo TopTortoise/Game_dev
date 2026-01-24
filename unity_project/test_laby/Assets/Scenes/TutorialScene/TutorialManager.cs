@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class TutorialManager : MonoBehaviour
     public ghost player; 
     public Transform playerSpawnPoint; 
     public Vector3 newSpawnPosition;
+
+    [Header("Tutorial Gegner Settings")]
+    public GameObject enemyPrefab;      // <-- Hier den Gegner reinziehen
+    public Transform enemySpawnPoint;   // <-- Hier den Spawn-Ort reinziehen
+    public int enemyCount = 5;
 
     // Die verschiedenen Phasen des Tutorials
     public enum TutorialStep
@@ -33,6 +39,9 @@ public class TutorialManager : MonoBehaviour
         SecondEnemy,
         WaveWarning,        // Countdown / Warnung
         PlaceTorches,       // Fackeln setzen (T/Rechtsklick) und aufheben (E)
+        Teleport,
+        Pause, 
+        StartGame,
         TrapDash,           // Falle / Dash (Shift)
         Completed           // Fertig
     }
@@ -90,7 +99,7 @@ public class TutorialManager : MonoBehaviour
 
                 if (placed || equip)
                 {
-                    AdvanceStep(TutorialStep.TrapDash);
+                    AdvanceStep(TutorialStep.Teleport);
                 }
                 break;
 
@@ -100,7 +109,14 @@ public class TutorialManager : MonoBehaviour
                    ShowText("Lets go!");
                 }
                 break;
-                
+            case TutorialStep.Teleport:
+                bool teleport = player.Ret.WasPressedThisFrame();
+
+                if (teleport)
+                {
+                    AdvanceStep(TutorialStep.Pause);
+                }
+                break; 
              
         }
     }
@@ -162,13 +178,27 @@ public class TutorialManager : MonoBehaviour
                 break;
                 
             case TutorialStep.PlaceTorches:
-                ShowText("Use [Right Click] to place torches.\nUse [E] to pick them up.");
+                ShowText("Torches can help you defeat the waves. Use [Right Click] to place torches.\nUse [E] to pick them up.");
+                break;
+                
+            case TutorialStep.Teleport:
+                ShowText("If you ever want to go back to your Temple you can do this by pressing Q to Teleport back");
                 break;
 
             case TutorialStep.TrapDash:
                 ShowText("A trap! Use [SHIFT] to dash!");
                 break;
+            case TutorialStep.Pause:
+                ShowText("You can always look up the controls in the Pausemenu! At the right corner of the screen");
+               
+                StartCoroutine(WaitAndAdvance(5f, TutorialStep.StartGame));
+                break;
+
+            case TutorialStep.StartGame:
+                ShowText("Now you are Ready for your destiny!");
                 
+                StartCoroutine(EndTutorialSequence());
+                break;
             case TutorialStep.UpgradeGold:
                 ShowText("You can use your gold later to upgrade your temple!");
                 break;
@@ -178,29 +208,78 @@ public class TutorialManager : MonoBehaviour
     // Special sequence for the wave
     IEnumerator WaveSequence()
     {
-        ShowText("WARNING! Enemies want to destroy your temple!");
-        yield return new WaitForSeconds(4f);
+        ShowText("WARNING! Enemies want to destroy your temple!!!");
+
+        if(AudioManager.Instance != null) 
+            AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Defend_The_Temple);
+
+        yield return StartCoroutine(SpawnEnemies());
+
+        yield return new WaitForSeconds(1.5f);
+        Debug.Log("AdvanceSetPlaceTorches");
         AdvanceStep(TutorialStep.PlaceTorches);
     }
 
-    // --- UI Steuerung ---
+    IEnumerator WaitAndAdvance(float seconds, TutorialStep nextStep)
+    {
+        yield return new WaitForSeconds(seconds);
+        AdvanceStep(nextStep);
+    }
 
+    
+    IEnumerator EndTutorialSequence()
+    {
+        
+        yield return new WaitForSeconds(4f); 
+
+        SceneManager.LoadScene("TitleScene"); 
+    }
+    IEnumerator SpawnEnemies()
+    {
+        if (enemyPrefab == null || enemySpawnPoint == null)
+        {
+            Debug.LogError("TutorialManager: Enemy Prefab oder SpawnPoint fehlt!");
+            yield break;
+        }
+
+        for (int i = 0; i < enemyCount; i++)
+        {
+            Vector3 offset = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+            Vector3 spawnPos = enemySpawnPoint.position + offset;
+
+            Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+
+           
+            yield return new WaitForSeconds(1.5f);
+        }
+    }
+    // --- UI Steuerung ---
+    private Coroutine currentFadeRoutine;
     public void ShowText(string text)
     {
-        StopAllCoroutines(); 
+        if (currentFadeRoutine != null) 
+        {
+            StopCoroutine(currentFadeRoutine);
+            currentFadeRoutine = null;
+        }
         
         instructionText.text = text;
         instructionText.alpha = 1f; 
         isTextVisible = true;
     }
 
-    public void HideText()
+   public void HideText()
     {
         if(instructionText != null)
-             StartCoroutine(FadeOutText());
+        {
+            
+            if (currentFadeRoutine != null) StopCoroutine(currentFadeRoutine);
+
+            currentFadeRoutine = StartCoroutine(FadeOutText());
+        }
     }
 
-    IEnumerator FadeOutText()
+   IEnumerator FadeOutText()
     {
         float duration = 1f;
         float time = 0f;
@@ -211,5 +290,6 @@ public class TutorialManager : MonoBehaviour
             yield return null;
         }
         instructionText.alpha = 0f;
+        currentFadeRoutine = null;
     }
 }
