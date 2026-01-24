@@ -29,6 +29,7 @@ public class GameState : MonoBehaviour
     public int nrWavesDefeated;
     public int nrBossesDefeated;
     public int nrEnemiesDefeated;
+    public int nrTempleUpgrades;
 
 
     // ---- Enemy Wave State
@@ -75,6 +76,7 @@ public class GameState : MonoBehaviour
 
     public void SetCurrentTempleHealth(float amount)
     {
+        nrTempleUpgrades++;
         currentTempleHealth = amount;
     }
     

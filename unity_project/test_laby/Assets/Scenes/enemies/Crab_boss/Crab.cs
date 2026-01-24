@@ -137,6 +137,7 @@ public class Crab :  IEnemy, IKillable
 
   public override void OnDeath()
   {
+    isdashing = false;
     anim.SetBool("isDead", true);
     Debug.Log("Boss Died");
     StartCoroutine(DeathRoutine(1.5f));
@@ -147,6 +148,7 @@ public class Crab :  IEnemy, IKillable
     Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
     yield return new WaitForSeconds(duration);
     Debug.Log($"Ended at {Time.time}");
+    GameState.Instance.nrBossesDefeated++;
     Destroy(gameObject);
   }
 

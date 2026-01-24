@@ -165,6 +165,7 @@ public class TempleDrawnEnemy : IEnemy
     yield return new WaitForSeconds(duration);
     Debug.Log($"Ended at {Time.time}");
     GetComponent<LootDropper>().DropLoot();
+    GameState.Instance.nrEnemiesDefeated++;
     Destroy(gameObject);
   }
 

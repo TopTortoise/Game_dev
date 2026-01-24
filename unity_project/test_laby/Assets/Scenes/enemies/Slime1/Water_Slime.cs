@@ -264,6 +264,7 @@ public class Water_Slime : IEnemy
     AudioManager.Instance.Play(AudioManager.SoundType.Slime);
     Debug.Log("Enemy Died");
     GetComponent<LootDropper>().DropLoot();
+    GameState.Instance.nrEnemiesDefeated++;
     Destroy(gameObject);
   }
 
