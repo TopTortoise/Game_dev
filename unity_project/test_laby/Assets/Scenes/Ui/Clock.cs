@@ -16,6 +16,11 @@ public class Clock : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -53,7 +58,7 @@ public class Clock : MonoBehaviour
     void InitializeTimer()
     {
         //AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
-        GameState.Instance.timeRemaining = duration;
+        duration = GameState.Instance.timeRemaining ;
         GameState.Instance.isCountingDown = true;
         GameState.Instance.warningStarted = false;
 

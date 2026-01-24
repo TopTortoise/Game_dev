@@ -251,7 +251,7 @@ public class ghost : MonoBehaviour, IKillable
       if (FootstepDust.isPlaying)
         FootstepDust.Stop();
     }
-
+    if (DashAction.WasPressedThisFrame()) Debug.Log("Dash pressed");
     if (DashAction.WasPressedThisFrame()
     && !isDashing
     && !dashOnCooldown
@@ -299,34 +299,34 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     transform.localScale = scale;
   }
 
+
   private IEnumerator Dash()
   {
-    isDashing = true;
-    dashOnCooldown = true;
-    anim.SetBool("isDashing", true);
-    dashDirection = move.normalized;
+      isDashing = true;
+      
+      anim.SetBool("isDashing", true);
 
-    float timer = 0f;
+      dashDirection = move.normalized;
 
-    while (timer < dashDuration)
-    {
-      Vector2 dashPos =
-          rigidbody2d.position +
-          dashDirection * speed * dashMultiplier * Time.deltaTime;
+      // ---- START DASH (physics-driven, like Attack) ----
+      rigidbody2d.linearVelocity = dashDirection * speed * dashMultiplier;
 
-      rigidbody2d.MovePosition(dashPos);
+      // ---- DASH DURATION ----
+      yield return new WaitForSeconds(dashDuration);
 
-      timer += Time.deltaTime;
-      yield return null;
-    }
+      // ---- END DASH ----
+      rigidbody2d.linearVelocity = Vector2.zero;
+      isDashing = false;
+      anim.SetBool("isDashing", false);
 
-    isDashing = false;
-    anim.SetBool("isDashing", false);
-
-    // cooldown
-    yield return new WaitForSeconds(dashCooldown);
-    dashOnCooldown = false;
+      // ---- COOLDOWN ----
+      dashOnCooldown = true; 
+      yield return new WaitForSeconds(dashCooldown);
+      dashOnCooldown = false;
   }
+
+
+  
 
 
   void FixedUpdate()
@@ -558,7 +558,8 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   void Start()
   {
-
+    isDashing = false;
+    dashOnCooldown = false;
     GameState.Instance.OnCycleEnded += OnDeath;
     Debug.Log("Player subscribed to OnCycleEnded");
     StartCoroutine(AnimateReviveSpotlight());

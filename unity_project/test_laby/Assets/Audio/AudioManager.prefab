@@ -58,10 +58,6 @@ MonoBehaviour:
     Volume: 0.418
     Source: {fileID: 0}
   - Type: 3
-    Clip: {fileID: 8300000, guid: 9ece28b1ca0e35ea49dadb28f391ab0a, type: 3}
-    Volume: 0.39
-    Source: {fileID: 0}
-  - Type: 3
     Clip: {fileID: 8300000, guid: da956e045a3129d3ba5d7907b197733c, type: 3}
     Volume: 0.375
     Source: {fileID: 0}
@@ -111,5 +107,9 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Type: 13
     Clip: {fileID: 8300000, guid: 917323d78517e0fc39eeeeb71cb84caf, type: 3}
+    Volume: 0.379
+    Source: {fileID: 0}
+  - Type: 3
+    Clip: {fileID: 8300000, guid: 9ece28b1ca0e35ea49dadb28f391ab0a, type: 3}
     Volume: 0.379
     Source: {fileID: 0}

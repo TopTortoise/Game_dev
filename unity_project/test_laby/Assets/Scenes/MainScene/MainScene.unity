@@ -891,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5329535293914493418, guid: 1c73c655d05f151479ef889fdff2077b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.330429
+      value: 2.3304443
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -921,6 +921,10 @@ PrefabInstance:
     - target: {fileID: 3011438708967813262, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: m_Name
       value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215268452740207474, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7094384438732832775, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: m_IsTrigger
@@ -1375,8 +1379,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: nrBosses
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: SpawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: timeRemaining
-      value: 90
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: EnemiesPerWave
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1908312061779686950, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: isCountingDown

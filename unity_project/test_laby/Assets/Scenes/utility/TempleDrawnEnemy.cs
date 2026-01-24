@@ -164,6 +164,7 @@ public class TempleDrawnEnemy : IEnemy
     Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
     yield return new WaitForSeconds(duration);
     Debug.Log($"Ended at {Time.time}");
+    GetComponent<LootDropper>().DropLoot();
     Destroy(gameObject);
   }
 

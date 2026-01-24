@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 49652912641841142}
   - component: {fileID: 5220096034998244670}
   - component: {fileID: 3495567247669191993}
+  - component: {fileID: 2071056934423181795}
   m_Layer: 7
   m_Name: DungeonCyclops
   m_TagString: Untagged
@@ -177,8 +178,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 6
   damage: 2
+  collision_damage: 1
   health: 6
   max_health: 3
+  target: {fileID: 0}
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
@@ -210,6 +213,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2071056934423181795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232124554414485500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975d139eb68d04726878f70112bdbbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootDropper
+  lootTable:
+  - name: Gold Coin
+    prefab: {fileID: 2125210765509693357, guid: acf2fd990d4574603aa0f3a01036c98b, type: 3}
+    weight: 90
+  chanceToDropAnything: 100
 --- !u!1001 &1745118893931723093
 PrefabInstance:
   m_ObjectHideFlags: 0

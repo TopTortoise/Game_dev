@@ -54,6 +54,18 @@ public class Temple : MonoBehaviour, IKillable
         }
     }
 
+    public void UpgradeMaxHealth(float amount)
+{
+    max_health += amount;
+    hp.set_max_hp(max_health);
+
+    // Optional: fully heal on upgrade
+    hp.set_hp(max_health);
+
+    Debug.Log($"Temple upgraded! New max HP: {max_health}");
+}
+
+
     
 
     public void hit(float damage)

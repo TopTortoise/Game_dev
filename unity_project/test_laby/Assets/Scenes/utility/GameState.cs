@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GameState : MonoBehaviour
 {
@@ -28,8 +29,10 @@ public class GameState : MonoBehaviour
 
 
     // ---- Enemy Wave State
-    public float SpawnInterval = 2.2f;
-    public int EnemiesPerWave = 15;
+    public float SpawnInterval = 2.5f;
+    public int EnemiesPerWave = 10;
+
+    public int nrBosses = 0;
 
     // ---- Day Length
     public int DayDuration = 300;
@@ -38,8 +41,9 @@ public class GameState : MonoBehaviour
 
     void UpdateEnemyWaveDifficulty()
     {
-        SpawnInterval -= 0.2f;
-        EnemiesPerWave += 5;
+        nrBosses += 1;
+        SpawnInterval -= UnityEngine.Random.Range(0.05f, 0.1f);;
+        EnemiesPerWave += UnityEngine.Random.Range(2, 5);;
     }
     
     void UpdateDayDuration()
@@ -51,7 +55,7 @@ public class GameState : MonoBehaviour
     void ResetGameState()
     {
         SpawnInterval = 2.2f;
-        EnemiesPerWave = 15;
+        EnemiesPerWave = 10;
         DayDuration = 300;
         nrWavesDefeated = 0;
         StartNewCycle(DayDuration);
@@ -75,7 +79,7 @@ public class GameState : MonoBehaviour
     {
         enemyWaveActive = false;
         AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
-        UpdateEnemyWaveDifficulty();
+        UpdateEnemyWaveDifficulty(); 
         nrWavesDefeated++;
         timeRemaining = duration;
         isCountingDown = true;

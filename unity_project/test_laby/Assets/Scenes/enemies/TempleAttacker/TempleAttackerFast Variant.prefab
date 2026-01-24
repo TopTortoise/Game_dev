@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: attackRadius
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4262018677768523125, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
+      propertyPath: chanceToDropAnything
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4920057177830674426, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: m_Name
       value: TempleAttackerFast Variant

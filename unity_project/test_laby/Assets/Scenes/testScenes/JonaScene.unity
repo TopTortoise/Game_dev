@@ -419,7 +419,7 @@ PrefabInstance:
     - target: {fileID: 246149755879055863, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: templePosition
       value: 
-      objectReference: {fileID: 1250226504}
+      objectReference: {fileID: 0}
     - target: {fileID: 4920057177830674426, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: m_Name
       value: w
@@ -488,7 +488,7 @@ PrefabInstance:
     - target: {fileID: 246149755879055863, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: templePosition
       value: 
-      objectReference: {fileID: 1250226504}
+      objectReference: {fileID: 0}
     - target: {fileID: 4920057177830674426, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: m_Name
       value: TempleAttacker (2)
@@ -678,6 +678,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &601857345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601857347}
+  - component: {fileID: 601857346}
+  m_Layer: 0
+  m_Name: TempleUpgradeField
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &601857346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601857345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b50d94ecfda36daac6d7d5246369a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TempleUpgradeTrigger
+  upgradeUI: {fileID: 0}
+--- !u!4 &601857347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601857345}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 258.00735, y: -23.04886, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1154265678}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +827,7 @@ PrefabInstance:
     - target: {fileID: 246149755879055863, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: templePosition
       value: 
-      objectReference: {fileID: 1250226504}
+      objectReference: {fileID: 0}
     - target: {fileID: 4920057177830674426, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: m_Name
       value: TempleAttacker (1)
@@ -965,8 +1011,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clock
   duration: 90
   warningTime: 30
-  timeRemaining: 0
-  isCountingDown: 1
   clockText: {fileID: 932802995}
   player: {fileID: 1398438460}
 --- !u!4 &821971374
@@ -1189,11 +1233,84 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5199b003a984cac93aa53ec2d5ab75cf, type: 3}
---- !u!4 &1250226504 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2962736517102761798, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
-  m_PrefabInstance: {fileID: 3212859102485786234}
+--- !u!1 &1154265677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154265678}
+  - component: {fileID: 1154265679}
+  m_Layer: 0
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154265678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154265677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -234.68, y: -58.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 601857347}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1154265679
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154265677}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.29229498, y: 1.5658646}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 14.737853, y: 15.238922}
+  m_EdgeRadius: 0
 --- !u!1001 &1283001216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26346,7 +26463,7 @@ PrefabInstance:
     - target: {fileID: 246149755879055863, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: templePosition
       value: 
-      objectReference: {fileID: 1250226504}
+      objectReference: {fileID: 0}
     - target: {fileID: 4920057177830674426, guid: dc30ef0896ea32a6c897611aaa0601e6, type: 3}
       propertyPath: m_Name
       value: TempleAttacker
@@ -26581,7 +26698,7 @@ PrefabInstance:
     - target: {fileID: 5599674291835728616, guid: ed4d74b8f9f413bf3ba101d20cff3eba, type: 3}
       propertyPath: templePosition
       value: 
-      objectReference: {fileID: 1250226504}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27204,3 +27321,4 @@ SceneRoots:
   - {fileID: 1111936434}
   - {fileID: 2986736886250538145}
   - {fileID: 7951389851020445764}
+  - {fileID: 601857347}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 855245502760137202}
   - component: {fileID: 1954227765527059227}
   - component: {fileID: 494887865458838508}
+  - component: {fileID: -7216069762007274988}
   m_Layer: 7
   m_Name: DungeonFlyingEnemy
   m_TagString: Untagged
@@ -146,8 +147,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 8
   damage: 0.5
-  health: 3
-  max_health: 3
+  collision_damage: 1
+  health: 2
+  max_health: 2
+  target: {fileID: 0}
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
@@ -179,6 +182,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7216069762007274988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442021726842366329}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975d139eb68d04726878f70112bdbbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootDropper
+  lootTable:
+  - name: Gold Coin
+    prefab: {fileID: 2125210765509693357, guid: acf2fd990d4574603aa0f3a01036c98b, type: 3}
+    weight: 90
+  chanceToDropAnything: 100
 --- !u!1 &9040092120353016237
 GameObject:
   m_ObjectHideFlags: 0

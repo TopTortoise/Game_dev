@@ -1,22 +1,28 @@
 using UnityEngine;
 using System.Collections;
-public class Crab : IEnemy
+public class Crab :  IEnemy, IKillable
 {
 
   private Health hp;
   public Rigidbody2D rb;
   public GameObject player;
 
+  private SpriteRenderer spriteRend;
+
   private Renderer rend;
   private Color originalColor;
 
   public float flashTime = 0.3f;
 
+  private Animator anim;
+  private Vector2 moveDirection;
+  
+
   private void Awake()
   {
 
-    max_health = 20f;
-    health = 20f;
+    max_health = 10f;
+    health = 10f;
     speed = 5.0f;
     damage = 2;
     collision_damage = 3;
@@ -26,6 +32,7 @@ public class Crab : IEnemy
     hp.set_hp(health);
     player = GameObject.FindWithTag("Player");
     rend = GetComponentInChildren<SpriteRenderer>();
+    anim = GetComponentInChildren<Animator>();
     if (rend != null)
     {
       originalColor = rend.material.color;
@@ -45,23 +52,28 @@ public class Crab : IEnemy
   bool isdashing = false;
   void Update()
   {
+
     handleEffects();
     time += Time.deltaTime;
     if (player != null && time > attack_cooldown && !isdashing)
     {
       StartCoroutine(Attack());
     }
+    
   }
 
   public float dashSpeed = 20f;
   public float minDist = 40f;
   IEnumerator Attack()
   {
+
     isdashing = true;
     Debug.Log("Lets dashhh");
+    anim.SetBool("isDashing", true);
     //dash
     Vector2 playerPos = player.GetComponent<Rigidbody2D>().position;
     Vector2 direction = (playerPos - rb.position).normalized;
+    moveDirection = direction;
     rb.linearVelocity = -direction * speed;
     yield return new WaitForSeconds(0.25f);
     is_collided = false;
@@ -78,6 +90,7 @@ public class Crab : IEnemy
     Debug.Log("Lets dash ended");
     rb.linearVelocity = Vector2.zero;
     isdashing = false;
+    anim.SetBool("isDashing", false);
     is_collided = false;
     time = 0;
   }
@@ -98,8 +111,9 @@ public class Crab : IEnemy
   {
 
     if (rend) StartCoroutine(DoFlash());
-    DamagePopupGenerator.current.CreatePopup(transform.position, damage);
+    //DamagePopupGenerator.current.CreatePopup(transform.position, damage);
     hp.change_health(damage);
+    if (hp.health <= 0) OnDeath();
 
   }
   private IEnumerator DoFlash()
@@ -109,10 +123,30 @@ public class Crab : IEnemy
     rend.material.color = originalColor;
   }
 
+/*
+  void UpdateSpriteFacing()
+  {
+    if (!rend) return;
+
+    if (moveDirection.x > 0.01f)
+      rend.flipX = false;
+    else if (moveDirection.x < -0.01f)
+      rend.flipX = true;
+  }
+*/
 
   public override void OnDeath()
   {
-    Debug.Log("Enemy Died");
+    anim.SetBool("isDead", true);
+    Debug.Log("Boss Died");
+    StartCoroutine(DeathRoutine(1.5f));
+  }
+
+  IEnumerator DeathRoutine(float duration)
+  {
+    Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
+    yield return new WaitForSeconds(duration);
+    Debug.Log($"Ended at {Time.time}");
     Destroy(gameObject);
   }
 

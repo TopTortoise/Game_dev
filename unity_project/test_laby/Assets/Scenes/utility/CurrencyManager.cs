@@ -24,4 +24,12 @@ public class CurrencyManager : MonoBehaviour
         currentGold += amount;
         Debug.Log("Goldstand: " + currentGold);
     }
+
+    public void SpendCoins(int amount)
+    {
+        AudioManager.Instance.Play(AudioManager.SoundType.Coin);
+        currentGold -= amount;
+        Debug.Log("Goldstand: " + currentGold);
+    }
+
 }
