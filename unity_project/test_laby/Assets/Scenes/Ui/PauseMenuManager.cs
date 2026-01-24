@@ -19,6 +19,10 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (isPaused)
         {
+            if(controlActive) {
+                controlsPanel.SetActive(false);
+                controlActive = false; 
+            }
             ResumeGame();
         }
         else
