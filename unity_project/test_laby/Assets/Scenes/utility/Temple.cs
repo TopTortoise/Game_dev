@@ -4,8 +4,8 @@ using UnityEngine;
 public class Temple : MonoBehaviour, IKillable
 {
     
-    public float health = 20f;
-    public float max_health = 20f;
+    public float health = 100;
+    public float max_health = 100f;
 
     
     public float regenInterval = 5f;   
@@ -25,7 +25,8 @@ public class Temple : MonoBehaviour, IKillable
         spriteRenderer = GetComponent<SpriteRenderer>();
         hp = GetComponentInChildren<Health>();
 
-        
+        health = GameState.Instance.templeHealth;
+        max_health = GameState.Instance.templeHealth;
         hp.set_max_hp(max_health);
         hp.set_hp(health);
 
@@ -54,16 +55,26 @@ public class Temple : MonoBehaviour, IKillable
         }
     }
 
+    void Start()
+    {
+        health = GameState.Instance.templeHealth;
+        max_health = GameState.Instance.templeHealth;
+        hp.set_max_hp(max_health);
+        hp.set_hp(health);
+    }
+
     public void UpgradeMaxHealth(float amount)
-{
-    max_health += amount;
-    hp.set_max_hp(max_health);
+    {
+        max_health += amount;
+        hp.set_max_hp(max_health);
 
-    // Optional: fully heal on upgrade
-    hp.set_hp(max_health);
+        // Optional: fully heal on upgrade
+        hp.set_hp(max_health);
 
-    Debug.Log($"Temple upgraded! New max HP: {max_health}");
-}
+        GameState.Instance.SetTempleHealth(max_health);
+
+        Debug.Log($"Temple upgraded! New max HP: {max_health}");
+    }
 
 
     
