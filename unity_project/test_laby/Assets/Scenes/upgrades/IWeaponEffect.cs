@@ -1,4 +1,5 @@
-public interface IWeaponEffect
+using UnityEngine;
+public abstract class IWeaponEffect : ScriptableObject
 {
 
     // void OnAttack(IWeapon weapon);

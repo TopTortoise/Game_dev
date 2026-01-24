@@ -11,13 +11,12 @@ public class Blue_staff : IWeapon
   void Awake()
   {
     stats.damage = 1f;
-    stats.attackspeed = 0.5f;
+    stats.attackspeed = 1f;
 
   }
   void Start()
   {
     stats = new();
-    effects.Add(new SlowEffect(0.1f, 2f));
     AttackAction.Enable();
     // stats.damage = 1;
     // stats.attackspeed = 0.5f;
@@ -98,6 +97,7 @@ public class Blue_staff : IWeapon
 
   void HandleonHit(HitContext con)
   {
+    con.target.GetComponent<IKillable>().hit(con.baseDamage);
     foreach (IWeaponEffect effect in effects)
     {
       if (effect is IOnHitEffect onhit)
@@ -110,7 +110,7 @@ public class Blue_staff : IWeapon
         if (enemy != null)
         {
           Debug.Log("handlign effects " + stateffect);
-          enemy.ApplyEffect(stateffect.createEffect());
+          enemy.ApplyEffect(stateffect);
         }
       }
     }

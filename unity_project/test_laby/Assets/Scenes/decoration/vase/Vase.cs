@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEditor;
-using System.IO;
 public class Vase : MonoBehaviour, IKillable
 {
   public SpriteRenderer sr;
@@ -8,10 +6,12 @@ public class Vase : MonoBehaviour, IKillable
   public float rarity;
   public float distance_to_start;
   public GameObject item;
+  public GameObject torch;
   public Statupgrade weapon_upgrade;
   //if we dont want the to be one shot
   public float health;
   public float max_health;
+  public float torch_drop_rate = 0.1f;
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
@@ -45,12 +45,25 @@ public class Vase : MonoBehaviour, IKillable
     if (item != null)
     {
       GameObject dropped_item = Instantiate(item, transform.position, Quaternion.identity);   // spawn into the scene
+
+      for (int i = 0; i <= 2; i++)
+      {
+
+        if (Random.value < torch_drop_rate)
+        {
+
+          Instantiate(torch,
+              transform.position +
+              new Vector3(Random.value * 5, Random.value * 5, 0), Quaternion.identity);
+
+        }
+      }
       // dropped_item.GetComponent<IWeapon>().stats = new();
-      IWeapon weapon = dropped_item.GetComponent<IWeapon>();
-      Debug.Log("weaon is " + weapon.stats.attackspeed);
-      weapon_upgrade.Apply(weapon);
-      weapon.applied_upgrades.Add(weapon_upgrade.upgradeID);
-      Debug.Log("weaon is " + weapon.stats.attackspeed);
+      // IWeapon weapon = dropped_item.GetComponent<IWeapon>();
+      // Debug.Log("weaon is " + weapon.stats.attackspeed);
+      // weapon_upgrade.Apply(weapon);
+      // weapon.applied_upgrades.Add(weapon_upgrade.upgradeID);
+      // Debug.Log("weaon is " + weapon.stats.attackspeed);
     }
   }
 }

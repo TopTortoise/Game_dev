@@ -1,35 +1,28 @@
 using UnityEngine;
 [CreateAssetMenu(menuName = "Weapon Effects/ExplodeEffect")]
-public class ExplodeOnHit : IOnHitEffect
+public class Lightning : IOnHitEffect
 {
 
   public float radius;
   public float damage;
 
-  public IOnHitEffect createEffect()
-  {
-    return new ExplodeOnHit(radius, damage);
-  }
-
-
-
-  public ExplodeOnHit(float radius, float damage)
-  {
-    this.radius = radius;
-    this.damage = damage;
-  }
-
   public override void Apply(HitContext context)
   {
-    Debug.Log("explosions!!!!!!!!");
     var hits = Physics2D.OverlapCircleAll(
-          context.hitPoint, radius, LayerMask.NameToLayer("Enemies"));
-
+        context.hitPoint, radius, LayerMask.NameToLayer("Enemies"));
+    int count = 0;
     foreach (var hit in hits)
     {
       var target = hit.GetComponent<IEnemy>();
-      if (target != null)
+      if (target != null){
         target.hit(damage);
+        count++;
+
+      }
+      if(count == 2){
+        break;
+      }
+      target.GetEntityId();
     }
     ExplosionVisualizer.Instance.ShowCircle(context.hitPoint, radius, 1f);
   }

@@ -19,7 +19,7 @@ public class Enemy_Manager : MonoBehaviour
   public float portal_spawnrate = 1.0f;
   public List<WaveData> waves;
   public int current_wave_index = 0;
-
+  public EffectPool effects;
 
   /*
   void Start()
@@ -202,11 +202,10 @@ void OnDestroy()
         }
     }
   */
-
   public AnimationCurve weaponstats;
   public float statvariance = 0.1f; // 10%
   public float maxDps = 5f;
-  public float maxas = 0.4f;//max attackSpeed modifier
+  public float maxas = 0.7f;//max attackSpeed modifier
   public float maxdmg = 5f;//max dmg modifier
   void spawnItem(Vector3Int pos)
   {
@@ -219,18 +218,17 @@ void OnDestroy()
     //map distanc to rarity, 
     //TODO: items need rarity and then chosen randomly from the value
     //also some cases should be empty 
-    int mapped = Mathf.FloorToInt(Mathf.Lerp(0.1f, 2f, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
+    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.1f, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
 
 
     GameObject item = items[mapped];
     // Debug.Log("item is ")
-    float t = Mathf.Clamp01(distance_to_start / 750f);
-    float dmg = maxdmg*weaponstats.Evaluate(t);
-    dmg *= Random.Range(1f - statvariance, 1f + statvariance);
-    float attackSpeed = maxas*weaponstats.Evaluate(t);
-    attackSpeed *= Random.Range(1f - statvariance, 1f + statvariance);
-    float dps = dmg * attackSpeed;
-    // float maxDps = weapon.baseDamage * weapon.baseAttackSpeed * 3f;
+    float t = Mathf.Clamp01(distance_to_start / 750f);//get camppl value between 0 and 1
+    float dmg = maxdmg * weaponstats.Evaluate(t);//get value of curve
+    dmg *= Random.Range(1f - statvariance, 1f + statvariance);//add variance to dmg
+    float attackSpeed = maxas * weaponstats.Evaluate(t);//get value of curve
+    attackSpeed *= Random.Range(1f - statvariance, 1f + statvariance);//add variance
+    float dps = dmg / attackSpeed;// calculate dps
 
     if (dps > maxDps)
     {
@@ -240,6 +238,7 @@ void OnDestroy()
     }
     Statupgrade upgrade = new Statupgrade(dmg, -attackSpeed, 0f);
 
+    // StatusEffect effect = Instantiate()
 
     if (mapped == 0 && Random.value < 0.5)
     {
@@ -248,8 +247,15 @@ void OnDestroy()
     }
     else
     {
-
-      inst.GetComponent<Vase>().item = item;
+      GameObject weapon = Instantiate(item);
+      // weapon.GetComponent<IWeapon>().effects.Add()
+      Debug.Log("Instantiated wweapon is  "+weapon.GetComponent<IWeapon>().effects);
+      if(spawnPos.y > -100 ){
+        weapon.GetComponent<IWeapon>().effects.Add(effects.GetRandomEffect());
+      }
+      upgrade.Apply(weapon.GetComponent<IWeapon>());
+      
+      inst.GetComponent<Vase>().item = weapon;
       inst.GetComponent<Vase>().weapon_upgrade = upgrade;
     }
     // Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");

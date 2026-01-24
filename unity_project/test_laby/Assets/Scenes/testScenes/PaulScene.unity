@@ -837,7 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5329535293914493418, guid: 1c73c655d05f151479ef889fdff2077b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.330429
+      value: 2.3304443
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1329,6 +1329,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: effects
+      value: 
+      objectReference: {fileID: 11400000, guid: 26ba34ee5ba6887d3b005cd60bc74bc6, type: 2}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: start_pos.x
       value: 0
       objectReference: {fileID: 0}
@@ -1341,12 +1345,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weapon_effects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.size
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.size
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.data[1].time
@@ -1410,59 +1418,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[1].time
-      value: 0.16454498
+      value: 0.25356483
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[2].time
-      value: 0.29586798
+      value: 0.40204751
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[3].time
-      value: 0.45328808
+      value: 0.42503005
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[4].time
-      value: 0.6187308
+      value: 0.5741224
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[5].time
-      value: 0.7389687
+      value: 0.6347969
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[6].time
-      value: 0.90652716
+      value: 0.8145621
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[7].time
+      value: 0.82736456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[8].time
+      value: 0.93677497
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[9].time
+      value: 0.9888621
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[10].time
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[1].value
-      value: 0.18252885
+      value: 0.055243127
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[2].value
-      value: 0.20348962
+      value: 0.10359597
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[3].value
-      value: 0.47185174
+      value: 0.2174212
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[4].value
-      value: 0.5108052
+      value: 0.2374157
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[5].value
-      value: 0.69729125
+      value: 0.3073529
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[6].value
-      value: 0.7691586
+      value: 0.33378798
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[7].value
-      value: 1
+      value: 0.51558805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[8].value
+      value: 0.5796804
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[9].value
+      value: 0.7435442
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.data[0].inSlope
@@ -1495,6 +1523,10 @@ PrefabInstance:
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.data[7].inSlope
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[10].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.data[0].outSlope
@@ -1554,19 +1586,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[1].inSlope
-      value: 0.63742125
+      value: 1.3040036
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[2].inSlope
-      value: 0.67680955
+      value: 0.63742125
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[3].inSlope
-      value: 0.7684989
+      value: 0.67680955
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[4].inSlope
-      value: 0.61360604
+      value: 0.7684989
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[5].inSlope
@@ -1574,11 +1606,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[6].inSlope
-      value: 0.94245416
+      value: 0.61360604
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[7].inSlope
-      value: 2
+      value: 0.94245416
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[8].inSlope
+      value: 3.1950903
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[9].inSlope
+      value: 8.679216
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.data[1].outWeight
@@ -1605,12 +1645,16 @@ PrefabInstance:
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[10].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[1].inWeight
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[1].outSlope
-      value: 0.63742125
+      value: 1.3040036
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[2].inWeight
@@ -1618,7 +1662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[2].outSlope
-      value: 0.67680955
+      value: 0.63742125
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[3].inWeight
@@ -1626,7 +1670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[3].outSlope
-      value: 0.7684989
+      value: 0.67680955
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[4].inWeight
@@ -1634,7 +1678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[4].outSlope
-      value: 0.61360604
+      value: 0.7684989
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[5].inWeight
@@ -1650,10 +1694,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[6].outSlope
-      value: 0.94245416
+      value: 0.61360604
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[7].inWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: weaponstats.m_Curve.Array.data[7].outSlope
+      value: 0.94245416
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[8].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[8].outSlope
+      value: 3.1950903
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[9].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[9].outSlope
+      value: 8.679216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[10].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[10].outSlope
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
@@ -1681,11 +1753,27 @@ PrefabInstance:
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[7].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[8].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[9].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.data[0].tangentMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
       propertyPath: dmgdistant.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117995213123560084, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
+      propertyPath: weaponstats.m_Curve.Array.data[10].outWeight
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6209089396433849838, guid: c7926a83962f1dcdb81928c794357a2d, type: 3}
