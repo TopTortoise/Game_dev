@@ -23,7 +23,15 @@ public class Water_Slime : IEnemy
   public int radius = 15;
   void Awake()
   {
-    speed = 2.5f;
+    TutorialObjective tutorialObj = GetComponent<TutorialObjective>();
+    if (tutorialObj != null)
+    {
+        
+      speed = 0f; 
+    }else
+    {
+      speed = 2.5f;
+    }
     health = 3f;
     max_health = 3f;
     damage = 1f;

@@ -12,7 +12,9 @@ public class TutorialManager : MonoBehaviour
     public float fadeSpeed = 1f;
 
     [Header("Spieler Referenz")]
-    public ghost player; // ZIEHE DEN SPIELER HIER REIN
+    public ghost player; 
+    public Transform playerSpawnPoint; 
+    public Vector3 newSpawnPosition;
 
     // Die verschiedenen Phasen des Tutorials
     public enum TutorialStep
@@ -23,8 +25,12 @@ public class TutorialManager : MonoBehaviour
         UpgradeGold,
         GoToEnemy,         // Achtung gegner
         KillEnemy,          // Gegner besiegen
+        FindTemple,
             
         HealAtFountain,     // Angreifen zum Heilen 
+        WeaponFound,
+        GoToWell,
+        SecondEnemy,
         WaveWarning,        // Countdown / Warnung
         PlaceTorches,       // Fackeln setzen (T/Rechtsklick) und aufheben (E)
         TrapDash,           // Falle / Dash (Shift)
@@ -45,16 +51,16 @@ public class TutorialManager : MonoBehaviour
         if (player == null) player = FindObjectOfType<ghost>();
         
         // Startet den ersten Schritt
-        ShowText("Benutze W A S D zum Bewegen");
+        ShowText("Use W A S D to move.");
     }
 
     void Update()
     {
-        // Zustandsmaschine: Prüft je nach aktuellem Schritt, was zu tun ist
+        
         switch (currentStep)
         {
             case TutorialStep.Movement:
-                // Prüfen ob Spieler sich bewegt (Input System)
+                
                 if (player.MoveAction.ReadValue<Vector2>() != Vector2.zero)
                 {
                     AdvanceStep(TutorialStep.GoToVase); // Nächster Schritt: Gehe zur Vase
@@ -65,7 +71,7 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialStep.UpgradeGold:
                 // Zeige Text für 4 Sekunden, dann beende Tutorial
-                AdvanceStep(TutorialStep.GoToEnemy);
+                
                 break;
 
 
@@ -91,7 +97,7 @@ public class TutorialManager : MonoBehaviour
             case TutorialStep.TrapDash:
                 if (player.DashAction.WasPressedThisFrame())
                 {
-                    AdvanceStep(TutorialStep.UpgradeGold);
+                   ShowText("Lets go!");
                 }
                 break;
                 
@@ -101,14 +107,14 @@ public class TutorialManager : MonoBehaviour
 
     // --- Hilfsfunktionen ---
 
-    public void AdvanceStep(TutorialStep nextStep)
+   public void AdvanceStep(TutorialStep nextStep)
     {
-        if (currentStep == nextStep) return; // Schon im Gange
+        if (currentStep == nextStep) return; // Already in progress
 
         currentStep = nextStep;
-        HideText(); // Alten Text ausblenden
+        HideText(); // Hide old text
 
-        // Logik für den NEUEN Schritt
+        // Logic for the NEW step
         switch (nextStep)
         {
             case TutorialStep.GoToVase:
@@ -116,55 +122,66 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TutorialStep.AttackVase:
-                 ShowText("Nutze Linksklick (MBL), um anzugreifen und die Vase zu zerstören!");
+                 ShowText("Use Left Click (LMB) to attack and destroy the vase!");
                 break;
 
             case TutorialStep.GoToEnemy:
-                ShowText("Ein Gegner! Besiege ihn!");
+                ShowText("An enemy! Defeat it!");
                 break;
 
             case TutorialStep.KillEnemy:
-                
+                ShowText("Well done!");
                 break;
 
+            case TutorialStep.WeaponFound:
+                ShowText("Wow! You found a new weapon!!! You can equip it using [E].");
+                break;
+            case TutorialStep.FindTemple:
+                ShowText("You can heal yourself at the well next to your temple");
+                break;
+
+            case TutorialStep.GoToWell:
+                ShowText("Let's find this well.");
+                break;
+            
+            case TutorialStep.SecondEnemy:
+                ShowText("Ahh... I guess you can find anything in these vases.");
+                break;
 
             case TutorialStep.HealAtFountain:
-                ShowText("Schlage auf den Brunnen, um dich schneller zu heilen!");
+                ShowText("Hit the fountain to heal yourself faster!");
                 break;
 
             case TutorialStep.WaveWarning:
+                if (playerSpawnPoint != null)
+                {
+                    playerSpawnPoint.position = newSpawnPosition;
+                    Debug.Log("Spawn point moved!");
+                }
                 StartCoroutine(WaveSequence());
                 break;
                 
             case TutorialStep.PlaceTorches:
-                ShowText("Nutze [Rechtsklick], um Fackeln zu stellen.\nNutze [E], um Fackeln aufzuheben.");
+                ShowText("Use [Right Click] to place torches.\nUse [E] to pick them up.");
                 break;
 
             case TutorialStep.TrapDash:
-                ShowText("Eine Falle! Nutze [SHIFT] zum Dashen!");
+                ShowText("A trap! Use [SHIFT] to dash!");
                 break;
                 
             case TutorialStep.UpgradeGold:
-                ShowText("Du kannst dein Gold später verwenden um deinen Tempel zu verbessern!");
+                ShowText("You can use your gold later to upgrade your temple!");
                 break;
         }
     }
 
-    // Spezielle Sequenz für die Welle
+    // Special sequence for the wave
     IEnumerator WaveSequence()
     {
-        ShowText("ACHTUNG! Gegner wollen deinen Tempel zerstören!");
+        ShowText("WARNING! Enemies want to destroy your temple!");
         yield return new WaitForSeconds(4f);
         AdvanceStep(TutorialStep.PlaceTorches);
     }
-    
-    IEnumerator FinishTutorialDelay()
-    {
-        yield return new WaitForSeconds(5f);
-        HideText();
-        currentStep = TutorialStep.Completed;
-    }
-
 
     // --- UI Steuerung ---
 

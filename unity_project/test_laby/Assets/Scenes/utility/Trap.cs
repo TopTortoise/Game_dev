@@ -19,7 +19,7 @@ public class Trap : MonoBehaviour
         IKillable killable = player.GetComponent<IKillable>();
         if (killable != null)
         {
-            killable.hit(damage);
+            if (!player.isDashing) killable.hit(damage);
             damageTimer = damageInterval;
         }
     }

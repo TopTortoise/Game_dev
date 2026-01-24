@@ -36,7 +36,7 @@ public class ghost : MonoBehaviour, IKillable
   public float dashDuration = 0.15f;
   public float dashCooldown = 0.1f;
   private bool dashOnCooldown = false;
-  private bool isDashing = false;
+  public bool isDashing = false;
   private Vector2 dashDirection;
 
 

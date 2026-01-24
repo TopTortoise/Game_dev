@@ -38,6 +38,13 @@ public class Vase : MonoBehaviour, IKillable
     spawn_item();
     GetComponent<LootDropper>().DropLoot();
 
+    TutorialObjective tutorialObj = GetComponent<TutorialObjective>();
+    if (tutorialObj != null)
+    {
+        
+        tutorialObj.CompleteObjective();
+    }
+
   }
 
   void spawn_item()
