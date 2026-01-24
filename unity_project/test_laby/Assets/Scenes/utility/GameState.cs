@@ -7,6 +7,8 @@ public class GameState : MonoBehaviour
 {
     public static GameState Instance;
 
+    public float templeHealth = 100;
+    public float currentTempleHealth = 100;
     // ---- Clock state ----
     public int timeRemaining;
     public bool isCountingDown;
@@ -43,7 +45,17 @@ public class GameState : MonoBehaviour
     {
         nrBosses += 1;
         SpawnInterval -= UnityEngine.Random.Range(0.05f, 0.1f);;
-        EnemiesPerWave += UnityEngine.Random.Range(2, 5);;
+        EnemiesPerWave += UnityEngine.Random.Range(2, 7);;
+    }
+
+    public void SetTempleHealth(float amount)
+    {
+        templeHealth = amount;
+    }
+
+    public void SetCurrentTempleHealth(float amount)
+    {
+        currentTempleHealth = amount;
     }
     
     void UpdateDayDuration()

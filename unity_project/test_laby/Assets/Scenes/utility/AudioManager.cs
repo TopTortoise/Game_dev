@@ -21,7 +21,8 @@ public class AudioManager : MonoBehaviour
         Music_Day,
         Music_Night_Coming,
         Music_Defend_The_Temple,
-        Music_Loot_Room
+        Music_Loot_Room, 
+        Temple_Attack
         // Add more sound types as needed
     }
  
@@ -96,33 +97,21 @@ public class AudioManager : MonoBehaviour
  
     //Call this method to change music tracks
     public void ChangeMusic(SoundType type)
-{
-    if (!_soundDictionary.TryGetValue(type, out Sound track))
     {
-        Debug.LogWarning($"Music track {type} not found!");
-        return;
+        if (!_soundDictionary.TryGetValue(type, out Sound track))
+        {
+            Debug.LogWarning($"Music track {type} not found!");
+            return;
+        }
+ 
+        if (_musicSource == null)
+        {
+            var container = new GameObject("SoundTrackObj");
+            _musicSource = container.AddComponent<AudioSource>();
+            _musicSource.loop = true;
+        }
+ 
+        _musicSource.clip = track.Clip;
+        _musicSource.Play();
     }
-
-    if (_musicSource == null)
-    {
-        var container = new GameObject("MusicSource");
-        container.transform.SetParent(transform);
-
-        _musicSource = container.AddComponent<AudioSource>();
-        _musicSource.loop = true;
-        _musicSource.playOnAwake = false;
-
-        // 🔑 THESE TWO LINES FIX IT
-        _musicSource.volume = track.Volume;
-        _musicSource.spatialBlend = 0f; // force 2D music
-    }
-
-    if (_musicSource.clip == track.Clip && _musicSource.isPlaying)
-        return;
-
-    _musicSource.clip = track.Clip;
-    _musicSource.volume = track.Volume;
-    _musicSource.Play();
-}
-
 }
