@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
     public static GameState Instance;
 
     public float templeHealth = 100;
+    public float currentTempleHealth = 100;
     // ---- Clock state ----
     public int timeRemaining;
     public bool isCountingDown;
@@ -50,6 +51,11 @@ public class GameState : MonoBehaviour
     public void SetTempleHealth(float amount)
     {
         templeHealth = amount;
+    }
+
+    public void SetCurrentTempleHealth(float amount)
+    {
+        currentTempleHealth = amount;
     }
     
     void UpdateDayDuration()

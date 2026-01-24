@@ -66,12 +66,15 @@ public class Temple : MonoBehaviour, IKillable
     public void UpgradeMaxHealth(float amount)
     {
         max_health += amount;
+        health += amount;
         hp.set_max_hp(max_health);
+        hp.set_hp(health);
 
         // Optional: fully heal on upgrade
         hp.set_hp(max_health);
 
         GameState.Instance.SetTempleHealth(max_health);
+        GameState.Instance.SetCurrentTempleHealth(health);
 
         Debug.Log($"Temple upgraded! New max HP: {max_health}");
     }
