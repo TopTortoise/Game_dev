@@ -13,4 +13,10 @@ public class SlowEffect : StatusEffect
   {
     target.speed /= slowMultiplier;
   }
+  public override string GetDescription()
+    {
+        
+        float percent = (1f - slowMultiplier) * 100f;
+        return $"Slow ({percent}%)";
+    }
 }

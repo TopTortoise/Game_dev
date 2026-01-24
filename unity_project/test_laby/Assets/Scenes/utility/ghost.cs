@@ -142,9 +142,16 @@ public class ghost : MonoBehaviour, IKillable
 
       if (candidate != null && candidate != weapon)
       {
-        new_weapon = candidate;
-        pickup_position = candidate.transform.position;
-        break;
+        if (WeaponCompareUI.Instance != null)
+                {
+                    WeaponCompareUI.Instance.ShowComparison(candidate, this);
+                }
+                else
+                {
+                    // Fallback, falls kein UI existiert: Direkt aufheben
+                    ConfirmSwapWeapon(candidate);
+                }
+                return;
       }
     }
 
@@ -152,22 +159,35 @@ public class ghost : MonoBehaviour, IKillable
     if (new_weapon == null)
       return;
 
-    // ---- Swap ----
-    IWeapon old_weapon = unequip();
-
-    // Old weapon is dropped exactly where new one was
-    if (old_weapon != null)
-    {
-      old_weapon.transform.position = pickup_position;
-    }
-
-    // Immediately equip replacement
-    weapon = new_weapon;
-    weapon.transform.SetParent(transform);
-    weapon.transform.localPosition = Vector3.zero;
-    weapon.transform.localRotation = Quaternion.identity;
-    weapon.equip(weapon_upgrades);
+    
   }
+  public void ConfirmSwapWeapon(IWeapon new_weapon)
+    {
+        Vector3 pickup_position = new_weapon.transform.position;
+
+        // Altes ablegen
+        IWeapon old_weapon = unequip();
+
+        // Alte Waffe dort hinlegen, wo die neue lag
+        if (old_weapon != null)
+        {
+            old_weapon.transform.position = pickup_position;
+            // Wichtig: Sicherstellen, dass die alte Waffe wieder in der Welt aktiv ist
+            old_weapon.gameObject.SetActive(true); 
+        }
+
+        // Neue ausrüsten
+        weapon = new_weapon;
+        weapon.transform.SetParent(transform);
+        weapon.transform.localPosition = Vector3.zero;
+        weapon.transform.localRotation = Quaternion.identity;
+        
+        // Setup der neuen Waffe
+        weapon.equip(weapon_upgrades);
+        
+        // Debug
+        Debug.Log("Swapped to: " + weapon.gameObject.name);
+    }
 
 
   /*

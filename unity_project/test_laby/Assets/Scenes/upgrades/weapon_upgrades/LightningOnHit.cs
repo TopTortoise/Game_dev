@@ -27,5 +27,10 @@ public class Lightning : IOnHitEffect
     ExplosionVisualizer.Instance.ShowCircle(context.hitPoint, radius, 1f);
   }
 
+  public override string GetDescription() 
+    {
+        return $"Lightning ({damage} Dmg)";
+    }
+
 
 }

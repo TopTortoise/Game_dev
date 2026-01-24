@@ -34,5 +34,9 @@ public class ExplodeOnHit : IOnHitEffect
     ExplosionVisualizer.Instance.ShowCircle(context.hitPoint, radius, 1f);
   }
 
+  public override string GetDescription()
+    {
+        return $"Explodes ({damage} Dmg, {radius}m)";
+    }
 
 }

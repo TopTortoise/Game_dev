@@ -15,4 +15,9 @@ public class BurnEffect : StatusEffect
     counter++;
     target.hit(damagePerSecond * deltaTime);
   }
+  public override string GetDescription()
+    {
+        return $"Burn ({damagePerSecond} DPS)";
+    }
 }
+  
