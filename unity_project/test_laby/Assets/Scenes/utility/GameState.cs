@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 
+
 public class GameState : MonoBehaviour
 {
     public static GameState Instance;
@@ -39,8 +40,27 @@ public class GameState : MonoBehaviour
     // ---- Day Length
     public int DayDuration = 300;
 
+    
     //---- to keep tabs on entered lootrooms
+    //---- Difficulty set in Title scene
+    void ApplyDifficultySettings()
+    {
+       
+        if (GameData.selectedDifficulty == Difficulty.TeacherMode)
+        {
+            Debug.Log("Teacher Mode aktiviert: Tempel ist unbesiegbar!");
+            
+            templeHealth = 10000f; 
+        }
+        else
+        {
+            Debug.Log("Normal Mode: Viel Glück!");
+            templeHealth = 100f;
+        }
 
+        // WICHTIG: Das aktuelle Leben muss auch auf das Maximum gesetzt werden!
+        currentTempleHealth = templeHealth;
+    }
     void UpdateEnemyWaveDifficulty()
     {
         nrBosses += 1;
@@ -70,6 +90,9 @@ public class GameState : MonoBehaviour
         EnemiesPerWave = 10;
         DayDuration = 300;
         nrWavesDefeated = 0;
+
+        ApplyDifficultySettings();
+
         StartNewCycle(DayDuration);
     }
 
@@ -85,6 +108,8 @@ public class GameState : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         nrBossesDefeated = 0;
         nrWavesDefeated = -1; //start with -1 (first day starts with 0)
+
+        ApplyDifficultySettings();
     }
 
     public void StartNewCycle(int duration)

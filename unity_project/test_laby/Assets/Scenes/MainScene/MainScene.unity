@@ -1142,6 +1142,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5361983840668240739, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: enemiesPerWave
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7094384438732832775, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: m_IsTrigger
       value: 1
