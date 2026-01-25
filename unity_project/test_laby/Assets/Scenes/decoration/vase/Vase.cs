@@ -52,8 +52,8 @@ public class Vase : MonoBehaviour, IKillable
   {
     if (item != null)
     {
-      weapon_upgrade.Apply(item.GetComponent<IWeapon>());
       GameObject dropped_item = Instantiate(item, transform.position, Quaternion.identity);   // spawn into the scene
+      weapon_upgrade.Apply(dropped_item.GetComponent<IWeapon>());
 
       for (int i = 0; i <= 2; i++)
       {
