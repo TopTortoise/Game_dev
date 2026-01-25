@@ -1,4 +1,5 @@
 using UnityEngine;
+[System.Serializable]
 public abstract class IWeaponEffect : ScriptableObject
 {
 

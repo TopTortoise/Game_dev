@@ -16,8 +16,6 @@ public class Blue_staff : IWeapon
   }
   void Start()
   {
-    stats = new();
-    AttackAction.Enable();
     // stats.damage = 1;
     // stats.attackspeed = 0.5f;
   }

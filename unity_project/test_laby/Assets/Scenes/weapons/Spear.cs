@@ -17,7 +17,6 @@ public class Spear : IWeapon
   {
     stats.damage = 1f;
     stats.attackspeed = 1f;
-
   }
 
   public override void onEquip()
