@@ -125,7 +125,7 @@ public class GameState : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("GameOverManager not Found!");
+            Debug.LogWarning("Temple not Found!");
         }
         enemyWaveActive = false;
         AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
