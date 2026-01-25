@@ -1,18 +1,50 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 public class TempleInteract : MonoBehaviour
 {
-    public TempleUpgradeUI ui;
-    bool inRange = false;
+    [Header("Referenzen")]
+    public GameObject openShopPanel; // Der Button im Canvas
+    public TempleUpgradeUI shopUI;    // Dein Shop-Fenster Skript
 
-    void OnTriggerEnter2D(Collider2D other) { if(other.CompareTag("Player")) inRange = true; }
-    void OnTriggerExit2D(Collider2D other) { if(other.CompareTag("Player")) inRange = false; }
+    [Header("Einstellungen")]
+    public string playerTag = "Player"; // Tag deines Spielers
 
-    void Update()
+    void Start()
     {
-        // Drücke F um Shop zu öffnen
-        if (inRange && Input.GetKeyDown(KeyCode.F))
+        openShopPanel.SetActive(false);
+    }
+ 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(playerTag))
         {
-            ui.ToggleShop();
+           
+            if (openShopPanel)
+                openShopPanel.SetActive(true);
         }
+    }
+
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(playerTag))
+        {
+            // Button verstecken
+            if (openShopPanel != null) 
+                openShopPanel.SetActive(false);
+            
+           
+            if(shopUI.gameObject.activeSelf) shopUI.ToggleShop();
+        }
+    }
+
+    // DIESE FUNKTION kommt auf den Button "OnClick"
+    public void OnClickOpenShop()
+    {
+        // 1. Shop öffnen
+        shopUI.ToggleShop();
+
+       
     }
 }
