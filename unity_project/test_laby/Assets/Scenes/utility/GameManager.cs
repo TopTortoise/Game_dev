@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
   public static GameManager Instance;
 
   public static string MainSceneName;
-
+  public static ExplosionVisualizer ep; 
   public Vector3 SpawnPoint;
 
   private void Awake()
   {
+    ep = new ExplosionVisualizer();
     Time.timeScale = 1f;
     if (Instance == null)
     {

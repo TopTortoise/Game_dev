@@ -5,42 +5,59 @@ public class ExplosionVisualizer : MonoBehaviour
 {
   public static ExplosionVisualizer Instance;
 
+  public LineRenderer ringRenderer;
   private void Awake()
   {
     if (Instance != null)
       Destroy(gameObject);
     else
       Instance = this;
+    if (ringRenderer != null)
+    {
+      ringRenderer.positionCount = 65;
+      ringRenderer.enabled = false;
+    }
   }
 
   public void ShowCircle(Vector3 position, float radius, float duration)
   {
-    StartCoroutine(DrawCircleRoutine(position, radius, duration));
+    StopAllCoroutines();
+    StartCoroutine(ExpandRing(position, radius, duration));
   }
 
-  private IEnumerator DrawCircleRoutine(Vector3 position, float radius, float duration)
+  IEnumerator ExpandRing(Vector3 position, float radius, float duration)
   {
-    // Create GameObject with LineRenderer
-    GameObject go = new GameObject("ExplosionCircle");
-    go.transform.position = position;
-    LineRenderer lr = go.AddComponent<LineRenderer>();
-    lr.positionCount = 50;
-    lr.loop = true;
-    lr.widthMultiplier = 0.05f;
-    lr.material = new Material(Shader.Find("Sprites/Default"));
-    lr.startColor = lr.endColor = Color.red;
+    ringRenderer.enabled = true;
 
-    // Calculate circle points
-    for (int i = 0; i < lr.positionCount; i++)
+    float time = 0f;
+    float maxRadius = radius;
+
+    while (time < duration)
     {
-      float angle = i * Mathf.PI * 2f / lr.positionCount;
-      Vector3 pos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * radius;
-      lr.SetPosition(i, pos);
+      // StartCoroutine(ExpandRing(position, radius, duration));
+      float t_radius = Mathf.Lerp(0f, maxRadius, time / duration);
+      DrawRing(position, t_radius);
+      time += Time.deltaTime;
+      yield return null;
     }
 
-    // Wait duration
-    yield return new WaitForSeconds(duration);
-
-    GameObject.Destroy(go);
+    ringRenderer.enabled = false;
   }
+
+  void DrawRing(Vector3 position, float radius)
+  {
+    for (int i = 0; i <= 64; i++)
+    {
+      float angle = i * Mathf.PI * 2f / 64;
+      Vector3 offset = new Vector3(
+          Mathf.Cos(angle) * radius,
+          Mathf.Sin(angle) * radius,
+          0f
+      );
+
+      ringRenderer.SetPosition(i, position + offset);
+
+    }
+  }
+
 }

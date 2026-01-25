@@ -100,6 +100,7 @@ public class Blue_staff : IWeapon
     {
       if (effect is IOnHitEffect onhit)
       {
+        Debug.Log("handlign onhit " + onhit);
         onhit.Apply(con);
       }
       else if (effect is StatusEffect stateffect)
