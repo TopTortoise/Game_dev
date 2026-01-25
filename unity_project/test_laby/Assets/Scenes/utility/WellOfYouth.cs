@@ -8,7 +8,7 @@ public class WellOfYouth : MonoBehaviour
     public float healInterval = 0.5f;
 
     [Header("Range")]
-    public Collider2D wellTrigger; // MUST be a trigger
+    public Collider2D wellTrigger; // trigger
 
     [Header("Ring Visual")]
     public LineRenderer ringRenderer;

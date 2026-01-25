@@ -28,7 +28,7 @@ public class TempleDrawnEnemy : IEnemy
 
   void Awake()
   {
-    // -------- Stats (same pattern as Water_Slime) --------
+    // -------- Stats  --------
     speed = 2f;
     damage = 1f;
     health = 3f;
@@ -39,7 +39,7 @@ public class TempleDrawnEnemy : IEnemy
     rend = GetComponentInChildren<SpriteRenderer>();
     hp = GetComponentInChildren<Health>();
 
-    // SAME initialization style as Water_Slime
+    
     hp.set_max_hp(max_health);
     hp.set_hp(health);
 
@@ -140,11 +140,9 @@ public class TempleDrawnEnemy : IEnemy
       rend.flipX = true;
   }
 
-  // -------- IKillable (EXACT Water_Slime style) --------
 
   public override void hit(float damage)
   {
-    // identical to Water_Slime
     hp.change_health(damage);
     if (hp.health <= 0) OnDeath();
   }
@@ -155,7 +153,6 @@ public class TempleDrawnEnemy : IEnemy
     anim.SetBool("isDead", true);
     Debug.Log("TempleDrawnEnemy Died");
     StartCoroutine(DeathRoutine(1.5f));
-    // Optional: loot, effects, animation
 
   }
 
@@ -180,161 +177,3 @@ public class TempleDrawnEnemy : IEnemy
     }
   }
 }
-
-/*
-using UnityEngine;
-
-public class TempleDrawnEnemy : MonoBehaviour, IKillable
-{
-    [Header("Movement")]
-    public float moveSpeed = 2f;
-    public LayerMask waterLayer;
-    public float skinWidth = 0.05f;
-
-    [Header("Target")]
-    public Transform templePosition;
-
-    [Header("Attack")]
-    public float attackInterval = 1.0f;
-    public float attackRadius = 1.0f;
-    public float damage = 1.0f;
-    public LayerMask enemyLayer;
-    public Transform attackPoint;
-
-    [Header("Health")]
-    public float maxHealth = 3f;
-    private float health;
-
-    private Animator animator;
-    private CapsuleCollider2D capsule;
-    private SpriteRenderer spriteRenderer;
-
-    private Vector2 moveDirection;
-    private float attackTimer;
-    private bool isAttacking;
-
-    void Start()
-    {
-        capsule = GetComponent<CapsuleCollider2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        health = maxHealth;
-        attackTimer = attackInterval;
-    }
-
-    void Update()
-    {
-        if (health <= 0) return;
-
-        if (isAttacking)
-        {
-            HandleAttack();
-            UpdateSpriteFacing();
-            return;
-        }
-
-        moveDirection =
-            ((Vector2)templePosition.position - (Vector2)transform.position).normalized;
-
-        float moveDist = moveSpeed * Time.deltaTime;
-
-        if (CanMove(moveDirection, moveDist))
-        {
-            transform.position += (Vector3)(moveDirection * moveDist);
-        }
-        else
-        {
-            StartAttacking();
-        }
-
-        UpdateSpriteFacing();
-    }
-
-    void StartAttacking()
-    {
-        isAttacking = true;
-        animator.SetBool("isAttacking", true);
-        attackTimer = attackInterval;
-    }
-
-    bool CanMove(Vector2 dir, float dist)
-    {
-        Bounds b = capsule.bounds;
-
-        RaycastHit2D hit = Physics2D.BoxCast(
-            b.center,
-            b.size,
-            0f,
-            dir,
-            dist + skinWidth,
-            waterLayer
-        );
-
-        return hit.collider == null;
-    }
-
-    void HandleAttack()
-    {
-        attackTimer -= Time.deltaTime;
-
-        if (attackTimer <= 0f)
-        {
-            Attack();
-            attackTimer = attackInterval;
-        }
-    }
-
-    void Attack()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(
-            attackPoint.position,
-            attackRadius,
-            enemyLayer
-        );
-
-        foreach (Collider2D c in hits)
-        {
-            IKillable killable = c.GetComponent<IKillable>();
-
-            if (killable != null)
-            {
-                killable.hit(damage);
-            }
-        }
-    }
-
-    
-
-    void UpdateSpriteFacing()
-    {
-        if (moveDirection.x > 0.01f)
-            spriteRenderer.flipX = false;
-        else if (moveDirection.x < -0.01f)
-            spriteRenderer.flipX = true;
-    }
-
-    // -------- IKillable --------
-
-    public void hit(float dmg)
-    {
-        health -= dmg;
-
-        if (health <= 0)
-            OnDeath();
-    }
-
-    public void OnDeath()
-    {
-        Destroy(gameObject);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (attackPoint != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
-        }
-    }
-}*/

@@ -1103,6 +1103,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 750608366313580462, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 750608366313580462, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 750608366313580462, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 750608366313580462, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -1119,6 +1131,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2408621205385258901, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: regenAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408621205385258901, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: ringDuration
       value: 2.5
       objectReference: {fileID: 0}
@@ -1129,6 +1145,10 @@ PrefabInstance:
     - target: {fileID: 2408621205385258901, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: ringSegments
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408621205385258901, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
+      propertyPath: regenInterval
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2408621205385258901, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
       propertyPath: attackCollider
@@ -51197,9 +51217,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 983028785}
     m_Modifications:
+    - target: {fileID: 649417106012021136, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.5139313
+      objectReference: {fileID: 0}
+    - target: {fileID: 692699901070241627, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.49998474
+      objectReference: {fileID: 0}
+    - target: {fileID: 692699901070241627, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.49996948
+      objectReference: {fileID: 0}
     - target: {fileID: 4563923738365520645, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_Name
       value: WeaponCompareUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634251479738860886, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.245285
+      objectReference: {fileID: 0}
+    - target: {fileID: 7725365004065319087, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.56907654
       objectReference: {fileID: 0}
     - target: {fileID: 7950728529607908532, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_Pivot.x
@@ -51280,6 +51320,14 @@ PrefabInstance:
     - target: {fileID: 7950728529607908532, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380435148238132944, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.22581482
+      objectReference: {fileID: 0}
+    - target: {fileID: 8928159220935175024, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.6673584
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

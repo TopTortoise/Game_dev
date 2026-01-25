@@ -25,7 +25,7 @@ public class Temple : MonoBehaviour, IKillable
     public float damage = 10f;
     public float attackInterval = 10f;
     public LayerMask enemyLayer;
-    public Collider2D attackCollider; // MUST be trigger
+    public Collider2D attackCollider; // trigger
 
     [Header("Ring Visual")]
     public LineRenderer ringRenderer;
@@ -64,8 +64,6 @@ public class Temple : MonoBehaviour, IKillable
     {
         if (destroyed) return;
 
-        
-        //if (hp.health >= hp.max_health) return;
 
         regenTimer -= Time.deltaTime;
         if (regenTimer <= 0f)
@@ -100,9 +98,8 @@ public class Temple : MonoBehaviour, IKillable
         max_health += amount;
         health += amount;
         hp.set_max_hp(max_health);
+        
         hp.set_hp(health);
-
-        // Optional: fully heal on upgrade
         hp.set_hp(max_health);
 
         GameState.Instance.SetTempleHealth(max_health);

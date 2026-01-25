@@ -25,7 +25,7 @@ public class GameState : MonoBehaviour
     public event Action OnClockResumed;
 
 
-    // ---- Game Stats (For Death Page)
+    // ---- High Score Game Stats (For Death Page)
     public int nrWavesDefeated;
     public int nrBossesDefeated;
     public int nrEnemiesDefeated;
@@ -49,17 +49,16 @@ public class GameState : MonoBehaviour
        
         if (GameData.selectedDifficulty == Difficulty.TeacherMode)
         {
-            Debug.Log("Teacher Mode aktiviert: Tempel ist unbesiegbar!");
+            Debug.Log("Teacher Mode activated: Temple is very strong!");
             
             templeHealth = 10000f; 
         }
         else
         {
-            Debug.Log("Normal Mode: Viel Glück!");
+            Debug.Log("Normal Mode: Good Luck!");
             templeHealth = 100f;
         }
 
-        // WICHTIG: Das aktuelle Leben muss auch auf das Maximum gesetzt werden!
         currentTempleHealth = templeHealth;
     }
     void UpdateEnemyWaveDifficulty()
@@ -88,8 +87,9 @@ public class GameState : MonoBehaviour
     //for GameOverManager
     void ResetGameState()
     {
-        SpawnInterval = 2.2f;
+        SpawnInterval = 2.5f;
         EnemiesPerWave = 10;
+        nrBosses = 0;
         DayDuration = 300;
         nrWavesDefeated = 0;
 
@@ -150,31 +150,5 @@ public class GameState : MonoBehaviour
     }
 }
 
-
-
-
-/*using UnityEngine;
-
-public class GameState : MonoBehaviour
-{
-    public static GameState Instance;
-
-    // ---- Clock state ----
-    public int timeRemaining;
-    public bool isCountingDown;
-    public bool warningStarted;
-
-    void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-}*/
 
 

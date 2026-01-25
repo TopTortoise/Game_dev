@@ -9,7 +9,7 @@ public class TorchTurret : MonoBehaviour, IKillable
     public LayerMask enemyLayer;
 
     [Header("Range")]
-    public Collider2D torchCollision; // MUST be a trigger
+    public Collider2D torchCollision; // trigger
 
     [Header("Ring Visual")]
     public LineRenderer ringRenderer;
@@ -31,7 +31,7 @@ public class TorchTurret : MonoBehaviour, IKillable
     {
         hp = GetComponentInChildren<Health>();
 
-        // SAME initialization pattern as Water_Slime
+        
         if (hp != null)
         {
             hp.set_max_hp(max_health);
@@ -127,13 +127,12 @@ public class TorchTurret : MonoBehaviour, IKillable
         }
     }
 
-    // ---------------- IKillable (Healthbar-compatible) ----------------
+    
 
     public void hit(float damage)
     {
         if (destroyed) return;
 
-        // Delegate to Health component (shows healthbar automatically)
         if (hp != null)
         {
             hp.change_health(damage);
@@ -147,11 +146,9 @@ public class TorchTurret : MonoBehaviour, IKillable
 
         Debug.Log("Torch destroyed");
 
-        // Disable attack + collision
         if (torchCollision) torchCollision.enabled = false;
         this.enabled = false;
 
-        // Optional: death effects / animation here
 
         Destroy(gameObject);
     }

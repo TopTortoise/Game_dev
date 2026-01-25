@@ -27,14 +27,14 @@ public class EnemyWaveSpawner : MonoBehaviour
 
 void Awake()
     {
-        // If an instance already exists and it's not us → destroy this
+        
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        // We are the singleton instance
+        
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -73,7 +73,7 @@ void Awake()
     }
 
     
-
+    // Optional Left here for a potential additional Gamemode "Endless Wave survival Mode"
     /*IEnumerator SpawnWaves()
     {
         

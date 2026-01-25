@@ -4,7 +4,7 @@ using System.Collections;
 
 public class EnemyController : IEnemy
 {
-  // Start is called once before the first execution of Update after the MonoBehaviour is created
+  
   private Health hp;
   public Rigidbody2D rb;
   public Tilemap tilemap;

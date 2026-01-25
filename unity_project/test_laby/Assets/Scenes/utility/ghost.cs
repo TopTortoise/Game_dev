@@ -371,11 +371,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     hpImage.rectTransform.anchoredPosition = new Vector2(-targetX, hpImage.rectTransform.anchoredPosition.y);
   }
 
-  ////////////////////////////////////////////////////////////////////////////////////////////
-  //VERY SIMPLE LOOT ROOM LOGIC -> ONLY FOR TESTING AND NEEDS TO BE HANDLED MUCH MORE SECURELY
-  //TODO
-  ///
-  /// ////////////////////////////////////////////////////////////////////////////////////////
+  //------ Simple Loot Room Logic
 
   void OnCollisionEnter2D(Collision2D collision)
   {
@@ -389,19 +385,19 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     else if (collision.gameObject.CompareTag("Enter Loot Room Portal"))
     {
 
-      CollideWithEnterPortal(collision); //TODO
+      CollideWithEnterPortal(collision); 
     }
 
     else if (collision.gameObject.CompareTag("Enter Large Loot Room Portal"))
     {
 
-      CollideWithEnterLargePortal(collision); //TODO
+      CollideWithEnterLargePortal(collision); 
     }
 
     else if (collision.gameObject.CompareTag("Exit Loot Room Portal"))
     {
 
-      CollideWithExitPortal(collision); //TODO
+      CollideWithExitPortal(collision); 
     }
   }
 
@@ -438,14 +434,13 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     SceneManager.LoadScene(GameManager.MainSceneName);
 
-    //////////////////////////////////
+    
     PlayerPersistence.Instance.RestoreReturnPosition();
     GameState.Instance.ResumeClock();
 
   }
 
-  /// ////////////////////////////////////////////////////////////////////////////////////////
-  ///
+
   public void hit(float damage)
   {
 
@@ -462,10 +457,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
 
   }
-  /* void OnTriggerEnter2D(Collider2D other)
-  {
-      Debug.Log("Triggered " + other.gameObject.name);
-  } */
+
 
   public void OnRet()
   {

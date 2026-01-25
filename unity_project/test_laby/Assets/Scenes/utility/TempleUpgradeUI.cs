@@ -17,7 +17,7 @@ public class TempleUpgradeUI : MonoBehaviour
 
     void Awake()
     {
-        // Bind ONCE
+        
         upgradeButton.onClick.RemoveAllListeners();
         upgradeButton.onClick.AddListener(OnUpgradeButtonPressed);
 
@@ -34,7 +34,6 @@ public class TempleUpgradeUI : MonoBehaviour
         if (!gameObject.activeSelf || purchased)
             return;
 
-        // Only update visuals, not behavior
         RefreshUI();
     }
 
@@ -80,8 +79,6 @@ public class TempleUpgradeUI : MonoBehaviour
 
         Debug.Log("Temple upgrade purchased!");
 
-        // Lock button after purchase
-        upgradeButton.interactable = false;
         priceText.text = "Temple upgraded!";
         priceText.color = Color.white;
     }

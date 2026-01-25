@@ -26,7 +26,7 @@ public class Trap : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Reset timer so damage doesn't instantly apply on re-enter
+        // Reset timer 
         if (other.GetComponentInParent<ghost>() != null)
         {
             damageTimer = 0f;
