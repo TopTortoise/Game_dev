@@ -311,6 +311,7 @@ MonoBehaviour:
   dashMultiplier: 4
   dashDuration: 0.2
   dashCooldown: 0.4
+  isDashing: 0
   hpImage: {fileID: 0}
   PlaceTorchAction:
     m_Name: Place Torch
@@ -347,6 +348,7 @@ MonoBehaviour:
     m_Flags: 0
   torchPrefab: {fileID: 579879467762394870, guid: afe31ab217b866096b8faa36ae10a983, type: 3}
   torches: 100
+  maxTorches: 5
   item_layer:
     serializedVersion: 2
     m_Bits: 256
