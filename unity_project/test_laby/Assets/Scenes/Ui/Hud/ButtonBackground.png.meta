@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: 256814427797b2440989aeeb305c208d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9163939530601996516
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_0
+  - first:
+      213: -2381968213665637188
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_1
+  - first:
+      213: -5040560883457970160
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_2
+  - first:
+      213: -1560201013606914071
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_3
+  - first:
+      213: 3188736228901914236
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_4
+  - first:
+      213: 7633334424989518113
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_5
+  - first:
+      213: -4685813166518518216
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_6
+  - first:
+      213: -3356252887177553785
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_7
+  - first:
+      213: -5213760592575822607
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_8
+  - first:
+      213: 5031218151654214501
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_9
+  - first:
+      213: -1201457659082013336
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_10
+  - first:
+      213: 5678025638769800207
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_11
+  - first:
+      213: -3159992873097159003
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_12
+  - first:
+      213: 6922970618844525545
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_13
+  - first:
+      213: 3126610950766740421
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_14
+  - first:
+      213: -20072409594373933
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_15
+  - first:
+      213: 7741810751828587191
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_16
+  - first:
+      213: 6487548035604145839
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_17
+  - first:
+      213: 4947428501644984539
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_18
+  - first:
+      213: 9050386851533453811
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_19
+  - first:
+      213: 5609460292146679872
+    second: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_7
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 1162
+        width: 11
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 788176308c13c61d0800000000000000
+      internalID: -3356252887177553785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_10
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 83
+        width: 1927
+        height: 905
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 642, y: 301, z: 642, w: 301}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8658eb9ef90935fe0800000000000000
+      internalID: -1201457659082013336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonBackground_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1131
+        width: 1927
+        height: 843
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 642, y: 281, z: 642, w: 281}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31764dd9a5be4740b22b3f935f1603c
+      internalID: 1135467667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d10a8a8b30530b944a47b985ace4e664
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ButtonBackground_0: 1135467667
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_0: 9163939530601996516
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_1: -2381968213665637188
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_10: -1201457659082013336
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_11: 5678025638769800207
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_12: -3159992873097159003
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_13: 6922970618844525545
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_14: 3126610950766740421
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_15: -20072409594373933
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_16: 7741810751828587191
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_17: 6487548035604145839
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_18: 4947428501644984539
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_19: 9050386851533453811
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_2: -5040560883457970160
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_20: 5609460292146679872
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_3: -1560201013606914071
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_4: 3188736228901914236
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_5: 7633334424989518113
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_6: -4685813166518518216
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_7: -3356252887177553785
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_8: -5213760592575822607
+      tinywow_Gemini_Generated_Image_uh8iaauh8iaauh8i_87520207_9: 5031218151654214501
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
