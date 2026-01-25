@@ -230,12 +230,13 @@ void OnDestroy()
     attackSpeed *= Random.Range(1f - statvariance, 1f + statvariance);//add variance
     float dps = dmg / attackSpeed;// calculate dps
 
-    if (dps > maxDps)
+    /* if (dps > maxDps)
     {
+      Debug.Log("maxdps hit "+ pos+" "+dps+" dps");
       float scale = maxDps / dps;
       dmg *= scale;
       attackSpeed *= scale;
-    }
+    } */
     Statupgrade upgrade = new Statupgrade(dmg, -attackSpeed, 0f);
 
     // StatusEffect effect = Instantiate()
@@ -251,17 +252,17 @@ void OnDestroy()
       IWeapon weaponScript = weapon.GetComponent<IWeapon>();
 
       // weapon.GetComponent<IWeapon>().effects.Add()
-      Debug.Log("Instantiated wweapon is  "+weapon.GetComponent<IWeapon>().effects);
       if(spawnPos.y > -100 ){
         weapon.GetComponent<IWeapon>().effects.Add(effects.GetRandomEffect());
+        // inst.GetComponent<Vase>().weapon_upgrade = weapon;
       }
-      upgrade.Apply(weapon.GetComponent<IWeapon>());
       
       if (weaponScript.upgrades == null) weaponScript.upgrades = new List<Weaponupgrade>();
       weaponScript.upgrades.Add(upgrade);
 
       inst.GetComponent<Vase>().item = weapon;
       inst.GetComponent<Vase>().weapon_upgrade = upgrade;
+
     }
     // Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
   }

@@ -8,6 +8,7 @@ public class Vase : MonoBehaviour, IKillable
   public GameObject item;
   public GameObject torch;
   public Statupgrade weapon_upgrade;
+  public Weaponupgrade weapon_effect;
   //if we dont want the to be one shot
   public float health;
   public float max_health;
@@ -41,8 +42,8 @@ public class Vase : MonoBehaviour, IKillable
     TutorialObjective tutorialObj = GetComponent<TutorialObjective>();
     if (tutorialObj != null)
     {
-        
-        tutorialObj.CompleteObjective();
+
+      tutorialObj.CompleteObjective();
     }
 
   }
@@ -51,6 +52,7 @@ public class Vase : MonoBehaviour, IKillable
   {
     if (item != null)
     {
+      weapon_upgrade.Apply(item.GetComponent<IWeapon>());
       GameObject dropped_item = Instantiate(item, transform.position, Quaternion.identity);   // spawn into the scene
 
       for (int i = 0; i <= 2; i++)
