@@ -39,9 +39,4 @@ public class CurrencyManager : MonoBehaviour
         Debug.Log("Goldstand: " + currentGold);
     }
 
-    public int currentCoins()
-    {
-        return currentGold;
-    }
-
 }
