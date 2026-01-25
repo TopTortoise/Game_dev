@@ -57,6 +57,7 @@ public class Temple : MonoBehaviour, IKillable
             ringRenderer.positionCount = ringSegments + 1;
             ringRenderer.enabled = false;
         }
+        destroyed = false;
 
     }
 
@@ -85,10 +86,23 @@ public class Temple : MonoBehaviour, IKillable
 
     }
 
-    void Start()
+    public void ResetTemple()
     {
+        if (spriteRenderer != null && destroyedSprite != null)
+            spriteRenderer.sprite = intactSprite;
         health = GameState.Instance.templeHealth;
         max_health = GameState.Instance.templeHealth;
+        hp.set_max_hp(max_health);
+        hp.set_hp(health);
+    }
+
+    void Start()
+    {
+        if (spriteRenderer != null && destroyedSprite != null)
+            spriteRenderer.sprite = intactSprite;
+        health = GameState.Instance.templeHealth;
+        max_health = GameState.Instance.templeHealth;
+        destroyed = false;
         hp.set_max_hp(max_health);
         hp.set_hp(health);
     }
@@ -191,11 +205,6 @@ public class Temple : MonoBehaviour, IKillable
         if (spriteRenderer != null && destroyedSprite != null)
             spriteRenderer.sprite = destroyedSprite;
 
-        Collider2D col = GetComponent<Collider2D>();
-        if (col) col.enabled = false;
-
-        Debug.Log("Temple destroyed!");
-
         GameOverManager goManager = FindFirstObjectByType<GameOverManager>();
         if (goManager != null)
         {
@@ -205,6 +214,9 @@ public class Temple : MonoBehaviour, IKillable
         {
             Debug.LogWarning("GameOverManager not Found!");
         }
+
+        Debug.Log("Temple destroyed!");
+
     }
 }
 

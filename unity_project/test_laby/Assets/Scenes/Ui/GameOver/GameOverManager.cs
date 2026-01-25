@@ -37,8 +37,9 @@ public class GameOverManager : MonoBehaviour
     public void PlayAgain()
     {
         Time.timeScale = 1f;
+        GameState.Instance.ResetGameState();
         SceneManager.LoadScene("MainScene");
-        
+        GameState.Instance.StartNewCycle(100);
     }
 
     public void BackToMenu()

@@ -85,17 +85,19 @@ public class GameState : MonoBehaviour
     }
 
     //for GameOverManager
-    void ResetGameState()
+    public void ResetGameState()
     {
         SpawnInterval = 2.5f;
         EnemiesPerWave = 10;
         nrBosses = 0;
         DayDuration = 300;
         nrWavesDefeated = 0;
+        nrBossesDefeated = 0;
+        nrEnemiesDefeated = 0;
+        nrTempleUpgrades = 0;
+        CurrencyManager.Instance.ResetCoins();
+        currentTempleHealth = templeHealth;
 
-        ApplyDifficultySettings();
-
-        StartNewCycle(DayDuration);
     }
 
     void Awake()
@@ -116,6 +118,15 @@ public class GameState : MonoBehaviour
 
     public void StartNewCycle(int duration)
     {
+        Temple temple = FindFirstObjectByType<Temple>();
+        if (temple != null)
+        {
+            temple.ResetTemple();
+        }
+        else
+        {
+            Debug.LogWarning("GameOverManager not Found!");
+        }
         enemyWaveActive = false;
         AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
         UpdateEnemyWaveDifficulty(); 

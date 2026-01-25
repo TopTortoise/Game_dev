@@ -2246,8 +2246,17 @@ MonoBehaviour:
   max_health: 100
   regenInterval: 1
   regenAmount: 0.5
-  intactSprite: {fileID: 0}
+  intactSprite: {fileID: -2163510478295121497, guid: 7b8ff557e5fe8c0119b75f6541192ca5, type: 3}
   destroyedSprite: {fileID: 6353546348771536404, guid: bf4ad32a713369ef5b6e373e204f5492, type: 3}
+  damage: 10
+  attackInterval: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackCollider: {fileID: 0}
+  ringRenderer: {fileID: 0}
+  ringDuration: 0.6
+  ringSegments: 64
 --- !u!114 &1127410068552779880
 MonoBehaviour:
   m_ObjectHideFlags: 0

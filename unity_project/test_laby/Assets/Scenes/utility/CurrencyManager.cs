@@ -32,4 +32,11 @@ public class CurrencyManager : MonoBehaviour
         Debug.Log("Goldstand: " + currentGold);
     }
 
+    public void ResetCoins()
+    {
+        
+        currentGold = 0;
+        Debug.Log("Goldstand: " + currentGold);
+    }
+
 }
