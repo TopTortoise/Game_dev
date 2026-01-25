@@ -7,4 +7,6 @@ public abstract class Weaponupgrade
   public Sprite icon;
 
   public abstract void Apply(IWeapon weapon);
+
+  public abstract string GetDescription();
 }

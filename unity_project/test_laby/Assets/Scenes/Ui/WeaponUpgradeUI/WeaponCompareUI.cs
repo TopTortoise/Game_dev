@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Text; // Wichtig für StringBuilder
+using System.Text; 
 
 public class WeaponCompareUI : MonoBehaviour
 {
@@ -14,20 +14,29 @@ public class WeaponCompareUI : MonoBehaviour
     public TextMeshProUGUI currentName;
     public TextMeshProUGUI currentDmg;
     public TextMeshProUGUI currentSpeed;
-    public TextMeshProUGUI currentEffects; // <--- NEU: Für die Effekt-Liste
+    public TextMeshProUGUI currentEffects; 
     public Image currentIcon;
 
     [Header("New Weapon")]
     public TextMeshProUGUI newName;
     public TextMeshProUGUI newDmg;
     public TextMeshProUGUI newSpeed;
-    public TextMeshProUGUI newEffects;    // <--- NEU: Für die Effekt-Liste
+    public TextMeshProUGUI newEffects;    
     public Image newIcon;
 
     private IWeapon pendingNewWeapon;
     private ghost playerRef;
 
-    void Awake() { Instance = this; panel.SetActive(false); }
+    void Awake() { 
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this; panel.SetActive(false); 
+
+        DontDestroyOnLoad(this.gameObject);
+        }
 
     public void ShowComparison(IWeapon newWeapon, ghost player)
     {
@@ -42,7 +51,7 @@ public class WeaponCompareUI : MonoBehaviour
         // Update New
         UpdateWeaponUI(newWeapon, newName, newDmg, newSpeed, newEffects, newIcon);
 
-        // Vergleich (wie vorher)
+        // Vergleic
         if (player.weapon != null)
         {
             CompareStat(player.weapon.stats.damage, newWeapon.stats.damage, newDmg);
@@ -50,37 +59,59 @@ public class WeaponCompareUI : MonoBehaviour
         }
     }
 
-    void UpdateWeaponUI(IWeapon weapon, TMP_Text tName, TMP_Text tDmg, TMP_Text tSpeed, TMP_Text tEffects, Image uiIcon)
+   void UpdateWeaponUI(IWeapon weapon, TMP_Text tName, TMP_Text tDmg, TMP_Text tSpeed, TMP_Text tEffects, Image uiIcon)
     {
         if (weapon != null)
         {
-            // 1. FIX: Name bereinigen (Clone entfernen)
+            // 1. Name
             string cleanName = weapon.gameObject.name.Replace("(Clone)", "").Trim();
             tName.text = cleanName;
 
-            tDmg.text = weapon.stats.damage.ToString("F1");
-            tSpeed.text = weapon.stats.attackspeed.ToString("F2");
+            // --- FIX START: VORSCHAU BERECHNEN ---
+            float previewDmg = weapon.stats.damage;
+            float previewSpeed = weapon.stats.attackspeed;
 
-            // 2. FIX: Effekte auflisten
-            StringBuilder sb = new StringBuilder();
+            // Wenn die Waffe NICHT ausgerüstet ist, müssen wir die Upgrades simulieren
+            if (!weapon.is_equipped && weapon.upgrades != null)
+            {
+                foreach (var up in weapon.upgrades)
+                {
+                    // Wir prüfen, ob das Upgrade ein Statupgrade ist
+                    if (up is Statupgrade statUp)
+                    {
+                        previewDmg += statUp.damageBonus;
+                        previewSpeed += statUp.fireRateBonus;
+                    }
+                }
+            }
+            // --- FIX ENDE ---
+
+            tDmg.text = previewDmg.ToString("F1");
+            tSpeed.text = previewSpeed.ToString("F2");
             
-            // Wir gehen davon aus, dass IWeapon eine Liste "effects" hat
-            // Falls deine Liste in "weapon.GetComponent<IWeapon>().effects" liegt, greif darauf zu.
+            // 3. Effekte & Upgrades Text-Liste
+            StringBuilder sb = new StringBuilder();
+
+            if (weapon.upgrades != null && weapon.upgrades.Count > 0)
+            {
+                foreach (var up in weapon.upgrades)
+                {
+                    sb.AppendLine("↑ " + up.GetDescription());
+                }
+            }
+
             if (weapon.effects != null && weapon.effects.Count > 0)
             {
                 foreach (var effect in weapon.effects)
                 {
-                    // Hier rufen wir die Methode aus Schritt 1 auf
                     sb.AppendLine("• " + effect.GetDescription());
                 }
             }
-            else
-            {
-                sb.Append("No Effects");
-            }
+
+            if (sb.Length == 0) sb.Append("No Mods");
             tEffects.text = sb.ToString();
 
-            // 3. FIX: Bild laden
+            // 4. Bild
             SpriteRenderer sr = weapon.GetComponent<SpriteRenderer>();
             if (sr == null) sr = weapon.GetComponentInChildren<SpriteRenderer>();
 
@@ -88,20 +119,17 @@ public class WeaponCompareUI : MonoBehaviour
             {
                 uiIcon.sprite = sr.sprite;
                 uiIcon.enabled = true;
-                
-                // WICHTIG: Farbe auf Weiß setzen, sonst ist es unsichtbar oder dunkel!
                 uiIcon.color = Color.white; 
                 uiIcon.preserveAspect = true;
             }
             else
             {
                 uiIcon.enabled = false;
-                // Debugging Hilfe:
-                Debug.LogWarning($"Kein SpriteRenderer auf Waffe {cleanName} gefunden!");
             }
         }
         else
         {
+            // Empty State
             tName.text = "Empty";
             tDmg.text = "-";
             tSpeed.text = "-";

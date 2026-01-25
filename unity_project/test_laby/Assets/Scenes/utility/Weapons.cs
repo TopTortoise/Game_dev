@@ -8,6 +8,7 @@ public abstract class IWeapon : MonoBehaviour
   public bool is_equipped = false;
   public InputAction AttackAction;
   public List<string> applied_upgrades;
+  public List<Weaponupgrade> upgrades = new();
   public List<IWeaponEffect> effects = new();
   public abstract void Attack();
   public abstract void onEquip();
@@ -25,6 +26,7 @@ public abstract class IWeapon : MonoBehaviour
         continue;
       }
       applied_upgrades.Add(upgrade.upgradeID);
+      upgrades.Add(upgrade);
       Debug.Log("upgrade applied");
       upgrade.Apply(this);
     }

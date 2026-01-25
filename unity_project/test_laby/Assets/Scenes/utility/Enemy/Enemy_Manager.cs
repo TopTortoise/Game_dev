@@ -248,6 +248,8 @@ void OnDestroy()
     else
     {
       GameObject weapon = Instantiate(item);
+      IWeapon weaponScript = weapon.GetComponent<IWeapon>();
+
       // weapon.GetComponent<IWeapon>().effects.Add()
       Debug.Log("Instantiated wweapon is  "+weapon.GetComponent<IWeapon>().effects);
       if(spawnPos.y > -100 ){
@@ -255,6 +257,9 @@ void OnDestroy()
       }
       upgrade.Apply(weapon.GetComponent<IWeapon>());
       
+      if (weaponScript.upgrades == null) weaponScript.upgrades = new List<Weaponupgrade>();
+      weaponScript.upgrades.Add(upgrade);
+
       inst.GetComponent<Vase>().item = weapon;
       inst.GetComponent<Vase>().weapon_upgrade = upgrade;
     }

@@ -35,6 +35,16 @@ public class Temple : MonoBehaviour, IKillable
     private float attackTimer;
     private Collider2D[] hitBuffer = new Collider2D[32];
 
+    [Header("Upgrade Balancing")]
+    public int baseUpgradeCost = 100;           
+        public float costMultiplier = 1.4f;         
+    public float healthPerLevel = 50f;              
+    public float damagePerLevel = 10f;          
+    public float cooldownReductionPerLevel = 1f;
+    public float minCooldown = 5f;             
+
+        private float baseUltDamage;
+    private float baseUltInterval;
 
     void Awake()
     {
@@ -58,6 +68,11 @@ public class Temple : MonoBehaviour, IKillable
             ringRenderer.enabled = false;
         }
         destroyed = false;
+
+        baseUltDamage = damage;
+        baseUltInterval = attackInterval;
+
+        RecalculateStats();
 
     }
 
@@ -185,9 +200,28 @@ public class Temple : MonoBehaviour, IKillable
         }
     }
 
+    public void RecalculateStats()
+    {
+        float calculateMaxHealth = 100f + ((GameState.Instance.levelHealth -1 )* healthPerLevel);
 
+        if(max_health != calculateMaxHealth)
+        {
+            float diff  = calculateMaxHealth - max_health;
+            UpgradeMaxHealth(diff);
+        }
 
+        damage = baseUltDamage + ((GameState.Instance.levelUltDamage -1)* damagePerLevel);
 
+        float newInterval = baseUltInterval - ((GameState.Instance.levelUltCooldown -1) * cooldownReductionPerLevel);
+        attackInterval = Mathf.Max(newInterval, minCooldown);
+
+        Debug.Log($"Stats Updated: HP:{max_health}, Dmg:{damage}, CD:{attackInterval}");
+    }
+
+    public int GetUpgradeCost(int currentLevel)
+    {
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(costMultiplier, currentLevel - 1));
+    }
     
 
     public void hit(float damage)

@@ -31,6 +31,10 @@ public class GameState : MonoBehaviour
     public int nrEnemiesDefeated;
     public int nrTempleUpgrades;
 
+    public int levelHealth = 1;
+    public int levelUltDamage = 1;
+    public int levelUltCooldown = 1;
+
 
     // ---- Enemy Wave State
     public float SpawnInterval = 2.5f;
