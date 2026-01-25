@@ -218,7 +218,7 @@ void OnDestroy()
     //map distanc to rarity, 
     //TODO: items need rarity and then chosen randomly from the value
     //also some cases should be empty 
-    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, 2.1f, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
+    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, items.Count-2, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
 
 
     GameObject item = items[mapped];
@@ -241,7 +241,7 @@ void OnDestroy()
 
     // StatusEffect effect = Instantiate()
 
-    if (mapped == 0 && Random.value < 0.5)
+    if (Random.value < 0.5)
     {
 
       inst.GetComponent<Vase>().item = null;
