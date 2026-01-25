@@ -24,7 +24,7 @@ public class Lightning : IOnHitEffect
       }
       target.GetEntityId();
     }
-    ExplosionVisualizer.Instance.ShowCircle(context.hitPoint, radius, 1f);
+    // ExplosionVisualizer.Instance.ShowCircle(context.hitPoint, radius, 1f);
   }
 
   public override string GetDescription() 

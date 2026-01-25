@@ -84,7 +84,7 @@ public class Temple : MonoBehaviour, IKillable
         regenTimer -= Time.deltaTime;
         if (regenTimer <= 0f)
         {
-            Debug.Log($"[Temple Regen] +{regenAmount} HP at time {Time.time:F1}");
+            // Debug.Log($"[Temple Regen] +{regenAmount} HP at time {Time.time:F1}");
 
             // Negative damage = healing
             hp.change_health(-regenAmount);
@@ -215,7 +215,7 @@ public class Temple : MonoBehaviour, IKillable
         float newInterval = baseUltInterval - ((GameState.Instance.levelUltCooldown -1) * cooldownReductionPerLevel);
         attackInterval = Mathf.Max(newInterval, minCooldown);
 
-        Debug.Log($"Stats Updated: HP:{max_health}, Dmg:{damage}, CD:{attackInterval}");
+        // Debug.Log($"Stats Updated: HP:{max_health}, Dmg:{damage}, CD:{attackInterval}");
     }
 
     public int GetUpgradeCost(int currentLevel)

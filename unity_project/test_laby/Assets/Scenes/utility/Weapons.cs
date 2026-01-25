@@ -45,9 +45,33 @@ public abstract class IWeapon : MonoBehaviour
   public void OnHit(IEnemy target)
   {
 
-    foreach (StatusEffect effect in effects)
+    var con = new HitContext
     {
-      target.ApplyEffect(Instantiate(effect));
+      source = gameObject,
+      target = target.gameObject,
+      hitPoint = transform.position,
+      baseDamage = stats.damage
+    };
+
+    con.target.GetComponent<IKillable>().hit(con.baseDamage);
+    foreach (IWeaponEffect effect in effects)
+    {
+      if (effect is IOnHitEffect onhit)
+      {
+        Debug.Log("handlign onhit " + onhit);
+        onhit.Apply(con);
+      }
+      else if (effect is StatusEffect stateffect)
+      {
+        IEnemy enemy = con.target.GetComponent<IEnemy>();
+        if (enemy != null)
+        {
+          Debug.Log("handlign effects " + stateffect);
+          enemy.ApplyEffect(stateffect);
+        }
+      }
     }
+
+
   }
 }
