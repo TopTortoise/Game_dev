@@ -244,7 +244,7 @@ public class TutorialManager : MonoBehaviour
 
     public void OnQuitTutoiralClicked()
     {
-        StartCoroutine(EndTutorialSequence());
+        AdvanceStep(TutorialStep.StartGame);
     }
     
     IEnumerator EndTutorialSequence()

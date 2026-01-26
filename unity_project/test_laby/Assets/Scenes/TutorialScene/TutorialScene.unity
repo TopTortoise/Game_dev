@@ -63402,6 +63402,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409489745}
     - target: {fileID: 1309972242661096287, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309972242661096287, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnQuitTutoiralClicked
       objectReference: {fileID: 0}
@@ -64062,6 +64066,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3345452883770977222, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
+    - {fileID: 8796886744121793935, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7895862194995756076, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
       insertIndex: 0
