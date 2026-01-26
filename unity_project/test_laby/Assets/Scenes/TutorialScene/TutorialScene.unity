@@ -63397,6 +63397,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overlay 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1309972242661096287, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 409489745}
+    - target: {fileID: 1309972242661096287, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuitTutoiralClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309972242661096287, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TutorialManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1401589267794925979, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -63540,6 +63552,16 @@ PrefabInstance:
     - target: {fileID: 2413829427219510410, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737944356387357608, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
+      propertyPath: m_text
+      value: 'Quit Tutorial
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737944356387357608, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
+      propertyPath: m_fontSize
+      value: 31.2
       objectReference: {fileID: 0}
     - target: {fileID: 3521352391296661175, guid: 425e652b44636d04c88b5dcc7f4b0117, type: 3}
       propertyPath: m_AnchorMax.y
