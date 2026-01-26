@@ -620,7 +620,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     if (spotlight != null)
     {
 
-
+      t -= 0.1f;
 
       spotlight.falloffIntensity = Mathf.Lerp(1f, 0f, t);
 

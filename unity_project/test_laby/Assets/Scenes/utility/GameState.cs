@@ -115,7 +115,7 @@ public class GameState : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         nrBossesDefeated = 0;
-        nrWavesDefeated = 0; //start with -1 (first day starts with 0)
+        nrWavesDefeated = 0; //start with 0 (first day starts with 0)
 
         ApplyDifficultySettings();
     }
