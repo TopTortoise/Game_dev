@@ -132,8 +132,6 @@ public class GameState : MonoBehaviour
 
   public void StartNewCycle(int duration)
   {
-    // GetComponent<maze_gen>().seed = UnityEngine.Random.Range(0,int.MaxValue);
-    // GetComponent<maze_gen>().reset();
 
     Temple temple = FindFirstObjectByType<Temple>();
     if (temple != null)

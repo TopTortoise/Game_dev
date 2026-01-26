@@ -72,18 +72,6 @@ void Awake()
         StartCoroutine(SpawnWave());
     }
 
-    
-    // Optional Left here for a potential additional Gamemode "Endless Wave survival Mode"
-    /*IEnumerator SpawnWaves()
-    {
-        
-        for(int i = 0; i < nrWaves; i++)
-        {
-            yield return StartCoroutine(SpawnWave());
-            yield return new WaitForSeconds(timeBetweenWaves);
-        }
-        
-    }*/
 
     IEnumerator SpawnWave()
     {

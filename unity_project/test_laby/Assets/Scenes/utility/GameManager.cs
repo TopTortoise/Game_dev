@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     GetComponent<maze_gen>().Start();
     GameObject[] small_loot = GameObject.FindGameObjectsWithTag("Enter Loot Room Portal");
     GameObject[] big_loot = GameObject.FindGameObjectsWithTag("Enter Large Loot Room Portal");
-    //TODO might be inefficient??
+   
     foreach (GameObject room in small_loot)
     {
       if (lootrooms.Contains(room.transform.position))
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
       var health = torch.Value.Item2;
 
       GameObject t = Instantiate(Torch, pos, Quaternion.identity);
-      // t.GetComponent<TorchTurret>().hp.set_hp(health);
+      
 
       Torchpoint.Add(t.GetEntityId(), (pos, health));
     }
