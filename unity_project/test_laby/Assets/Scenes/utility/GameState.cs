@@ -152,6 +152,20 @@ public class GameState : MonoBehaviour
         Debug.Log("OnCycleEnded invoked");
     }
 
+
+    public int CalculateTotalScore()
+    {
+        int score = 0;
+
+    
+        score += nrEnemiesDefeated * 10;   
+        score += nrBossesDefeated * 500;   
+        score += nrWavesDefeated * 100;    
+        score += nrTempleUpgrades * 50;     
+
+        return score;
+    }
+
      public void PauseClock()
     {
         
