@@ -22,7 +22,7 @@ public class TitleScreen : MonoBehaviour
     }
     public void OnClickedStart()
     {
-       startPanel.SetActive(false);
+        startPanel.SetActive(false);
         difficultyPanel.SetActive(true);
     }
     public void OnNormalClicked()
@@ -34,6 +34,11 @@ public class TitleScreen : MonoBehaviour
     {
         GameData.selectedDifficulty = Difficulty.TeacherMode;
         StartGame();
+    }
+    public void OnClickedBack()
+    {
+        startPanel.SetActive(true);
+        difficultyPanel.SetActive(false);
     }
     public void TutorialSceen()
     {

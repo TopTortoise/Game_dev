@@ -92,7 +92,7 @@ public class TempleUpgradeUI : MonoBehaviour
         int lvl = GameState.Instance.levelHealth;
         int cost = temple.GetUpgradeCost(lvl);
 
-        if (CurrencyManager.Instance.currentGold > cost)
+        if (CurrencyManager.Instance.currentGold >= cost)
         {
             CurrencyManager.Instance.SpendCoins(cost);
             GameState.Instance.levelHealth++;
@@ -107,7 +107,7 @@ public class TempleUpgradeUI : MonoBehaviour
         int lvl = GameState.Instance.levelUltDamage;
         int cost = temple.GetUpgradeCost(lvl);
 
-        if (CurrencyManager.Instance.currentGold > cost)
+        if (CurrencyManager.Instance.currentGold >= cost)
         {
             CurrencyManager.Instance.SpendCoins(cost);
             GameState.Instance.levelUltDamage++;
@@ -121,7 +121,7 @@ public class TempleUpgradeUI : MonoBehaviour
         int lvl = GameState.Instance.levelUltCooldown;
         int cost = temple.GetUpgradeCost(lvl);
 
-         if (CurrencyManager.Instance.currentGold > cost)
+         if (CurrencyManager.Instance.currentGold >= cost)
         {
             CurrencyManager.Instance.SpendCoins(cost);
             GameState.Instance.levelUltCooldown++;

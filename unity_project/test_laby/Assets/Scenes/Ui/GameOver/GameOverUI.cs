@@ -58,9 +58,7 @@ void RefreshData()
         int bosses = GameState.Instance.nrBossesDefeated;
         int upgrades = GameState.Instance.nrTempleUpgrades;
 
-        // Score berechnen (Falls du keine Funktion im GameState hast, rechne ich hier einfach eine)
-        // Du kannst das anpassen!
-        calculatedScore = (waves * 100) + (enemies * 10) + (bosses * 500) + (upgrades * 50);
+        calculatedScore = GameState.Instance.CalculateTotalScore();
         
         // Alternativ, wenn du die Funktion im GameState hast:
         // calculatedScore = GameState.Instance.CalculateTotalScore();
