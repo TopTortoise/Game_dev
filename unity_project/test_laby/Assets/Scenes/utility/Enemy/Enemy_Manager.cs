@@ -203,7 +203,7 @@ void OnDestroy()
     }
   */
   public AnimationCurve weaponstats;
-  public float statvariance = 0.1f; // 10%
+  public float statvariance = 0.5f; // 10%
   public float maxDps = 5f;
   public float maxas = 0.7f;//max attackSpeed modifier
   public float maxdmg = 5f;//max dmg modifier
@@ -218,10 +218,12 @@ void OnDestroy()
     //map distanc to rarity, 
     //TODO: items need rarity and then chosen randomly from the value
     //also some cases should be empty 
-    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, items.Count-2, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
+    int mapped = Mathf.FloorToInt(Mathf.Lerp(0f, items.Count - 2, Mathf.InverseLerp(0f, 750f, distance_to_start)) + Random.value / 2);
 
 
-    GameObject item = items[mapped];
+
+    GameObject item = PickWeapon();
+    Debug.Log(item+ " at "+pos);
     // Debug.Log("item is ")
     float t = Mathf.Clamp01(distance_to_start / 750f);//get camppl value between 0 and 1
     float dmg = maxdmg * weaponstats.Evaluate(t);//get value of curve
@@ -241,7 +243,7 @@ void OnDestroy()
 
     // StatusEffect effect = Instantiate()
 
-    if (Random.value < 0.5)
+    if (Random.value < 0.1)
     {
 
       inst.GetComponent<Vase>().item = null;
@@ -252,11 +254,18 @@ void OnDestroy()
       IWeapon weaponScript = weapon.GetComponent<IWeapon>();
 
       // weapon.GetComponent<IWeapon>().effects.Add()
-      if(spawnPos.y > -100 ){
+      if (weapon.GetComponent<IWeapon>().stats.rarity > 1)
+      {
         weapon.GetComponent<IWeapon>().effects.Add(effects.GetRandomEffect());
         // inst.GetComponent<Vase>().weapon_upgrade = weapon;
       }
-      
+      if (weapon.GetComponent<IWeapon>().stats.rarity > 2)
+      {
+
+        weapon.GetComponent<IWeapon>().effects.Add(effects.GetRandomEffect());
+      }
+
+
       if (weaponScript.upgrades == null) weaponScript.upgrades = new List<Weaponupgrade>();
       weaponScript.upgrades.Add(upgrade);
 
@@ -265,6 +274,36 @@ void OnDestroy()
 
     }
     // Debug.Log($"Vase spawned at {spawnPos} with Distance {distance_to_start} and index {mapped} with item {inst.GetComponent<Vase>().item}");
+  }
+
+  GameObject PickWeapon()
+  {
+    int max_rarity = 0;
+    int totalweight = 0;
+    foreach (GameObject item in items)
+    {
+      int rarity = item.GetComponent<IWeapon>().stats.rarity;
+      totalweight += (1 - rarity + 1);
+      if (max_rarity < rarity)
+      {
+        max_rarity = rarity;
+      }
+    }
+
+    totalweight += max_rarity * items.Count;
+
+    int roll = Random.Range(0, totalweight);
+
+    foreach (var weapon in items)
+    {
+      int weight = max_rarity - weapon.GetComponent<IWeapon>().stats.rarity + 1;
+      roll -= weight;
+
+      if (roll < 0)
+        return weapon;
+    }
+
+    return items[0];
   }
 
 

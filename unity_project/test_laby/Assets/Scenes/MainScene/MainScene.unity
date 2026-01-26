@@ -1925,7 +1925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.27663848, y: 0.09}
   m_AnchorMax: {x: 0.71210724, y: 1}
-  m_AnchoredPosition: {x: 3.9751892, y: -0.4750061}
+  m_AnchoredPosition: {x: 3.9751587, y: -0.4749756}
   m_SizeDelta: {x: -7.0799866, y: -0.9500122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206931192
@@ -54303,7 +54303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 463972472269911092, guid: 8b3a97bdd47d5bff4b9c75c94eaa0e6d, type: 3}
       propertyPath: AllSounds.Array.size
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 463972472269911092, guid: 8b3a97bdd47d5bff4b9c75c94eaa0e6d, type: 3}
       propertyPath: AllSounds.Array.data[3].Clip
@@ -55376,7 +55376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07700001, y: 0.06783469}
   m_AnchorMax: {x: 0.9110001, y: 0.92300004}
-  m_AnchoredPosition: {x: 1.176712, y: 1.5856934}
+  m_AnchoredPosition: {x: 1.1767273, y: 1.5856934}
   m_SizeDelta: {x: -3.5659027, y: -3.0954971}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5516826808596463783
@@ -56477,7 +56477,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.3
+  m_fontSize: 26.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
