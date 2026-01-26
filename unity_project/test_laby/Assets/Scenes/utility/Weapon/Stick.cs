@@ -145,7 +145,7 @@ public class Stick : IWeapon
             return;
 
         IKillable obj = collider.GetComponent<IKillable>();
-        if (obj != null)
+        if (obj != null && !collider.gameObject.CompareTag("torch"))
         {
             obj.hit(stats.damage);
 
