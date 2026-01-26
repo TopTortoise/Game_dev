@@ -113,6 +113,7 @@ public class ghost : MonoBehaviour, IKillable
     foreach (Collider2D item in colliders)
     {
       Item coin = item.GetComponent<Item>();
+      Debug.Log("items found " + coin);
       if (coin != null)
       {
         coin.pickup();
