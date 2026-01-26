@@ -168,6 +168,7 @@ public class DungeonEnemyCapsuleMover : IEnemy
     Debug.Log("DungeonEnemyCapsuleMover Died");
     anim.SetBool("isDead", true);
     StartCoroutine(DeathRoutine(1f));
+    GameState.Instance.nrEnemiesDefeated++;
   }
 
   IEnumerator DeathRoutine(float duration)
@@ -176,7 +177,6 @@ public class DungeonEnemyCapsuleMover : IEnemy
     yield return new WaitForSeconds(duration);
     Debug.Log($"Ended at {Time.time}");
     GetComponent<LootDropper>().DropLoot();
-    GameState.Instance.nrEnemiesDefeated++;
     Destroy(gameObject);
   }
 

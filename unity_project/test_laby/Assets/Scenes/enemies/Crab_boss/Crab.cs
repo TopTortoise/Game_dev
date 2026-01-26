@@ -141,6 +141,7 @@ public class Crab :  IEnemy, IKillable
     anim.SetBool("isDead", true);
     Debug.Log("Boss Died");
     StartCoroutine(DeathRoutine(1.5f));
+    GameState.Instance.nrBossesDefeated++;
   }
 
   IEnumerator DeathRoutine(float duration)
@@ -148,7 +149,6 @@ public class Crab :  IEnemy, IKillable
     Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
     yield return new WaitForSeconds(duration);
     Debug.Log($"Ended at {Time.time}");
-    GameState.Instance.nrBossesDefeated++;
     Destroy(gameObject);
   }
 
