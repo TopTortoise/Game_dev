@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1678099724709952396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4455597231747514036}
+  - component: {fileID: 3879952108118380467}
+  m_Layer: 8
+  m_Name: collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4455597231747514036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678099724709952396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: -0.40753365, w: 0.91319025}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7333700839516366207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -48.1}
+--- !u!70 &3879952108118380467
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678099724709952396}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.12529908, y: -0.14089464}
+  m_Size: {x: 0.11765847, y: 0.45018974}
+  m_Direction: 0
 --- !u!1 &5563109764872686318
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +80,7 @@ GameObject:
   - component: {fileID: 7333700839516366207}
   - component: {fileID: 8103688850478266720}
   - component: {fileID: 3806426650802996830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dagger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,10 +97,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4491446182615914694}
+  - {fileID: 4455597231747514036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8103688850478266720
@@ -130,7 +200,7 @@ MonoBehaviour:
   applied_upgrades: []
   effects: []
   Attackpoint: {fileID: 4491446182615914694}
-  radius: 0.1
+  radius: 0.4
   enemy_layer:
     serializedVersion: 2
     m_Bits: 128

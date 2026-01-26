@@ -45,6 +45,10 @@ public class GameState : MonoBehaviour
     // ---- Day Length
     public int DayDuration = 300;
 
+
+    // ---- state correction for nrEnemyWaves
+    private bool enemyWaveStarted;
+
     
     //---- to keep tabs on entered lootrooms
     //---- Difficulty set in Title scene
@@ -91,6 +95,7 @@ public class GameState : MonoBehaviour
     //for GameOverManager
     public void ResetGameState()
     {
+        enemyWaveStarted = false;
         SpawnInterval = 2.5f;
         EnemiesPerWave = 10;
         nrBosses = 0;
@@ -118,6 +123,7 @@ public class GameState : MonoBehaviour
         nrWavesDefeated = 0; //start with 0 (first day starts with 0)
 
         ApplyDifficultySettings();
+        enemyWaveStarted = false;
     }
 
     public void StartNewCycle(int duration)
@@ -134,7 +140,10 @@ public class GameState : MonoBehaviour
         enemyWaveActive = false;
         AudioManager.Instance.ChangeMusic(AudioManager.SoundType.Music_Day);
         UpdateEnemyWaveDifficulty(); 
-        nrWavesDefeated++;
+        if(enemyWaveStarted) {
+            nrWavesDefeated++;
+            enemyWaveStarted = false;
+        } 
         timeRemaining = duration;
         isCountingDown = true;
         warningStarted = false;
@@ -149,6 +158,7 @@ public class GameState : MonoBehaviour
         isCountingDown = false;
         enemyWaveActive = true;
         OnCycleEnded?.Invoke();
+        enemyWaveStarted = true;
         Debug.Log("OnCycleEnded invoked");
     }
 
