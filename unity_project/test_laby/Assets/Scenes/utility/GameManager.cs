@@ -8,20 +8,20 @@ public class GameManager : MonoBehaviour
   public static GameManager Instance;
 
   public static string MainSceneName;
-  public static ExplosionVisualizer ep; 
+  public static ExplosionVisualizer ep;
   public Vector3 SpawnPoint;
-
+  public Dictionary<EntityId, (Vector3, float)> Torchpoint;
+  public GameObject Torch;
   private void Awake()
   {
+    Torchpoint = new();
     ep = new ExplosionVisualizer();
     Time.timeScale = 1f;
     if (Instance == null)
     {
       Instance = this;
-      DontDestroyOnLoad(gameObject);
 
       MainSceneName = SceneManager.GetActiveScene().name;
-      Debug.Log("GM says MainScene is " + MainSceneName);
       FindAnyObjectByType<ghost>().gameObject.transform.position = SpawnPoint;
 
     }
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
       Destroy(gameObject);
     }
     SceneManager.sceneLoaded += OnSceneLoaded;
+    DontDestroyOnLoad(gameObject);
   }
 
 
@@ -50,6 +51,17 @@ public class GameManager : MonoBehaviour
       {
         Destroy(room);
       }
+    }
+
+    foreach (var torch in Torchpoint)
+    {
+      var pos = torch.Value.Item1;
+      var health = torch.Value.Item2;
+      Torchpoint.Remove(torch.Key);
+      GameObject t = Instantiate(Torch, pos, Quaternion.identity);
+      // t.GetComponent<TorchTurret>().hp.set_hp(health);
+      Torchpoint.Add(t.GetEntityId(), (pos, health));
+
     }
     foreach (GameObject room in big_loot)
     {

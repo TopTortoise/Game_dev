@@ -647,7 +647,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
     // spawn at player pos.
     GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);
-
+    GameManager.Instance.Torchpoint.Add(torch.GetEntityId(),(placePos,torch.GetComponent<TorchTurret>().hp.health));
     // copy light spotlight
     Light2D torchLight = torch.GetComponentInChildren<Light2D>();
     if (torchLight != null && spotlight != null)
@@ -657,6 +657,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       torchLight.pointLightInnerRadius = spotlight.pointLightInnerRadius;
       torchLight.falloffIntensity = spotlight.falloffIntensity;
     }
+
 
     Debug.Log("Torch placed. Remaining: " + torches);
   }

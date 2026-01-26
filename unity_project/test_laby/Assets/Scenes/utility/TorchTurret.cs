@@ -24,7 +24,7 @@ public class TorchTurret : MonoBehaviour, IKillable
     private Collider2D[] hitBuffer = new Collider2D[16];
 
     // -------- Components --------
-    private Health hp;
+    public Health hp;
     private bool destroyed = false;
 
     void Awake()
@@ -136,7 +136,11 @@ public class TorchTurret : MonoBehaviour, IKillable
         if (hp != null)
         {
             hp.change_health(damage);
+            // GameManager.Instance.Torchpoint.Remove(gameObject.GetEntityId());
+
+            // GameManager.Instance.Torchpoint.Add(gameObject.GetEntityId(),(gameObject.transform.position,hp.health));
         }
+        
     }
 
     public void OnDeath()
@@ -149,7 +153,7 @@ public class TorchTurret : MonoBehaviour, IKillable
         if (torchCollision) torchCollision.enabled = false;
         this.enabled = false;
 
-
+        GameManager.Instance.Torchpoint.Remove(gameObject.GetEntityId());
         Destroy(gameObject);
     }
 }
