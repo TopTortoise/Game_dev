@@ -61,6 +61,7 @@ public class DungeonEnemyCapsuleMover : IEnemy
 
   void Update()
   {
+    if(isDead) return;
     handleEffects();
     if (health <= 0) return;
 
