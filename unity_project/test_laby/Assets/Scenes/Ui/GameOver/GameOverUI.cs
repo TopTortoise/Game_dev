@@ -48,7 +48,7 @@ public class GameOverUI : MonoBehaviour
         }
         if(submitButton != null) submitButton.onClick.AddListener(SubmitScore);
     }
-void RefreshData()
+public void RefreshData()
     {
         if (GameState.Instance == null) return;
 

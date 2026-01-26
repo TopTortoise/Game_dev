@@ -7,8 +7,9 @@ public class GameOverManager : MonoBehaviour
 {
     public CanvasGroup gameOverCanvasGroup;
     public float fadeSpeed = 0.5f;
-
+    public GameOverUI gameoverUiComponent;
     private bool isDead = false;
+    
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class GameOverManager : MonoBehaviour
     public void StartGameOver()
     {
         if (isDead) return;
-
+        gameoverUiComponent.GetComponent<GameOverUI>().RefreshData();
         isDead = true;
         StartCoroutine(FadeToBlack());
     }
