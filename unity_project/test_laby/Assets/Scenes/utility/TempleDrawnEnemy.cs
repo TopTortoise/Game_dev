@@ -26,6 +26,8 @@ public class TempleDrawnEnemy : IEnemy
   private float attackTimer;
   private bool isAttacking;
 
+  private bool isDead;
+
   void Awake()
   {
     // -------- Stats  --------
@@ -42,7 +44,7 @@ public class TempleDrawnEnemy : IEnemy
     
     hp.set_max_hp(max_health);
     hp.set_hp(health);
-
+    isDead = false;
     attackTimer = attackInterval;
   }
 
@@ -149,11 +151,13 @@ public class TempleDrawnEnemy : IEnemy
 
   public override void OnDeath()
   {
+    if(isDead) return;
+    isDead = true;
     AudioManager.Instance.Play(AudioManager.SoundType.Enemy);
     anim.SetBool("isDead", true);
     Debug.Log("TempleDrawnEnemy Died");
     StartCoroutine(DeathRoutine(1.5f));
-
+    GameState.Instance.nrEnemiesDefeated++;
   }
 
   IEnumerator DeathRoutine(float duration)
@@ -162,7 +166,6 @@ public class TempleDrawnEnemy : IEnemy
     yield return new WaitForSeconds(duration);
     Debug.Log($"Ended at {Time.time}");
     GetComponent<LootDropper>().DropLoot();
-    GameState.Instance.nrEnemiesDefeated++;
     Destroy(gameObject);
   }
 

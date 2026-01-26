@@ -17,7 +17,7 @@ public class Crab :  IEnemy, IKillable
   private Animator anim;
   private Vector2 moveDirection;
   
-
+  private bool isDead;
   private void Awake()
   {
 
@@ -43,6 +43,7 @@ public class Crab :  IEnemy, IKillable
     }
 
     Debug.Log("Player is " + player);
+    isDead = false;
   }
 
 
@@ -137,6 +138,8 @@ public class Crab :  IEnemy, IKillable
 
   public override void OnDeath()
   {
+    if (isDead) return;
+    isDead = true;
     isdashing = false;
     anim.SetBool("isDead", true);
     Debug.Log("Boss Died");
