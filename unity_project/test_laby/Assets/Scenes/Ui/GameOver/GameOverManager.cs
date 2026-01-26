@@ -10,6 +10,17 @@ public class GameOverManager : MonoBehaviour
 
     private bool isDead = false;
 
+    void Start()
+    {
+    
+        if (gameOverCanvasGroup != null)
+        {
+            gameOverCanvasGroup.alpha = 0f;            
+            gameOverCanvasGroup.interactable = false; 
+            gameOverCanvasGroup.blocksRaycasts = false; 
+        }
+        isDead = false;
+    }
     public void StartGameOver()
     {
         if (isDead) return;

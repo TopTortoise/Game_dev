@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour
 {
+    [Header("Panels")]
+    public GameObject scorePanel;       // Das Panel mit "Game Over", Stats und Name-Input
+    public GameObject leaderboardPanel; // Das Panel mit der Liste
+
+    [Header("Leaderboard List Setup")]
+    public Transform scoreContainer;    // Das Objekt mit der Vertical Layout Group (Wo die Zeilen reinkommen)
+    public GameObject rowPrefab;        // Dein Zeilen-Prefab (ScoreRowTemplate)
+
+    [Header("Button Switch")]
+    public TextMeshProUGUI switchButtonText;
+
     [Header("Stats Display")]
     public TextMeshProUGUI wavesText;
     public TextMeshProUGUI enemiesText;
@@ -15,42 +26,53 @@ public class GameOverUI : MonoBehaviour
     [Header("Input")]
     public TMP_InputField nameInput; 
     public Button submitButton;
-    public GameObject inputPanel; 
-    public GameObject highScoreListPanel; 
-    public TextMeshProUGUI highScoreListText;
+    public GameObject inputPanel; // Das kleine Feld wo man den Namen eingibt
 
     private int calculatedScore;
+    void OnEnable()
+    {
+        scorePanel.SetActive(true);
+        leaderboardPanel.SetActive(false);
+        if(inputPanel != null) inputPanel.SetActive(true);
+        if(switchButtonText != null) switchButtonText.text = "Leaderboard";
 
+       
+        RefreshData();
+    }
     void Start()
     {
-        ShowStats();
-        
-        // Input Setup: Max 3 Zeichen, alles Großbuchstaben
-        nameInput.characterLimit = 3;
-        nameInput.onValidateInput += delegate(string input, int charIndex, char addedChar) { return char.ToUpper(addedChar); };
-        
-        submitButton.onClick.AddListener(SubmitScore);
+        // Setup für Input und Buttons
+        if(nameInput != null) {
+            nameInput.characterLimit = 4;
+            nameInput.onValidateInput += delegate(string input, int charIndex, char addedChar) { return char.ToUpper(addedChar); };
+        }
+        if(submitButton != null) submitButton.onClick.AddListener(SubmitScore);
     }
-
-    void ShowStats()
+void RefreshData()
     {
-        // Werte aus GameState holen
+        if (GameState.Instance == null) return;
+
+        // Daten holen
         int waves = GameState.Instance.nrWavesDefeated;
         int enemies = GameState.Instance.nrEnemiesDefeated;
         int bosses = GameState.Instance.nrBossesDefeated;
         int upgrades = GameState.Instance.nrTempleUpgrades;
-        
-        // Score berechnen
-        calculatedScore = GameState.Instance.CalculateTotalScore();
 
-        // UI Updaten
-        wavesText.text = $"Waves Survived: {waves}";
-        enemiesText.text = $"Enemies Defeated: {enemies}";
-        bossesText.text = $"Bosses Slain: {bosses}";
-        upgradesText.text = $"Temple Upgrades: {upgrades}";
+        // Score berechnen (Falls du keine Funktion im GameState hast, rechne ich hier einfach eine)
+        // Du kannst das anpassen!
+        calculatedScore = (waves * 100) + (enemies * 10) + (bosses * 500) + (upgrades * 50);
         
-        // Großes Score Display
-        totalScoreText.text = $"TOTAL SCORE: {calculatedScore}";
+        // Alternativ, wenn du die Funktion im GameState hast:
+        // calculatedScore = GameState.Instance.CalculateTotalScore();
+
+        // UI Texte setzen
+        if(wavesText) wavesText.text = $"Waves: {waves}";
+        if(enemiesText) enemiesText.text = $"Enemies: {enemies}";
+        if(bossesText) bossesText.text = $"Bosses: {bosses}";
+        if(upgradesText) upgradesText.text = $"Upgrades: {upgrades}";
+        if(totalScoreText) totalScoreText.text = $"SCORE: {calculatedScore}";
+
+        Debug.Log("Game Over Stats geladen. Score: " + calculatedScore);
     }
 
     public void SubmitScore()
@@ -58,41 +80,83 @@ public class GameOverUI : MonoBehaviour
         string playerName = nameInput.text;
 
         if (string.IsNullOrEmpty(playerName))
-            playerName = "UNK"; // Default Name falls leer
+            playerName = "UNK"; 
 
-        // Score speichern
+
         HighScoreManager.Instance.AddScore(playerName, calculatedScore, GameState.Instance.nrWavesDefeated);
 
-        // UI umschalten (Input ausblenden, Button deaktivieren)
-        inputPanel.SetActive(false);
+
+        if(inputPanel != null) inputPanel.SetActive(false);
         
-        ShowLeaderboard();
-        
-    
+
+        OpenLeaderboard(); 
     }
 
-    void ShowLeaderboard()
+    public void TogglePanels()
     {
-        if(highScoreListPanel != null) 
+        bool isLeaderboardOpen = leaderboardPanel.activeSelf;
+
+        if (isLeaderboardOpen)
         {
-            highScoreListPanel.SetActive(true);
-            var scores = HighScoreManager.Instance.GetHighScores();
+
+            leaderboardPanel.SetActive(false);
+            scorePanel.SetActive(true);
+            switchButtonText.text = "Leaderboard";
+        }
+        else
+        {
+        
+            OpenLeaderboard();
+        }
+    }
+
+    void OpenLeaderboard()
+    {
+        scorePanel.SetActive(false);
+        leaderboardPanel.SetActive(true);
+        switchButtonText.text = "Back"; 
+
+        UpdateLeaderboardList(); // Das ist die neue Magie!
+    }
+
+
+    void UpdateLeaderboardList()
+    {
+
+        foreach (Transform child in scoreContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+
+        var scores = HighScoreManager.Instance.GetHighScores();
+
+        int rank = 1;
+        foreach (var entry in scores)
+        {
+            GameObject newRow = Instantiate(rowPrefab, scoreContainer);
             
-            string listText = "TOP SCORES\n\n";
-            int rank = 1;
-            foreach(var entry in scores)
+
+            HighScoreRowUI rowScript = newRow.GetComponent<HighScoreRowUI>();
+            if (rowScript != null)
             {
-                
-                listText += $"{rank}. {entry.name} ..... {entry.score}\n";
-                rank++;
+                rowScript.Setup(rank, entry.name, entry.score, entry.waveReached);
             }
-            highScoreListText.text = listText;
+            
+           
+            if (rank == 1) 
+            {
+                 Image rowBg = newRow.GetComponent<Image>();
+                 if(rowBg != null) rowBg.color = new Color(1f, 0.84f, 0f, 0.3f); 
+            }
+
+            rank++;
         }
     }
     
     public void GoToMainMenu()
     {
-         GameState.Instance.ResetGameState();
+         if(GameState.Instance != null) GameState.Instance.ResetGameState();
          SceneManager.LoadScene("TitleScene");
     }
 }
