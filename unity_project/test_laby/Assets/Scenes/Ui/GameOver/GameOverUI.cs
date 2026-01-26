@@ -64,11 +64,11 @@ void RefreshData()
         // calculatedScore = GameState.Instance.CalculateTotalScore();
 
         // UI Texte setzen
-        if(wavesText) wavesText.text = $"Waves: {waves}";
-        if(enemiesText) enemiesText.text = $"Enemies: {enemies}";
-        if(bossesText) bossesText.text = $"Bosses: {bosses}";
-        if(upgradesText) upgradesText.text = $"Upgrades: {upgrades}";
-        if(totalScoreText) totalScoreText.text = $"SCORE: {calculatedScore}";
+        if(wavesText) wavesText.text = $"Waves\n {waves}";
+        if(enemiesText) enemiesText.text = $"Enemies\n {enemies}";
+        if(bossesText) bossesText.text = $"Bosses\n {bosses}";
+        if(upgradesText) upgradesText.text = $"Upgrades\n {upgrades}";
+        if(totalScoreText) totalScoreText.text = $"SCORE\n {calculatedScore}";
 
         Debug.Log("Game Over Stats geladen. Score: " + calculatedScore);
     }
