@@ -46,7 +46,7 @@ public class GameOverUI : MonoBehaviour
             nameInput.characterLimit = 4;
             nameInput.onValidateInput += delegate(string input, int charIndex, char addedChar) { return char.ToUpper(addedChar); };
         }
-        if(submitButton != null) submitButton.onClick.AddListener(SubmitScore);
+
     }
 public void RefreshData()
     {

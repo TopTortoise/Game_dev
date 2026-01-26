@@ -7414,7 +7414,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &1962261962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -58849,6 +58849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverManager
   gameOverCanvasGroup: {fileID: 993687576471359672}
   fadeSpeed: 0.5
+  gameoverUiComponent: {fileID: 9020595058877305942}
 --- !u!114 &5829777332585093639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59721,11 +59722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1407325645449338714, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.0444107
+      value: 1.0444031
       objectReference: {fileID: 0}
     - target: {fileID: 1407325645449338714, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.7239075
+      value: -0.72387695
       objectReference: {fileID: 0}
     - target: {fileID: 1784447524527251268, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_Sprite
@@ -59801,7 +59802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2114374369771481293, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.2239075
+      value: -1.223938
       objectReference: {fileID: 0}
     - target: {fileID: 3133607611390615022, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_fontSize
@@ -59869,11 +59870,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353113419222363622, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000022888184
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 4353113419222363622, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.7153778
+      value: 0.71536255
       objectReference: {fileID: 0}
     - target: {fileID: 4407596254488181713, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_SizeDelta.x
@@ -59885,7 +59886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4407596254488181713, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000019073486
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 4407596254488181713, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -59957,7 +59958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5462455223004733612, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.3675995
+      value: -12.367615
       objectReference: {fileID: 0}
     - target: {fileID: 5499157060557958720, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_fontSize
@@ -60185,7 +60186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8390821585011507000, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.021907806
+      value: 0.021911621
       objectReference: {fileID: 0}
     - target: {fileID: 8390821585011507000, guid: ffb015f19594e064e998daa6655f1f3d, type: 3}
       propertyPath: m_AnchoredPosition.y

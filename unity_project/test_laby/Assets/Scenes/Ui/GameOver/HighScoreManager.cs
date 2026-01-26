@@ -7,7 +7,7 @@ public class HighScoreEntry
 {
     public string name;
     public int score;
-    public int waveReached; // Optional: Um auch die Welle in der Liste anzuzeigen
+    public int waveReached; 
 }
 
 [System.Serializable]
