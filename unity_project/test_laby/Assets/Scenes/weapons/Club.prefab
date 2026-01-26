@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7333700839516366207}
   - component: {fileID: 3806426650802996830}
-  - component: {fileID: 7057716918267246340}
+  - component: {fileID: 7010962526595938383}
   m_Layer: 8
   m_Name: Club
   m_TagString: Untagged
@@ -94,8 +94,8 @@ MonoBehaviour:
     m_Flags: 0
   swingAngle: 180
   swingRadius: 0.5
---- !u!58 &7057716918267246340
-CircleCollider2D:
+--- !u!60 &7010962526595938383
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,8 +128,27 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.2, y: 0.2}
-  m_Radius: 0.18
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.2626507, y: 0.36247504}
+      - {x: 0.08903063, y: 0.16387556}
+      - {x: -0.015064836, y: 0.017713398}
+      - {x: 0.044964314, y: -0.025840402}
+      - {x: 0.17228724, y: 0.08650109}
+      - {x: 0.31628716, y: 0.19372977}
+      - {x: 0.38721573, y: 0.27740198}
+      - {x: 0.37599897, y: 0.3545655}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6623942948367412898
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +258,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 3747263903645496153, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
