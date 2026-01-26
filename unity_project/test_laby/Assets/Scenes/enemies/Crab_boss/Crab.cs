@@ -53,7 +53,7 @@ public class Crab :  IEnemy, IKillable
   bool isdashing = false;
   void Update()
   {
-
+    if (isDead) return;
     handleEffects();
     time += Time.deltaTime;
     if (player != null && time > attack_cooldown && !isdashing)
