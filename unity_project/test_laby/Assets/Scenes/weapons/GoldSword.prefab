@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7333700839516366207}
   - component: {fileID: 3806426650802996830}
-  - component: {fileID: 5442056131500940074}
+  - component: {fileID: 3748455680447810688}
   m_Layer: 8
   m_Name: GoldSword
   m_TagString: Untagged
@@ -94,8 +94,8 @@ MonoBehaviour:
     m_Flags: 0
   swingAngle: 120
   swingRadius: 0.5
---- !u!58 &5442056131500940074
-CircleCollider2D:
+--- !u!60 &3748455680447810688
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,8 +128,26 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.3, y: 0.28}
-  m_Radius: 0.23
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.40907714, y: 0.4754956}
+      - {x: 0.11812861, y: 0.23903191}
+      - {x: -0.04448819, y: 0.012321919}
+      - {x: 0.011099398, y: -0.03706032}
+      - {x: 0.25537685, y: 0.114034474}
+      - {x: 0.49666715, y: 0.41084713}
+      - {x: 0.48953074, y: 0.493078}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6623942948367412898
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +257,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 8275582878322906827, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

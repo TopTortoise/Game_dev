@@ -78,7 +78,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 2013769841236609394, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7333700839516366207}
   - component: {fileID: 3806426650802996830}
-  - component: {fileID: 8133577921532209024}
+  - component: {fileID: 27053830003850213}
   m_Layer: 8
   m_Name: WoodSword
   m_TagString: Untagged
@@ -184,8 +184,8 @@ MonoBehaviour:
     m_Flags: 0
   swingAngle: 120
   swingRadius: 0.5
---- !u!58 &8133577921532209024
-CircleCollider2D:
+--- !u!60 &27053830003850213
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -218,8 +218,26 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.33, y: 0.3}
-  m_Radius: 0.23
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.3601274, y: 0.4530185}
+      - {x: 0.11209126, y: 0.22222412}
+      - {x: -0.02916336, y: 0.018494785}
+      - {x: 0.025285184, y: -0.031241119}
+      - {x: 0.2423614, y: 0.10143845}
+      - {x: 0.47340655, y: 0.36908484}
+      - {x: 0.49055526, y: 0.4676743}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6623942948367412898
 GameObject:
   m_ObjectHideFlags: 0

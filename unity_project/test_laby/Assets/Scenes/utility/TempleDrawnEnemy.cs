@@ -50,6 +50,11 @@ public class TempleDrawnEnemy : IEnemy
 
   void Update()
   {
+    if(isDead) {
+
+      anim.SetBool("isAttacking", false);
+      return;
+    }
     handleEffects();
     if (health <= 0) return;
 
@@ -154,6 +159,7 @@ public class TempleDrawnEnemy : IEnemy
     if(isDead) return;
     isDead = true;
     AudioManager.Instance.Play(AudioManager.SoundType.Enemy);
+    anim.SetBool("isAttacking", false);
     anim.SetBool("isDead", true);
     Debug.Log("TempleDrawnEnemy Died");
     StartCoroutine(DeathRoutine(1.5f));

@@ -147,7 +147,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 8043533315434271083, guid: 56a12fa05f8eb5b5e852a7db909c14a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7333700839516366207}
   - component: {fileID: 3806426650802996830}
-  - component: {fileID: 9024080306990635122}
+  - component: {fileID: 5439083643626298651}
   m_Layer: 8
   m_Name: dagger
   m_TagString: Untagged
@@ -254,8 +254,8 @@ MonoBehaviour:
     m_Flags: 0
   swingAngle: 120
   swingRadius: 0.5
---- !u!70 &9024080306990635122
-CapsuleCollider2D:
+--- !u!60 &5439083643626298651
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -288,9 +288,25 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1, y: 0.09}
-  m_Size: {x: 0.47, y: 0.25}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.27563232, y: 0.2767812}
+      - {x: 0.18940395, y: 0.26855716}
+      - {x: -0.09011077, y: 0.00968039}
+      - {x: -0.008704364, y: -0.09085572}
+      - {x: 0.11744031, y: 0.025466263}
+      - {x: 0.2986424, y: 0.18005155}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6623942948367412898
 GameObject:
   m_ObjectHideFlags: 0
