@@ -100,9 +100,9 @@ public class ghost : MonoBehaviour, IKillable
   void equip()
   {
     Debug.Log("pressed equip");
-
+    LayerMask layer = LayerMask.GetMask("Weapon","Player");
     Collider2D[] colliders =
-        Physics2D.OverlapCircleAll(transform.position, equip_radius, item_layer);
+        Physics2D.OverlapCircleAll(transform.position, equip_radius, layer);
 
     Debug.Log("items found " + colliders.Length);
 
@@ -120,15 +120,17 @@ public class ghost : MonoBehaviour, IKillable
         continue;
       }
       //NEW Torch PickupSystem
-      PlacedTorch placedTorch = item.GetComponent<PlacedTorch>();
+      TorchTurret placedTorch = item.gameObject.GetComponent<TorchTurret>();
+      Debug.Log("placedTorch  is "+ placedTorch);
       if (placedTorch != null)
       {
         if (torches < maxTorches)
         {
+          GameManager.Instance.Torchpoint.Remove(item.gameObject.GetEntityId());
           torches++;
           HUDManager.Instance.UpdateTorchUI(torches, maxTorches); // UI Update
           Destroy(item.gameObject); // Fackel aus der Welt entfernen
-          return;
+          continue;
         }
         else
         {

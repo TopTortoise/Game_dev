@@ -71,7 +71,11 @@ public class GameState : MonoBehaviour
     }
     void UpdateEnemyWaveDifficulty()
     {
-        nrBosses += 1;
+        if (enemyWaveStarted)
+        {
+            nrBosses += 1;
+        }
+        
         SpawnInterval -= UnityEngine.Random.Range(0.05f, 0.1f);;
         EnemiesPerWave += UnityEngine.Random.Range(2, 7);;
     }
