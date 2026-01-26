@@ -49,8 +49,9 @@ public class GameOverManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameState.Instance.ResetGameState();
+        //Destroy(gameObject); 
         SceneManager.LoadScene("MainScene");
-        GameState.Instance.StartNewCycle(100);
+        GameState.Instance.StartNewCycle(10);
     }
 
     public void BackToMenu()
