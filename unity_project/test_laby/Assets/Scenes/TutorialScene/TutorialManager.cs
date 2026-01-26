@@ -244,6 +244,7 @@ public class TutorialManager : MonoBehaviour
 
     public void OnQuitTutoiralClicked()
     {
+        Time.timeScale = 1f;
         AdvanceStep(TutorialStep.StartGame);
     }
     
