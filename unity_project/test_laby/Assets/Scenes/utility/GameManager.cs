@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-
+using System.Linq;
 public class GameManager : MonoBehaviour
 {
 
@@ -53,15 +53,18 @@ public class GameManager : MonoBehaviour
       }
     }
 
-    foreach (var torch in Torchpoint)
+    var oldTorches = Torchpoint.ToList(); // snapshot
+    Torchpoint.Clear();
+
+    foreach (var torch in oldTorches)
     {
       var pos = torch.Value.Item1;
       var health = torch.Value.Item2;
-      Torchpoint.Remove(torch.Key);
+
       GameObject t = Instantiate(Torch, pos, Quaternion.identity);
       // t.GetComponent<TorchTurret>().hp.set_hp(health);
-      Torchpoint.Add(t.GetEntityId(), (pos, health));
 
+      Torchpoint.Add(t.GetEntityId(), (pos, health));
     }
     foreach (GameObject room in big_loot)
     {
