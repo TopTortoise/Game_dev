@@ -103,6 +103,8 @@ public class Temple : MonoBehaviour, IKillable
 
     public void ResetTemple()
     {
+        destroyed = false;
+        Debug.Log("Reset Temple called");
         if (spriteRenderer != null && destroyedSprite != null)
             spriteRenderer.sprite = intactSprite;
         health = GameState.Instance.templeHealth;
