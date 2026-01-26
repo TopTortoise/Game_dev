@@ -2174,7 +2174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   startPanel: {fileID: 1714693001}
   difficultyPanel: {fileID: 1944785316}
-  sceneToLoad: MainScene
+  sceneToLoad: LoreScene
 --- !u!4 &1730162076
 Transform:
   m_ObjectHideFlags: 0
