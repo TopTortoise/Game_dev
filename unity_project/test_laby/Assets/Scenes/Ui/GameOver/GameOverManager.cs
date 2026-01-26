@@ -44,8 +44,7 @@ public class GameOverManager : MonoBehaviour
 
     public void BackToMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("TitleScene");
+         Application.Quit();
     }
     public void Controll()
     {
