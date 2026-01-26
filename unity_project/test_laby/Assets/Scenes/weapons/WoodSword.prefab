@@ -159,15 +159,31 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Attack
       m_Flags: 0
+    - m_Name: 
+      m_Id: 1c1cc4b3-f394-4de1-9105-1c354233f3c2
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
     m_Flags: 0
   applied_upgrades: []
   effects: []
-  Attackpoint: {fileID: 4491446182615914694}
-  radius: 0.59
-  enemy_layer:
-    serializedVersion: 2
-    m_Bits: 128
-  rotationAngle: -90
+  offset: 0
+  is_attacking: 0
+  AttackPoint: {fileID: 4491446182615914694}
+  AimAction:
+    m_Name: Aim
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d911bdca-8375-4b58-80ce-c0e2c1a21ac8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  swingAngle: 120
+  swingRadius: 0.5
 --- !u!58 &8133577921532209024
 CircleCollider2D:
   m_ObjectHideFlags: 0

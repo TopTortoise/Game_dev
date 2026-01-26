@@ -1,4 +1,166 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections;
+
+public class Stick : IWeapon
+{
+    public float offset;
+    public bool is_attacking = false;
+    private bool canDealDamage = false;
+
+    public Transform AttackPoint;
+    public InputAction AimAction;
+
+    public float swingAngle = 120f;   // total arc
+    public float swingRadius = 0.5f;  // how far weapon moves while swinging
+
+    private Vector2 aimInput;
+
+    void Awake()
+    {
+        stats.damage = 1f;
+        stats.attackspeed = 0.5f;
+    }
+
+    public override void onEquip()
+    {
+        AimAction.Enable();
+        AttackAction.Enable();
+        is_equipped = true;
+    }
+
+    public override void onUnequip()
+    {
+        AttackAction.Disable();
+        AimAction.Disable();
+        is_equipped = false;
+    }
+
+    public override void Attack()
+    {
+        if (!is_attacking)
+        {
+            AudioManager.Instance.Play(AudioManager.SoundType.Attack);
+            OnAttack();
+            StartCoroutine(stick_swing());
+        }
+    }
+
+    IEnumerator stick_swing()
+    {
+        is_attacking = true;
+        canDealDamage = true;
+
+        // --- Determine aim direction (controller OR mouse) ---
+        Vector3 dir;
+        Vector2 aim = AimAction.ReadValue<Vector2>();
+
+        if (aim.sqrMagnitude > 0.1f)
+        {
+            dir = new Vector3(aim.x, aim.y, 0).normalized;
+        }
+        else
+        {
+            Vector3 mouse = Mouse.current.position.ReadValue();
+            mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
+            Vector3 world = Camera.main.ScreenToWorldPoint(mouse);
+            dir = (world - transform.position).normalized;
+        }
+
+        float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + offset;
+
+        float halfSwing = swingAngle * 0.5f;
+        float startAngle = baseAngle - halfSwing;
+        float endAngle   = baseAngle + halfSwing;
+
+        Vector3 startPos = transform.localPosition;
+
+        float duration = stats.attackspeed;
+        float t = 0f;
+
+        // --- Swing arc ---
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+
+            float angle = Mathf.Lerp(startAngle, endAngle, t);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            // small circular motion to feel physical
+            Vector3 swingOffset =
+                new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad),
+                            Mathf.Sin(angle * Mathf.Deg2Rad),
+                            0f) * swingRadius;
+
+            transform.localPosition = startPos + swingOffset;
+
+            yield return null;
+        }
+
+        canDealDamage = false;
+
+        // --- Return weapon to hand ---
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / (duration * 0.4f);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, t);
+            yield return null;
+        }
+
+        transform.localPosition = startPos;
+        is_attacking = false;
+    }
+
+    void Update()
+    {
+        // Same idle aiming logic as Spear
+        if (!is_attacking && is_equipped)
+        {
+            aimInput = AimAction.ReadValue<Vector2>();
+            Vector3 dir;
+
+            if (aimInput.sqrMagnitude > 0.1f)
+            {
+                dir = new Vector3(aimInput.x, aimInput.y, 0).normalized;
+            }
+            else
+            {
+                Vector3 mouse = Mouse.current.position.ReadValue();
+                mouse.z = Camera.main.WorldToScreenPoint(transform.position).z;
+                Vector3 world = Camera.main.ScreenToWorldPoint(mouse);
+                dir = (world - transform.position).normalized;
+            }
+
+            float rotZ = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (!canDealDamage) return;
+
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+            return;
+
+        IKillable obj = collider.GetComponent<IKillable>();
+        if (obj != null)
+        {
+            obj.hit(stats.damage);
+
+            IEnemy enemy = collider.GetComponent<IEnemy>();
+            if (enemy != null)
+            {
+                OnHit(enemy);
+            }
+        }
+    }
+}
+
+
+
+/*using UnityEngine;
 using System.Collections;
 public class Stick : IWeapon
 {
@@ -105,4 +267,4 @@ public class Stick : IWeapon
     Gizmos.DrawWireSphere(Attackpoint.position, radius);
   }
   // Update is called once per frame
-}
+}*/
