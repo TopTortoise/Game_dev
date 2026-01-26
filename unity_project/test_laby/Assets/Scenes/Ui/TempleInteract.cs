@@ -4,11 +4,11 @@ using UnityEngine.UI;
 public class TempleInteract : MonoBehaviour
 {
     [Header("Referenzen")]
-    public GameObject openShopPanel; // Der Button im Canvas
-    public TempleUpgradeUI shopUI;    // Dein Shop-Fenster Skript
+    public GameObject openShopPanel;
+    public TempleUpgradeUI shopUI;   
 
     [Header("Einstellungen")]
-    public string playerTag = "Player"; // Tag deines Spielers
+    public string playerTag = "Player";
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class TempleInteract : MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
-            // Button verstecken
+
             if (openShopPanel != null) 
                 openShopPanel.SetActive(false);
             
@@ -39,12 +39,9 @@ public class TempleInteract : MonoBehaviour
         }
     }
 
-    // DIESE FUNKTION kommt auf den Button "OnClick"
+
     public void OnClickOpenShop()
     {
-        // 1. Shop öffnen
         shopUI.ToggleShop();
-
-       
     }
 }

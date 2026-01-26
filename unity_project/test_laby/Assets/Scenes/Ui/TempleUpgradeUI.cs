@@ -6,7 +6,7 @@ public class TempleUpgradeUI : MonoBehaviour
 {
     [Header("General UI")]
     public GameObject shopPanel;
-    public Temple temple; // Referenz zum Tempel in der Szene
+    public Temple temple; 
 
     [Header("Health Upgrade")]
     public TextMeshProUGUI hpLevelText;
@@ -42,7 +42,7 @@ public class TempleUpgradeUI : MonoBehaviour
         if (isOpen)
         {
             UpdateUI();
-            Optional: Time.timeScale = 0f; // Spiel pausieren
+            Optional: Time.timeScale = 0f; 
         }
         else
         {
@@ -52,7 +52,7 @@ public class TempleUpgradeUI : MonoBehaviour
 
     void UpdateUI()
     {
-        int coins = CurrencyManager.Instance.currentGold; // Oder wie deine Variable heißt
+        int coins = CurrencyManager.Instance.currentGold; 
 
         // --- HEALTH ---
         int hpLvl = GameState.Instance.levelHealth;
@@ -62,7 +62,7 @@ public class TempleUpgradeUI : MonoBehaviour
         hpCostText.text = $"{hpCost} G";
         hpValueText.text = $"{temple.max_health} HP";
         
-        hpButton.interactable = coins >= hpCost; // Button ausgrauen wenn zu wenig Geld
+        hpButton.interactable = coins >= hpCost;
 
         // --- DAMAGE ---
         int dmgLvl = GameState.Instance.levelUltDamage;
@@ -92,7 +92,7 @@ public class TempleUpgradeUI : MonoBehaviour
         int lvl = GameState.Instance.levelHealth;
         int cost = temple.GetUpgradeCost(lvl);
 
-        if (CurrencyManager.Instance.currentGold > cost) // Diese Methode musst du in CurrencyManager haben!
+        if (CurrencyManager.Instance.currentGold > cost)
         {
             CurrencyManager.Instance.SpendCoins(cost);
             GameState.Instance.levelHealth++;
