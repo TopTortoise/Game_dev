@@ -31,6 +31,7 @@ public class maze_gen : MonoBehaviour
     {
       tilemap = FindFirstObjectByType<Tilemap>();
     }
+    tilemap.color = new Color(0.8f,0.8f,0.8f);
     lastseed = seed;
     enemy_Manager = GetComponentInParent<Enemy_Manager>();
     Random.InitState(seed);
