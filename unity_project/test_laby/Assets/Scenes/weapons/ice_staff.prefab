@@ -205,7 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5b4515b102f472ea516439300a4f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Blue_staff
-  stats: {fileID: 0}
+  stats:
+    damage: 5
+    attackspeed: 1.5
+    range: 1
+    rarity: 3
   is_equipped: 0
   AttackAction:
     m_Name: Attack
@@ -233,6 +237,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   applied_upgrades: []
+  effects: []
   offset: -45
   projectile: {fileID: 5780270276275272287, guid: 2c2ad5c355164134d972f873c1916632, type: 3}
   AttackPoint: {fileID: 3803069330982740463}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b582691146556d9858c01ff340da0b, type: 3}
   m_Name: Burneffect
   m_EditorClassIdentifier: Assembly-CSharp::BurnEffect
-  duration: 6
+  duration: 2
   unique: 1
-  damagePerSecond: 0.7
+  damagePerSecond: 0.5

@@ -63,7 +63,7 @@ public class Vase : MonoBehaviour, IKillable
 
           Instantiate(torch,
               transform.position +
-              new Vector3(Random.value * 5, Random.value * 5, 0), Quaternion.identity);
+              new Vector3(Random.value, Random.value, 0), Quaternion.identity);
 
         }
       }

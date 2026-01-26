@@ -105,10 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   stats:
-    damage: 1
-    attackspeed: 1
+    damage: 4
+    attackspeed: 0.5
     range: 1
-    rarity: 1
+    rarity: 3
   is_equipped: 0
   AttackAction:
     m_Name: Attack

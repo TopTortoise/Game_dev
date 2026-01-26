@@ -242,8 +242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc3c228680415ab68b14dc117036dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  damage: 1
-  attackspeed: 0.5
+  stats:
+    damage: 5
+    attackspeed: 0.7
+    range: 1
+    rarity: 3
   is_equipped: 0
   AttackAction:
     m_Name: Attack
@@ -278,6 +281,8 @@ MonoBehaviour:
       m_Action: Attack
       m_Flags: 0
     m_Flags: 0
+  applied_upgrades: []
+  effects: []
   equipped: 0
   offset: -45
   is_attacking: 0
