@@ -6,7 +6,7 @@ public class ItemCollider : MonoBehaviour, IKillable
     public string itemName = "Chest";
 
     private Health hp;
-    public int value = 1; // z. B. Gold oder Heilwert
+    public int value = 1; 
     public float health = 3f;
     private float max_health = 3f;
     void Awake()
@@ -15,15 +15,7 @@ public class ItemCollider : MonoBehaviour, IKillable
         hp.set_max_hp(max_health);
         hp.set_hp(health);
     }
-    /*void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Picked up: " + itemName);
-            // Hier kannst du Effekte hinzufügen, z. B. Heilung oder Punkte
-            Destroy(gameObject); // Item verschwindet nach Aufheben
-        }
-    }*/
+   
     
      void OnCollisionEnter2D(Collision2D collision)
     {

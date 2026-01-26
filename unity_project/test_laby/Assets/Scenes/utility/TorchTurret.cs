@@ -136,9 +136,7 @@ public class TorchTurret : MonoBehaviour, IKillable
         if (hp != null)
         {
             hp.change_health(damage);
-            // GameManager.Instance.Torchpoint.Remove(gameObject.GetEntityId());
 
-            // GameManager.Instance.Torchpoint.Add(gameObject.GetEntityId(),(gameObject.transform.position,hp.health));
         }
         
     }
@@ -159,109 +157,4 @@ public class TorchTurret : MonoBehaviour, IKillable
 }
 
 
-
-
-/*using UnityEngine;
-using System.Collections;
-
-public class TorchTurret : MonoBehaviour
-{
-    [Header("Attack")]
-    public float damage = 1f;
-    public float attackInterval = 1.0f;
-    public LayerMask enemyLayer;
-
-    [Header("Range")]
-    public Collider2D torchCollision; // MUST be a trigger
-
-    [Header("Ring Visual")]
-    public LineRenderer ringRenderer;
-    public float ringDuration = 0.4f;
-    public int ringSegments = 64;
-
-    private float attackTimer;
-    private Collider2D[] hitBuffer = new Collider2D[16];
-
-    void Start()
-    {
-        attackTimer = attackInterval;
-
-        if (ringRenderer != null)
-        {
-            ringRenderer.positionCount = ringSegments + 1;
-            ringRenderer.enabled = false;
-        }
-    }
-
-    void Update()
-    {
-        attackTimer -= Time.deltaTime;
-        if (attackTimer <= 0f)
-        {
-            Attack();
-            attackTimer = attackInterval;
-        }
-    }
-
-    void Attack()
-    {
-        ContactFilter2D filter = new ContactFilter2D
-        {
-            layerMask = enemyLayer,
-            useLayerMask = true,
-            useTriggers = true
-        };
-
-        int hitCount = Physics2D.OverlapCollider(
-            torchCollision,
-            filter,
-            hitBuffer
-        );
-
-        for (int i = 0; i < hitCount; i++)
-        {
-            IKillable killable = hitBuffer[i].GetComponentInParent<IKillable>();
-            if (killable != null)
-            {
-                killable.hit(damage);
-            }
-        }
-
-        if (ringRenderer != null)
-            StartCoroutine(ExpandRing());
-    }
-
-    IEnumerator ExpandRing()
-    {
-        ringRenderer.enabled = true;
-
-        float time = 0f;
-        float maxRadius = torchCollision.bounds.extents.x;
-
-        while (time < ringDuration)
-        {
-            float radius = Mathf.Lerp(0f, maxRadius, time / ringDuration);
-            DrawRing(radius);
-            time += Time.deltaTime;
-            yield return null;
-        }
-
-        ringRenderer.enabled = false;
-    }
-
-    void DrawRing(float radius)
-    {
-        for (int i = 0; i <= ringSegments; i++)
-        {
-            float angle = i * Mathf.PI * 2f / ringSegments;
-            Vector3 offset = new Vector3(
-                Mathf.Cos(angle) * radius,
-                Mathf.Sin(angle) * radius,
-                0f
-            );
-
-            ringRenderer.SetPosition(i, transform.position + offset);
-        }
-    }
-}*/
 

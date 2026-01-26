@@ -27,7 +27,7 @@ public class EnemyController : IEnemy
 
   }
 
-  // Update is called once per frame
+  
   public bool is_walker = true;
   float time = 0.0f;
   void Update()
@@ -47,14 +47,7 @@ public class EnemyController : IEnemy
     {
       walk();
     }
-    // else if (getTarget())
-    // {
-    // FollowTarget();
-    // }
-    // else
-    // {
-    // rb.linearVelocity = Vector2.zero;
-    // }
+  
   }
 
   public int radius = 15;
@@ -88,7 +81,7 @@ public class EnemyController : IEnemy
 
       dir.x = Mathf.Sign(goal.x - rb.position.x);
 
-      //go down or depenign on goal.x 
+   
 
     }
     else
@@ -126,6 +119,6 @@ public class EnemyController : IEnemy
   void OnDrawGizmos()
   {
     Gizmos.color = Color.green;
-    Gizmos.DrawSphere(goal, 0.3f); // draw a small sphere at goal
+    Gizmos.DrawSphere(goal, 0.3f); 
   }
 }

@@ -19,8 +19,7 @@ public class detectionarea : MonoBehaviour
         {
             parent.SetTarget(other.transform);
         }
-        // You can call back to parent logic here:
-        // GetComponentInParent<Enemy>().OnTargetEnter(other);
+      
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -29,7 +28,7 @@ public class detectionarea : MonoBehaviour
         {
             parent.ResetTarget();
         }
-        // GetComponentInParent<Enemy>().OnTargetExit(other);
+       
     }
 
     private void OnDrawGizmos()

@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameOverUI : MonoBehaviour
 {
     [Header("Panels")]
-    public GameObject scorePanel;       // Das Panel mit "Game Over", Stats und Name-Input
-    public GameObject leaderboardPanel; // Das Panel mit der Liste
+    public GameObject scorePanel;      
+    public GameObject leaderboardPanel; 
 
     [Header("Leaderboard List Setup")]
-    public Transform scoreContainer;    // Das Objekt mit der Vertical Layout Group (Wo die Zeilen reinkommen)
-    public GameObject rowPrefab;        // Dein Zeilen-Prefab (ScoreRowTemplate)
+    public Transform scoreContainer;   
+    public GameObject rowPrefab;        
 
     [Header("Button Switch")]
     public TextMeshProUGUI switchButtonText;
@@ -26,7 +26,7 @@ public class GameOverUI : MonoBehaviour
     [Header("Input")]
     public TMP_InputField nameInput; 
     public Button submitButton;
-    public GameObject inputPanel; // Das kleine Feld wo man den Namen eingibt
+    public GameObject inputPanel; 
 
     private int calculatedScore;
     void OnEnable()
@@ -41,7 +41,7 @@ public class GameOverUI : MonoBehaviour
     }
     void Start()
     {
-        // Setup für Input und Buttons
+       
         if(nameInput != null) {
             nameInput.characterLimit = 4;
             nameInput.onValidateInput += delegate(string input, int charIndex, char addedChar) { return char.ToUpper(addedChar); };
@@ -52,7 +52,7 @@ public void RefreshData()
     {
         if (GameState.Instance == null) return;
 
-        // Daten holen
+        
         int waves = GameState.Instance.nrWavesDefeated;
         int enemies = GameState.Instance.nrEnemiesDefeated;
         int bosses = GameState.Instance.nrBossesDefeated;
@@ -60,9 +60,7 @@ public void RefreshData()
 
         calculatedScore = GameState.Instance.CalculateTotalScore();
         
-        // Alternativ, wenn du die Funktion im GameState hast:
-        // calculatedScore = GameState.Instance.CalculateTotalScore();
-
+        
         // UI Texte setzen
         if(wavesText) wavesText.text = $"Waves\n {waves}";
         if(enemiesText) enemiesText.text = $"Enemies\n {enemies}";
@@ -114,7 +112,7 @@ public void RefreshData()
         leaderboardPanel.SetActive(true);
         switchButtonText.text = "Back"; 
 
-        UpdateLeaderboardList(); // Das ist die neue Magie!
+        UpdateLeaderboardList(); 
     }
 
 

@@ -109,7 +109,7 @@ public class ghost : MonoBehaviour, IKillable
     IWeapon new_weapon = null;
     Vector3 pickup_position = Vector3.zero;
 
-    // ---- First: find a weapon (do NOT unequip yet) ----
+  
     foreach (Collider2D item in colliders)
     {
       Item coin = item.GetComponent<Item>();
@@ -119,7 +119,7 @@ public class ghost : MonoBehaviour, IKillable
         coin.pickup();
         continue;
       }
-      //NEW Torch PickupSystem
+     
       TorchTurret placedTorch = item.gameObject.GetComponent<TorchTurret>();
       Debug.Log("placedTorch  is "+ placedTorch);
       if (placedTorch != null)
@@ -151,14 +151,14 @@ public class ghost : MonoBehaviour, IKillable
                 }
                 else
                 {
-                    // Fallback, falls kein UI existiert: Direkt aufheben
+                    
                     ConfirmSwapWeapon(candidate);
                 }
                 return;
       }
     }
 
-    // ---- HARD GUARANTEE: if no new weapon, do nothing ----
+   
     if (new_weapon == null)
       return;
 
@@ -168,81 +168,30 @@ public class ghost : MonoBehaviour, IKillable
     {
         Vector3 pickup_position = new_weapon.transform.position;
 
-        // Altes ablegen
+        
         IWeapon old_weapon = unequip();
 
-        // Alte Waffe dort hinlegen, wo die neue lag
+       
         if (old_weapon != null)
         {
             old_weapon.transform.position = pickup_position;
-            // Wichtig: Sicherstellen, dass die alte Waffe wieder in der Welt aktiv ist
+            
             old_weapon.gameObject.SetActive(true); 
         }
 
-        // Neue ausrüsten
+        
         weapon = new_weapon;
         weapon.transform.SetParent(transform);
         weapon.transform.localPosition = Vector3.zero;
         weapon.transform.localRotation = Quaternion.identity;
         
-        // Setup der neuen Waffe
+       
         weapon.equip(weapon_upgrades);
         
-        // Debug
+        
         Debug.Log("Swapped to: " + weapon.gameObject.name);
     }
 
-
-  /*
-  IWeapon unequip()
-  {
-    IWeapon to_ret = weapon;
-    if (weapon != null)
-    {
-
-      Debug.Log("Weapon is unequipped");
-
-      weapon.transform.SetParent(null);
-      weapon.unequip();
-      weapon = null;
-
-    }
-    return to_ret;
-  }
-
-  void equip()
-  {
-    Debug.Log("pressed equip");
-    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, equip_radius, item_layer);
-
-    Debug.Log("items found " + colliders.Length);
-    bool found_new_weapon = false;
-    IWeapon old_weapon = unequip();
-    foreach (Collider2D item in colliders)
-    {
-      Item coin = item.GetComponent<Item>();
-      if (coin != null)
-      {
-        coin.pickup();//this is not coin pickuo but item pickup
-        continue;//NOTE: this might not be smart in future
-      }
-
-      IWeapon new_weapon = item.GetComponent<IWeapon>() == null ? item.GetComponentInParent<IWeapon>() : item.GetComponent<IWeapon>();
-      if (new_weapon != null && !found_new_weapon && new_weapon != old_weapon)
-      {
-        weapon = new_weapon;
-        weapon.transform.SetParent(transform);
-        weapon.transform.localPosition = Vector3.zero;
-        weapon.transform.localRotation = Quaternion.identity;
-
-        weapon.equip(weapon_upgrades);
-
-
-      }
-
-    }
-
-  }*/
 
   private void OnDrawGizmos()
   {
@@ -251,7 +200,7 @@ public class ghost : MonoBehaviour, IKillable
 
 
 
-  // Update is called once per frame    
+  
 
   private bool facingRight = true;
   void Update()
@@ -263,7 +212,7 @@ public class ghost : MonoBehaviour, IKillable
     {
       if (!FootstepDust.isPlaying)
         FootstepDust.Play();
-      //AudioManager.Instance.Play(AudioManager.SoundType.Walk);
+      
       anim.SetBool("isWalking", true);
       anim.SetFloat("Xinput", move.x);
       anim.SetFloat("Yinput", move.y);
@@ -310,7 +259,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     if (Ret.WasPressedThisFrame())
     {
       AudioManager.Instance.Play(AudioManager.SoundType.Teleport);
-      OnRet(); //Perhaps make second death function without stat reset here KISS
+      OnRet(); 
     }
   }
 
@@ -331,18 +280,16 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
       dashDirection = move.normalized;
 
-      // ---- START DASH (physics-driven, like Attack) ----
+     
       rigidbody2d.linearVelocity = dashDirection * speed * dashMultiplier;
 
-      // ---- DASH DURATION ----
+     
       yield return new WaitForSeconds(dashDuration);
 
-      // ---- END DASH ----
       rigidbody2d.linearVelocity = Vector2.zero;
       isDashing = false;
       anim.SetBool("isDashing", false);
 
-      // ---- COOLDOWN ----
       dashOnCooldown = true; 
       yield return new WaitForSeconds(dashCooldown);
       dashOnCooldown = false;
@@ -374,12 +321,6 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     hpImage.rectTransform.anchoredPosition = new Vector2(-targetX, hpImage.rectTransform.anchoredPosition.y);
   }
 
-  ////////////////////////////////////////////////////////////////////////////////////////////
-  //VERY SIMPLE LOOT ROOM LOGIC -> ONLY FOR TESTING AND NEEDS TO BE HANDLED MUCH MORE SECURELY
-  //TODO
-  ///
-  /// ////////////////////////////////////////////////////////////////////////////////////////
-
   void OnCollisionEnter2D(Collision2D collision)
   {
     Debug.Log("Hit " + collision.gameObject.name);
@@ -392,19 +333,19 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     else if (collision.gameObject.CompareTag("Enter Loot Room Portal"))
     {
 
-      CollideWithEnterPortal(collision); //TODO
+      CollideWithEnterPortal(collision); 
     }
 
     else if (collision.gameObject.CompareTag("Enter Large Loot Room Portal"))
     {
 
-      CollideWithEnterLargePortal(collision); //TODO
+      CollideWithEnterLargePortal(collision); 
     }
 
     else if (collision.gameObject.CompareTag("Exit Loot Room Portal"))
     {
 
-      CollideWithExitPortal(collision); //TODO
+      CollideWithExitPortal(collision);
     }
   }
 
@@ -441,14 +382,13 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     SceneManager.LoadScene(GameManager.MainSceneName);
 
-    //////////////////////////////////
+   
     PlayerPersistence.Instance.RestoreReturnPosition();
     GameState.Instance.ResumeClock();
 
   }
 
-  /// ////////////////////////////////////////////////////////////////////////////////////////
-  ///
+
   public void hit(float damage)
   {
 
@@ -465,10 +405,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
 
   }
-  /* void OnTriggerEnter2D(Collider2D other)
-  {
-      Debug.Log("Triggered " + other.gameObject.name);
-  } */
+ 
 
   public void OnRet()
   {
@@ -516,7 +453,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     if (PlayerPersistence.Instance.HasReturnPosition())
     {
-      return; //No further checks necessary
+      return;
     }
     else
     {
@@ -552,7 +489,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
         StartCoroutine(AnimateReviveSpotlight());
       }
     }
-    //Todo: Reset Player Stats for Death Here
+    
     isDead = false;
     hp.restore_hp();
 
@@ -561,7 +498,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   IEnumerator AnimateDeathSpotlight()
   {
-    float duration = 1.2f;   // fast, punchy
+    float duration = 1.2f;   
     float time = 0f;
 
     float startT = 0.9f;
@@ -575,7 +512,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       yield return null;
     }
 
-    // Clamp final value
+   
     ChangeSpotlight(endT);
   }
 
@@ -628,7 +565,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       spotlight.falloffIntensity = Mathf.Lerp(1f, 0f, t);
 
 
-      // Debug.Log($"Licht wird dunkler - Noch {(int)(t * 60)} Sekunden! Intensity: {spotlight.intensity:F2}");
+      
     }
   }
   void TryPlaceTorch()
@@ -648,7 +585,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     if (HUDManager.Instance != null)
       HUDManager.Instance.UpdateTorchUI(torches, maxTorches);
 
-    // spawn at player pos.
+
     GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);
     GameManager.Instance.Torchpoint.Add(torch.GetEntityId(),(placePos,torch.GetComponent<TorchTurret>().hp.health));
     // copy light spotlight
