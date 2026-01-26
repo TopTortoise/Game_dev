@@ -42,7 +42,7 @@ public class TitleScreen : MonoBehaviour
     }
     public void TutorialSceen()
     {
-        SceneManager.LoadScene("TutorialSceen");
+        SceneManager.LoadScene("TutorialScene");
     }
 
     public void QuitGame()
