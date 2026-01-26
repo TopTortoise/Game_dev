@@ -13,7 +13,7 @@ public class TitleScreen : MonoBehaviour
     public GameObject startPanel;
     public GameObject difficultyPanel;
 
-    public string sceneToLoad = "MainScene";
+    public string sceneToLoad = "LoreScene";
     void Start()
     {
        
