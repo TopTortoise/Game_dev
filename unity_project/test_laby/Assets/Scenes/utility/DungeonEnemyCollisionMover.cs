@@ -23,6 +23,8 @@ public class DungeonEnemyCapsuleMover : IEnemy
   private float attackTimer;
   private Animator anim;
 
+  private bool isDead;
+
   private static readonly Vector2[] directions =
   {
         Vector2.up,
@@ -54,6 +56,7 @@ public class DungeonEnemyCapsuleMover : IEnemy
 
     moveDirection = directions[Random.Range(0, directions.Length)];
     attackTimer = 0f;
+    isDead = false;
   }
 
   void Update()
@@ -165,6 +168,8 @@ public class DungeonEnemyCapsuleMover : IEnemy
 
   public override void OnDeath()
   {
+    if(isDead) return;
+    isDead = true;
     Debug.Log("DungeonEnemyCapsuleMover Died");
     anim.SetBool("isDead", true);
     StartCoroutine(DeathRoutine(1f));
