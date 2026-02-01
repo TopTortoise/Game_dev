@@ -51,7 +51,7 @@ public class LootRoomManager : MonoBehaviour
             weapon.GetComponent<IWeapon>().effects.Add(effects.GetRandomEffect());
           }
 
-          Statupgrade upgrade = new Statupgrade(0.2f + Random.value, -(Random.value/3), 0f);
+          Statupgrade upgrade = new Statupgrade(0.2f + -Random.value/3 + Random.value, 0.2f+(-Random.value/3), 0f);
 
 
           vase.GetComponent<Vase>().weapon_upgrade = upgrade;

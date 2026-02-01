@@ -28746,9 +28746,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
+      propertyPath: effects
+      value: 
+      objectReference: {fileID: 11400000, guid: 26ba34ee5ba6887d3b005cd60bc74bc6, type: 2}
+    - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
       propertyPath: spwanrate
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
+      propertyPath: items.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
+      propertyPath: 'items.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3860798516691411884, guid: 9be50fa7ce0024398ba46a132ffe9bdb, type: 3}
+    - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
+      propertyPath: 'items.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3860798516691411884, guid: 7e678a7adfdafb29c85ebc899799d079, type: 3}
+    - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
+      propertyPath: 'items.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5563109764872686318, guid: 0e0cd11b833778670bd642da6bdc4106, type: 3}
+    - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
+      propertyPath: 'items.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8363201000436706177, guid: 04013fed2eb0f33c1a87363e18612938, type: 3}
+    - target: {fileID: 6743540959942313071, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
+      propertyPath: 'items.Array.data[4]'
+      value: 
+      objectReference: {fileID: 5563109764872686318, guid: 4e6061c5ba1547d6d90ed98728a29cb4, type: 3}
     - target: {fileID: 7870988685254458399, guid: 3ff6dae822c3e679c8314fcda068d9c8, type: 3}
       propertyPath: m_Name
       value: spawnpoints
