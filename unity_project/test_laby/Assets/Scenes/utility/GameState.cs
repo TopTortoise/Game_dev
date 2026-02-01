@@ -26,7 +26,7 @@ public class GameState : MonoBehaviour
 
 
   // ---- High Score Game Stats (For Death Page)
-public int nrWavesDefeated;
+  public int nrWavesDefeated;
   public int nrBossesDefeated;
   public int nrEnemiesDefeated;
   public int nrTempleUpgrades;
@@ -68,6 +68,20 @@ public int nrWavesDefeated;
     }
 
     currentTempleHealth = templeHealth;
+  }
+  private int pauseRequestCount = 0;
+
+  public void RequestPause(bool pause)
+  {
+    if (pause)
+      pauseRequestCount++;
+    else
+      pauseRequestCount = Mathf.Max(0, pauseRequestCount - 1);
+
+    // Only unpause if NO systems are requesting a pause anymore
+    Time.timeScale = (pauseRequestCount > 0) ? 0f : 1f;
+
+    Debug.Log($"Pause Count: {pauseRequestCount} | TimeScale: {Time.timeScale}");
   }
   void UpdateEnemyWaveDifficulty()
   {
@@ -154,7 +168,7 @@ public int nrWavesDefeated;
     timeRemaining = duration;
     isCountingDown = true;
     warningStarted = false;
-    
+
 
 
     OnCycleStarted?.Invoke();

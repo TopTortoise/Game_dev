@@ -6,7 +6,7 @@ public class TempleUpgradeUI : MonoBehaviour
 {
     [Header("General UI")]
     public GameObject shopPanel;
-    public Temple temple; 
+    public Temple temple;
 
     [Header("Health Upgrade")]
     public TextMeshProUGUI hpLevelText;
@@ -39,29 +39,22 @@ public class TempleUpgradeUI : MonoBehaviour
         isOpen = !isOpen;
         shopPanel.SetActive(isOpen);
 
-        if (isOpen)
-        {
-            UpdateUI();
-            Optional: Time.timeScale = 0f; 
-        }
-        else
-        {
-            Optional: Time.timeScale = 1f;
-        }
+        UpdateUI();
+        GameState.Instance.RequestPause(isOpen);
     }
 
     void UpdateUI()
     {
-        int coins = CurrencyManager.Instance.currentGold; 
+        int coins = CurrencyManager.Instance.currentGold;
 
         // --- HEALTH ---
         int hpLvl = GameState.Instance.levelHealth;
         int hpCost = temple.GetUpgradeCost(hpLvl);
-        
+
         hpLevelText.text = $"Lvl {hpLvl}";
         hpCostText.text = $"{hpCost} G";
         hpValueText.text = $"{temple.max_health} HP";
-        
+
         hpButton.interactable = coins >= hpCost;
 
         // --- DAMAGE ---
@@ -121,7 +114,7 @@ public class TempleUpgradeUI : MonoBehaviour
         int lvl = GameState.Instance.levelUltCooldown;
         int cost = temple.GetUpgradeCost(lvl);
 
-         if (CurrencyManager.Instance.currentGold >= cost)
+        if (CurrencyManager.Instance.currentGold >= cost)
         {
             CurrencyManager.Instance.SpendCoins(cost);
             GameState.Instance.levelUltCooldown++;

@@ -6,24 +6,28 @@ public class PauseMenuManager : MonoBehaviour
     private bool isPaused = false;
 
     public GameObject pauseMenuPanel;
-    public GameObject controlsPanel; 
-    private bool controlActive =  false; 
+    public GameObject controlsPanel;
+    private bool controlActive = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pauseMenuPanel.SetActive(false);
-        controlsPanel.SetActive(false); 
+        controlsPanel.SetActive(false);
     }
 
-       public void TogglePause()
+    public void TogglePause()
     {
         if (isPaused)
         {
-            if(controlActive) {
-                controlsPanel.SetActive(false);
-                controlActive = false; 
+            
+            if (controlActive) 
+            {
+                ActivateControls(); 
             }
-            ResumeGame();
+            else 
+            {
+                ResumeGame();
+            }
         }
         else
         {
@@ -33,41 +37,34 @@ public class PauseMenuManager : MonoBehaviour
 
     public void PauseGame()
     {
-        if (pauseMenuPanel != null)
+        if (!isPaused && pauseMenuPanel != null)
         {
-            pauseMenuPanel.SetActive(true); // Menü an
-            Time.timeScale = 0f;            // Zeit stopp
+            pauseMenuPanel.SetActive(true);
             isPaused = true;
+            GameState.Instance.RequestPause(true); 
         }
     }
 
     public void ResumeGame()
     {
-        if (pauseMenuPanel != null)
+        if (isPaused && pauseMenuPanel != null)
         {
-            pauseMenuPanel.SetActive(false); // Menü aus
-            Time.timeScale = 1f;             // Zeit läuft
+            pauseMenuPanel.SetActive(false);
             isPaused = false;
+            GameState.Instance.RequestPause(false);
         }
     }
 
     public void ActivateControls()
     {
-        if (controlActive)
-        {
-            controlsPanel.SetActive(false);
-            controlActive = false;
-        }
-        else
-        {
-            controlsPanel.SetActive(true);
-            controlActive = true;
-        }
+        controlActive = !controlActive;
+        controlsPanel.SetActive(controlActive);
     }
-    
+
     public void QuitGame()
     {
+        Time.timeScale = 1f;
         Debug.Log("Application Quit");
-          Application.Quit();
+        Application.Quit();
     }
 }

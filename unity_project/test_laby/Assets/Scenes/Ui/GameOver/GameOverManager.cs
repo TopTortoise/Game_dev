@@ -43,7 +43,7 @@ public class GameOverManager : MonoBehaviour
 
         gameOverCanvasGroup.interactable = true;
         gameOverCanvasGroup.blocksRaycasts = true;
-        Time.timeScale = 0f;
+        GameState.Instance.RequestPause(true);
     }
 
     public void PlayAgain()

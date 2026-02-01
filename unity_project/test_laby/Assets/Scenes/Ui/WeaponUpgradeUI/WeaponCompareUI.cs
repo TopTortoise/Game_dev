@@ -43,8 +43,7 @@ public class WeaponCompareUI : MonoBehaviour
   {
     pendingNewWeapon = newWeapon;
     playerRef = player;
-    Time.timeScale = 0f;
-    panel.SetActive(true);
+    
 
 
     float oldCooldown = GetTotalSpeed(player.weapon);
@@ -75,6 +74,8 @@ public class WeaponCompareUI : MonoBehaviour
       newSpeed.text = "New!";
       newSpeed.color = Color.green;
     }
+    GameState.Instance.RequestPause(true); 
+    panel.SetActive(true);
   }
 
   void UpdateWeaponUI(IWeapon weapon, TMP_Text tName, TMP_Text tDmg, TMP_Text tSpeed, TMP_Text tEffects, Image uiIcon)
@@ -206,5 +207,10 @@ public class WeaponCompareUI : MonoBehaviour
 
   public void OnClick_Equip() { playerRef.ConfirmSwapWeapon(pendingNewWeapon); CloseMenu(); }
   public void OnClick_Discard() { CloseMenu(); }
-  void CloseMenu() { Time.timeScale = 1f; panel.SetActive(false); pendingNewWeapon = null; }
+  void CloseMenu() 
+{ 
+    GameState.Instance.RequestPause(false); 
+    panel.SetActive(false); 
+    pendingNewWeapon = null; 
+}
 }
