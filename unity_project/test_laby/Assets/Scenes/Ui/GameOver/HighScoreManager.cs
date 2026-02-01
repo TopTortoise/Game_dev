@@ -7,7 +7,7 @@ public class HighScoreEntry
 {
     public string name;
     public int score;
-    public int waveReached; // Optional: Um auch die Welle in der Liste anzuzeigen
+    public int waveReached; 
 }
 
 [System.Serializable]
@@ -38,7 +38,7 @@ public class HighScoreManager : MonoBehaviour
         list.entries.Add(newEntry);
 
   
-        list.entries = list.entries.OrderByDescending(x => x.score).Take(10).ToList();
+        list.entries = list.entries.OrderByDescending(x => x.score).Take(5).ToList();
 
         SaveScores(list);
     }

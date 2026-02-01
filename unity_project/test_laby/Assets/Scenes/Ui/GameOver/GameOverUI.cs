@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour
 {
+    [Header("Panels")]
+    public GameObject scorePanel;      
+    public GameObject leaderboardPanel; 
+
+    [Header("Leaderboard List Setup")]
+    public Transform scoreContainer;   
+    public GameObject rowPrefab;        
+
+    [Header("Button Switch")]
+    public TextMeshProUGUI switchButtonText;
+
     [Header("Stats Display")]
     public TextMeshProUGUI wavesText;
     public TextMeshProUGUI enemiesText;
@@ -16,41 +27,48 @@ public class GameOverUI : MonoBehaviour
     public TMP_InputField nameInput; 
     public Button submitButton;
     public GameObject inputPanel; 
-    public GameObject highScoreListPanel; 
-    public TextMeshProUGUI highScoreListText;
 
     private int calculatedScore;
+    void OnEnable()
+    {
+        scorePanel.SetActive(true);
+        leaderboardPanel.SetActive(false);
+        if(inputPanel != null) inputPanel.SetActive(true);
+        if(switchButtonText != null) switchButtonText.text = "Leaderboard";
 
+       
+        RefreshData();
+    }
     void Start()
     {
-        ShowStats();
-        
-        // Input Setup: Max 3 Zeichen, alles Großbuchstaben
-        nameInput.characterLimit = 3;
-        nameInput.onValidateInput += delegate(string input, int charIndex, char addedChar) { return char.ToUpper(addedChar); };
-        
-        submitButton.onClick.AddListener(SubmitScore);
-    }
+       
+        if(nameInput != null) {
+            nameInput.characterLimit = 4;
+            nameInput.onValidateInput += delegate(string input, int charIndex, char addedChar) { return char.ToUpper(addedChar); };
+        }
 
-    void ShowStats()
+    }
+public void RefreshData()
     {
-        // Werte aus GameState holen
+        if (GameState.Instance == null) return;
+
+        
         int waves = GameState.Instance.nrWavesDefeated;
         int enemies = GameState.Instance.nrEnemiesDefeated;
         int bosses = GameState.Instance.nrBossesDefeated;
         int upgrades = GameState.Instance.nrTempleUpgrades;
-        
-        // Score berechnen
-        calculatedScore = GameState.Instance.CalculateTotalScore();
 
-        // UI Updaten
-        wavesText.text = $"Waves Survived: {waves}";
-        enemiesText.text = $"Enemies Defeated: {enemies}";
-        bossesText.text = $"Bosses Slain: {bosses}";
-        upgradesText.text = $"Temple Upgrades: {upgrades}";
+        calculatedScore = GameState.Instance.CalculateTotalScore();
         
-        // Großes Score Display
-        totalScoreText.text = $"TOTAL SCORE: {calculatedScore}";
+        
+        // UI Texte setzen
+        if(wavesText) wavesText.text = $"Waves\n {waves}";
+        if(enemiesText) enemiesText.text = $"Enemies\n {enemies}";
+        if(bossesText) bossesText.text = $"Bosses\n {bosses}";
+        if(upgradesText) upgradesText.text = $"Upgrades\n {upgrades}";
+        if(totalScoreText) totalScoreText.text = $"SCORE\n {calculatedScore}";
+
+        Debug.Log("Game Over Stats geladen. Score: " + calculatedScore);
     }
 
     public void SubmitScore()
@@ -58,41 +76,83 @@ public class GameOverUI : MonoBehaviour
         string playerName = nameInput.text;
 
         if (string.IsNullOrEmpty(playerName))
-            playerName = "UNK"; // Default Name falls leer
+            playerName = "UNK"; 
 
-        // Score speichern
+
         HighScoreManager.Instance.AddScore(playerName, calculatedScore, GameState.Instance.nrWavesDefeated);
 
-        // UI umschalten (Input ausblenden, Button deaktivieren)
-        inputPanel.SetActive(false);
+
+        if(inputPanel != null) inputPanel.SetActive(false);
         
-        ShowLeaderboard();
-        
-    
+
+        OpenLeaderboard(); 
     }
 
-    void ShowLeaderboard()
+    public void TogglePanels()
     {
-        if(highScoreListPanel != null) 
+        bool isLeaderboardOpen = leaderboardPanel.activeSelf;
+
+        if (isLeaderboardOpen)
         {
-            highScoreListPanel.SetActive(true);
-            var scores = HighScoreManager.Instance.GetHighScores();
+
+            leaderboardPanel.SetActive(false);
+            scorePanel.SetActive(true);
+            switchButtonText.text = "Leaderboard";
+        }
+        else
+        {
+        
+            OpenLeaderboard();
+        }
+    }
+
+    void OpenLeaderboard()
+    {
+        scorePanel.SetActive(false);
+        leaderboardPanel.SetActive(true);
+        switchButtonText.text = "Back"; 
+
+        UpdateLeaderboardList(); 
+    }
+
+
+    void UpdateLeaderboardList()
+    {
+
+        foreach (Transform child in scoreContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+
+        var scores = HighScoreManager.Instance.GetHighScores();
+
+        int rank = 1;
+        foreach (var entry in scores)
+        {
+            GameObject newRow = Instantiate(rowPrefab, scoreContainer);
             
-            string listText = "TOP SCORES\n\n";
-            int rank = 1;
-            foreach(var entry in scores)
+
+            HighScoreRowUI rowScript = newRow.GetComponent<HighScoreRowUI>();
+            if (rowScript != null)
             {
-                
-                listText += $"{rank}. {entry.name} ..... {entry.score}\n";
-                rank++;
+                rowScript.Setup(rank, entry.name, entry.score, entry.waveReached);
             }
-            highScoreListText.text = listText;
+            
+           
+            if (rank == 1) 
+            {
+                 Image rowBg = newRow.GetComponent<Image>();
+                 if(rowBg != null) rowBg.color = new Color(1f, 0.84f, 0f, 0.3f); 
+            }
+
+            rank++;
         }
     }
     
     public void GoToMainMenu()
     {
-         GameState.Instance.ResetGameState();
+         if(GameState.Instance != null) GameState.Instance.ResetGameState();
          SceneManager.LoadScene("TitleScene");
     }
 }

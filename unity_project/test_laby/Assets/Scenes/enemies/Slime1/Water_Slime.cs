@@ -21,6 +21,8 @@ public class Water_Slime : IEnemy
   public Vector2 goal;
   public Tilemap tilemap;
   public int radius = 15;
+
+  private bool isDead;
   void Awake()
   {
     TutorialObjective tutorialObj = GetComponent<TutorialObjective>();
@@ -57,6 +59,7 @@ public class Water_Slime : IEnemy
     //
     anim.SetFloat("speed_y", -1);
     anim.SetBool("is_idle", true);
+    isDead = false;
   }
 
 
@@ -261,6 +264,8 @@ public class Water_Slime : IEnemy
   }
   public override void OnDeath()
   {
+    if(isDead) return;
+    isDead = true;
     AudioManager.Instance.Play(AudioManager.SoundType.Slime);
     Debug.Log("Enemy Died");
     GetComponent<LootDropper>().DropLoot();

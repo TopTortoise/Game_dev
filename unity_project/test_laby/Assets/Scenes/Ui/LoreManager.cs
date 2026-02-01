@@ -63,6 +63,21 @@ public class LoreManager : MonoBehaviour
         dialogueText.text = dialogueLines[currentLineIndex].text;
         isTyping = false;
     }
+     public static void DestroyAllDontDestroyOnLoadObjects()
+    {
+        // Create a temporary object so we can get the DDOL scene
+        GameObject temp = new GameObject("TempDDOLFinder");
+        Object.DontDestroyOnLoad(temp);
+
+        Scene ddolScene = temp.scene;
+
+        GameObject[] roots = ddolScene.GetRootGameObjects();
+
+        for (int i = 0; i < roots.Length; i++)
+        {
+            Object.Destroy(roots[i]);
+        }
+    }
 
     void ShowDialog()
     {
@@ -96,6 +111,8 @@ public class LoreManager : MonoBehaviour
         }
         else
         {
+            DestroyAllDontDestroyOnLoadObjects();
+           
             SceneManager.LoadScene(nextSceneName);
         }
     }

@@ -15,8 +15,7 @@ public abstract class IWeapon : MonoBehaviour
 
 
   public void equip(List<Weaponupgrade> upgrades)
-  {//kill me
-   //lovely comments here
+  {
 
     Debug.Log("equipping wiht as = " + stats.attackspeed);
     foreach (Weaponupgrade upgrade in upgrades)
@@ -40,7 +39,7 @@ public abstract class IWeapon : MonoBehaviour
   public abstract void onUnequip();
   public void OnAttack()
   {
-    // shooting logic using currentStats
+    
   }
   public void OnHit(IEnemy target)
   {

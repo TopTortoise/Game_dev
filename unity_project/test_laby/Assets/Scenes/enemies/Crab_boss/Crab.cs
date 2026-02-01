@@ -17,7 +17,7 @@ public class Crab :  IEnemy, IKillable
   private Animator anim;
   private Vector2 moveDirection;
   
-
+  private bool isDead;
   private void Awake()
   {
 
@@ -43,6 +43,7 @@ public class Crab :  IEnemy, IKillable
     }
 
     Debug.Log("Player is " + player);
+    isDead = false;
   }
 
 
@@ -52,7 +53,7 @@ public class Crab :  IEnemy, IKillable
   bool isdashing = false;
   void Update()
   {
-
+    if (isDead) return;
     handleEffects();
     time += Time.deltaTime;
     if (player != null && time > attack_cooldown && !isdashing)
@@ -137,10 +138,13 @@ public class Crab :  IEnemy, IKillable
 
   public override void OnDeath()
   {
+    if (isDead) return;
+    isDead = true;
     isdashing = false;
     anim.SetBool("isDead", true);
     Debug.Log("Boss Died");
     StartCoroutine(DeathRoutine(1.5f));
+    GameState.Instance.nrBossesDefeated++;
   }
 
   IEnumerator DeathRoutine(float duration)
@@ -148,7 +152,6 @@ public class Crab :  IEnemy, IKillable
     Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
     yield return new WaitForSeconds(duration);
     Debug.Log($"Ended at {Time.time}");
-    GameState.Instance.nrBossesDefeated++;
     Destroy(gameObject);
   }
 

@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testScenes/Lore/LoreScene.unity
     guid: ec4b99e018da1e7448419b04b3dbafa5
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene/TutorialScene.unity
+    guid: 5553d0b3dfa717c4eb67e7647be54c2f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

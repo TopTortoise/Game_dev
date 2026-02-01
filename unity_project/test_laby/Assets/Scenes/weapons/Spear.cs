@@ -151,7 +151,8 @@ public class Spear : IWeapon
         return;
       }
       IKillable obj = collider.gameObject.GetComponent<IKillable>();
-      if (obj != null)
+      Debug.Log("tag is "+collider.gameObject.tag);
+      if (obj != null && collider.gameObject.tag != "torch")
       {
 
         obj.hit(stats.damage);

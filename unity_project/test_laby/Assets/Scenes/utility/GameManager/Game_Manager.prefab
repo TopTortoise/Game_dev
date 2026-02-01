@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   SpawnPoint: {x: 0, y: 0, z: 0}
+  Torch: {fileID: 579879467762394870, guid: afe31ab217b866096b8faa36ae10a983, type: 3}
   lootrooms: []
 --- !u!114 &-6636765460608574702
 MonoBehaviour:

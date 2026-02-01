@@ -13,7 +13,7 @@ public class TitleScreen : MonoBehaviour
     public GameObject startPanel;
     public GameObject difficultyPanel;
 
-    public string sceneToLoad = "MainScene";
+    public string sceneToLoad = "LoreScene";
     void Start()
     {
        
@@ -22,7 +22,7 @@ public class TitleScreen : MonoBehaviour
     }
     public void OnClickedStart()
     {
-       startPanel.SetActive(false);
+        startPanel.SetActive(false);
         difficultyPanel.SetActive(true);
     }
     public void OnNormalClicked()
@@ -35,9 +35,14 @@ public class TitleScreen : MonoBehaviour
         GameData.selectedDifficulty = Difficulty.TeacherMode;
         StartGame();
     }
+    public void OnClickedBack()
+    {
+        startPanel.SetActive(true);
+        difficultyPanel.SetActive(false);
+    }
     public void TutorialSceen()
     {
-        SceneManager.LoadScene("TutorialSceen");
+        SceneManager.LoadScene("TutorialScene");
     }
 
     public void QuitGame()

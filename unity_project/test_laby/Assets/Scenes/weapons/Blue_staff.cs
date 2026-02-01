@@ -7,7 +7,7 @@ public class Blue_staff : IWeapon
   public GameObject projectile;
   public Transform AttackPoint;
   public InputAction AimAction;
-  // Start is called once before the first execution of Update after the MonoBehaviour is created
+  
   void Awake()
   {
     stats.damage = 1f;
@@ -16,8 +16,7 @@ public class Blue_staff : IWeapon
   }
   void Start()
   {
-    // stats.damage = 1;
-    // stats.attackspeed = 0.5f;
+ 
   }
 
 
@@ -60,7 +59,7 @@ public class Blue_staff : IWeapon
 
     }
   }
-  //implemet on Hit_logic
+
   public override void Attack()
   {
 
@@ -85,7 +84,7 @@ public class Blue_staff : IWeapon
       GameObject bullet = Instantiate(projectile, AttackPoint.position, Quaternion.identity);
       AudioManager.Instance.Play(AudioManager.SoundType.Shoot);
       bullet.GetComponent<projectile>().OnHit += HandleonHit;
-      // Debug.Log( );
+   
       bullet.GetComponent<projectile>().direction = direction;   // speed
 
       StartCoroutine(RotateCoroutine());

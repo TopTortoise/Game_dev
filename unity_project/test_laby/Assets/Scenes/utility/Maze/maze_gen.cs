@@ -103,14 +103,14 @@ public class maze_gen : MonoBehaviour
     Start();
   }
 
-  private void Update()
+  /* private void Update()
   {
     if (seed != lastseed)
     {
       Debug.Log("Maze value changed! Regenerating...");
       reset();
     }
-  }
+  } */
 
   (ArrayList, ArrayList) walk()
   {

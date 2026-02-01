@@ -21,50 +21,9 @@ public class Enemy_Manager : MonoBehaviour
   public int current_wave_index = 0;
   public EffectPool effects;
 
-  /*
-  void Start()
-  {
-      if (GameState.Instance == null)
-      {
-          Debug.LogError("GameState missing!");
-          return;
-      }
-
-      GameState.Instance.OnCycleEnded += OnCycleEnded;
-      Debug.Log("Enemy_Manager subscribed to OnCycleEnded");
-  }
-
-void OnDestroy()
-{
-    if (GameState.Instance != null)
-        GameState.Instance.OnCycleEnded -= OnCycleEnded;
-}
-
-
-
-  void OnCycleEnded()
-  {
-      StartCoroutine(spawnWave());
-  }*/
-
-  // Start is called once before the first execution of Update after the MonoBehaviour is created
   void loadprefabs()
   {
 
-    /* string dir = "Assets/Scenes/weapons";
-    string[] files = Directory.GetFiles(dir, "*.prefab", SearchOption.TopDirectoryOnly);
-    foreach (string file in files)
-    {
-      Debug.Log(file);
-      GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(file);
-      if (prefab != null)
-      {
-        // Debug.Log(prefab);
-        items.Add(prefab);
-        // Instantiate(prefab);   
-      }
-    } */
-    // Cursor.visible = false;
   }
 
   public void SetPositions(ArrayList end_maze, ArrayList in_maze)
@@ -97,7 +56,6 @@ void OnDestroy()
   void fill_maze()
   {
 
-    spawnItem(new Vector3Int(260, -33, 0));
     foreach (Vector3Int position in in_maze_positions)
     {
 
@@ -223,7 +181,7 @@ void OnDestroy()
 
 
     GameObject item = PickWeapon();
-    Debug.Log(item+ " at "+pos);
+    Debug.Log(item + " at " + pos);
     // Debug.Log("item is ")
     float t = Mathf.Clamp01(distance_to_start / 750f);//get camppl value between 0 and 1
     float dmg = maxdmg * weaponstats.Evaluate(t);//get value of curve

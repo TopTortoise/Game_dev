@@ -103,6 +103,8 @@ public class Temple : MonoBehaviour, IKillable
 
     public void ResetTemple()
     {
+        destroyed = false;
+        Debug.Log("Reset Temple called");
         if (spriteRenderer != null && destroyedSprite != null)
             spriteRenderer.sprite = intactSprite;
         health = GameState.Instance.templeHealth;
@@ -215,7 +217,7 @@ public class Temple : MonoBehaviour, IKillable
         float newInterval = baseUltInterval - ((GameState.Instance.levelUltCooldown -1) * cooldownReductionPerLevel);
         attackInterval = Mathf.Max(newInterval, minCooldown);
 
-        // Debug.Log($"Stats Updated: HP:{max_health}, Dmg:{damage}, CD:{attackInterval}");
+       
     }
 
     public int GetUpgradeCost(int currentLevel)

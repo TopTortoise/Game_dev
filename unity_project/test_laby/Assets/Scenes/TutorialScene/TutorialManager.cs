@@ -226,10 +226,31 @@ public class TutorialManager : MonoBehaviour
         AdvanceStep(nextStep);
     }
 
+    public static void DestroyAllDontDestroyOnLoadObjects()
+    {
+        // Create a temporary object so we can get the DDOL scene
+        GameObject temp = new GameObject("TempDDOLFinder");
+        Object.DontDestroyOnLoad(temp);
+
+        Scene ddolScene = temp.scene;
+
+        GameObject[] roots = ddolScene.GetRootGameObjects();
+
+        for (int i = 0; i < roots.Length; i++)
+        {
+            Object.Destroy(roots[i]);
+        }
+    }
+
+    public void OnQuitTutoiralClicked()
+    {
+        Time.timeScale = 1f;
+        AdvanceStep(TutorialStep.StartGame);
+    }
     
     IEnumerator EndTutorialSequence()
     {
-        
+        DestroyAllDontDestroyOnLoadObjects();
         yield return new WaitForSeconds(4f); 
 
         SceneManager.LoadScene("TitleScene"); 

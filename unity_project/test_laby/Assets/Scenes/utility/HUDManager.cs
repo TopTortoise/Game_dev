@@ -47,6 +47,6 @@ public class HUDManager : MonoBehaviour
 
     private void TipsUI()
     {
-        //introUI.text = "Test"; This broke the HUD lol
+       
     }
 }

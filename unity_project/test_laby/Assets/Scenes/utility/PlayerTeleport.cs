@@ -8,12 +8,12 @@ public class PlayerTeleport : MonoBehaviour
     [Header("Einstellungen")]
     public float channelTime = 3.0f; // Dauert 3 Sekunden
     public KeyCode teleportKey = KeyCode.T; // Taste zum Teleportieren
-    public float combatRadius = 10f; // Wie nah dürfen Gegner sein?
-    public LayerMask enemyLayer; // Damit wir wissen, was ein Gegner ist
+    public float combatRadius = 10f; 
+    public LayerMask enemyLayer; 
 
     [Header("Visuals")]
-    public Image channelBar; // Zieh hier dein UI Image rein
-    public GameObject channelEffect; // (Optional) Partikel während des Channelns
+    public Image channelBar; 
+    public GameObject channelEffect; 
 
     private bool isChanneling = false;
     private Coroutine currentChannelRoutine;
@@ -29,8 +29,7 @@ public class PlayerTeleport : MonoBehaviour
             }
         }
 
-        // Abbrechen, wenn Taste losgelassen wird (optional) 
-        // oder wenn man sich bewegt (siehe Coroutine)
+
         if (Input.GetKeyUp(teleportKey) && isChanneling)
         {
             CancelChannel();
@@ -39,7 +38,7 @@ public class PlayerTeleport : MonoBehaviour
 
     private bool CanTeleport()
     {
-        // 1. Check: Sind wir im LootRoom? (Dort darf man sich meistens nicht wegteleportieren)
+       
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "SmallLootRoom" || sceneName == "LargeLootRoom")
         {
@@ -47,12 +46,12 @@ public class PlayerTeleport : MonoBehaviour
             return false;
         }
 
-        // 2. Check: Sind wir im Kampf? (Gegner in der Nähe)
+       
         Collider2D enemyNearby = Physics2D.OverlapCircle(transform.position, combatRadius, enemyLayer);
         if (enemyNearby != null)
         {
             Debug.Log("Nicht im Kampf teleportieren! Gegner in der Nähe: " + enemyNearby.name);
-            // Hier könntest du einen roten Text einblenden "Gegner zu nah!"
+            
             return false;
         }
 
@@ -73,21 +72,21 @@ public class PlayerTeleport : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            // Update UI Bar
+           
             if (channelBar != null)
             {
                 channelBar.fillAmount = timer / channelTime;
             }
 
-            // ABBRUCH: Wenn Spieler sich bewegt
+           
             if (Vector3.Distance(transform.position, startPos) > 0.1f)
             {
                 Debug.Log("Bewegung erkannt - Teleport abgebrochen!");
                 CancelChannel();
-                yield break; // Coroutine beenden
+                yield break; 
             }
 
-            // ABBRUCH: Wenn plötzlich Gegner kommen (optional, falls gewünscht)
+            
             if (Physics2D.OverlapCircle(transform.position, combatRadius, enemyLayer))
             {
                 Debug.Log("Gegner aufgetaucht - Teleport abgebrochen!");
@@ -95,10 +94,10 @@ public class PlayerTeleport : MonoBehaviour
                 yield break;
             }
 
-            yield return null; // Warte auf nächsten Frame
+            yield return null; 
         }
 
-        // WENN FERTIG:
+        
         PerformTeleport();
     }
 
@@ -108,7 +107,6 @@ public class PlayerTeleport : MonoBehaviour
         
         isChanneling = false;
         
-        // Reset UI
         if (channelBar != null) channelBar.fillAmount = 0f;
         if (channelEffect != null) channelEffect.SetActive(false);
     }
@@ -116,16 +114,16 @@ public class PlayerTeleport : MonoBehaviour
     private void PerformTeleport()
     {
         Debug.Log("Teleport erfolgreich!");
-        CancelChannel(); // UI zurücksetzen
+        CancelChannel();
 
-        // Hier rufen wir dein PlayerPersistence auf!
+       
         if (PlayerPersistence.Instance != null)
         {
             PlayerPersistence.Instance.RestoreReturnPosition();
         }
     }
     
-    // Nur zum Sehen des Radius im Editor
+   
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -261,8 +261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -277.2967, y: 124.4}
-  m_SizeDelta: {x: 167.2366, y: 33.1453}
+  m_AnchoredPosition: {x: -343.06375, y: 308.92218}
+  m_SizeDelta: {x: 241.0002, y: 102.3603}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &114655860
 MonoBehaviour:
@@ -277,14 +277,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -3077846967380385614, guid: 92c5073e99e01564fbb6c5aa8b9ca3fd, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &114655861
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -352,14 +352,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.1764706}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1773464307890469094, guid: f90d9f68c6116f2819373043edd6233e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -411,8 +411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -109.58}
-  m_SizeDelta: {x: 185.5854, y: -219.1633}
+  m_AnchoredPosition: {x: 37, y: -220.29}
+  m_SizeDelta: {x: 479.5208, y: -440.5885}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &564166187
 MonoBehaviour:
@@ -565,8 +565,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 95.46875, y: -44.416595}
-  m_SizeDelta: {x: 421.4688, y: -88.8332}
+  m_AnchoredPosition: {x: 0, y: -44.416626}
+  m_SizeDelta: {x: 739.5, y: -88.8332}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &574493357
 MonoBehaviour:
@@ -655,49 +655,50 @@ MonoBehaviour:
   nameText: {fileID: 1503593377}
   dialogueText: {fileID: 1207948881}
   dialogueLines:
-  - speakerName: Daedalus
-    text: Ugh... Mein Kopf... Das letzte, an das ich mich erinnere, ist eine riesige
-      Keule. Bin ich... tot
+  - speakerName: Deciple
+    text: Ugh... my head... The last thing I remember is a giant club. Am I... dead?
     isGoddess: 0
-  - speakerName: Hemera
-    text: "Du wandelst auf dem Grat zwischen den Welten, Sterblicher. Ich habe deine
-      Seele aufgefangen, bevor sie ins Nichts st\xFCrzen konnte."
+  - speakerName: Hekate
+    text: You walk the line between worlds, mortal. I caught your soul before it
+      could plunge into the abyss.
     isGoddess: 1
-  - speakerName: Daedalus
-    text: "Eine G\xF6ttin? Warum hast du mich gerettet? Ich bin kein Held, nur ein
-      Abenteurer mit viel Pech."
+  - speakerName: Deciple
+    text: "A goddess? Why did you save me? I\u2019m no hero, just an adventurer with
+      a lot of bad luck."
     isGoddess: 0
-  - speakerName: Hemera
-    text: "Weil ich einen Besch\xFCtzer brauche. Dunkle Kreaturen belagern mein Heiligtum.
-      Wenn dieser Tempel f\xE4llt, erlischt auch mein Licht \u2013 und damit dein
-      neues Leben."
+  - speakerName: Hekate
+    text: "Because I require a protector. Dark creatures are besieging my sanctuary.
+      If this temple falls, my light will fade \u2013 and with it, your new life."
     isGoddess: 1
-  - speakerName: Hemera
-    text: "Wir schlie\xDFen einen Pakt: Verteidige diesen Ort, und ich verankere
-      deine Seele dauerhaft in dieser Welt."
+  - speakerName: Hekate
+    text: 'We shall strike a pact: Defend this place, and I will anchor your soul
+      permanently in this world.'
     isGoddess: 1
-  - speakerName: Daedalus
-    text: "Klingt nach Arbeit, ist aber besser als tot sein. Aber ich bin verwundet
-      und meine Ausr\xFCstung ist Schrott."
+  - speakerName: Deciple
+    text: "Sounds like a lot of work, but it beats being dead. But I\u2019m wounded,
+      and my gear is total junk."
     isGoddess: 0
-  - speakerName: Hemera
-    text: "F\xFCr deine Wunden habe ich einen gesegneten Brunnen im Tempelhof erschaffen.
-      Trinke daraus, und deine Kraft kehrt zur\xFCck"
+  - speakerName: Hekate
+    text: For your wounds, I have created a blessed well in the temple courtyard.
+      Drink from it, and your strength shall return.
     isGoddess: 1
-  - speakerName: Goddess
-    text: "Was deine Ausr\xFCstung angeht: Das alte Labyrinth nebenan birgt m\xE4chtige
-      Waffen vergangener Helden. Suche dort nach Ausr\xFCstung."
+  - speakerName: Hekate
+    text: 'As for your equipment: The ancient labyrinth nearby holds powerful weapons
+      of fallen heroes. Seek your gear there.'
     isGoddess: 1
-  - speakerName: Daedalus
-    text: "In das Labyrinth? Ist das nicht gef\xE4hrlich, wenn hier eine Armee anr\xFCckt?"
+  - speakerName: Deciple
+    text: Into the labyrinth? Isn't that dangerous with an army closing in?
     isGoddess: 0
-  - speakerName: Hemera
-    text: "H\xF6re gut zu: Die Bestien f\xFCrchten das Sonnenlicht. Sie greifen nur
-      in der Nacht an."
+  - speakerName: Deciple
+    text: 'Listen closely: The beasts fear the sunlight. They attack only at night'
+    isGoddess: 0
+  - speakerName: Hekate
+    text: Use the day to scavenge the labyrinth and prepare yourself. As soon as
+      the sun sets, you must be back at the temple.
     isGoddess: 1
-  - speakerName: Daedalus
-    text: "Verstanden. Tags\xFCber looten, nachts k\xE4mpfen, Brunnen zum Heilen.
-      Dann wollen wir mal sehen, was das Labyrinth hergibt."
+  - speakerName: Deciple
+    text: "Got it. Loot by day, fight by night, use the well to heal. Let\u2019s
+      see what that labyrinth has to offer then."
     isGoddess: 0
   nextSceneName: MainScene
 --- !u!1 &915665610
@@ -735,8 +736,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -70.206024, y: 0}
-  m_SizeDelta: {x: 581.41, y: 124.4038}
+  m_AnchoredPosition: {x: -121.53317, y: 0}
+  m_SizeDelta: {x: 684.0642, y: 308.9161}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &915665612
 MonoBehaviour:
@@ -751,14 +752,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -3077846967380385614, guid: 92c5073e99e01564fbb6c5aa8b9ca3fd, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -767,7 +768,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 8
 --- !u!222 &915665613
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -808,10 +809,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 915665611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.055771105, y: 0.097}
+  m_AnchorMax: {x: 0.94946194, y: 0.8965258}
+  m_AnchoredPosition: {x: 0.539093, y: 1}
+  m_SizeDelta: {x: 0.90390015, y: -1.4786987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1207948881
 MonoBehaviour:
@@ -842,8 +843,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279506009
+  m_fontColor: {r: 0.3490566, g: 0.07738519, b: 0.07738519, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -860,12 +861,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 40
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 15
-  m_fontSizeMax: 15
+  m_fontSizeMax: 40
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -944,10 +945,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 114655859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.078896254, y: 0.127}
+  m_AnchorMax: {x: 0.93785065, y: 0.873}
+  m_AnchoredPosition: {x: -0.18319702, y: -0.08760071}
+  m_SizeDelta: {x: -0.45339966, y: 0.7838001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503593377
 MonoBehaviour:
@@ -978,8 +979,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279506009
+  m_fontColor: {r: 0.34901962, g: 0.078431375, b: 0.078431375, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -996,7 +997,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.2
+  m_fontSize: 34
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1059,6 +1060,7 @@ GameObject:
   - component: {fileID: 1709595101}
   - component: {fileID: 1709595100}
   - component: {fileID: 1709595099}
+  - component: {fileID: 1709595102}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1140,6 +1142,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709595102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709595098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1998034652
 GameObject:
   m_ObjectHideFlags: 0
