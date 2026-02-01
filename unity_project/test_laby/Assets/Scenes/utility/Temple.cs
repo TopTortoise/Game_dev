@@ -47,11 +47,13 @@ public class Temple : MonoBehaviour, IKillable
 
     void Awake()
     {
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         hp = GetComponentInChildren<Health>();
 
         health = GameState.Instance.templeHealth;
         max_health = GameState.Instance.templeHealth;
+        Debug.Log("Temple Awake - GameState Health: " + health);
         hp.set_max_hp(max_health);
         hp.set_hp(health);
 
@@ -130,7 +132,6 @@ public class Temple : MonoBehaviour, IKillable
         hp.set_max_hp(max_health);
 
         hp.set_hp(health);
-        hp.set_hp(max_health);
 
         GameState.Instance.SetTempleHealth(max_health);
         GameState.Instance.SetCurrentTempleHealth(health);
@@ -203,7 +204,8 @@ public class Temple : MonoBehaviour, IKillable
 
     public void RecalculateStats()
     {
-        float calculateMaxHealth = 100f + ((GameState.Instance.levelHealth - 1) * healthPerLevel);
+        float baseHealth = GameState.Instance.templeHealth; 
+        float calculateMaxHealth = baseHealth + ((GameState.Instance.levelHealth - 1) * healthPerLevel);
 
         if (max_health != calculateMaxHealth)
         {
