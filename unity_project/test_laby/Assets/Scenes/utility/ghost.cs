@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.EventSystems;
 public class ghost : MonoBehaviour, IKillable
 {
 
@@ -249,7 +249,16 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     if (weapon != null && weapon.AttackAction.IsPressed())
     {
 
-      weapon.Attack();
+     if (weapon != null && weapon.AttackAction.IsPressed())
+{
+    
+    if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+     {}
+    else
+    {
+        weapon.Attack();
+    }
+}
     }
     if (EquipAction.WasPressedThisFrame())
     {
