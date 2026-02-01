@@ -117,7 +117,7 @@ public class GameState : MonoBehaviour
     SpawnInterval = 2.5f;
     EnemiesPerWave = 10;
     nrBosses = 0;
-    DayDuration = 180;
+    DayDuration = 300;
     nrWavesDefeated = 0;
     nrBossesDefeated = 0;
     nrEnemiesDefeated = 0;
@@ -129,6 +129,11 @@ public class GameState : MonoBehaviour
     levelHealth = 1;
     levelUltDamage = 1;
     levelUltCooldown = 1;
+    Temple temple = FindFirstObjectByType<Temple>();
+    if (temple != null)
+    {
+        temple.setHpText(); 
+    }
 
   }
 

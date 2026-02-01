@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using System.Collections;
+using TMPro; 
 public class Temple : MonoBehaviour, IKillable
 {
 
@@ -19,7 +20,7 @@ public class Temple : MonoBehaviour, IKillable
     private SpriteRenderer spriteRenderer;
     private Health hp;
     private bool destroyed = false;
-
+    public TextMeshProUGUI HpText;
 
     [Header("Ultimate Attack")]
     public float damage = 1f;
@@ -74,7 +75,11 @@ public class Temple : MonoBehaviour, IKillable
         baseUltInterval = 10f;
 
         RecalculateStats();
-
+        setHpText();
+    }
+    public void setHpText()
+    {
+        HpText.text = hp.health.ToString(); 
     }
 
     void Update()
@@ -91,6 +96,7 @@ public class Temple : MonoBehaviour, IKillable
             hp.change_health(-regenAmount);
 
             regenTimer = regenInterval;
+            setHpText();
         }
         attackTimer -= Time.deltaTime;
 
@@ -112,6 +118,7 @@ public class Temple : MonoBehaviour, IKillable
         max_health = GameState.Instance.templeHealth;
         hp.set_max_hp(max_health);
         hp.set_hp(health);
+        setHpText();
     }
 
     void Start()
@@ -234,6 +241,7 @@ public class Temple : MonoBehaviour, IKillable
         if (destroyed) return;
 
         hp.change_health(damage);
+        setHpText();
     }
 
     public void OnDeath()
