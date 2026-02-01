@@ -55,6 +55,16 @@ public class Vase : MonoBehaviour, IKillable
       item.transform.position = transform.position;   // spawn into the scene
       weapon_upgrade.Apply(item.GetComponent<IWeapon>());
 
+
+      // dropped_item.GetComponent<IWeapon>().stats = new();
+      // IWeapon weapon = dropped_item.GetComponent<IWeapon>();
+      // Debug.Log("weaon is " + weapon.stats.attackspeed);
+      // weapon_upgrade.Apply(weapon);
+      // weapon.applied_upgrades.Add(weapon_upgrade.upgradeID);
+      // Debug.Log("weaon is " + weapon.stats.attackspeed);
+    }
+    else
+    {
       for (int i = 0; i <= 2; i++)
       {
 
@@ -67,12 +77,7 @@ public class Vase : MonoBehaviour, IKillable
 
         }
       }
-      // dropped_item.GetComponent<IWeapon>().stats = new();
-      // IWeapon weapon = dropped_item.GetComponent<IWeapon>();
-      // Debug.Log("weaon is " + weapon.stats.attackspeed);
-      // weapon_upgrade.Apply(weapon);
-      // weapon.applied_upgrades.Add(weapon_upgrade.upgradeID);
-      // Debug.Log("weaon is " + weapon.stats.attackspeed);
     }
+
   }
 }
