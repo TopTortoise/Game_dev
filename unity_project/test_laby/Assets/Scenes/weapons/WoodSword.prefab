@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   stats:
     damage: 0.5
-    attackspeed: 0.9
+    attackspeed: 1
     range: 1
     rarity: 1
   is_equipped: 0

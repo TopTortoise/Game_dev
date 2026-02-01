@@ -221,12 +221,20 @@ MonoBehaviour:
     m_Flags: 0
   applied_upgrades: []
   effects: []
-  Attackpoint: {fileID: 4491446182615914694}
-  radius: 0.68
-  enemy_layer:
-    serializedVersion: 2
-    m_Bits: 128
-  rotationAngle: -90
+  offset: 0
+  is_attacking: 0
+  AttackPoint: {fileID: 0}
+  AimAction:
+    m_Name: Aim
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a7596deb-3080-474a-a2b3-05171a101eab
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  swingAngle: 120
+  swingRadius: 0.5
 --- !u!58 &7821684688752240436
 CircleCollider2D:
   m_ObjectHideFlags: 0
