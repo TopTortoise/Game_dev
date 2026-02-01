@@ -26,7 +26,7 @@ public class GameState : MonoBehaviour
 
 
   // ---- High Score Game Stats (For Death Page)
-  public int nrWavesDefeated;
+public int nrWavesDefeated;
   public int nrBossesDefeated;
   public int nrEnemiesDefeated;
   public int nrTempleUpgrades;
@@ -109,6 +109,7 @@ public class GameState : MonoBehaviour
     nrEnemiesDefeated = 0;
     nrTempleUpgrades = 0;
     CurrencyManager.Instance.ResetCoins();
+    GameManager.Instance.Torchpoint.Clear();
     currentTempleHealth = templeHealth;
 
   }
@@ -153,6 +154,8 @@ public class GameState : MonoBehaviour
     timeRemaining = duration;
     isCountingDown = true;
     warningStarted = false;
+    
+
 
     OnCycleStarted?.Invoke();
   }
