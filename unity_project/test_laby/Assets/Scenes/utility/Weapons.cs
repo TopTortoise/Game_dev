@@ -1,7 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 
 public abstract class IWeapon : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public abstract class IWeapon : MonoBehaviour
 
   public void equip(List<Weaponupgrade> upgrades)
   {
-    StopDespawn();
     Debug.Log("equipping wiht as = " + stats.attackspeed);
     foreach (Weaponupgrade upgrade in upgrades)
     {
@@ -35,40 +33,9 @@ public abstract class IWeapon : MonoBehaviour
   }
   public void unequip()
   {
-    StartDespawn();
     onUnequip();
-  }
-
-  private float despawnMinutes = 1f;
-  private Coroutine despawnCoroutine;
-
-  public void StartDespawn()
-  {
-    // Prevent starting multiple timers
-    if (despawnCoroutine != null)
-      StopCoroutine(despawnCoroutine);
-
-    despawnCoroutine = StartCoroutine(DespawnTimer());
-  }
-
-  public void StopDespawn()
-  {
-    if (despawnCoroutine != null)
-    {
-      StopCoroutine(despawnCoroutine);
-      despawnCoroutine = null;
-    }
-  }
-
-  private IEnumerator DespawnTimer()
-  {
-    float seconds = despawnMinutes * 10f;
-    yield return new WaitForSeconds(seconds);
-
-    DestroyObject(gameObject);
     Destroy(gameObject);
   }
-
 
   public abstract void onUnequip();
   public void OnAttack()
