@@ -438,6 +438,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     AudioManager.Instance.Play(AudioManager.SoundType.Teleport);
     StartCoroutine(AnimateDeathSpotlight());
     StartCoroutine(DeathSequence());
+    CurrencyManager.Instance.ResetCoins();
 
     Animator anim = GetComponent<Animator>();
     if (anim != null)

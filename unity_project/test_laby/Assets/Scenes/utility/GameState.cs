@@ -117,7 +117,7 @@ public class GameState : MonoBehaviour
     SpawnInterval = 2.5f;
     EnemiesPerWave = 10;
     nrBosses = 0;
-    DayDuration = 300;
+    DayDuration = 180;
     nrWavesDefeated = 0;
     nrBossesDefeated = 0;
     nrEnemiesDefeated = 0;
