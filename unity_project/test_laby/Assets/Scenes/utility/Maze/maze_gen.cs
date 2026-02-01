@@ -125,13 +125,14 @@ public class maze_gen : MonoBehaviour
     // LinkedList<Vector3Int> somelist = new();
     // somelist.AddFirst(next_pos);
     somelist.Add(next_pos);
-
+    
     tilemap.SetTile(curr_pos, tiles[Random.Range(0, tiles.Length - 1)]);
     tilemap.SetTile(curr_pos + Vector3Int.left * 2, tiles[Random.Range(0, tiles.Length - 1)]);
     tilemap.SetTile(curr_pos + Vector3Int.left, tiles[Random.Range(0, tiles.Length - 1)]);
     tilemap.SetTile(curr_pos + Vector3Int.right, tiles[Random.Range(0, tiles.Length - 1)]);
     tilemap.SetTile(curr_pos + Vector3Int.right * 2, tiles[Random.Range(0, tiles.Length - 1)]);
     int count = 0;
+    List<Vector3Int> trap_list = new();
     while (somelist.Count > 0)
     {
       //set tile
@@ -141,9 +142,14 @@ public class maze_gen : MonoBehaviour
         curr_pos += next_step;
         tilemap.SetTile(curr_pos, tiles[Random.Range(0, tiles.Length - 1)]);
 
-
+        trap_list.Clear();
         Vector3Int side_1 = next_step.x == 0 ? Vector3Int.left : Vector3Int.up;
         Vector3Int side_2 = next_step.x == 0 ? Vector3Int.right : Vector3Int.down;
+        trap_list.Add(curr_pos);
+        trap_list.Add(curr_pos + side_1);
+        trap_list.Add(curr_pos + side_2);
+        // trap_list.Add(curr_pos + side_1 + side_1);
+        // trap_list.Add(curr_pos + side_2 + side_2);
         tilemap.SetTile(curr_pos + side_1 + side_1, tiles[Random.Range(0, tiles.Length - 1)]);
         tilemap.SetTile(curr_pos + side_1, tiles[Random.Range(0, tiles.Length - 1)]);
         tilemap.SetTile(curr_pos + side_2, tiles[Random.Range(0, tiles.Length - 1)]);
@@ -166,7 +172,7 @@ public class maze_gen : MonoBehaviour
       else if (Random.value <= 0.15)
       {
 
-        trap_positions.Add(curr_pos);
+        trap_positions.AddRange(trap_list);
       }
       //backtrack
       while (next_step == Vector3Int.zero)

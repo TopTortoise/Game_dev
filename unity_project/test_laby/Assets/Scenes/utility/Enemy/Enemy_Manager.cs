@@ -28,9 +28,8 @@ public class Enemy_Manager : MonoBehaviour
 
   public void SetPositions(ArrayList end_maze, ArrayList in_maze)
   {
-
-    end_maze_positions = end_maze;
-    in_maze_positions = in_maze;
+    end_maze_positions = end_maze;// at the deadends
+    in_maze_positions = in_maze;//inside the maze
   }
   public ArrayList getPositions()
   {
@@ -55,11 +54,24 @@ public class Enemy_Manager : MonoBehaviour
 
   void fill_maze()
   {
-
+    int counter = 0;
+    GameObject trap = trap_prefabs[Random.Range(0, trap_prefabs.Length)];
     foreach (Vector3Int position in in_maze_positions)
     {
 
-      go.Add(Instantiate(trap_prefabs[Random.Range(0, trap_prefabs.Length)], position, Quaternion.identity));
+      counter = counter % 3;
+
+      go.Add(Instantiate(trap, position, Quaternion.identity));
+
+      if (counter == 2)
+      {
+        trap = trap_prefabs[Random.Range(0, trap_prefabs.Length)];
+      }
+
+
+
+      counter++;
+
     }
 
 

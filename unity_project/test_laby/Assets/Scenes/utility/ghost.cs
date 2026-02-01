@@ -89,8 +89,8 @@ public class ghost : MonoBehaviour, IKillable
     {
       Debug.Log("Weapon is unequipped");
 
-      weapon.transform.SetParent(null);
       weapon.unequip();
+      weapon.transform.SetParent(null);
       weapon = null; // only null briefly during swap
     }
 
@@ -100,7 +100,7 @@ public class ghost : MonoBehaviour, IKillable
   void equip()
   {
     Debug.Log("pressed equip");
-    LayerMask layer = LayerMask.GetMask("Weapon","Player");
+    LayerMask layer = LayerMask.GetMask("Weapon", "Player");
     Collider2D[] colliders =
         Physics2D.OverlapCircleAll(transform.position, equip_radius, layer);
 
@@ -109,7 +109,7 @@ public class ghost : MonoBehaviour, IKillable
     IWeapon new_weapon = null;
     Vector3 pickup_position = Vector3.zero;
 
-  
+
     foreach (Collider2D item in colliders)
     {
       Item coin = item.GetComponent<Item>();
@@ -119,9 +119,9 @@ public class ghost : MonoBehaviour, IKillable
         coin.pickup();
         continue;
       }
-     
+
       TorchTurret placedTorch = item.gameObject.GetComponent<TorchTurret>();
-      Debug.Log("placedTorch  is "+ placedTorch);
+      Debug.Log("placedTorch  is " + placedTorch);
       if (placedTorch != null)
       {
         if (torches < maxTorches)
@@ -146,51 +146,51 @@ public class ghost : MonoBehaviour, IKillable
       if (candidate != null && candidate != weapon)
       {
         if (WeaponCompareUI.Instance != null)
-                {
-                    WeaponCompareUI.Instance.ShowComparison(candidate, this);
-                }
-                else
-                {
-                    
-                    ConfirmSwapWeapon(candidate);
-                }
-                return;
+        {
+          WeaponCompareUI.Instance.ShowComparison(candidate, this);
+        }
+        else
+        {
+
+          ConfirmSwapWeapon(candidate);
+        }
+        return;
       }
     }
 
-   
+
     if (new_weapon == null)
       return;
 
-    
+
   }
   public void ConfirmSwapWeapon(IWeapon new_weapon)
+  {
+    Vector3 pickup_position = new_weapon.transform.position;
+
+
+    IWeapon old_weapon = unequip();
+
+
+    if (old_weapon != null)
     {
-        Vector3 pickup_position = new_weapon.transform.position;
+      old_weapon.transform.position = pickup_position;
 
-        
-        IWeapon old_weapon = unequip();
-
-       
-        if (old_weapon != null)
-        {
-            old_weapon.transform.position = pickup_position;
-            
-            old_weapon.gameObject.SetActive(true); 
-        }
-
-        
-        weapon = new_weapon;
-        weapon.transform.SetParent(transform);
-        weapon.transform.localPosition = Vector3.zero;
-        weapon.transform.localRotation = Quaternion.identity;
-        
-       
-        weapon.equip(weapon_upgrades);
-        
-        
-        Debug.Log("Swapped to: " + weapon.gameObject.name);
+      old_weapon.gameObject.SetActive(true);
     }
+
+
+    weapon = new_weapon;
+    weapon.transform.SetParent(transform);
+    weapon.transform.localPosition = Vector3.zero;
+    weapon.transform.localRotation = Quaternion.identity;
+
+
+    weapon.equip(weapon_upgrades);
+
+
+    Debug.Log("Swapped to: " + weapon.gameObject.name);
+  }
 
 
   private void OnDrawGizmos()
@@ -200,7 +200,7 @@ public class ghost : MonoBehaviour, IKillable
 
 
 
-  
+
 
   private bool facingRight = true;
   void Update()
@@ -212,7 +212,7 @@ public class ghost : MonoBehaviour, IKillable
     {
       if (!FootstepDust.isPlaying)
         FootstepDust.Play();
-      
+
       anim.SetBool("isWalking", true);
       anim.SetFloat("Xinput", move.x);
       anim.SetFloat("Yinput", move.y);
@@ -259,7 +259,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     if (Ret.WasPressedThisFrame())
     {
       AudioManager.Instance.Play(AudioManager.SoundType.Teleport);
-      OnRet(); 
+      OnRet();
     }
   }
 
@@ -274,29 +274,29 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   private IEnumerator Dash()
   {
-      isDashing = true;
-      
-      anim.SetBool("isDashing", true);
+    isDashing = true;
 
-      dashDirection = move.normalized;
+    anim.SetBool("isDashing", true);
 
-     
-      rigidbody2d.linearVelocity = dashDirection * speed * dashMultiplier;
+    dashDirection = move.normalized;
 
-     
-      yield return new WaitForSeconds(dashDuration);
 
-      rigidbody2d.linearVelocity = Vector2.zero;
-      isDashing = false;
-      anim.SetBool("isDashing", false);
+    rigidbody2d.linearVelocity = dashDirection * speed * dashMultiplier;
 
-      dashOnCooldown = true; 
-      yield return new WaitForSeconds(dashCooldown);
-      dashOnCooldown = false;
+
+    yield return new WaitForSeconds(dashDuration);
+
+    rigidbody2d.linearVelocity = Vector2.zero;
+    isDashing = false;
+    anim.SetBool("isDashing", false);
+
+    dashOnCooldown = true;
+    yield return new WaitForSeconds(dashCooldown);
+    dashOnCooldown = false;
   }
 
 
-  
+
 
 
   void FixedUpdate()
@@ -326,20 +326,25 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
     Debug.Log("Hit " + collision.gameObject.name);
     if (collision.gameObject.layer == 7)
     {
+      var obj = collision.gameObject.GetComponent<IEnemy>();
+      if (obj != null)
+      {
 
-      hp.change_health(collision.gameObject.GetComponent<IEnemy>().collision_damage);
+        hp.change_health(obj.collision_damage);
+
+      }
     }
 
     else if (collision.gameObject.CompareTag("Enter Loot Room Portal"))
     {
 
-      CollideWithEnterPortal(collision); 
+      CollideWithEnterPortal(collision);
     }
 
     else if (collision.gameObject.CompareTag("Enter Large Loot Room Portal"))
     {
 
-      CollideWithEnterLargePortal(collision); 
+      CollideWithEnterLargePortal(collision);
     }
 
     else if (collision.gameObject.CompareTag("Exit Loot Room Portal"))
@@ -382,7 +387,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     SceneManager.LoadScene(GameManager.MainSceneName);
 
-   
+
     PlayerPersistence.Instance.RestoreReturnPosition();
     GameState.Instance.ResumeClock();
 
@@ -405,7 +410,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
 
   }
- 
+
 
   public void OnRet()
   {
@@ -489,7 +494,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
         StartCoroutine(AnimateReviveSpotlight());
       }
     }
-    
+
     isDead = false;
     hp.restore_hp();
 
@@ -498,7 +503,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
   IEnumerator AnimateDeathSpotlight()
   {
-    float duration = 1.2f;   
+    float duration = 1.2f;
     float time = 0f;
 
     float startT = 0.9f;
@@ -512,7 +517,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       yield return null;
     }
 
-   
+
     ChangeSpotlight(endT);
   }
 
@@ -565,7 +570,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
       spotlight.falloffIntensity = Mathf.Lerp(1f, 0f, t);
 
 
-      
+
     }
   }
   void TryPlaceTorch()
@@ -587,7 +592,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
 
 
     GameObject torch = Instantiate(torchPrefab, placePos, Quaternion.identity);
-    GameManager.Instance.Torchpoint.Add(torch.GetEntityId(),(placePos,torch.GetComponent<TorchTurret>().hp.health));
+    GameManager.Instance.Torchpoint.Add(torch.GetEntityId(), (placePos, torch.GetComponent<TorchTurret>().hp.health));
     // copy light spotlight
     Light2D torchLight = torch.GetComponentInChildren<Light2D>();
     if (torchLight != null && spotlight != null)

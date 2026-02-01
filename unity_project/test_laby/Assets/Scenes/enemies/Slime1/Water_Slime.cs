@@ -28,9 +28,10 @@ public class Water_Slime : IEnemy
     TutorialObjective tutorialObj = GetComponent<TutorialObjective>();
     if (tutorialObj != null)
     {
-        
-      speed = 0f; 
-    }else
+
+      speed = 0f;
+    }
+    else
     {
       speed = 2.5f;
     }
@@ -64,6 +65,10 @@ public class Water_Slime : IEnemy
 
 
 
+  public void At()
+  {
+    Attack();//fixes some weird  animation error 
+  }
   // Update is called once per frame 
   float time = 0.0f;
   public float min_dist = 1.0f;
@@ -198,7 +203,12 @@ public class Water_Slime : IEnemy
     {
       Debug.Log("killing " + player);
       Debug.Log(player.gameObject);
-      player.GetComponent<IKillable>().hit(damage);
+      var player_hit = player.GetComponent<IKillable>();
+      if (player_hit != null)
+      {
+        player_hit.hit(damage);
+
+      }
     }
     StartCoroutine(WaitForAttackAnimation());
 
@@ -264,7 +274,7 @@ public class Water_Slime : IEnemy
   }
   public override void OnDeath()
   {
-    if(isDead) return;
+    if (isDead) return;
     isDead = true;
     AudioManager.Instance.Play(AudioManager.SoundType.Slime);
     Debug.Log("Enemy Died");
