@@ -122,9 +122,13 @@ public class GameState : MonoBehaviour
     nrBossesDefeated = 0;
     nrEnemiesDefeated = 0;
     nrTempleUpgrades = 0;
+
     CurrencyManager.Instance.ResetCoins();
     GameManager.Instance.Torchpoint.Clear();
     currentTempleHealth = templeHealth;
+    levelHealth = 1;
+    levelUltDamage = 1;
+    levelUltCooldown = 1;
 
   }
 

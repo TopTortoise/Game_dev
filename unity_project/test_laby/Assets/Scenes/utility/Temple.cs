@@ -83,7 +83,7 @@ public class Temple : MonoBehaviour, IKillable
 
 
         regenTimer -= Time.deltaTime;
-        if (regenTimer <= 0f)
+        if (regenTimer <= 0f && hp.health < hp.max_health)
         {
              Debug.Log($"[Temple Regen] +{regenAmount} HP at time {Time.time:F1}");
 
