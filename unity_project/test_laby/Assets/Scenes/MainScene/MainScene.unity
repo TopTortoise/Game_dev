@@ -2484,18 +2484,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: Ret.m_SingletonActionBindings.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: Ret.m_SingletonActionBindings.Array.data[0].m_Id
       value: a4bd1036-9a73-487a-b527-d12cde89a9f5
       objectReference: {fileID: 0}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: Ret.m_SingletonActionBindings.Array.data[1].m_Id
+      value: d1fbe08d-c582-4edc-a81e-28a698e4b3d9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: Ret.m_SingletonActionBindings.Array.data[0].m_Path
       value: <Keyboard>/q
       objectReference: {fileID: 0}
     - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: Ret.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/buttonNorth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
       propertyPath: Ret.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Ret
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403460861098881937, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}
+      propertyPath: Ret.m_SingletonActionBindings.Array.data[1].m_Action
       value: Ret
       objectReference: {fileID: 0}
     - target: {fileID: 2678024446627874721, guid: c9b88d4643a210e2e9f0731fa5f38285, type: 3}

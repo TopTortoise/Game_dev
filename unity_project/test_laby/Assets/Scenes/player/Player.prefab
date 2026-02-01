@@ -240,7 +240,15 @@ MonoBehaviour:
     m_Id: 9786f47a-dcc5-4b20-9254-1653f315c273
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: fa7a496c-9fc6-4187-bec8-8644eff252c3
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Ret
+      m_Flags: 0
     m_Flags: 0
   EquipAction:
     m_Name: Equip
