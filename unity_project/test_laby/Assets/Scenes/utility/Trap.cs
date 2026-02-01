@@ -11,7 +11,7 @@ public class Trap : MonoBehaviour
   private void OnTriggerStay2D(Collider2D other)
   {
     bool is_weapon = other.GetComponent<IWeapon>() != null || other.GetComponentInParent<IWeapon>() != null;
-    Debug.Log("is weapon" + other.GetComponent<IWeapon>() + " bool is " + is_weapon);
+   // Debug.Log("is weapon" + other.GetComponent<IWeapon>() + " bool is " + is_weapon);
     if (is_weapon)
     {
       Debug.Log("wepaon returning");

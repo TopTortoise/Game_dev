@@ -28,6 +28,7 @@ public class WellOfYouth : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
+        Debug.Log("Well healed"); 
         healTimer -= Time.deltaTime;
         if (healTimer > 0f) return;
 

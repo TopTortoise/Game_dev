@@ -83,7 +83,7 @@ public class Temple : MonoBehaviour, IKillable
         regenTimer -= Time.deltaTime;
         if (regenTimer <= 0f)
         {
-            // Debug.Log($"[Temple Regen] +{regenAmount} HP at time {Time.time:F1}");
+             Debug.Log($"[Temple Regen] +{regenAmount} HP at time {Time.time:F1}");
 
             // Negative damage = healing
             hp.change_health(-regenAmount);
@@ -228,6 +228,7 @@ public class Temple : MonoBehaviour, IKillable
 
     public void hit(float damage)
     {
+        Debug.Log("temple got hit " + damage  ); 
         if (destroyed) return;
 
         hp.change_health(damage);

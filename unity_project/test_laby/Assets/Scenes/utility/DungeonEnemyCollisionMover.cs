@@ -136,10 +136,13 @@ public class DungeonEnemyCapsuleMover : IEnemy
     foreach (Collider2D c in hits)
     {
       if (c.gameObject == gameObject) continue;
+    
+    
 
       IKillable killable = c.GetComponentInParent<IKillable>();
       if (killable != null && !killable.Equals(this))
       {
+        Debug.Log("i hit the temple");
         killable.hit(damage);
         attackTimer = attackInterval;
         break;
