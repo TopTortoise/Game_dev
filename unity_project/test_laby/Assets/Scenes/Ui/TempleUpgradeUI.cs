@@ -27,7 +27,9 @@ public class TempleUpgradeUI : MonoBehaviour
     public Button cdButton;
 
     private bool isOpen = false;
-
+    // damage +0.25 damge increase
+    // health to 250 max lvl
+    // cd -2 sec cd 
     void Start()
     {
         shopPanel.SetActive(false);
@@ -42,41 +44,40 @@ public class TempleUpgradeUI : MonoBehaviour
         UpdateUI();
         GameState.Instance.RequestPause(isOpen);
     }
+void UpdateUI()
+{
+    int coins = CurrencyManager.Instance.currentGold;
+    int maxLevel = 7; //level cap
 
-    void UpdateUI()
-    {
-        int coins = CurrencyManager.Instance.currentGold;
+    // --- HEALTH ---
+    int hpLvl = GameState.Instance.levelHealth;
+    int hpCost = temple.GetUpgradeCost(hpLvl);
+    
+    hpLevelText.text = $"Lvl {hpLvl}";
+    hpCostText.text = hpLvl >= maxLevel ? "MAX" : $"{hpCost} G";
+    hpValueText.text = $"{temple.max_health} HP";
+    hpButton.interactable = (hpLvl < maxLevel) && (coins >= hpCost);
 
-        // --- HEALTH ---
-        int hpLvl = GameState.Instance.levelHealth;
-        int hpCost = temple.GetUpgradeCost(hpLvl);
+    // --- DAMAGE ---
+    int dmgLvl = GameState.Instance.levelUltDamage;
+    int dmgCost = temple.GetUpgradeCost(dmgLvl);
 
-        hpLevelText.text = $"Lvl {hpLvl}";
-        hpCostText.text = $"{hpCost} G";
-        hpValueText.text = $"{temple.max_health} HP";
+    dmgLevelText.text =  $"Lvl {dmgLvl}";
+    dmgCostText.text = dmgLvl >= maxLevel ? "MAX" : $"{dmgCost} G";
+    dmgValueText.text = $"{temple.damage:F2} Dmg"; // F2 for decimal precision
+    dmgButton.interactable = (dmgLvl < maxLevel) && (coins >= dmgCost);
 
-        hpButton.interactable = coins >= hpCost;
+    // --- COOLDOWN ---
+    int cdLvl = GameState.Instance.levelUltCooldown;
+    int cdCost = temple.GetUpgradeCost(cdLvl);
 
-        // --- DAMAGE ---
-        int dmgLvl = GameState.Instance.levelUltDamage;
-        int dmgCost = temple.GetUpgradeCost(dmgLvl);
-
-        dmgLevelText.text = $"Lvl {dmgLvl}";
-        dmgCostText.text = $"{dmgCost} G";
-        dmgValueText.text = $"{temple.damage} Dmg";
-
-        dmgButton.interactable = coins >= dmgCost;
-
-        // --- COOLDOWN ---
-        int cdLvl = GameState.Instance.levelUltCooldown;
-        int cdCost = temple.GetUpgradeCost(cdLvl);
-
-        cdLevelText.text = $"Lvl {cdLvl}";
-        cdCostText.text = $"{cdCost} G";
-        cdValueText.text = $"{temple.attackInterval:F1}s CD";
-
-        cdButton.interactable = coins >= cdCost && temple.attackInterval > temple.minCooldown;
-    }
+    cdLevelText.text = $"Lvl {cdLvl}";
+    cdCostText.text = cdLvl >= maxLevel ? "MAX" : $"{cdCost} G";
+    cdValueText.text = $"{temple.attackInterval:F1}s CD";
+    
+    // Interactable if below level 6 AND enough coins AND above minCooldown
+    cdButton.interactable = (cdLvl < maxLevel) && (coins >= cdCost) && (temple.attackInterval > temple.minCooldown);
+}
 
     // --- BUTTON EVENTS ---
 

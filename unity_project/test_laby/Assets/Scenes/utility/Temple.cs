@@ -3,16 +3,16 @@ using UnityEngine;
 using System.Collections;
 public class Temple : MonoBehaviour, IKillable
 {
-    
+
     public float health = 100;
     public float max_health = 100f;
 
-    
-    public float regenInterval = 5f;   
-    public float regenAmount = 10f;     
+
+    public float regenInterval = 5f;
+    public float regenAmount = 10f;
     private float regenTimer = 0f;
 
-    
+
     public Sprite intactSprite;
     public Sprite destroyedSprite;
 
@@ -22,7 +22,7 @@ public class Temple : MonoBehaviour, IKillable
 
 
     [Header("Ultimate Attack")]
-    public float damage = 10f;
+    public float damage = 1f;
     public float attackInterval = 10f;
     public LayerMask enemyLayer;
     public Collider2D attackCollider; // trigger
@@ -36,14 +36,13 @@ public class Temple : MonoBehaviour, IKillable
     private Collider2D[] hitBuffer = new Collider2D[32];
 
     [Header("Upgrade Balancing")]
-    public int baseUpgradeCost = 100;           
-        public float costMultiplier = 1.4f;         
-    public float healthPerLevel = 50f;              
-    public float damagePerLevel = 10f;          
-    public float cooldownReductionPerLevel = 1f;
-    public float minCooldown = 5f;             
+    private int baseUpgradeCost = 100;
+    private float healthPerLevel = 25f;
+    private float damagePerLevel = 0.25f;
+    private float cooldownReductionPerLevel = 2f;
+    public float minCooldown = 1f;
 
-        private float baseUltDamage;
+    private float baseUltDamage;
     private float baseUltInterval;
 
     void Awake()
@@ -69,8 +68,8 @@ public class Temple : MonoBehaviour, IKillable
         }
         destroyed = false;
 
-        baseUltDamage = damage;
-        baseUltInterval = attackInterval;
+        baseUltDamage = 1;
+        baseUltInterval = 10f;
 
         RecalculateStats();
 
@@ -129,7 +128,7 @@ public class Temple : MonoBehaviour, IKillable
         max_health += amount;
         health += amount;
         hp.set_max_hp(max_health);
-        
+
         hp.set_hp(health);
         hp.set_hp(max_health);
 
@@ -168,7 +167,7 @@ public class Temple : MonoBehaviour, IKillable
     }
     IEnumerator ExpandRing()
     {
-        
+
         ringRenderer.enabled = true;
 
         float time = 0f;
@@ -204,27 +203,28 @@ public class Temple : MonoBehaviour, IKillable
 
     public void RecalculateStats()
     {
-        float calculateMaxHealth = 100f + ((GameState.Instance.levelHealth -1 )* healthPerLevel);
+        float calculateMaxHealth = 100f + ((GameState.Instance.levelHealth - 1) * healthPerLevel);
 
-        if(max_health != calculateMaxHealth)
+        if (max_health != calculateMaxHealth)
         {
-            float diff  = calculateMaxHealth - max_health;
+            float diff = calculateMaxHealth - max_health;
             UpgradeMaxHealth(diff);
         }
 
-        damage = baseUltDamage + ((GameState.Instance.levelUltDamage -1)* damagePerLevel);
+        damage = baseUltDamage + ((GameState.Instance.levelUltDamage - 1) * damagePerLevel);
 
-        float newInterval = baseUltInterval - ((GameState.Instance.levelUltCooldown -1) * cooldownReductionPerLevel);
-        attackInterval = Mathf.Max(newInterval, minCooldown);
+        float baseUltInterval = 30f;
+        float newInterval = baseUltInterval - ((GameState.Instance.levelUltCooldown - 1) * 2f);
+        attackInterval = Mathf.Max(newInterval, 18f);
 
-       
+
     }
 
     public int GetUpgradeCost(int currentLevel)
     {
-        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(costMultiplier, currentLevel - 1));
+        return Mathf.RoundToInt(baseUpgradeCost + (currentLevel - 1) * 50);
     }
-    
+
 
     public void hit(float damage)
     {
