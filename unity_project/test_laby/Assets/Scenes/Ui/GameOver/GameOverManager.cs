@@ -52,7 +52,7 @@ public class GameOverManager : MonoBehaviour
         GameState.Instance.ResetGameState();
         //Destroy(gameObject); 
         SceneManager.LoadScene("MainScene");
-        GameState.Instance.StartNewCycle(10);
+        GameState.Instance.StartNewCycle(180);
     }
 
     public void BackToMenu()
