@@ -220,7 +220,8 @@ public class Enemy_Manager : MonoBehaviour
     }
     else
     {
-      GameObject weapon = item;
+      GameObject weapon = Instantiate(item, new Vector3Int(-1000,-1000), Quaternion.identity);
+      IWeapon weaponScript = weapon.GetComponent<IWeapon>();
 
       // weapon.GetComponent<IWeapon>().effects.Add()
       if (weapon.GetComponent<IWeapon>().stats.rarity > 1)
@@ -235,8 +236,10 @@ public class Enemy_Manager : MonoBehaviour
       }
 
 
+      if (weaponScript.upgrades == null) weaponScript.upgrades = new List<Weaponupgrade>();
+      weaponScript.upgrades.Add(upgrade);
 
-      inst.GetComponent<Vase>().item = weapon.gameObject;
+      inst.GetComponent<Vase>().item = weapon;
       inst.GetComponent<Vase>().weapon_upgrade = upgrade;
 
     }
