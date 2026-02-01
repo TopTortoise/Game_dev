@@ -82,7 +82,7 @@ public class WeaponCompareUI : MonoBehaviour
   {
     if (weapon != null)
     {
-      string cleanName = weapon.gameObject.name.Replace("(Clone)", "").Trim();
+      string cleanName = weapon.gameObject.name.Replace("(Clone)", "").Replace("_", " ").Trim();
       tName.text = cleanName;
 
       float totalDmg = GetTotalDamage(weapon);
@@ -92,12 +92,11 @@ public class WeaponCompareUI : MonoBehaviour
       float aps = (totalCooldown > 0) ? 1f / totalCooldown : 0f;
 
 
-      tDmg.text = $"{totalDmg:F2} Dmg";
-      tSpeed.text = $"{aps:F2} /s";
+      tDmg.text = $"{totalDmg:F2} Damage";
+      tSpeed.text = $"{aps:F2} Attacks/s";
 
       StringBuilder sb = new StringBuilder();
-      if (weapon.upgrades != null && weapon.upgrades.Count > 0)
-        foreach (var up in weapon.upgrades) sb.AppendLine("↑ " + up.GetDescription());
+     
 
       if (weapon.effects != null && weapon.effects.Count > 0)
         foreach (var effect in weapon.effects) sb.AppendLine("• " + effect.GetDescription());
