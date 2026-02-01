@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-public class Crab :  IEnemy, IKillable
+public class Crab : IEnemy, IKillable
 {
 
   private Health hp;
@@ -16,7 +16,7 @@ public class Crab :  IEnemy, IKillable
 
   private Animator anim;
   private Vector2 moveDirection;
-  
+
   private bool isDead;
   private void Awake()
   {
@@ -60,7 +60,7 @@ public class Crab :  IEnemy, IKillable
     {
       StartCoroutine(Attack());
     }
-    
+
   }
 
   public float dashSpeed = 20f;
@@ -85,8 +85,9 @@ public class Crab :  IEnemy, IKillable
 
     rb.linearVelocity = direction * dashSpeed;
 
-
-    yield return new WaitUntil(() => Vector2.Distance(rb.position, targetPoint) <= 0.5f || is_collided);
+    finished = false;
+    StartCoroutine(Timeout());
+    yield return new WaitUntil(() => Vector2.Distance(rb.position, targetPoint) <= 0.5f || is_collided || finished);
 
     Debug.Log("Lets dash ended");
     rb.linearVelocity = Vector2.zero;
@@ -95,6 +96,13 @@ public class Crab :  IEnemy, IKillable
     is_collided = false;
     time = 0;
   }
+  private bool finished = false;
+  IEnumerator Timeout()
+  {
+    yield return new WaitForSeconds(2f);
+    finished = true;
+  }
+
   bool is_collided = false;
   void OnCollisionEnter2D(Collision2D collision)
   {
@@ -124,17 +132,17 @@ public class Crab :  IEnemy, IKillable
     rend.material.color = originalColor;
   }
 
-/*
-  void UpdateSpriteFacing()
-  {
-    if (!rend) return;
+  /*
+    void UpdateSpriteFacing()
+    {
+      if (!rend) return;
 
-    if (moveDirection.x > 0.01f)
-      rend.flipX = false;
-    else if (moveDirection.x < -0.01f)
-      rend.flipX = true;
-  }
-*/
+      if (moveDirection.x > 0.01f)
+        rend.flipX = false;
+      else if (moveDirection.x < -0.01f)
+        rend.flipX = true;
+    }
+  */
 
   public override void OnDeath()
   {
