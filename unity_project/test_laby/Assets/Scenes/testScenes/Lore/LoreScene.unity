@@ -655,14 +655,14 @@ MonoBehaviour:
   nameText: {fileID: 1503593377}
   dialogueText: {fileID: 1207948881}
   dialogueLines:
-  - speakerName: Deciple
+  - speakerName: Disciple
     text: Ugh... my head... The last thing I remember is a giant club. Am I... dead?
     isGoddess: 0
   - speakerName: Hekate
     text: You walk the line between worlds, mortal. I caught your soul before it
       could plunge into the abyss.
     isGoddess: 1
-  - speakerName: Deciple
+  - speakerName: Disciple
     text: "A goddess? Why did you save me? I\u2019m no hero, just an adventurer with
       a lot of bad luck."
     isGoddess: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
     text: 'We shall strike a pact: Defend this place, and I will anchor your soul
       permanently in this world.'
     isGoddess: 1
-  - speakerName: Deciple
+  - speakerName: Disciple
     text: "Sounds like a lot of work, but it beats being dead. But I\u2019m wounded,
       and my gear is total junk."
     isGoddess: 0
@@ -686,17 +686,17 @@ MonoBehaviour:
     text: 'As for your equipment: The ancient labyrinth nearby holds powerful weapons
       of fallen heroes. Seek your gear there.'
     isGoddess: 1
-  - speakerName: Deciple
+  - speakerName: Disciple
     text: Into the labyrinth? Isn't that dangerous with an army closing in?
     isGoddess: 0
-  - speakerName: Deciple
+  - speakerName: Disciple
     text: 'Listen closely: The beasts fear the sunlight. They attack only at night'
     isGoddess: 0
   - speakerName: Hekate
     text: Use the day to scavenge the labyrinth and prepare yourself. As soon as
       the sun sets, you must be back at the temple.
     isGoddess: 1
-  - speakerName: Deciple
+  - speakerName: Disciple
     text: "Got it. Loot by day, fight by night, use the well to heal. Let\u2019s
       see what that labyrinth has to offer then."
     isGoddess: 0
