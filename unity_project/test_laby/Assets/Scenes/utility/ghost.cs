@@ -535,7 +535,7 @@ new Vector3(mouseScreenPos.x, mouseScreenPos.y, Camera.main.nearClipPlane)
   {
     isDashing = false;
     dashOnCooldown = false;
-    GameState.Instance.OnCycleEnded += OnDeath;
+    GameState.Instance.OnCycleEnded += OnRet;
     Debug.Log("Player subscribed to OnCycleEnded");
     StartCoroutine(AnimateReviveSpotlight());
 
