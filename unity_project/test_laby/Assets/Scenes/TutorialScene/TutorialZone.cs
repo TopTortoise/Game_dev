@@ -9,7 +9,7 @@ public class TutorialZone : MonoBehaviour
 {
     if (other.GetComponent<ghost>() != null)
     {
-        Debug.Log("Trigger betreten! Sende Step: " + stepToTrigger); // NEU
+        Debug.Log("Trigger betreten! Sende Step: " + stepToTrigger); 
         TutorialManager.Instance.AdvanceStep(stepToTrigger);
         Destroy(gameObject);
     }

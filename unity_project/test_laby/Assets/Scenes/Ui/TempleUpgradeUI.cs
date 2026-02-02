@@ -64,7 +64,7 @@ void UpdateUI()
 
     dmgLevelText.text =  $"Lvl {dmgLvl}";
     dmgCostText.text = dmgLvl >= maxLevel ? "MAX" : $"{dmgCost} G";
-    dmgValueText.text = $"{temple.damage:F2} Dmg"; // F2 for decimal precision
+    dmgValueText.text = $"{temple.damage:F2} Dmg"; 
     dmgButton.interactable = (dmgLvl < maxLevel) && (coins >= dmgCost);
 
     // --- COOLDOWN ---
@@ -75,11 +75,11 @@ void UpdateUI()
     cdCostText.text = cdLvl >= maxLevel ? "MAX" : $"{cdCost} G";
     cdValueText.text = $"{temple.attackInterval:F1}s CD";
     
-    // Interactable if below level 6 AND enough coins AND above minCooldown
+    
     cdButton.interactable = (cdLvl < maxLevel) && (coins >= cdCost) && (temple.attackInterval > temple.minCooldown);
 }
 
-    // --- BUTTON EVENTS ---
+
 
     public void OnBuyHealth()
     {
@@ -91,7 +91,7 @@ void UpdateUI()
             CurrencyManager.Instance.SpendCoins(cost);
             GameState.Instance.levelHealth++;
             temple.RecalculateStats();
-            //AudioManager.Instance.Play(AudioManager.SoundType.Upgrade); // Falls du einen Sound hast
+            
             UpdateUI();
         }
     }

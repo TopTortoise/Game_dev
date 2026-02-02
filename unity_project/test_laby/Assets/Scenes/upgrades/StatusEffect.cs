@@ -3,7 +3,7 @@ public abstract class StatusEffect : IWeaponEffect
   public float duration;
   public bool unique;
   protected float elapsed;
-//TODO: make this also use HitContext
+
   public virtual void OnApply(IEnemy target) { }
   public virtual void OnTick(IEnemy target, float deltaTime) { }
   public virtual void OnExpire(IEnemy target) { }

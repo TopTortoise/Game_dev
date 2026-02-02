@@ -9,11 +9,11 @@ public class Vase : MonoBehaviour, IKillable
   public GameObject torch;
   public Statupgrade weapon_upgrade;
   public Weaponupgrade weapon_effect;
-  //if we dont want the to be one shot
+  
   public float health;
   public float max_health;
   public float torch_drop_rate = 0.1f;
-  // Start is called once before the first execution of Update after the MonoBehaviour is created
+  
   void Start()
   {
     sr = GetComponent<SpriteRenderer>();
@@ -52,16 +52,11 @@ public class Vase : MonoBehaviour, IKillable
   {
     if (item != null)
     {
-      item.transform.position = transform.position;   // spawn into the scene
+      item.transform.position = transform.position;  
       weapon_upgrade.Apply(item.GetComponent<IWeapon>());
 
 
-      // dropped_item.GetComponent<IWeapon>().stats = new();
-      // IWeapon weapon = dropped_item.GetComponent<IWeapon>();
-      // Debug.Log("weaon is " + weapon.stats.attackspeed);
-      // weapon_upgrade.Apply(weapon);
-      // weapon.applied_upgrades.Add(weapon_upgrade.upgradeID);
-      // Debug.Log("weaon is " + weapon.stats.attackspeed);
+     
     }
     else
     {

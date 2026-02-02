@@ -8,7 +8,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject pauseMenuPanel;
     public GameObject controlsPanel;
     private bool controlActive = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         pauseMenuPanel.SetActive(false);

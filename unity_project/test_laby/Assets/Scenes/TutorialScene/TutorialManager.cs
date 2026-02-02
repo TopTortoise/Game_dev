@@ -18,11 +18,11 @@ public class TutorialManager : MonoBehaviour
     public Vector3 newSpawnPosition;
 
     [Header("Tutorial Gegner Settings")]
-    public GameObject enemyPrefab;      // <-- Hier den Gegner reinziehen
-    public Transform enemySpawnPoint;   // <-- Hier den Spawn-Ort reinziehen
+    public GameObject enemyPrefab;      
+    public Transform enemySpawnPoint;  
     public int enemyCount = 5;
 
-    // Die verschiedenen Phasen des Tutorials
+
     public enum TutorialStep
     {
         Movement,           // WASD benutzen
@@ -72,14 +72,14 @@ public class TutorialManager : MonoBehaviour
                 
                 if (player.MoveAction.ReadValue<Vector2>() != Vector2.zero)
                 {
-                    AdvanceStep(TutorialStep.GoToVase); // Nächster Schritt: Gehe zur Vase
+                    AdvanceStep(TutorialStep.GoToVase); 
                 }
                 break;
 
             
 
             case TutorialStep.UpgradeGold:
-                // Zeige Text für 4 Sekunden, dann beende Tutorial
+               
                 
                 break;
 
@@ -92,8 +92,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TutorialStep.PlaceTorches:
-                // Prüft auf Fackel platzieren (Rechtsklick oder T (falls T belegt ist))
-                // Oder Fackel aufheben (E)
+                
                 bool placed = player.PlaceTorchAction.WasPressedThisFrame();
                 bool equip = player.EquipAction.WasPressedThisFrame(); // E
 
@@ -121,16 +120,16 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // --- Hilfsfunktionen ---
+
 
    public void AdvanceStep(TutorialStep nextStep)
     {
-        if (currentStep == nextStep) return; // Already in progress
+        if (currentStep == nextStep) return;
 
         currentStep = nextStep;
-        HideText(); // Hide old text
+        HideText(); 
 
-        // Logic for the NEW step
+        
         switch (nextStep)
         {
             case TutorialStep.GoToVase:
@@ -205,7 +204,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // Special sequence for the wave
+   
     IEnumerator WaveSequence()
     {
         ShowText("WARNING! Enemies want to destroy your temple!!!");
@@ -228,7 +227,7 @@ public class TutorialManager : MonoBehaviour
 
     public static void DestroyAllDontDestroyOnLoadObjects()
     {
-        // Create a temporary object so we can get the DDOL scene
+        
         GameObject temp = new GameObject("TempDDOLFinder");
         Object.DontDestroyOnLoad(temp);
 

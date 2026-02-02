@@ -4,9 +4,9 @@ using System.Collections.Generic;
 [System.Serializable]
 public class LootItem
 {
-    public string name;        // Nur zur Übersicht im Inspector
-    public GameObject prefab;  // Das Item, das spawnen soll
-    public float weight;       // Je höher das Gewicht, desto wahrscheinlicher (z.B. Gold = 80, Rubin = 5)
+    public string name;        
+    public GameObject prefab;  
+    public float weight;       
 }
 
 public class LootDropper : MonoBehaviour
@@ -15,32 +15,32 @@ public class LootDropper : MonoBehaviour
     
     [Header("Drop Chance")]
     [Range(0, 100)]
-    public float chanceToDropAnything = 100f; // Ob der Gegner überhaupt IRGENDWAS droppt
+    public float chanceToDropAnything = 100f; 
 
     public void DropLoot()
     {
-        // 1. Grundsätzliche Prüfung: Droppt überhaupt etwas?
+       
         if (Random.Range(0f, 100f) > chanceToDropAnything) return;
 
-        // 2. Gesamtgewicht berechnen
+        
         float totalWeight = 0;
         foreach (LootItem item in lootTable)
         {
             totalWeight += item.weight;
         }
 
-        // 3. Zufallszahl zwischen 0 und Gesamtgewicht würfeln
+      
         float roll = Random.Range(0, totalWeight);
         float currentSum = 0;
 
-        // 4. Den Gewinner ermitteln
+        
         foreach (LootItem item in lootTable)
         {
             currentSum += item.weight;
             if (roll <= currentSum)
             {
                 SpawnItem(item.prefab);
-                return; // Methode sofort beenden, damit nur EIN Item spawnt
+                return; 
             }
         }
     }
@@ -51,7 +51,7 @@ public class LootDropper : MonoBehaviour
 
         GameObject droppedObj = Instantiate(prefab, transform.position, Quaternion.identity);
         
-        // Der physikalische "Herausflieg"-Effekt
+       
         Rigidbody2D rb = droppedObj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {

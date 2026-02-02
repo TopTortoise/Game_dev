@@ -8,17 +8,17 @@ public class TutorialObjective : MonoBehaviour
     private bool isQuitting = false;
     void OnApplicationQuit() { isQuitting = true; }
 
-    // Diese Methode wird vom Enemy automatisch beim Zerstören aufgerufen
+    
     void OnDestroy()
     {
         if (isQuitting) return;
         CompleteObjective();
     }
 
-    // NEU: Diese Methode können wir von der Vase aus manuell aufrufen
+    
     public void CompleteObjective()
     {
-        if (hasTriggered) return; // Verhindert doppeltes Auslösen
+        if (hasTriggered) return;
         
         hasTriggered = true;
 

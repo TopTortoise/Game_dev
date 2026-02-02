@@ -56,8 +56,7 @@ public class Water_Slime : IEnemy
     {
       Debug.LogError("No SpriteRenderer found on Slime!");
     }
-    //caculate random postion 
-    //
+
     anim.SetFloat("speed_y", -1);
     anim.SetBool("is_idle", true);
     isDead = false;
@@ -67,9 +66,9 @@ public class Water_Slime : IEnemy
 
   public void At()
   {
-    Attack();//fixes some weird  animation error 
+    Attack();
   }
-  // Update is called once per frame 
+ 
   float time = 0.0f;
   public float min_dist = 1.0f;
   public float wait_time = 3.0f;

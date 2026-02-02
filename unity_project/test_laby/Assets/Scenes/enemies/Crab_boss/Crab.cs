@@ -120,7 +120,7 @@ public class Crab : IEnemy, IKillable
   {
 
     if (rend) StartCoroutine(DoFlash());
-    //DamagePopupGenerator.current.CreatePopup(transform.position, damage);
+    
     hp.change_health(damage);
     if (hp.health <= 0) OnDeath();
 
@@ -132,17 +132,7 @@ public class Crab : IEnemy, IKillable
     rend.material.color = originalColor;
   }
 
-  /*
-    void UpdateSpriteFacing()
-    {
-      if (!rend) return;
-
-      if (moveDirection.x > 0.01f)
-        rend.flipX = false;
-      else if (moveDirection.x < -0.01f)
-        rend.flipX = true;
-    }
-  */
+  
 
   public override void OnDeath()
   {

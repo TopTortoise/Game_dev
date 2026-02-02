@@ -65,7 +65,7 @@ public class LoreManager : MonoBehaviour
     }
      public static void DestroyAllDontDestroyOnLoadObjects()
     {
-        // Create a temporary object so we can get the DDOL scene
+       
         GameObject temp = new GameObject("TempDDOLFinder");
         Object.DontDestroyOnLoad(temp);
 

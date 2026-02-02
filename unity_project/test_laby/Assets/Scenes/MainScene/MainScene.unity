@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_Intensity: 0.015
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000f7d3c80b
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -4079,7 +4079,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2111643670}
     - targetCorrespondingSourceObject: {fileID: 9209753791820275751, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 2129229550}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3011438708967813262, guid: 173a34d68fad02972afe8a6ccd55a39a, type: 3}
