@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5091943209338742032}
   - component: {fileID: 7460269599930389992}
   - component: {fileID: 6879489769171145764}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: PitTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
