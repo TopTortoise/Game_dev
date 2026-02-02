@@ -90,8 +90,8 @@ public class GameState : MonoBehaviour
       nrBosses += 1;
     }
 
-    SpawnInterval -= UnityEngine.Random.Range(0.05f, 0.1f); 
-    EnemiesPerWave += UnityEngine.Random.Range(3, 9); 
+    SpawnInterval -= UnityEngine.Random.Range(0.05f, 0.1f);
+    EnemiesPerWave += UnityEngine.Random.Range(3, 9);
   }
 
   public void SetTempleHealth(float amount)
@@ -131,7 +131,7 @@ public class GameState : MonoBehaviour
     Temple temple = FindFirstObjectByType<Temple>();
     if (temple != null)
     {
-        temple.setHpText(); 
+      temple.setHpText();
     }
 
   }
@@ -155,6 +155,7 @@ public class GameState : MonoBehaviour
 
   public void StartNewCycle(int duration)
   {
+
 
     Temple temple = FindFirstObjectByType<Temple>();
     if (temple != null)
@@ -180,7 +181,7 @@ public class GameState : MonoBehaviour
 
 
     OnCycleStarted?.Invoke();
-    maze_gen.Instance.start_maze_gen(UnityEngine.Random.Range(int.MinValue, int.MaxValue));//TODO: this does not work for some reason
+    GetComponent<maze_gen>().seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
   }
 
   public void EndCycle()

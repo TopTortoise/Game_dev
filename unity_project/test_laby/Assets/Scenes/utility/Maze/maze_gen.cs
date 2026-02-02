@@ -24,15 +24,8 @@ public class maze_gen : MonoBehaviour
     };
   int lastseed;
   List<Vector3Int> placed_tiles = new();
-  public static maze_gen Instance;
   public void awake(){
-    if (Instance != null)
-    {
-      Destroy(gameObject);
-      return;
-    }
-    Instance = this;
-    DontDestroyOnLoad(gameObject);
+    start_maze_gen(seed);
   }
 
 
