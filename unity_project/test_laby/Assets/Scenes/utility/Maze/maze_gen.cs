@@ -7,6 +7,8 @@ using System.Collections.Generic;
 public class maze_gen : MonoBehaviour
 {
 
+  public static maze_gen Instance;
+
   public Tilemap tilemap;
   public Tile[] tiles;
   public int width = 250;
@@ -24,8 +26,19 @@ public class maze_gen : MonoBehaviour
     };
   int lastseed;
   List<Vector3Int> placed_tiles = new();
-  public void awake(){
+
+
+  void Awake()
+  {
     start_maze_gen(seed);
+    if (Instance != null)
+    {
+      Destroy(gameObject);
+      return;
+    }
+
+    Instance = this;
+    DontDestroyOnLoad(gameObject);
   }
 
 
