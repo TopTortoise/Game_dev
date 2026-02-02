@@ -180,7 +180,15 @@ MonoBehaviour:
     m_Id: d911bdca-8375-4b58-80ce-c0e2c1a21ac8
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5d64eebf-838f-4d69-bbfd-a71880c4d8fd
+      m_Path: <Gamepad>/rightStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim
+      m_Flags: 0
     m_Flags: 0
   swingAngle: 120
   swingRadius: 0.5
