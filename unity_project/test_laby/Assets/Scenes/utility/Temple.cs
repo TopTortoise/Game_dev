@@ -142,6 +142,7 @@ public class Temple : MonoBehaviour, IKillable
 
         GameState.Instance.SetTempleHealth(max_health);
         GameState.Instance.SetCurrentTempleHealth(health);
+        setHpText();
 
         Debug.Log($"Temple upgraded! New max HP: {max_health}");
     }
