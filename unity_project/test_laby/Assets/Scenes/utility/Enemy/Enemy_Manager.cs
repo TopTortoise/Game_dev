@@ -195,7 +195,7 @@ public class Enemy_Manager : MonoBehaviour
     GameObject item = PickWeapon();
     Debug.Log(item + " at " + pos);
     // Debug.Log("item is ")
-    float t = Mathf.Clamp01(distance_to_start / 750f);//get camppl value between 0 and 1
+    float t = Mathf.Clamp01(distance_to_start / 375f);//get camppl value between 0 and 1
     float dmg = maxdmg * weaponstats.Evaluate(t);//get value of curve
     dmg *= Random.Range(1f - statvariance, 1f + statvariance);//add variance to dmg
     float attackSpeed = maxas * weaponstats.Evaluate(t);//get value of curve

@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
   {
     if (scene.name != "MainScene") return;
     if (scene.name != "MainScene" && counter > 0) return;
-    GetComponent<maze_gen>().Start();
     GameObject[] small_loot = GameObject.FindGameObjectsWithTag("Enter Loot Room Portal");
     GameObject[] big_loot = GameObject.FindGameObjectsWithTag("Enter Large Loot Room Portal");
    

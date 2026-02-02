@@ -122,7 +122,6 @@ public class GameState : MonoBehaviour
     nrBossesDefeated = 0;
     nrEnemiesDefeated = 0;
     nrTempleUpgrades = 0;
-
     CurrencyManager.Instance.ResetCoins();
     GameManager.Instance.Torchpoint.Clear();
     currentTempleHealth = templeHealth;
@@ -181,6 +180,7 @@ public class GameState : MonoBehaviour
 
 
     OnCycleStarted?.Invoke();
+    maze_gen.Instance.start_maze_gen(UnityEngine.Random.Range(int.MinValue, int.MaxValue));//TODO: this does not work for some reason
   }
 
   public void EndCycle()

@@ -24,9 +24,21 @@ public class maze_gen : MonoBehaviour
     };
   int lastseed;
   List<Vector3Int> placed_tiles = new();
+  public static maze_gen Instance;
+  public void awake(){
+    if (Instance != null)
+    {
+      Destroy(gameObject);
+      return;
+    }
+    Instance = this;
+    DontDestroyOnLoad(gameObject);
+  }
 
-  public void Start()
+
+  public void start_maze_gen(int newseed)
   {
+    seed = newseed;
     if (tilemap == null)
     {
       tilemap = FindFirstObjectByType<Tilemap>();
@@ -38,16 +50,13 @@ public class maze_gen : MonoBehaviour
     Debug.Log("seed: " + seed + "\nwidth:" + width + "\nheight: " + height + "\nscale: " + scale);
     // tilemap.BoxFill(new Vector3Int(1, 1, 0), tiles[5], 0, 0, 250, 250);
     // tilemap.FloodFill(new Vector3Int(1, 1, 0), tiles[5]);
-    for (int x = -10; x < width + 4; x++)
+    for (int x = 0; x < width + 4; x++)
     {
-      for (int y = -10; y < height + 4; y++)
+      for (int y = 0; y < height + 4; y++)
       {
-        if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null)
-        {
           // placed_tiles.Add(new Vector3Int(x, y, 0));
           // Debug.Log("tile anem is "+tiles[5]); 
           tilemap.SetTile(new Vector3Int(x, y, 0), tiles[5]);
-        }
       }
     }
 
@@ -57,7 +66,7 @@ public class maze_gen : MonoBehaviour
       for (int y = start_pos.y - 10; y < start_pos.y; y++)
       {
         // Randomly select a tile from the array
-        if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null && (x == start_pos.x - 10 || y == start_pos.y - 10 || x + 1 == start_pos.x || y + 1 == start_pos.y)) //&& !(x+2 == start_pos.x && y+1  == start_pos.y))
+        if (tilemap.GetTile(new Vector3Int(x, y, 0)) == null && (x == start_pos.x - 10 || y == start_pos.y - 10 || x  == start_pos.x || y  == start_pos.y)) //&& !(x+2 == start_pos.x && y+1  == start_pos.y))
         {
           tilemap.SetTile(new Vector3Int(x + 7, y + 5, 0), tiles[5]);
         }
@@ -97,20 +106,21 @@ public class maze_gen : MonoBehaviour
     enemy_Manager.free_everyhtig();
     foreach (Vector3Int pos in placed_tiles)
     {
-      tilemap.SetTile(pos, null);
+      tilemap.SetTile(pos, tiles[5]);
     }
 
-    Start();
+    start_maze_gen(seed);
   }
 
-  /* private void Update()
+  private void Update()
   {
     if (seed != lastseed)
     {
       Debug.Log("Maze value changed! Regenerating...");
+
       reset();
     }
-  } */
+  }
 
   (ArrayList, ArrayList) walk()
   {
@@ -119,6 +129,7 @@ public class maze_gen : MonoBehaviour
 
     Vector3Int next_step = Vector3Int.up;
     Vector3Int curr_pos = start_pos;
+    curr_pos.y += 5;
     Vector3Int next_pos = (next_step * scale) + curr_pos;
     Debug.Log(next_pos);
     List<Vector3Int> somelist = new();
